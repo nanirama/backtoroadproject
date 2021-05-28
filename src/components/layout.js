@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import SideBar from "./SwipeSideMenu"
 import Footer from "./Footer"
 import Header from "./Header"

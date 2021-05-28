@@ -1,4 +1,4 @@
-import React from "react"
+//import React from "react"
 import HrSupportIcon from "../assets/images/support/24-hours.svg"
 import WarrantyIcon from "../assets/images/support/warranty.svg"
 import SecurityIcon from "../assets/images/support/security.svg"

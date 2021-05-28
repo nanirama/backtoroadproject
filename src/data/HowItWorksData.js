@@ -1,4 +1,4 @@
-import React from "react"
+//import React from "react"
 
 import TruckIcon from "../assets/images/support/truck.svg"
 import PriceTagIcon from  "../assets/images/support/price-tag.svg"

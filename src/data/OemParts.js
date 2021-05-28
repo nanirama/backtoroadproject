@@ -1,4 +1,4 @@
-import React from "react"
+//import React from "react"
 
 import EngineIcon from "../assets/images/parts-old/car-engine.svg"
 import StrearingIcon from "../assets/images/parts-old/stearing-wheel.svg"

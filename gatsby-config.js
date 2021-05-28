@@ -36,6 +36,16 @@ module.exports = {
         path: `./src/data/`,
       },
     },
+    {
+    resolve: `gatsby-source-wordpress`,
+      options: {
+        /*
+        * The base URL of the WordPress site without the trailingslash and the protocol. This is required.
+        * Example : 'demo.wp-api.org' or 'www.example-site.com'
+        */
+        url: `http://localhost/selletricwp/graphql`
+      }
+    }
     // {
     //   resolve: 'gatsby-plugin-react-svg',
     //   options: {
