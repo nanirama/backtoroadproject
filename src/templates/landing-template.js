@@ -35,8 +35,8 @@ const LandingTemplate = (props) => {
              
             <LandingBreadcrumbs makemodels={makemodels.nodes} partname={PageData.title}  /> 
             <ExtraContent make={MakeData.name} content={PageData.content} image={PageData.featuredImage} extracontent={morecontent}/>
-            {/*<JourneySoFar image={JourneyBg}/>
-            <Whychoosebtr/> 
+            <JourneySoFar image={JourneyBg}/>
+            {/*<Whychoosebtr/> 
             <HowitWorks/>
             <CustomerReviews gImage={GoogleImage}/>
             <LandingRecentArrivals data={recentArrivals}/>
