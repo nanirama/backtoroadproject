@@ -36,13 +36,13 @@ const LandingTemplate = (props) => {
             <LandingBreadcrumbs makemodels={makemodels.nodes} partname={PageData.title}  /> 
             <ExtraContent make={MakeData.name} content={PageData.content} image={PageData.featuredImage} extracontent={morecontent}/>
             <JourneySoFar image={JourneyBg}/>
-            {/*<Whychoosebtr/> 
+            <Whychoosebtr/> 
             <HowitWorks/>
             <CustomerReviews gImage={GoogleImage}/>
             <LandingRecentArrivals data={recentArrivals}/>
             <LandingFaqs data={faqs}/>
             <LandingMakeModelList data={wpChildren.nodes}/>
-            <LandingMakePartsList data={morecontent.popularUsedParts} make={MakeData.slug}/> */}
+            <LandingMakePartsList data={morecontent.popularUsedParts} make={MakeData.slug}/>
             <LandingBanner bannerImage={BannerImage}/>
         </Layout>    
     )
