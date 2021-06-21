@@ -7039,6 +7039,13 @@
     "opener" "^1.5.1"
     "ws" "^6.0.0"
 
+"gatsby-plugin-polyfill-io@^1.1.0":
+  "integrity" "sha512-v2uiJvuAhtUU/30c257+KBj+hA0pMxpsCdq7PIcXLdGZlVhXJTporD5WIEPP5jeGl3zOp4y3FdQF1C10wlt1MA=="
+  "resolved" "https://registry.npmjs.org/gatsby-plugin-polyfill-io/-/gatsby-plugin-polyfill-io-1.1.0.tgz"
+  "version" "1.1.0"
+  dependencies:
+    "babel-runtime" "^6.26.0"
+
 "gatsby-plugin-purgecss@^6.0.2":
   "integrity" "sha512-7LefFqQ9ZGqcmgE3wWbFdOna7lIUTAiS1KISmvAl5M25u2IKreN1Yj7xbOF1RVz8Ta6ClAmTtc9fgNCWlr7oKQ=="
   "resolved" "https://registry.npmjs.org/gatsby-plugin-purgecss/-/gatsby-plugin-purgecss-6.0.2.tgz"

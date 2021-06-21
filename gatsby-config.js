@@ -124,6 +124,12 @@ module.exports = {
         createLinkInHead: true,
         createLinkInHead: true,
       }      
+    },
+    {
+      resolve: `gatsby-plugin-polyfill-io`,
+      options: {
+         features: [`Array.prototype.map`, `fetch`]
+      },
     }
     //  {
     //     resolve: "gatsby-plugin-sitemap",

@@ -122,9 +122,9 @@ const StepOne = () => {
     return (
         <InputWrapper>
             <InputWrap>
-                <label for="year">Year *
+                <label for="year">Year *</label>
                 <Select options={years} onChange={(e) => fetchMakes(e)} styles={colourStyles} aria-labelledby="years" />
-                </label>
+                
             </InputWrap>
                 
             <InputWrap>
