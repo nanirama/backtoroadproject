@@ -6963,6 +6963,14 @@
   "resolved" "https://registry.npmjs.org/gatsby-plugin-google-fonts/-/gatsby-plugin-google-fonts-1.0.1.tgz"
   "version" "1.0.1"
 
+"gatsby-plugin-htaccess@^1.4.0":
+  "integrity" "sha512-CaUQ3SPkV8khTk2MvY58KJAGAQFLxrlSb9ysxB+BeOgdruI2F0hWsQQI5/A94VtZsdB/5CbJcZVNmCyDJ+SJqg=="
+  "resolved" "https://registry.npmjs.org/gatsby-plugin-htaccess/-/gatsby-plugin-htaccess-1.4.0.tgz"
+  "version" "1.4.0"
+  dependencies:
+    "fs-extra" "^8.1.0"
+    "lodash" "^4.17.15"
+
 "gatsby-plugin-image@^1.7.1":
   "integrity" "sha512-1wUgNNc4e1ySNaDgH3yEs6HYZ8W4s0IAFU945SQtASknrR9o69WpeWPBllQwDrlq/1jlzetMTCiMISHvc7aqqQ=="
   "resolved" "https://registry.npmjs.org/gatsby-plugin-image/-/gatsby-plugin-image-1.7.1.tgz"
