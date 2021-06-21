@@ -135,11 +135,11 @@ module.exports = {
         resolve: 'gatsby-plugin-htaccess',
         options: {
           custom: `
-          <FilesMatch "\.(flv|gif|jpg|jpeg|png|ico)$"> Header set Cache-Control "max-age=31536000" </FilesMatch>
-          <FilesMatch "\.(js|css|pdf|swf|webp)$"> Header set Cache-Control "max-age=31536000" </FilesMatch>        
-          <FilesMatch "\.(html|htm|txt)$"> Header set Cache-Control "max-age=600" </FilesMatch>          
-          <FilesMatch "\.(pl|php|cgi|spl|scgi|fcgi)$"> Header unset Cache-Control </FilesMatch>           
-          <FilesMatch "\.(eot|otf|ttf|woff|woff2|svg)$"> Header set Cache-Control "max-age=31536000" </FilesMatch>
+          <IfModule mod_headers.c>
+              <FilesMatch "\.(jpg|webp)$">
+                  Header set Cache-Control "public, max-age=31536000, immutable"
+              </FilesMatch>
+          </IfModule>
           `,
         },
       }
