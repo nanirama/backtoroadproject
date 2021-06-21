@@ -31,7 +31,8 @@ const LandingTemplate = (props) => {
               title={PageData.seo.title && PageData.seo.title}
               description={PageData.seo.metaDesc && PageData.seo.metaDesc}
             />
-            {/* <LandingSlider data={slides}/>
+            <LandingSlider data={slides}/>
+            {/* 
             <LandingBreadcrumbs makemodels={makemodels.nodes} partname={PageData.title}  /> 
             <ExtraContent make={MakeData.name} content={PageData.content} image={PageData.featuredImage} extracontent={morecontent}/>
             <JourneySoFar image={JourneyBg}/>
