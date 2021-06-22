@@ -10,7 +10,7 @@ import PropTypes from "prop-types"
 import { Helmet } from "react-helmet"
 import { useStaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, title }) {
+function SEO({ description, lang, meta, title, location, cpath }) {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -19,17 +19,18 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
           }
         }
       }
     `
   )
-
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
+  const siteURL = site.siteUrl
 
   return (
-    <Helmet
+    <Helmet      
       htmlAttributes={{
         lang,
       }}
@@ -69,7 +70,9 @@ function SEO({ description, lang, meta, title }) {
           content: metaDescription,
         },
       ].concat(meta)}
-    />
+    >
+     {cpath && <link rel="canonical" href={`${siteURL}${cpath}`} />} 
+    </Helmet>
   )
 }
 

@@ -30,6 +30,7 @@ const LandingTemplate = (props) => {
             <SEO
               title={PageData.seo.title && PageData.seo.title}
               description={PageData.seo.metaDesc && PageData.seo.metaDesc}
+              cpath = {props.location.pathname}
             />
             <LandingSlider data={slides}/>
              
