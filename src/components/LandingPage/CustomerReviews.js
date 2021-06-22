@@ -116,9 +116,9 @@ const CustomerReviews = ({gImage}) => {
   };
 
   return (
-    <div class="tm_blk w-100 float-left">
-    <div class="container">
-      <h2 class="tlt text-center text-uppercase">Customer Reviews</h2>
+    <div className="tm_blk w-100 float-left">
+    <div className="container">
+      <h2 className="tlt text-center text-uppercase">Customer Reviews</h2>
         
         <Slider {...settings}>
         {ReviewsData.map((item, index) => {

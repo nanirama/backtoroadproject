@@ -27,11 +27,12 @@ const JourneySoFar = ({image}) => {
                 >Our Journey So Far</h2>
                 <div
                     className="row d-flex align-items-center justify-content-center align-items-center "
-                    itemscope itemtype="https://schema.org/Product"                  
+                    itemScope itemType="https://schema.org/Product"                  
                 >
                     {JourneySoFarData.map((item, index) => {
                         return (
                             <div
+                                key={index}
                                 property="itemListElement" typeof="ListItem"
                                 className="col-md-3 col-sm-6 col-xs-12 d-flex align-items-center justify-content-center"
                             >
@@ -47,8 +48,8 @@ const JourneySoFar = ({image}) => {
                                         {item.newicon==='star' && <FaStar style={iconStyles} className="iconr" /> }
                                         {item.newicon==='compass' && <FaRegCompass style={iconStyles} className="iconr" /> }
                                     </JourneyIcon>
-                                    <h3 itemprop="name" className="mb-0">{item.title}</h3>
-                                    <p itemprop="description" className="mb-3">{item.desc}</p>
+                                    <h3 itemProp="name" className="mb-0">{item.title}</h3>
+                                    <p itemProp="description" className="mb-3">{item.desc}</p>
                                 </div>
                             </div>
                         )

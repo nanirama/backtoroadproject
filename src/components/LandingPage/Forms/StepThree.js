@@ -106,32 +106,32 @@ const StepThree = () => {
                 <h4>For Quotes and Assistance</h4>
             </TitleDiv>
             <InputWrap>
-                <label for="name">NAME *
+                <label htmlFor="name">NAME *
                 <input aria-labelledby="name" type="text" placeholder='Name' id="name" />
                 </label>
             </InputWrap>
             <InputWrap>
-                <label for="email">EMAIL (FOR QUOTE ONLY) *
+                <label htmlFor="email">EMAIL (FOR QUOTE ONLY) *
                 <input aria-labelledby="email" type="email" placeholder='Email' id="email" />
                 </label>
             </InputWrap>
             <InputWrap>
-                <label for="state">STATE *
+                <label htmlFor="state">STATE *
                 <Select aria-labelledby="state" options={optionsStates} onChange={(e) => clickFunction(e)} styles={colourStyles} />
                 </label>
             </InputWrap>
             <InputWrap>
-                <label for="phone">PHONE (FOR QUOTE ONLY)*
+                <label htmlFor="phone">PHONE (FOR QUOTE ONLY)*
                 <input aria-labelledby="phone" type="text" placeholder='Phone' id="phone" />
                 </label>
             </InputWrap>
             <InputWrap>
-                <label for="zip">ZIP (FOR QUOTE ONLY)*
+                <label htmlFor="zip">ZIP (FOR QUOTE ONLY)*
                 <input aria-labelledby="zip" type="text" placeholder='Zip' id="zip" />
                 </label>
             </InputWrap>
             <InputWrap>
-                <label for="size">ENTER ANY SPECIAL NOTES FOR THIS PART (SIZE VARIATION) 
+                <label htmlFor="size">ENTER ANY SPECIAL NOTES FOR THIS PART (SIZE VARIATION) 
                 <textarea aria-labelledby="size" rows="4" cols="50" name="comment" form="usrform" placeholder="Enter here..."></textarea>
                 </label>
             </InputWrap>

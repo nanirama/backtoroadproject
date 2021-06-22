@@ -47,7 +47,7 @@ const LandingRecentArrivals = ({data}) => {
       };
     return(
         <div className="recent_post_blk w-100 float-left">
-            <div className="container" itemscope itemtype="https://schema.org/Product"  >                       
+            <div className="container" itemScope itemType="https://schema.org/Product"  >                       
             <h2 property="name" className="tlt text-center text-uppercase">Recent Arrivals</h2>
             <Slider {...settings}>
             {data.map((item, index) => {
@@ -58,10 +58,10 @@ const LandingRecentArrivals = ({data}) => {
                       property="itemListElement" typeof="ListItem">
                         <div className="post_box w-100 float-left">
                         <div className="post_img w-100 float-left mb-4">
-                          <Image img={item.featuredImage.node.localFile} itemprop="image"/>
+                          <Image img={item.featuredImage.node.localFile} itemProp="image"/>
                         </div>
-                        <h3 itemprop="name">{item.title}</h3>
-                        <p itemprop="description">{item.desc}</p>
+                        <h3 itemProp="name">{item.title}</h3>
+                        <p itemProp="description">{item.desc}</p>
                         <button className="btn1" aria-label={item.title}>Shop Now</button> </div>                        
                     </div>
                 )

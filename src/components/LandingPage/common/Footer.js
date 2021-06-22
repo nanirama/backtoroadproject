@@ -11,7 +11,7 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from 'react-icons/fa'
 
 
 const LandingFooter = ({logoImg, secureImg, partnersImg}) => {
-    console.log(secureImg);
+    //console.log(secureImg);
     let iconStyles = { color: "white", fontSize: "1.5em", marginRight:"25px" };
     return(
         <footer className="w-100 float-left">
@@ -20,7 +20,7 @@ const LandingFooter = ({logoImg, secureImg, partnersImg}) => {
                 <div className="row">
                 <div className="col-lg-4 col-md-6 col-xs-12">
                     <div className="f_logo w-100 float-left mb-4">
-                        <div className="float-left f_logo_img" itemscope itemtype="https://schema.org/Hotel">
+                        <div className="float-left f_logo_img" itemScope itemType="https://schema.org/Hotel">
                         <Link to="/">
                         <GatsbyImage image={getImage(logoImg)} alt="Back to Roads" itemprop="logo" />
                         </Link>
@@ -28,10 +28,10 @@ const LandingFooter = ({logoImg, secureImg, partnersImg}) => {
                     </div>
                     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.</p>
                     <div className="s_links w-100 float-left">
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer"><FaFacebookF style={iconStyles} /><span>Facebook for BacktoRoads Auto Parts</span></a>
-                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer"><FaTwitter style={iconStyles} /><span>Twitter for BacktoRoads Auto Parts</span></a>
-                        <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer"><FaLinkedinIn style={iconStyles} /><span>LinkedIn for BacktoRoads Auto Parts</span></a>
-                        <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer"><FaYoutube style={iconStyles} /><span>Youtube for BacktoRoads Auto Parts</span></a>
+                        <a href="https://www.facebook.com/" key="d5b89s6" target="_blank" rel="noopener noreferrer"><FaFacebookF style={iconStyles} /><span>Facebook for BacktoRoads Auto Parts</span></a>
+                        <a href="https://twitter.com/" key="d5c89s6"  target="_blank" rel="noopener noreferrer"><FaTwitter style={iconStyles} /><span>Twitter for BacktoRoads Auto Parts</span></a>
+                        <a href="https://www.linkedin.com/" key="d5d89s6"  target="_blank" rel="noopener noreferrer"><FaLinkedinIn style={iconStyles} /><span>LinkedIn for BacktoRoads Auto Parts</span></a>
+                        <a href="https://www.youtube.com/" key="d5e89s6"  target="_blank" rel="noopener noreferrer"><FaYoutube style={iconStyles} /><span>Youtube for BacktoRoads Auto Parts</span></a>
                     </div>
                 </div>
                 <div className="col-lg-4 col-md-6 col-xs-12">

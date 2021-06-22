@@ -33,11 +33,11 @@ const LandingHeader = ({ logoImg }) => {
       }        
   }
   return(
-    <header class="w-100 float-left pt-4 pb-3">
+    <header className="w-100 float-left pt-4 pb-3">
       <div className="container">
         <div className="row">
             <div className="col-lg-2 col-sm-3">
-                <div className="logo w-auto float-left" itemscope itemtype="https://schema.org/Hotel">
+                <div className="logo w-auto float-left" itemScope itemType="https://schema.org/Hotel">
                   <Link to="/">
                    <GatsbyImage image={getImage(logoImg)} alt="Back to Roads" itemprop="logo" />
                   </Link>
@@ -49,11 +49,11 @@ const LandingHeader = ({ logoImg }) => {
                               <nav>
                               <ul ref={listMenu}>
                                 {menuData.map((item, index) => (
-                                  <Mli img={Marrow} himg={MarrowActive}><Link to={item.link} key={index}>{item.title}</Link></Mli>                   
+                                  <Mli key={index} img={Marrow} himg={MarrowActive}><Link to={item.link} key={index}>{item.title}</Link></Mli>                   
                                 ))}
                               </ul>
                                   <div className="menu-bars" ref={menuBars}>                            
-                                    <label for="mobile_menu"><input type="checkbox" name="mobile_menu" id="mobile_menu" onClick={focusTextInput}/>
+                                    <label htmlFor="mobile_menu"><input type="checkbox" name="mobile_menu" id="mobile_menu" onClick={focusTextInput}/>
                                     <span ref={menuBarsSpan} css={css`background-image: url(${MenuOpen});`}></span>
                                     </label>
                                     {/* <Span img={mobileMenu} statev={value}  css={css`background-image: url(${mobileMenu});`}></Span> */}

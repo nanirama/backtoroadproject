@@ -5,6 +5,8 @@ const Image = ({ objectFit, objectPosition, img, imgalt, ...rest }) => {
   let wrapperStyles = {};
   let imageStyles = {};
 
+  const ImageAlt = imgalt || 'Back to Roads'
+
   if (objectFit === 'contain') {
     wrapperStyles.width = '100%';
     wrapperStyles.maxWidth = '100%';
@@ -65,10 +67,10 @@ const Image = ({ objectFit, objectPosition, img, imgalt, ...rest }) => {
   return (
     <GatsbyImage
       image={getImage(img)}
-      alt={imgalt}
+      alt={ImageAlt}
       style={wrapperStyles}
       imgStyle={imageStyles}
-      placeholderStyle={imageStyles}
+      placeholderstyle={imageStyles}
       {...rest}
     />
   );

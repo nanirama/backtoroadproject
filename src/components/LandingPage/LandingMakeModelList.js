@@ -17,11 +17,11 @@ const LandingMakeModelList = ({data}) => {
       </div>
       <h3>Quality Auto Parts - Buy Quality Parts for a Ford Model</h3>
       <div className="container">
-        <ul className="row" itemscope itemtype="https://schema.org/Product">
+        <ul className="row" itemScope itemType="https://schema.org/Product">
         {data.map((node, index) => (
             <li key={index} className="col-lg-3 col-md-4 col-sm-6 col-xs-12"
             property="itemListElement" typeof="https://schema.org/ListItem">
-              <Link to={node.id} itemprop="name">{node.name}</Link>
+              <Link to={node.id} itemProp="name">{node.name}</Link>
             </li>                
         ))}
         </ul>

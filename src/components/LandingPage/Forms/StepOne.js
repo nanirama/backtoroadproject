@@ -122,23 +122,23 @@ const StepOne = () => {
     return (
         <InputWrapper>
             <InputWrap>
-                <label for="year">Year *</label>
+                <label htmlFor="year">Year *</label>
                 <Select options={years} onChange={(e) => fetchMakes(e)} styles={colourStyles} aria-labelledby="years" />
                 
             </InputWrap>
                 
             <InputWrap>
-                <label for="make">Make *
+                <label htmlFor="make">Make *
                 <Select options={makes} onChange={(e) => fetchModels(e)} styles={colourStyles} aria-labelledby="makes" />
                 </label>
             </InputWrap>
             <InputWrap>
-                <label for="model">Model *
+                <label htmlFor="model">Model *
                 <Select options={models} onChange={(e) => fetchParts(e)} styles={colourStyles} aria-labelledby="models" />
                 </label>
             </InputWrap>
             <InputWrap>
-                <label for="part">Part *
+                <label htmlFor="part">Part *
                 <Select options={parts} onChange={(e) => enableGetQuote(e)} styles={colourStyles} aria-labelledby="parts" />
                 </label>
             </InputWrap>

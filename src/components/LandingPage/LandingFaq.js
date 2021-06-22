@@ -15,11 +15,11 @@ const LandingFaqs = ({data}) => {
             {data.map((item, index) => {
                 return (
                     <Card className="faq-card" key={index} css={css`background-image: url(${faqIcon});`}>
-                        <Accordion.Toggle as={Card.Header} eventKey={index+1}  itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-                        <h4 itemprop="name">{item.title}</h4>
+                        <Accordion.Toggle as={Card.Header} eventKey={index+1}  itemScope itemProp="mainEntity" itemType="https://schema.org/Question">
+                        <h4 itemProp="name">{item.title}</h4>
                         </Accordion.Toggle>
                         <Accordion.Collapse eventKey={index+1} >
-                            <Card.Body itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer"><div itemprop="text" dangerouslySetInnerHTML={{ __html: item.content }} ></div></Card.Body>
+                            <Card.Body itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer"><div itemProp="text" dangerouslySetInnerHTML={{ __html: item.content }} ></div></Card.Body>
                         </Accordion.Collapse>
                     </Card>  
                 )

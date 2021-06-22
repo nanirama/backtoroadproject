@@ -105,18 +105,8 @@ module.exports = {
         usePreload: true,
         //usePreconnect: false,
       },
-    },    
-    {
-      resolve: 'gatsby-plugin-zopfli',
-      options: {
-        extensions: ['css', 'html', 'js', 'webp','jpg','png'],
-        path: 'zopfli',
-        compression: {
-          numiterations: 25
-        },
-        verbose: true
-      }
-    },
+    },   
+    
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
@@ -124,25 +114,41 @@ module.exports = {
         createLinkInHead: true,
         createLinkInHead: true,
       }      
-    },
-    {
-      resolve: `gatsby-plugin-polyfill-io`,
-      options: {
-         features: [`Array.prototype.map`, `fetch`]
-      },
-    },
-    {
-        resolve: 'gatsby-plugin-htaccess',
-        options: {
-          custom: `
-          <IfModule mod_headers.c>
-              <FilesMatch "\.(jpg|webp)$">
-                  Header set Cache-Control "public, max-age=31536000, immutable"
-              </FilesMatch>
-          </IfModule>
-          `,
-        },
-      }
+    }
+
+     //"gatsby-plugin-zopfli": "^2.0.0",
+    //"gatsby-plugin-htaccess": "^1.4.0",
+    //"gatsby-plugin-offline": "^3.10.0",
+    //"gatsby-plugin-polyfill-io": "^1.1.0",
+    // {
+    //   resolve: `gatsby-plugin-polyfill-io`,
+    //   options: {
+    //      features: [`Array.prototype.map`, `fetch`]
+    //   },
+    // },
+    // {
+    //   resolve: 'gatsby-plugin-zopfli',
+    //   options: {
+    //     extensions: ['css', 'html', 'js', 'webp','jpg','png'],
+    //     path: 'zopfli',
+    //     compression: {
+    //       numiterations: 25
+    //     },
+    //     verbose: true
+    //   }
+    // },
+    // {
+    //     resolve: 'gatsby-plugin-htaccess',
+    //     options: {
+    //       custom: `
+    //       <IfModule mod_headers.c>
+    //           <FilesMatch "\.(jpg|webp)$">
+    //               Header set Cache-Control "public, max-age=31536000, immutable"
+    //           </FilesMatch>
+    //       </IfModule>
+    //       `,
+    //     },
+    //   }
     //  {
     //     resolve: "gatsby-plugin-sitemap",
     //     options: {

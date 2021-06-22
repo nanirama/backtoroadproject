@@ -25,9 +25,12 @@ function SEO({ description, lang, meta, title, location, cpath }) {
       }
     `
   )
+  //console.log('site url ', site);
   const metaDescription = description || site.siteMetadata.description
   const defaultTitle = site.siteMetadata?.title
-  const siteURL = site.siteUrl
+  const siteURL = site.siteMetadata.siteUrl 
+
+  //console.log('siteURL, ', siteURL)
 
   return (
     <Helmet      
@@ -71,7 +74,7 @@ function SEO({ description, lang, meta, title, location, cpath }) {
         },
       ].concat(meta)}
     >
-     {cpath && <link rel="canonical" href={`${siteURL}${cpath}`} />} 
+     {/* {cpath && <link rel="canonical" href={`${siteURL}${cpath}`} />}  */}
     </Helmet>
   )
 }

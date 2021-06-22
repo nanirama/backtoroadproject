@@ -81,7 +81,7 @@ const LandingSlider = ({data}) => {
           </Slider>
         </div>  
           <div className="slider_form mob_form">
-            <div clasName="container">
+            <div className="container">
               <FormsControler/>
             </div>             
           </div> 

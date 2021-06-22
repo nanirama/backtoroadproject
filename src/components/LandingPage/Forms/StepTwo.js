@@ -79,26 +79,26 @@ const StepTwo = () => {
             <h4>Vehicle Specifications</h4>
         </TitleDiv>
             <InputWrap>
-                <label for="engine">ENGINE *
+                <label htmlFor="engine">ENGINE *
                 <Select aria-labelledby="engine" options={optionsEngine} onChange={(e) => clickFunction(e)} styles={colourStyles} />
                 </label>
             </InputWrap>
             <InputWrap>
-                <label for="vin">VIN (OPTIONAL) *
+                <label htmlFor="vin">VIN (OPTIONAL) *
                 <input
                      aria-labelledby="vin number"
                     type="text" placeholder='VIN Number' id="vin-number" />
                 </label>
             </InputWrap>
             <InputWrap>
-                <label for="transmission">TRANSMISSION *
+                <label htmlFor="transmission">TRANSMISSION *
                 <Select
                  aria-labelledby="transmission"
                 options={optionsTransmission} onChange={(e) => clickFunction(e)} styles={colourStyles} />
                 </label>
             </InputWrap>
             <InputWrap>
-                <label for="trim">TRIM * 
+                <label htmlFor="trim">TRIM * 
                 <Select
                  aria-labelledby="trim"
                  options={trims} onChange={(e) => clickFunction(e)} styles={colourStyles} />
