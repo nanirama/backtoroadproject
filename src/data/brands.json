@@ -1,0 +1,120 @@
+[{
+        "img": "../assets/images/img/bmw.webp",
+        "alt": "BMW",
+        "name": "BMW"
+    },
+    {
+        "img": "../assets/images/img/fiat.webp",
+        "alt": "Fiat",
+        "name": "Fiat"
+    },
+    {
+        "img": "../assets/images/img/ford.webp",
+        "alt": "Ford",
+        "name": "Ford"
+    },
+    {
+        "img": "../assets/images/img/gmc.webp",
+        "alt": "GMC",
+        "name": "GMC"
+    },
+    {
+        "img": "../assets/images/img/honda.webp",
+        "alt": "Honda",
+        "name": "Honda"
+    },
+    {
+        "img": "../assets/images/img/hyundai.webp",
+        "alt": "Hyundai",
+        "name": "Hyundai"
+    },
+    {
+        "img": "../assets/images/img/infiniti.webp",
+        "alt": "Infiniti",
+        "name": "Infiniti"
+    },
+    {
+        "img": "../assets/images/img/jaguar.webp",
+        "alt": "jaguar",
+        "name": "Jaguar"
+    },
+    {
+        "img": "../assets/images/img/jeep.webp",
+        "alt": "jeep",
+        "name": "Jeep"
+    },
+    {
+        "img": "../assets/images/img/kia.webp",
+        "alt": "KIA",
+        "name": "KIA"
+    },
+    {
+        "img": "../assets/images/img/land.webp",
+        "alt": "Land rover",
+        "name": "Land Rover"
+    },
+    {
+        "img": "../assets/images/img/lexus.webp",
+        "alt": "lexus",
+        "name": "Lexus"
+    },
+    {
+        "img": "../assets/images/img/lincoln.webp",
+        "alt": "lincoln",
+        "name": "Lincoln"
+    },
+    {
+        "img": "../assets/images/img/mercedes.webp",
+        "alt": "mercedes",
+        "name": "Mercedes"
+    },
+    {
+        "img": "../assets/images/img/mini.webp",
+        "alt": "Mini",
+        "name": "Mini"
+    },
+    {
+        "img": "../assets/images/img/nissan.webp",
+        "alt": "Nissan",
+        "name": "Nissan"
+    },
+    {
+        "img": "../assets/images/img/peugeot.webp",
+        "alt": "peugeot",
+        "name": "Peugeot"
+    },
+     {
+         "img": "../assets/images/img/porsche.webp",
+         "alt": "porsche",
+         "name": "Porsche"
+     },
+    {
+        "img": "../assets/images/img/saab.webp",
+        "alt": "saab",
+        "name": "Saab"
+    },
+    {
+        "img": "../assets/images/img/skoda.webp",
+        "alt": "skoda",
+        "name": "Skoda"
+    },
+    {
+        "img": "../assets/images/img/subaru.webp",
+        "alt": "subaru",
+        "name": "Subaru"
+    },
+    {
+        "img": "../assets/images/img/toyota.webp",
+        "alt": "toyota",
+        "name": "Toyota"
+    },
+    {
+        "img": "../assets/images/img/volkswagen.webp",
+        "alt": "volkswagen",
+        "name": "Volkswagen"
+    }, {
+        "img": "../assets/images/img/volvo.webp",
+        "alt": "volvo",
+        "name": "Volvo"
+    }
+]
