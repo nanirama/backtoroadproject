@@ -1,4 +1,4 @@
-//import React from "react"
+import React from "react"
 
 import EngineIcon from "../assets/images/parts-old/car-engine.svg"
 import StrearingIcon from "../assets/images/parts-old/stearing-wheel.svg"
@@ -13,7 +13,7 @@ import StrutsIcon from "../assets/images/parts-old/Struts.svg"
 export const OemPartsData = [{
   img: EngineIcon,
   alt: "ENGINES",
-  name: "Engines",
+  name: "ENGINES",
   to: "/used-engines-assembly",
   desc: "Driven, Tested and Quality assured low mileage used OEM Engine assemblies for sale at affordable prices. We deliver to your mechanic’s auto shop.",
   button: "View More"
@@ -21,7 +21,7 @@ export const OemPartsData = [{
 {
   img: StrearingIcon,
   alt: "STEERING COLUMNS",
-  name: "Steering Columns",
+  name: "STEERING COLUMNS",
   to: "/used-steering-assembly",
   desc: "Steering is the collection of components, linkages, etc. which allows any vehicle to follow the desired course. Get your quality used steering column now !.",
   button: "View More"
@@ -29,7 +29,7 @@ export const OemPartsData = [{
 {
   img: TransmissionIcon,
   alt: "TRANSMISSIONS",
-  name: "Transmissions",
+  name: "TRANSMISSIONS",
   to: "/used-transmission-sssembly",
   desc: "OEM replacement Automatic and Manual Transmissions for all makes and models. OEM quality guaranteed – Tested and quality checked.",
   button: "View More"
@@ -45,28 +45,28 @@ export const OemPartsData = [{
 {
   img: AxleIcon,
   alt: "AXLE ASSEMBLIES",
-  name: "Axle Assemblies",
+  name: "AXLE ASSEMBLIES ",
   to: "/used-axles-assembly",
   desc: "Hub to hub OEM replacement Axle Assemblies.",
   button: "View More"
 }, {
   img: AlternatorIcon,
   alt: "ALTERNATORS",
-  name: "Alternators",
+  name: "ALTERNATORS",
   to: "/used-alternator-assembly",
   desc: "'Own a quality used OEM Alternator with warranty'.Buy used and save upto 70 % today",
   button: "View More"
 }, {
   img: TransferCaseIcon,
   alt: "TRANSFER CASE",
-  name: "Transfer Case",
+  name: "TRANSFER CASE",
   to: "/used-transfer-case-assembly",
   desc: "Quality tested Transfer Case Assemblies available for all make and models.",
   button: "View More"
 }, {
   img: StrutsIcon,
   alt: "STRUTS",
-  name: "Struts",
+  name: "STRUTS",
   to: "/used-struts-assembly",
   desc: "High quality used struts with coil spring and shock absorbers. We also provide air struts with air spring.",
   button: "View More"
