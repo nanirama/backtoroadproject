@@ -64,6 +64,15 @@ module.exports = {
           }
         }
       }
+    },
+    {
+      resolve: 'gatsby-plugin-preconnect',
+      options: {
+        domains: [
+          'http://stockeye.in/graphql',
+          'https://backend.sellectricindia.com/api'
+        ],
+      },
     }
   ],
 }
