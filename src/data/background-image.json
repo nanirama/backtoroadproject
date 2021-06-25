@@ -1,0 +1,30 @@
+[{
+    "img": "../assets/images/bg/bg-1.jpg",
+    "alt": "ENGINES"
+  },
+  {
+    "img": "../assets/images/bg/bg-2.jpg",
+    "alt": "STEERING COLUMNS"
+  },
+  {
+    "img": "../assets/images/bg/bg-3.jpg",
+    "alt": "TRANSMISSIONS"
+  },
+  {
+    "img": "../assets/images/bg/bg-4.jpg",
+    "alt": "A.B.S"
+  },
+  {
+    "img": "../assets/images/bg/bg-m-1.jpg",
+    "alt": "AXLE ASSEMBLIES"
+  }, {
+    "img": "../assets/images/bg/bg-m-2.jpg",
+    "alt": "ALTERNATORS"
+  }, {
+    "img": "../assets/images/bg/bg-m-3.jpg",
+    "alt": "TRANSFER CASE"
+  }, {
+    "img": "../assets/images/bg/bg-m-4.jpg",
+    "alt": "STRUTS"
+  }
+]

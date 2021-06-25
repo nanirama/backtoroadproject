@@ -9,8 +9,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { StateProvider } from '../StateProvider';
 import reducer, { initialState } from '../reducer';
-import FloatingButtonCall from '../components/FloatingButtonCall'
-import FloatingButtonMessage from '../components/FloatingButtonMessage'
 
 const Layout = ({ children }) => {
   const [isOpen, setOpen] = React.useState(false);
@@ -39,8 +37,6 @@ const Layout = ({ children }) => {
         <StateProvider initialState={initialState} reducer={reducer}>
           <Header toggle={toggle} />
           <main>{children}</main>
-          <FloatingButtonMessage />
-          <FloatingButtonCall />
         </StateProvider>
       </div>
       <Footer />
@@ -57,7 +53,7 @@ const SwipeLayer = styled.div`
     display: block;
     float: left;
     position: fixed;
-    width: 10px;
+    width: 33%;
     height: 100%;
     z-index: 900;
     top: 80px;
