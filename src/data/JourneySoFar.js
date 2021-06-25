@@ -10,6 +10,7 @@ export const JourneySoFarData = [
         `}
       />
     ),
+	newicon : "cog",
     title: "1045",
     desc: "Parts Sold",
   },
@@ -21,6 +22,7 @@ export const JourneySoFarData = [
         `}
       />
     ),
+	newicon : "user",
     title: "1045",
     desc: "Satisfied Customer",
   },
@@ -32,6 +34,7 @@ export const JourneySoFarData = [
         `}
       />
     ),
+	newicon : "star",
     title: "4.6",
     desc: "Customer rating",
   },
@@ -43,6 +46,7 @@ export const JourneySoFarData = [
         `}
       />
     ),
+	newicon : "compass",
     title: "3500+",
     desc: "Cities served",
   },
