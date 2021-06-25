@@ -3,7 +3,8 @@ module.exports = {
     title: `Backtoroad Autoparts`,
     description: `BackToRoad Auto Parts is your one-stop shop for tested high quality used OEM parts to customers in all 50 states and worldwide`,
     author: `@backtoroad`,
-    noindex: `noindex`
+    noindex: `noindex`,
+    siteUrl: 'https://backtoroadprojectnanirama.gatsbyjs.io'
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
