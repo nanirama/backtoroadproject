@@ -162,9 +162,9 @@ query($id : String, $mid : String){
                 node {
                 localFile {
                     childImageSharp {
-                        gatsbyImageData(
-                          width: 1600
-                        )
+                        fluid(maxWidth: 1200, base64Width:1800) {                        
+                          base64
+                        }
                       }
                 }              
                 }

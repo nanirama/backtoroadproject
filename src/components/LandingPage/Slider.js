@@ -10,7 +10,7 @@ const Item = styled.div`
   color: #fff;
   background-color: transparent;
   width: 100%;
-  height: 900px;
+  height: 146vh;
   margin: 0px;
 `;
 const Slider = ({data}) => {
@@ -26,7 +26,8 @@ const Slider = ({data}) => {
         >
             {data.map((item,index) => (              
                 <Item key={index}>
-                    <GatsbyImage image={getImage(item.featuredImage.node.localFile)} height={900} />
+                   <img src={item.featuredImage.node.localFile.childImageSharp.fluid.base64} className="img-fluid"/>
+                    {/* <GatsbyImage image={getImage(item.featuredImage.node.localFile)}/> */}
                 </Item>
             ))}      
         </Carousel>      
