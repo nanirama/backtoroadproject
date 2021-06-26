@@ -124,7 +124,8 @@ const StepOne = () => {
         <InputWrapper>
             <InputWrap>
                 <InputLabel>Year *</InputLabel>
-                <Select options={years} onChange={(e) => fetchMakes(e)} styles={colourStyles} /></InputWrap>
+                <Select options={years} onChange={(e) => fetchMakes(e)} styles={colourStyles} />
+            </InputWrap>
             <InputWrap>
                 <InputLabel>Make *</InputLabel>
                 <Select options={makes} onChange={(e) => fetchModels(e)} styles={colourStyles} /></InputWrap>

@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef } from "react"
-import styled, { css } from 'styled-components/macro'
-import { FaRegArrowAltCircleRight, FaRegArrowAltCircleLeft } from "react-icons/fa";
+import React, { useEffect } from "react"
+import styled from "styled-components"
+import Img from "gatsby-image"
 import Aos from "aos"
 import "aos/dist/aos.css"
 
@@ -10,22 +10,6 @@ const OemParts = ({ heading }) => {
   useEffect(() => {
     Aos.init({})
   }, [])
-
-
-  const [current, setCurrent] = useState(0);
-  const length = OemPartsData.length
-
-  const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1)
-  }
-
-  const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1)
-  }
-
-  if (!Array.isArray(OemPartsData) || OemPartsData.length <= 0) {
-    return null
-  }
 
   function getOemParts() {
     const partsArray = []
@@ -54,58 +38,16 @@ const OemParts = ({ heading }) => {
     return partsArray
     }
 
-
-  function getOemPartsMob() {
-    console.log('OemParts ', OemPartsData)
-    const partsArrayMob = []
-
-    {OemPartsData.map((part, index) => {
-      partsArrayMob.push(
-          <ProductSlide key={index}>
-            {index === current && (
-              <ProductSlider>
-
-                <ProductImgWrapper>
-                  <Icon src={part.img} alt={part.alt} className="SvgColorClass" />
-                </ProductImgWrapper>
-
-                <ProductInfo>
-                  <TextWrap>
-                    <ProductTitle>{part.name}</ProductTitle>
-                    <Description>{part.desc}</Description>
-                  </TextWrap>
-                </ProductInfo>
-
-              </ProductSlider>
-            )}
-          </ProductSlide>
-        )
-     })}
-     return partsArrayMob
-  }
-
   return (
     <ProductsContainer>
       <Wrapper>
         <ProductsHeading
           data-aos="fade-right"
           data-aos-delay="50"
-          data-aos-duration="1000">FEATURED GENUINE OEM PARTS
-        </ProductsHeading>
+          data-aos-duration="1000">FEATURED GENUINE OEM PARTS</ProductsHeading>
         <ProductWrapper>
           {getOemParts()}
         </ProductWrapper>
-
-
-        <ProductWrapperMob>
-          {getOemPartsMob()}
-          <SliderButtonsLeft>
-            <PrevArrow onClick={prevSlide} />
-          </SliderButtonsLeft>
-          <SliderButtonsRight>
-            <NextArrow onClick={nextSlide} />
-          </SliderButtonsRight>
-        </ProductWrapperMob>
       </Wrapper>
     </ProductsContainer>
   )
@@ -113,38 +55,12 @@ const OemParts = ({ heading }) => {
 
 export default OemParts
 
-const arrowButtons = css`
-    width: 50px;
-    height: 50px;
-    color: #3232b3;
-    cursor: pointer;
-    background: #ffffff;
-    border-radius: 50px;
-    padding: 5px;
-    user-select: none;
-    transition: 0.3s;
-
-    &.hover {
-        background: #cd853f;
-        transform: scale(1.05)
-    }
-`
-
-const PrevArrow = styled(FaRegArrowAltCircleLeft)`
-    ${arrowButtons}
-`
-const NextArrow = styled(FaRegArrowAltCircleRight)`
-    ${arrowButtons}
-`
-
 const ProductsContainer = styled.div`
   min-height: 90vh;
   width: 100vw;
   padding: 2rem calc((100vw - 1300px) / 2);
-  
-  @media screen and (max-width: 440px) {
+  @media screen and (max-width: 415px) {
     min-height: 80vh;
-    padding: 1rem 1.4rem;
   }
 `
 
@@ -153,23 +69,16 @@ const Wrapper = styled.div`
   background-color: #fdfdfd; /* For browsers that do not support gradients */
   background-image: linear-gradient(#fdfdfd, #ffffff);
   border: 10px solid rgba(255,255,255,0.20);
-  box-shadow: 2px 2px 16px 8px rgb(236 236 235 / 51%);
-  padding: 1rem;
+  box-shadow: 2px 2px 16px 8px rgba(217,210,200,0.51);
 `
 
-// font-size: clamp(1.5rem, 5vw, 2rem);
 const ProductsHeading = styled.h2`
-  /* font-size: 700; */
   font-size: clamp(1.5rem, 5vw, 2rem);
   text-align: center;
   padding: 0 2rem;  
   margin-bottom: 3rem;
   color: #000;
   font-weight: bold;
-
-   @media screen and (max-width: 440px) {
-    font-size: 400;
-  }
 `
 
 const ProductWrapper = styled.div`
@@ -183,8 +92,7 @@ const ProductWrapper = styled.div`
     grid-template-columns: 1fr 1fr;
   }
 
-  @media screen and (max-width: 440px) {
-    display: none;
+  @media screen and (max-width: 415px) {
     grid-template-columns: repeat(8, 92vw);
     grid-gap: 4vw;
     overflow-x:auto;
@@ -236,9 +144,8 @@ const ProductInfo = styled.div`
   flex-direction: column;
   align-items: flex-start;
 
-  @media screen and (max-width: 440px) {
+  @media screen and (max-width: 280px) {
     padding: 0 1rem;
-    align-items: center;
   }
 `
 
@@ -248,89 +155,17 @@ const TextWrap = styled.div`
   align-items: baseline;
   position: absolute;
   top: 150px;
-
-  @media screen and (max-width: 440px) {
-    padding: 1rem 1rem;
-    align-items: center;
-  }
 `
 
 const ProductTitle = styled.div`
   font-weight: bold;
-  font-size: 1.4rem;
+  font-size: 1rem;
   align-self: center;
   margin-top: 0.5rem;
+  textformating:
 `
 
 const Description = styled.p`
   margin-top: 0.5rem;
   align-self: center;
-  line-height: 1.7;
-  color: #8e8989;
-
-  @media screen and (max-width: 440px) {
-    text-align: center;
-  }
-`
-
-
-const ProductWrapperMob = styled.div`
-  display: none;
-
-  @media screen and (max-width: 440px) {
-    width: 100%;
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-  }
-`
-
-const ProductSlide = styled.div`
-  z-index: 1;
-  width: 100%;
-  height: 100%;
-`
-
-const ProductSlider = styled.div`
-    position: absolute;
-    top: 0;
-    left:0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: 0.5s;
-
-    &::before{
-        content: '';
-        position: absolute;
-        z-index: 2;
-        width: 100%;
-        height: 100vh;
-        bottom: 0vh;
-        left: 0;
-        overflow: hidden;
-    }
-`
-
-const SliderButtonsLeft = styled.div`
-    position: absolute;
-    bottom: 60%;
-    left: 10px;
-    display: flex;
-    z-index: 10;
-`
-
-const SliderButtonsRight = styled.div`
-    position: absolute;
-    bottom: 60%;
-    right: 10px;
-    display: flex;
-    z-index: 10;
 `

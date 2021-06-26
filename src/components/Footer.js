@@ -98,7 +98,6 @@ const Container = styled.main`
 const FirstOuterRow = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr 1fr 1fr;
-  margin: 5px 0;
 
   @media screen and (max-width: 515px) {
     grid-template-columns: 1fr;
@@ -109,7 +108,6 @@ const FirstOuterRow = styled.div`
 const SecondOuterRow = styled.div`
   min-height: 40px;
   width: 100%;
-  margin: 5px 0;
 `
 
 const ThirdOuterRow = styled.div`
@@ -118,12 +116,10 @@ const ThirdOuterRow = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 0 2rem;
-  margin: 5px 0;
 `
 
 const ContentColumn = styled.div`
   height: 100%;
-  margin: 5px 0;
 `
 
 const RowOne = styled.div`

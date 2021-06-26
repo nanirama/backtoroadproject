@@ -27,7 +27,7 @@ module.exports = {
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/assets/images/logo/logo.png`, // This path is relative to the root of the site.
+        icon: `src/assets/images/gatsby-icon.png`, // This path is relative to the root of the site.
       },
     },
     `gatsby-transformer-json`,
@@ -64,15 +64,26 @@ module.exports = {
           }
         }
       }
-    },
-    {
-      resolve: 'gatsby-plugin-preconnect',
-      options: {
-        domains: [
-          'http://stockeye.in/graphql',
-          'https://backend.sellectricindia.com/api'
-        ],
-      },
     }
+    // {
+    //   resolve: 'gatsby-plugin-react-svg',
+    //   options: {
+    //     rule: {
+    //       include: `${__dirname}/src/assets/images`,
+    //     }
+    //   }
+    // }
+    // // Simple config, passing URL
+    // {
+    //   resolve: "gatsby-source-graphql",
+    //   options: {
+    //     // Arbitrary name for the remote schema Query type
+    //     typeName: "WORDPRESS",
+    //     // Field under which the remote schema will be accessible. You'll use this in your Gatsby query
+    //     fieldName: "wordpress",
+    //     // Url to query from
+    //     url: "http://stockeye.in/graphql",
+    //   },
+    // },
   ],
 }
