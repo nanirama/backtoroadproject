@@ -12,6 +12,9 @@ const Item = styled.div`
   width: 100%;
   height: 146vh;
   margin: 0px;
+  background-image: url(${props => props.img});
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 `;
 const Slider = ({data}) => {
     console.log('sliders ', data)
@@ -25,8 +28,8 @@ const Slider = ({data}) => {
           enableSwipe={false}
         >
             {data.map((item,index) => (              
-                <Item key={index}>
-                   <img src={item.featuredImage.node.localFile.childImageSharp.fluid.base64} className="img-fluid"/>
+                <Item key={index} img={item.featuredImage.node.localFile.childImageSharp.fluid.base64}>
+                   <h2>Welcome</h2>
                     {/* <GatsbyImage image={getImage(item.featuredImage.node.localFile)}/> */}
                 </Item>
             ))}      
