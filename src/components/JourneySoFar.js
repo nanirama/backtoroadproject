@@ -83,7 +83,7 @@ const JourneyBox = styled.div`
   padding: 2rem;
   text-align: center;
   border: 1px solid rgba(255,255,255,0.20);
-  box-shadow: 6px 6px 16px 0 rgba(217,210,200,0.51);
+  box-shadow: 2px 2px 16px 8px rgb(245 243 241 / 51%);
   background-color: #00008b; /* For browsers that do not support gradients */
   display: flex;
   justify-content: space-around;

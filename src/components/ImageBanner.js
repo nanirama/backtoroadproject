@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import Img from 'gatsby-image'
+//import Img from 'gatsby-image'
 
 const ImageBanner = (props) => {
     return (
@@ -18,6 +18,6 @@ const IbContainer = styled.div`
   background: blue;
 `
 
-const ImageBg = styled(Img)`
+// const ImageBg = styled(Img)`
   
-`
+// `

@@ -107,13 +107,17 @@ export default RecentArrivals
 const RecentArrivalsContainer = styled.div`
   width:100vw;
   padding: 2rem calc((100vw - 1300px) / 2);
+
+  @media screen and (max-width: 415px) {
+    padding: 1rem 1.4rem;
+  }
 `
 
 const RecentArrivalsWrapper = styled.div`
   height: 100%;
   background-color: #fdfdfd; /* For browsers that do not support gradients */
   border: 1px solid rgba(255,255,255,0.20);
-  box-shadow: 2px 2px 16px 8px rgba(217,210,200,0.51);
+  box-shadow: 2px 2px 16px 8px rgb(236 236 235 / 51%);
   padding: 1rem;
 `
 
@@ -137,6 +141,7 @@ const RecentArrivalsRow = styled.div`
   display: flex;
   width: 100%;
   height:100%;
+  flex-wrap: wrap;
   justify-content: space-around;
 `
 
@@ -146,8 +151,9 @@ const RecentArrivalsBox = styled.div`
   justify-content: space-between;
   align-items: center;
   // border: 1px solid black;
-  width: 30%;
+  width: 300px;
   height: 420px;
+  margin-bottom: 10px;
 
   @media screen and (max-width: 415px) {
     width: 100%;
@@ -156,19 +162,20 @@ const RecentArrivalsBox = styled.div`
 `
 const RecentArrivalsImage = styled(Img)`
   width: 100%;
-  height: 260px;
-
+  height: 200px;
 `
 const RecentArrivalsTitle = styled.h4`
   text-align: start;
   padding: 10px 10px 0 10px;
   font-weight: bold;
 `
+
 const RecentArrivalsDesc = styled.p`
   text-align: start;
   padding: 10px;
   color:#bdbdbd;
 `
+
 const RecentArrivalsLabelWrapper = styled.p`
   display: flex;
   width: 100%;
@@ -180,6 +187,8 @@ const RecentArrivalsLabelDate = styled.div`
   width: 50%;
   display: flex;
   flex-direction: row;
+  font-size: 12px;
+
   p{
       padding: 2px;
       margin: 0;
@@ -187,7 +196,6 @@ const RecentArrivalsLabelDate = styled.div`
 
   @media screen and (max-width: 376px) {
     p {
-      font-size: 12px;
       margin: 4px 0;
     }
   }
@@ -222,6 +230,7 @@ const Icon = styled.img`
 const DeskTopView = styled.div`
   display: block;
   display: flex;
+  flex-wrap: wrap;
   width: 100%;
   height:100%;
   justify-content: space-around;

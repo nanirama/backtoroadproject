@@ -1,16 +1,25 @@
-import React, { useEffect, useState, useRef } from "react"
-import styled from 'styled-components'
+import React, { useEffect, useState } from "react"
+import styled from 'styled-components/macro'
 import { useStaticQuery, graphql } from "gatsby"
 import { Carousel } from "react-bootstrap"
 import Img from 'gatsby-image'
 import Aos from "aos"
 import "aos/dist/aos.css"
-
 import { useStateValue } from '../StateProvider';
 
 import StepOne from "./Forms/StepOne"
 import StepTwo from "./Forms/StepTwo"
 import StepThree from "./Forms/StepThree"
+
+import BgImgOne from '../assets/images/bg/car-parts.svg'
+import BgImgTwo from '../assets/images/bg/hand-mob.svg'
+import BgImgThree from '../assets/images/bg/map-usa.svg'
+import BgImgFour from '../assets/images/bg/sanitize.svg'
+
+import BackgroundOne from '../assets/images/bg/bg-1.png'
+import BackgroundTwo from '../assets/images/bg/bg-2.png'
+import BackgroundThree from '../assets/images/bg/bg-3.png'
+import BackgroundFour from '../assets/images/bg/bg-4.png'
 
 const Hero = () => {
   const [{ year, make, model, part, user, stepOne, stepTwo, stepThree }, dispatch] = useStateValue();
@@ -19,50 +28,62 @@ const Hero = () => {
     Aos.init({});
   }, [])
 
-
   const [firstStep, setFirstStep] = useState(true);
   const [secondStep, setSecondStep] = useState(false);
   const [thirdStep, setThirdStep] = useState(false);
 
-  const data = useStaticQuery(graphql`
-    query BgImageQuery {
-      allBackgroundImageJson {
-        edges {
-          node {
-            img {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            alt
-          }
-        }
-      }
-    }
-  `)
+    //  const data = useStaticQuery(graphql`
+    // # query BgImageQuery {
+    // #   allBackgroundImageJson {
+    // #     edges {
+    // #       node {
+    // #         img {
+    // #           childImageSharp {
+    // #             fluid {
+    // #               ...GatsbyImageSharpFluid
+    // #             }
+    // #           }
+    // #         }
+    // #         alt
+    // #       }
+    // #     }
+    // #   }
+    // # }
+    // #  
+    // #`)
 
-  function getBgImage(data) {
+  function getBgImage() {   // data as arg
     return (
       <>
       {/* Ingeniuos fix. Need to use srcset instead. ToDo */}
-        <Carousel style={{ height: '98vh' }}>
+        <Carousel className="CarouselBox" nextIcon="" nextLabel="" prevIcon="" prevLabel="" interval={null}>
           <Carousel.Item>
-            < ImageBg fluid={data.allBackgroundImageJson.edges[0].node.img.childImageSharp.fluid} />
-            < ImageBgM fluid={data.allBackgroundImageJson.edges[4].node.img.childImageSharp.fluid} />
+            <CarouselItemBg>
+              <Icon src={BgImgOne} alt=""/>
+              <BgImage src={BackgroundOne} alt=""/>
+            </CarouselItemBg>
+            {/* < ImageBg fluid={data.allBackgroundImageJson.edges[0].node.img.childImageSharp.fluid} /> */}
           </Carousel.Item>
           <Carousel.Item>
-            < ImageBg fluid={data.allBackgroundImageJson.edges[1].node.img.childImageSharp.fluid} />
-            < ImageBgM fluid={data.allBackgroundImageJson.edges[5].node.img.childImageSharp.fluid} />
+            <CarouselItemBg>
+              <Icon src={BgImgTwo} alt="" />
+              <BgImage src={BackgroundTwo} alt="" />
+            </CarouselItemBg>
+            {/* {/* < ImageBg fluid={data.allBackgroundImageJson.edges[1].node.img.childImageSharp.fluid} /> */}
           </Carousel.Item>
           <Carousel.Item>
-            < ImageBg fluid={data.allBackgroundImageJson.edges[2].node.img.childImageSharp.fluid} />
-            < ImageBgM fluid={data.allBackgroundImageJson.edges[6].node.img.childImageSharp.fluid} />
-          </Carousel.Item>
+            <CarouselItemBg>
+              <Icon src={BgImgThree} alt="" />
+              <BgImage src={BackgroundThree} alt="" />
+            </CarouselItemBg>
+            {/* {/* < ImageBg fluid={data.allBackgroundImageJson.edges[2].node.img.childImageSharp.fluid} /> */}
+            </Carousel.Item> 
           <Carousel.Item>
-            < ImageBg fluid={data.allBackgroundImageJson.edges[3].node.img.childImageSharp.fluid} />
-            < ImageBgM fluid={data.allBackgroundImageJson.edges[7].node.img.childImageSharp.fluid} />
+            <CarouselItemBg>
+              <Icon src={BgImgFour} alt="" />
+              <BgImage src={BackgroundFour} alt="" />
+            </CarouselItemBg>
+            {/* {/* < ImageBg fluid={data.allBackgroundImageJson.edges[3].node.img.childImageSharp.fluid} /> */}
           </Carousel.Item>
         </Carousel>
       </>
@@ -85,7 +106,7 @@ const Hero = () => {
   return (
     <HeroContainer>
       <HeroBg>
-        {getBgImage(data)}
+        {getBgImage()}
       </HeroBg>
       <HeroContent>
         <Header>
@@ -136,17 +157,11 @@ const HeroContainer = styled.div`
     right: 0;
     left: 0;
     z-index: 2;
-    // background: linear-gradient(
-    //     180deg,
-    //     rgba(0, 0, 0, 0.2) 0%,
-    //     rgba(0, 0, 0, 0.6) 100%
-    //   ),
-    //   linear-gradient(180deg, rgba(0, 0, 0, 0.2) 0%, transparent 100%);
   }
 
    @media screen and (max-width: 480px) {
     flex-direction: column;
-    height: 200vh;
+    height: 145vh;
   }
 `
 
@@ -157,11 +172,11 @@ const HeroBg = styled.div`
   right: 0;
   left: 0;
   width: 100vw;
-  height: 99vh;
+  height: 100vh;
   overflow: hidden;
 
-   @media screen and (max-width: 480px) {
-    height: 100vh;
+  @media screen and (max-width: 480px) {
+    height: 60vh;
   }
 
 `
@@ -172,9 +187,9 @@ const ImageBg = styled(Img)`
   -o-object-fit: contain;
   object-fit: contain;
   
-  @media screen and (max-width: 480px) {
+  /* @media screen and (max-width: 480px) {
     display: none;
-  }
+  } */
 
 `
 
@@ -194,15 +209,20 @@ const HeroContent = styled.div`
   z-index: 3;
   max-height: 100%;
   align-self: center;
-  width: 30vw;
-  min-width: 380px; 
+  width: 25vw;
+  min-width: 340px; 
   min-height: 60vh;
   margin-top: 50px;
   background: #ffffff;
 
   @media screen and (max-width: 480px) {
     width: 92vw;
-    margin-top: 100vh;
+    margin-top: 62vh;
+    background-color: #fdfdfd; /* For browsers that do not support gradients */
+    background-image: linear-gradient(#fdfdfd, #ffffff);
+    border: 10px solid rgba(255,255,255,0.20);
+    // box-shadow: 2px 2px 16px 8px rgb(245 243 241 / 51%)
+    box-shadow: 2px 2px 16px 8px rgb(234 231 227 / 51%)
   }
 
 `
@@ -236,7 +256,7 @@ const Input = styled.input`
 `
 
 const TitleDiv = styled.div`
-  color: #fffff;
+  color: #ffffff;
   background: #f1ac40;
   border: 1px solid #f1ac40;
   height: 40px;
@@ -246,8 +266,9 @@ const TitleDiv = styled.div`
       font-weight: 400;
   }
 `
+
 const Header = styled.div`
-  width: 100%
+  width: 100%;
 `
 
 const StepIndicators = styled.div`
@@ -255,7 +276,7 @@ const StepIndicators = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  margin: 5px 0;
+  margin: 15px 0;
 `
 
 const DivStepOne = styled.div`
@@ -304,4 +325,39 @@ const DivStepThree = styled.div`
     font-weight: bold;
     margin-bottom: 0;
   }
+`
+
+const CarouselItemBg = styled.div`
+  background: blue;
+  height: 100vh;
+  display: flex;
+  position: relative;
+`
+
+const Icon = styled.img`
+  /* align-self: right; */
+  width: 50vw; 
+  height: 60vw;
+  position: absolute;
+  right: 0;
+  /* bottom: 0; */
+  /* margin: 5vw 0; */
+
+ @media screen and (max-width: 480px) {
+  width: 60vw;
+  height: 60vw;
+  position: absolute;
+  right: 0;
+  bottom: 37vh;
+  /* width: 100vw; */
+  /* height: 72vw; */
+  /* right: 0;    */
+  /* margin: 35vw auto; */
+ }
+`
+
+const BgImage = styled.img`
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 `

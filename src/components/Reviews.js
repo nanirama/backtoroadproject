@@ -1,14 +1,49 @@
 import React from "react"
 import styled from "styled-components"
-import Img from "gatsby-image"
 import { FcGoogle } from 'react-icons/fc'
 import { FaStar } from 'react-icons/fa'
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const Reviews = () => {
+
+  const settings = {
+    dots: true,
+    arrows: false,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+    infinite: true,
+    centerMode: false,
+    responsive: [
+      {
+        breakpoint: 1025,
+        settings: {
+          arrows: false,
+          initialSlide: 0,
+          slidesToShow: 3,
+          slidesToScroll: 1,
+          dots: true
+        }
+      },
+      {
+        breakpoint: 440,
+        settings: {
+          initialSlide: 0,
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          dots: true
+        }
+      },
+    ]
+  };
+
   return (
     <ReviewsContainer>
       <Header>CUSTOMER REVIEWS</Header>
-      <ReviewsWrapper>
+        
+        <Slider {...settings} css={`height: 440px;`}>
+        <div>
         <ReviewsTiles>
           <ReviewTitle>William Edwards</ReviewTitle>
           <ReviewDate>28/12/2020</ReviewDate>
@@ -27,6 +62,8 @@ const Reviews = () => {
           </StartIconWrapper>
           <ReviewRating>5</ReviewRating>
         </ReviewsTiles>
+        </div>
+        <div>
         <ReviewsTiles>
           <ReviewTitle>Daniel Peacher</ReviewTitle>
           <ReviewDate>09/06/2020</ReviewDate>
@@ -44,6 +81,8 @@ const Reviews = () => {
           </StartIconWrapper>
           <ReviewRating>5</ReviewRating>
         </ReviewsTiles>
+        </div>
+        <div>
         <ReviewsTiles>
           <ReviewTitle>Roger Sanders</ReviewTitle>
           <ReviewDate>20/04/2020</ReviewDate>
@@ -63,7 +102,8 @@ const Reviews = () => {
           </StartIconWrapper>
           <ReviewRating>5</ReviewRating>
         </ReviewsTiles>
-        
+        </div>
+        <div>
         <ReviewsTiles>
           <ReviewTitle>Kevin Davis</ReviewTitle>
           <ReviewDate>12/06/2020</ReviewDate>
@@ -80,7 +120,8 @@ const Reviews = () => {
           </StartIconWrapper>
           <ReviewRating>5</ReviewRating>
         </ReviewsTiles>
-
+        </div>
+        <div>
         <ReviewsTiles>
           <ReviewTitle>Chris Higgins</ReviewTitle>
           <ReviewDate>05/10/2018</ReviewDate>
@@ -99,7 +140,8 @@ const Reviews = () => {
           </StartIconWrapper>
           <ReviewRating>5</ReviewRating>
         </ReviewsTiles>
-
+        </div>
+        <div>
         <ReviewsTiles>
           <ReviewTitle>Victoria Steinfield</ReviewTitle>
           <ReviewDate>13/11/2019</ReviewDate>
@@ -117,7 +159,8 @@ const Reviews = () => {
           </StartIconWrapper>
           <ReviewRating>5</ReviewRating>
         </ReviewsTiles>
-
+        </div>
+        <div>
         <ReviewsTiles>
           <ReviewTitle>Benita Monroe</ReviewTitle>
           <ReviewDate>12/11/2019</ReviewDate>
@@ -136,8 +179,8 @@ const Reviews = () => {
           </StartIconWrapper>
           <ReviewRating>5</ReviewRating>
         </ReviewsTiles>
-
-
+        </div>
+        <div>
         <ReviewsTiles>
           <ReviewTitle>Chester Brown</ReviewTitle>
           <ReviewDate>06/06/2019</ReviewDate>
@@ -155,7 +198,9 @@ const Reviews = () => {
           </StartIconWrapper>
           <ReviewRating>5</ReviewRating>
         </ReviewsTiles>
+        </div>
 
+        <div>
         <ReviewsTiles>
           <ReviewTitle>Patrick Burgois</ReviewTitle>
           <ReviewDate>31/10/2018</ReviewDate>
@@ -172,7 +217,9 @@ const Reviews = () => {
           </StartIconWrapper>
           <ReviewRating>5</ReviewRating>
         </ReviewsTiles>
+        </div>
 
+        <div>
         <ReviewsTiles>
           <ReviewTitle>Jeremy Franklin</ReviewTitle>
           <ReviewDate>12/07/2019</ReviewDate>
@@ -189,7 +236,8 @@ const Reviews = () => {
           </StartIconWrapper>
           <ReviewRating>5</ReviewRating>
         </ReviewsTiles>
-
+        </div>
+        <div>
         <ReviewsTiles>
           <ReviewTitle>Michelle Davis</ReviewTitle>
           <ReviewDate>11/12/2018</ReviewDate>
@@ -206,7 +254,9 @@ const Reviews = () => {
           </StartIconWrapper>
           <ReviewRating>5</ReviewRating>
         </ReviewsTiles>
+        </div>
 
+        <div>
         <ReviewsTiles>
           <ReviewTitle>Michael Smith</ReviewTitle>
           <ReviewDate>21/09/2018</ReviewDate>
@@ -223,7 +273,8 @@ const Reviews = () => {
           </StartIconWrapper>
           <ReviewRating>5</ReviewRating>
         </ReviewsTiles>
-
+        </div>
+        <div>
         <ReviewsTiles>
           <ReviewTitle>Ramirez Lopez</ReviewTitle>
           <ReviewDate>12/04/2019</ReviewDate>
@@ -240,8 +291,9 @@ const Reviews = () => {
           </StartIconWrapper>
           <ReviewRating>5</ReviewRating>
         </ReviewsTiles>
+        </div>
+        </Slider>
 
-      </ReviewsWrapper>
     </ReviewsContainer>
   )
 }
@@ -253,16 +305,6 @@ const ReviewsContainer = styled.div`
   min-height: 20vh;
   padding: 2rem calc((100vw - 1300px) / 2);
   color: #fff;
-`
-
-const ReviewsWrapper = styled.div`
-  height: 100%;
-  width: 100%;
-  padding: 0;
-  overflow-x: scroll;
-  overflow-y: hidden;
-  text-align: center;
-  white-space: nowrap;
 `
 
 const Header = styled.h2`
@@ -294,23 +336,17 @@ const ReviewsTiles = styled.div`
 
    @media screen and (max-width: 600px) {
     width: 92vw;
-    padding: 0 4vw;
+    padding: 10px;
    }
 `
 
-const ReviewsImage = styled(Img)`
-  height: 30px;
-  width: 30px;
-  position: absolute;
-  top: 0;
-  right: 0;
-`
 const ReviewTitle = styled.div`
   position: absolute;
   top: 15px;
   font-size: 24px;
   left: 5px;
   color: #000;
+  padding-left: 15px;
 `
 
 const ReviewDate = styled.div`
@@ -319,13 +355,14 @@ const ReviewDate = styled.div`
   font-size: 13px;
   left: 5px;
   color: #000;
+  padding-left: 15px;
 `
 
 const ReviewContent = styled.div`
   position: absolute;
   top: 90px;
   font-size: 14px;
-  padding: 5px;
+  padding: 15px;
   color: #000;
   text-align: start;
   word-break: normal;
@@ -352,6 +389,9 @@ const GoogleIcon = styled(FcGoogle)`
   position: absolute;
   top: 16px;
   right: 20px;
+  padding-right: 15px;
 `
 
-const StartIconWrapper = styled.div``
+const StartIconWrapper = styled.div`
+  padding-left: 15px;
+`

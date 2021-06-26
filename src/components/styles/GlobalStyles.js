@@ -2,7 +2,10 @@ import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
   * {
-    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Roboto'; */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     margin: 0;
     padding: 0;
   }
@@ -143,9 +146,9 @@ export const GlobalStyle = createGlobalStyle`
   font-size: 1rem;   
 }
 
-// * {
-//   border: 1px solid red;
-// }
+/* * {
+  border: 1px solid red;
+} */
 
 .carousel-indicators {
   // right: 70%;
@@ -155,9 +158,27 @@ export const GlobalStyle = createGlobalStyle`
 
 .SvgColorClass {
   filter: invert(64%) sepia(67%) saturate(4497%) hue-rotate(184deg) brightness(88%) contrast(84%);
+  //filter: invert(14%) sepia(74%) saturate(5203%) hue-rotate(229deg) brightness(107%) contrast(119%);
+  //filter: invert(17%) sepia(92%) saturate(3418%) hue-rotate(238deg) brightness(100%) contrast(113%);
 }
 
 .SvgColorClassChooseBtr {
   filter: invert(22%) sepia(14%) saturate(6931%) hue-rotate(197deg) brightness(90%) contrast(90%);
+}
+
+.SvgColorClassFb {
+  filter: invert(100%) sepia(0%) saturate(0%) hue-rotate(197deg) brightness(102%) contrast(103%);
+}
+
+.CarouselBox {
+ height: 100%;
+}
+
+.carousel-inner{
+  height: 100%;
+}
+
+.carousel-item:active {
+  height: 100%;
 }
 `

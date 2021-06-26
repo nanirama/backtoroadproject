@@ -82,7 +82,7 @@ export default PartsGallery
 
 const PartsContainer = styled.div`
   width: 70vw;
-  height: 100vh
+  height: 100vh;
   background: lightgrey;
 `
 

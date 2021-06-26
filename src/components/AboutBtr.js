@@ -42,6 +42,11 @@ const Container = styled.div`
     min-height: 60vh;
     width: 100vw;
     padding: 2rem calc((100vw - 1300px) / 2);
+    
+    @media screen and (max-width: 415px) {
+      padding: 1rem 1.4rem;
+    }
+
 `
 
 const Wrapper = styled.div`
@@ -49,7 +54,7 @@ const Wrapper = styled.div`
     background-color: #fdfdfd; /* For browsers that do not support gradients */
     background-image: linear-gradient(#fdfdfd, #ffffff);
     border: 10px solid rgba(255,255,255,0.20);
-    box-shadow: 2px 2px 16px 8px rgba(217,210,200,0.51);
+    box-shadow: 2px 2px 16px 8px rgb(236 236 235 / 51%);
     display: flex;
     flex-direction: row;
     align-items: center;
