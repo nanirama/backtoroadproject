@@ -1,25 +1,180 @@
-import React, { Component } from 'react';
-import Carousel from 'react-elastic-carousel';
+import React from 'react';
+import Slider from '../components/LandingPage/Slider'
 
-class PartsTemplate extends Component {
-  state = {
-    items: [
-      {id: 1, title: 'item #1'},
-      {id: 2, title: 'item #2'},
-      {id: 3, title: 'item #3'},
-      {id: 4, title: 'item #4'},
-      {id: 5, title: 'item #5'}
-    ]
-  }
-
-  render () {
-    const { items } = this.state;
+const PartsTemplate = (props) => {
+  const {
+    PageData,
+    MakeModelData,
+    BannerImage,
+    GoogleImage,
+    JourneyBg} = props.data
+    const { morecontent } = PageData
+    const { makemodels } = PageData
+    // const { wpChildren } = MakeData
+    const { faqs, slides, recentArrivals} = morecontent
     return (
-      <Carousel>
-        {items.map(item => <div key={item.id}>{item.title}</div>)}
-      </Carousel>
+      <>
+      {slides && <Slider data={slides}/>}
+      </>
     )
-  }
 }
+
+export const query = graphql`
+query($id : String, $mid : String){    
+  JourneyBg: file(relativePath: { eq: "landing/journey_bg.jpg" }) {
+        childImageSharp {
+          fluid(maxWidth: 1200) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+  }
+  GoogleImage: file(relativePath: { eq: "landing/google.png" }) {
+        childImageSharp {
+            gatsbyImageData(
+                width: 40
+              )
+        }
+  }
+  BannerImage: file(relativePath: { eq: "landing/ban_img.png" }) {
+        childImageSharp {
+            gatsbyImageData(
+                width: 300
+              )
+        }
+  }
+  MakeModelData : wpMakemodel(id: {eq: $mid}) {
+        name
+        slug
+  }
+  PageData : wpPart(id: {eq: $id}) {
+        seo {
+          title
+          metaDesc
+          focuskw
+          metaKeywords
+          metaRobotsNoindex
+          metaRobotsNofollow              
+          schema {
+              articleType
+              pageType
+              raw
+          }
+      }
+        content
+        id
+        slug
+        title
+        featuredImage {
+        node {
+            localFile {
+            childImageSharp {
+                gatsbyImageData(
+                    width: 500
+                  )
+            }
+            }
+        }
+        }
+        makemodels {
+        nodes {
+            id
+            name
+        }
+        }
+        morecontent {
+        popularUsedParts
+        popularUsedModelParts
+        aboutContent
+        aboutTitle
+        aboutImage {
+            localFile {
+            childImageSharp {
+                gatsbyImageData(
+                    width: 500
+                  )
+            }
+            }
+        }
+        summaryImage {
+          localFile {
+          childImageSharp {
+              gatsbyImageData(
+                  width: 500
+                )
+          }
+          }
+      }
+        benefitsTopContent
+        benefitsListingContent
+        benefitsBottomContent
+        benefitsTitle
+        benefitsImage{
+            localFile {
+                childImageSharp {
+                    gatsbyImageData(
+                        width: 500
+                      )
+                }
+            }
+        }
+        whyBackroad
+        whyBackroadTopContent
+        whyBackroadBottomContent
+        wnyBackroadImage{
+            localFile {
+                childImageSharp {
+                    gatsbyImageData(
+                        width: 1200
+                      )
+                }
+            }
+        }
+        recentArrivals {
+            ... on WpRarrival {
+              id
+              title
+              featuredImage {
+                node {
+                  localFile {
+                    childImageSharp {
+                        gatsbyImageData(
+                            width: 400
+                          )
+                    }
+                  }
+                }
+              }
+            }
+          }
+        faqs {
+            ... on WpFaq {
+            id
+            content
+            title
+            }
+        }
+        slides {
+            ... on WpSlide {
+            id
+            title
+            content
+            featuredImage {
+                node {
+                localFile {
+                    childImageSharp {
+                        gatsbyImageData(
+                          width: 1600
+                        )
+                      }
+                }              
+                }
+            }
+            }
+        }
+        }
+    }
+} 
+` 
+
 export default PartsTemplate
   
