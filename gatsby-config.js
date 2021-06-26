@@ -8,7 +8,7 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-perf-budgets`,
-    `gatsby-plugin-webpack-bundle-analyser-v2`
+    `gatsby-plugin-webpack-bundle-analyser-v2`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
