@@ -2,7 +2,8 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 import { StateProvider } from '../../../StateProvider';
 import reducer, { initialState } from '../../../reducer';
-
+import LandingHeader from './Header'
+import LandingFooter from './Footer'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 //import { Styles } from '../css/style';
@@ -48,13 +49,17 @@ const Layout = ({ children }) => {
       }
     `}
     render={data => (	
-      <>
       <div className={`wrapper w-100 float-left`}>
-	  	  <StateProvider initialState={initialState} reducer={reducer}>			  
-			  { children }
-		  </StateProvider>
+	  	  <StateProvider initialState={initialState} reducer={reducer}>        
+            <LandingHeader logoImg = {data.HeaderLogo}/>			  
+          { children }
+            <LandingFooter
+            logoImg = {data.FooterLogo}
+            secureImg = {data.fSecureImage}
+            partnersImg={data.fPartnersImage}
+            />  
+        </StateProvider>
       </div>
-      </>
     )}
   />
     
