@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from '../components/LandingPage/Slider'
-
+import Layout from '../components/LandingPage/common/layout'
 const PartsTemplate = (props) => {
   const {
     PageData,
@@ -13,9 +13,9 @@ const PartsTemplate = (props) => {
     // const { wpChildren } = MakeData
     const { faqs, slides, recentArrivals} = morecontent
     return (
-      <>
+      <Layout>
       {slides && <Slider data={slides}/>}
-      </>
+      </Layout>
     )
 }
 
@@ -163,7 +163,7 @@ query($id : String, $mid : String){
                 localFile {
                     childImageSharp {
                         fluid(maxWidth: 1200, base64Width:1800) {                        
-                          base64
+                            base64
                         }
                       }
                 }              
