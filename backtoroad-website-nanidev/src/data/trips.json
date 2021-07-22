@@ -1,0 +1,54 @@
+[{
+    "img": "../assets/images/engine-1.webp",
+    "alt": "ENGINES",
+    "name": "ENGINES",
+    "to": "/used-engines-assembly",
+    "button": "View More"
+  },
+  {
+    "img": "../assets/images/engine-2.webp",
+    "alt": "STEERING COLUMNS",
+    "name": "STEERING COLUMNS",
+    "to": "/used-steering-assembly",
+    "button": "View More"
+  },
+  {
+    "img": "../assets/images/engine-3.webp",
+    "alt": "TRANSMISSIONS",
+    "name": "TRANSMISSIONS",
+    "to": "/used-transmission-sssembly",
+    "button": "View More"
+  },
+  {
+    "img": "../assets/images/engine-4.webp",
+    "alt": "A.B.S",
+    "name": "A.B.S",
+    "to": "/used-abs-assembly",
+    "button": "View More"
+  },
+  {
+    "img": "../assets/images/engine-1.webp",
+    "alt": "AXLE ASSEMBLIES",
+    "name": "AXLE ASSEMBLIES ",
+    "to": "/used-axles-assembly",
+    "button": "View More"
+  }, {
+    "img": "../assets/images/engine-2.webp",
+    "alt": "ALTERNATORS",
+    "name": "ALTERNATORS",
+    "to": "/used-alternator-assembly",
+    "button": "View More"
+  }, {
+    "img": "../assets/images/engine-3.webp",
+    "alt": "TRANSFER CASE",
+    "name": "TRANSFER CASE",
+    "to": "/used-transfer-case-assembly",
+    "button": "View More"
+  }, {
+    "img": "../assets/images/engine-4.webp",
+    "alt": "STRUTS",
+    "name": "STRUTS",
+    "to": "/used-struts-assembly",
+    "button": "View More"
+  }
+]

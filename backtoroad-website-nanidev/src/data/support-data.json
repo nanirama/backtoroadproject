@@ -1,0 +1,22 @@
+[
+    {
+        "img": "../assets/images/support/tested-01.png",
+        "alt": "tested",
+        "name": "TESTED"
+    },
+    {
+        "img": "../assets/images/support/delivery-01.png",
+        "alt": "fast delivery",
+        "name": "FAST DELIVERY"
+    },
+    {
+        "img": "../assets/images/support/secure-01.png",
+        "alt": "secure",
+        "name": "SECURE"
+    },
+    {
+        "img": "../assets/images/support/support-01.png",
+        "alt": "support",
+        "name": "SUPPORT"
+    }
+]

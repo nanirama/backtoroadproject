@@ -1,6 +1,8 @@
 import React from "react"
+import { graphql} from "gatsby"
 import Hero from "../components/Hero"
-import Layout from "../components/layout"
+import Layout from '../components/LandingPage/common/layout'
+import HomeSlider from '../components/LandingPage/HomeSlider'
 import SEO from "../components/seo"
 import Stats from "../components/Stats"
 import OemParts from "../components/OemParts"
@@ -13,10 +15,24 @@ import styled from "styled-components"
 import GoGreen from "../components/GoGreen"
 import RecentArrivals from "../components/RecentArrivals"
 
-const IndexPage = () => (
+const IndexPage = (props) => {
+  const { site, PageData, slides } = props.data
+  const siteURL = site.siteMetadata.siteUrl 
+  const seo = {
+    title: PageData.seo.title,
+    description: PageData.seo.metaDesc,
+    url: siteURL
+  }
+  //console.log('Page Data',slides);
+  return(
   <Layout>
-    <SEO title="Home" />
-    <Hero />
+      <SEO
+          title={seo.title}
+          description={seo.description}
+          cpath = {props.location.pathname}
+       />
+    {slides && <HomeSlider data={slides}/>}
+    {/* <Hero />
     <AboutBtr />
     <OemParts heading="Genuine OEM Used Auto Parts" /> 
     <InnerContainer>
@@ -29,10 +45,41 @@ const IndexPage = () => (
     <Brands />
     <GoGreen />
     <Reviews />
-    <RecentArrivals />
+    <RecentArrivals /> */}
   </Layout>
 )
-
+}
+export const query = graphql`
+query HomePageQuery{   
+  site {
+    siteMetadata {
+      siteUrl
+    }
+  }
+  PageData: wpPage(id: {eq: "cG9zdDozNTg="}) {
+    seo {
+      title
+      metaDesc
+      focuskw
+      metaKeywords
+    }
+  }
+  slides : allHomeSlidesDataJson {
+    edges {
+      node {
+        title
+        id
+        content
+        img {
+          childImageSharp {
+            gatsbyImageData(height: 900, width: 1600)
+          }
+        }
+      }
+    }
+  }
+}
+`
 export default IndexPage
 
 const InnerContainer = styled.div`

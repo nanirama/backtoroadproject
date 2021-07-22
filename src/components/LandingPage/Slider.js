@@ -1,11 +1,11 @@
+ 
 import React from "react"
 import Image from './image'
 import Slider from "react-slick";
 import FormsControler from './FormsControler'
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
 
 const LandingSlider = ({data}) => {
+  console.log('Slides Data ', data);
   const settings = {
     dots: true,
     arrows: false,
@@ -54,7 +54,7 @@ const LandingSlider = ({data}) => {
           <Slider {...settings}>
           {data.map((item, index) => {
           return (
-              <div key={index} className="slide-item d-flex justify-content-center" >                
+              <div key={index} className="slide-item d-flex justify-content-center">                
                 <div className="s_txt_outer">
                   <div className="container">
                       <div className="row d-flex align-items-center first-col">
@@ -81,9 +81,7 @@ const LandingSlider = ({data}) => {
           </Slider>
         </div>  
           <div className="slider_form mob_form">
-            <div className="container">
               <FormsControler/>
-            </div>             
           </div> 
         </div>  
         
