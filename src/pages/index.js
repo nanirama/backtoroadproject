@@ -16,7 +16,7 @@ import GoGreen from "../components/GoGreen"
 import RecentArrivals from "../components/RecentArrivals"
 
 const IndexPage = (props) => {
-  const { site, PageData } = props.data
+  const { site, PageData, slides } = props.data
   const siteURL = site.siteMetadata.siteUrl 
   const seo = {
     title: PageData.seo.title,
@@ -31,7 +31,7 @@ const IndexPage = (props) => {
           description={seo.description}
           cpath = {props.location.pathname}
        />
-    <HomeSlider />
+    {slides && <HomeSlider data={slides}/>}
     {/* <Hero />
     <AboutBtr />
     <OemParts heading="Genuine OEM Used Auto Parts" /> 
@@ -62,6 +62,20 @@ query HomePageQuery{
       metaDesc
       focuskw
       metaKeywords
+    }
+  }
+  slides : allHomeSlidesDataJson {
+    edges {
+      node {
+        title
+        id
+        content
+        img {
+          childImageSharp {
+            gatsbyImageData(height: 900, width: 1600)
+          }
+        }
+      }
     }
   }
 }

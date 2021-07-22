@@ -1,31 +1,10 @@
  
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
 import Image from './image'
 import Slider from "react-slick";
 import FormsControler from './FormsControler'
 
-const HomeSlider = () => {
-    const { data } = useStaticQuery(
-        graphql`
-          query {
-            data : allHomeSlidesDataJson {
-                edges {
-                  node {
-                    title
-                    id
-                    content
-                    img {
-                      childImageSharp {
-                        gatsbyImageData(height: 900, width: 1600)
-                      }
-                    }
-                  }
-                }
-              }
-          }
-        `
-      )
+const HomeSlider = ({data}) => {
   console.log('Slides Data ', data);
   const settings = {
     dots: true,
@@ -76,7 +55,7 @@ const HomeSlider = () => {
           {data.edges.map(({node}, index) => {
           console.log('Each Item ',node)
           return (
-              <div key={index} className="slide-item d-flex justify-content-center">                
+              <div key={index} className="slide-item d-flex justify-content-center border2">                
                 <div className="s_txt_outer">
                   <div className="container">
                       <div className="row d-flex align-items-center first-col">
