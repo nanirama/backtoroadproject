@@ -375,7 +375,7 @@ ul.links li {
 ul.links li:before {
 	position:absolute;
 	content:'';
-	left:0;
+	left:3px;
 	background:#5fa2dd;
 	width:8px;
 	height:8px;
@@ -484,24 +484,28 @@ ul.links li:before {
 	position:relative;
 	font-weight:500
 }
+.popular_blk ul{ display: flex; justify-content:flex-start; flex-wrap: wrap; align-items: stretch}
+.popular_blk ul li{ padding-left:0px;}
 .popular_blk ul li a {
 	width:100%;
 	float:left;
-	font-size:18px;
+	line-height: 22px;
+	font-size:16px;
 	margin-bottom:8px;
 	color:rgba(16, 25, 40, .8);
-	padding-left:25px
+	padding-left:20px
 }
 .popular_blk ul li a:before, .slick-dots li button, ul.links li:before {
 	border-radius:2px;
 	transform:matrix(.71, .71, -.71, .71, 0, 0)
 }
+
 .popular_blk ul li a:before {
 	position:absolute;
 	content:'';
 	width:8px;
 	height:8px;
-	top:10px;
+	top:7px;
 	left:0;
 	background:#5fa2dd
 }
@@ -591,6 +595,7 @@ footer p, footer p a {
 	display:inline-block;
 	opacity:1 !important
 }
+.slick-dots li button::before{ width:12px!important;; height:12px!important;;}
 .slick-dots li.slick-active button {
 	background-color:#5fa2dd!important;
 	opacity:1!important
@@ -737,7 +742,7 @@ nav ul.slide {
 @media only screen and (min-width:1200px) {
 .recent_post_blk .post_img{ min-height: 355px;}
 .main-slider .slick-dots {
-bottom:20%;
+bottom:5%;
 left:10%
 }
 .mob_form {
@@ -1246,11 +1251,13 @@ transform:matrix(.71, .71, -.71, .71, 0, 0)
 	max-width: 100% !important;
 	overflow: hidden !important;
 }
-.slick-dots li{width:7px !important;
-	height:7px !important;}
+.slick-dots li button::before{width:5.65px !important;
+	height:5.65px !important; line-height: 5.65px !important;}
+.slick-dots li{width:5.65px !important;
+	height:5.65px !important;}
 .slick-dots li button {
-	width:7px !important;
-	height:7px !important;
+	width:5.65px !important;
+	height:5.65px !important;
 }
 .count_blk .icon{ margin-top: -24px;}
 .container {

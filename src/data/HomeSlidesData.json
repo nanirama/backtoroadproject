@@ -1,13 +1,35 @@
 [
     {
-        "img": "../assets/images/landing/slider.jpg",
-        "title": "WAREHOUSES ALL OVER USA",
-        "content": "<ul>\n<li>We Ship Nationwide &#038; Local 2</li>\n<li>Quick Delivery to Your Home or Mechanic 2</li>\n<li>17+ Warehouse Locations 2</li>\n</ul>\n"
+        "img": "../assets/images/homeslides/slider1.jpg",
+        "imgalt":"High quality used auto parts delivered all over USA &amp; Canada",
+        "title": "SHOP REMOTELY",
+        "content": "<ul>\n<li>We Ship Nationwide and Local</li>\n<li>17+ Warehouse Locations Across USA &amp; Canada</li>\n<li>Quick Delivery to Your Home or Mechanic</li>\n</ul>\n"
     },
     {
-        "img": "../assets/images/landing/slider.jpg",
-        "title": "WAREHOUSES ALL OVER USA 2",
-        "content": "<ul>\n<li>We Ship Nationwide &#038; Local 2</li>\n<li>Quick Delivery to Your Home or Mechanic 2</li>\n<li>17+ Warehouse Locations 2</li>\n</ul>\n"
+        "img": "../assets/images/homeslides/slider2.jpg",
+        "imgalt":"Low mileage fully tested used auto parts delivered with warranty",
+        "title": "HIGH QUALITY TESTED CAR AND TRUCK PARTS",
+        "content": "<ul>\n<li>We Handle All Makes and Models</li>\n<li>Fully Tested and Inspected Auto Parts</li>\n<li>Recycled OEM ‘A’ Grade Parts</li>\n<li>Low Mileage Recycled Parts</li>\n</ul>\n",
+        "subimgs": [
+            "../assets/images/homeslides/vect1.png",
+            "../assets/images/homeslides/vect2.png",
+            "../assets/images/homeslides/vect3.png",
+            "../assets/images/homeslides/vect4.png",
+            "../assets/images/homeslides/vect5.png",
+            "../assets/images/homeslides/vect6.png"
+        ]
+    },
+    {
+        "img": "../assets/images/homeslides/slider3.jpg",
+        "imgalt":"Find the used auto part you need from the nearest junkyard at no cost at all",
+        "title": "IF WE DON’T HAVE IT, WE’LL FIND IT FOR YOU",
+        "content": "<ul>\n<li>Free Nationwide Parts Locator Tool</li>\n<li>Find Parts From Junkyards Near You</li>\n<li>Connected to 15k+ Auto Recyclers Nationwide</li>\n</ul>\n"
+    },
+    {
+        "img": "../assets/images/homeslides/slider4.jpg",
+        "imgalt":"Fully sanitized process and delivery to assure your protection",
+        "title": "COVID-19 ASSISTANCE",
+        "content": "<ul>\n<li>Internal and External Sanitization</li>\n<li>Best Safety and Hygiene Practices</li>\n<li>Contactless Doorstep Delivery</li>\n</ul>\n"
     }
 ]
 

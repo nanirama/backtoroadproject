@@ -52,7 +52,7 @@ const HomeSlider = ({data}) => {
           <div className="col-md-12 col-sm-12 main-slider">
           <Slider {...settings}>
           {data.edges.map(({node}, index) => {
-          console.log('Each Item ',node)
+          console.log('Each Item ',node.subimgs)
           return (
               <div key={index} className="slide-item d-flex justify-content-center">                
                 <div className="s_txt_outer">
@@ -62,6 +62,14 @@ const HomeSlider = ({data}) => {
                           <div className="s_txt">
                             <h2 className="text-uppercase mb-4">{node.title}</h2>
                             <div dangerouslySetInnerHTML={{ __html: node.content }} ></div> 
+                            { node.subimgs && (
+                              <div class="vector_icons w-100 float-left mt-4">
+                                { node.subimgs.map((subimg, subindex)=>(
+                                  <div class="v_icon"><img src={subimg.childImageSharp.fixed.base64}/></div>
+                                ))
+                                }
+                              </div>
+                            )}
                           </div>
                         </div>
                         <div className="col-lg-6 col-md-6 slider_form_above">                          
@@ -72,7 +80,8 @@ const HomeSlider = ({data}) => {
                       </div>
                     </div>
                   </div>
-                  <Image img={node.img} imgalt={node.title} alt={node.title}/>
+                  <Image img={node.dslide} imgalt={node.imgalt} alt={node.imgalt} className="dimg"/>
+                  <Image img={node.mslide} imgalt={node.imgalt} alt={node.imgalt} className="mimg"/>
               </div> 
             )
           })}              

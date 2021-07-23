@@ -1,2 +1,44 @@
 .how_work_blk{ background-color: #ffffff !important;}
 .post_box h4{ font-size: 16px !important; font-weight: 600 !important;}
+.v_icon{
+background-color:#fff;
+padding:10px;
+border-radius:10px;
+width:66px;
+height:66px;
+float:left;
+margin:0 10px 5px 0}
+@media only screen and (min-width:768px) {
+.dimg{ display: block; border:2px solid red;}
+.mimg{ display: none;}
+}
+@media only screen and (max-width:767px) {
+    .dimg{ display: none;}
+    .mimg{ display: block; border:2px solid blue;}
+}
+@media only screen and (max-width:599px) {
+    .dimg{ display: none;}
+    .mimg{ display: block;}
+    .v_icon{
+    width:56px;
+    height:56px;
+    }
+    .s_txt_outer {
+        top:20%!important;
+    }
+}
+@media only screen and (max-width:479px) {
+    .v_icon{
+    padding:3px;
+    width:30px;
+    height:30px;
+    }
+    .s_txt_outer {
+        top:20%!important;
+    }
+}
+@media only screen and (max-width:400px) {
+    .s_txt_outer {
+        top:15%!important;
+    }
+}

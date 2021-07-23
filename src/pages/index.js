@@ -103,11 +103,23 @@ query HomePageQuery{
     edges {
       node {
         title
-        id
         content
-        img {
+        subimgs {
           childImageSharp {
-            gatsbyImageData(height: 900, width: 1600)
+            fixed(base64Width: 66) {
+              base64
+            }
+          }
+        }
+        imgalt
+        dslide: img {
+          childImageSharp {
+            gatsbyImageData(height: 1000, width: 1600)
+          }
+        }
+        mslide: img {
+          childImageSharp {
+            gatsbyImageData(height: 660, width: 760)
           }
         }
       }
