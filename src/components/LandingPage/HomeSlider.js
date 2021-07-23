@@ -65,7 +65,7 @@ const HomeSlider = ({data}) => {
                             { node.subimgs && (
                               <div class="vector_icons w-100 float-left mt-4">
                                 { node.subimgs.map((subimg, subindex)=>(
-                                  <div class="v_icon"><img src={subimg.childImageSharp.fixed.base64}/></div>
+                                  <div class="v_icon"><img src={subimg.childImageSharp.fixed.base64} width={56} height={56}/></div>
                                 ))
                                 }
                               </div>

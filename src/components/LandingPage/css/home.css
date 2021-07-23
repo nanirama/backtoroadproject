@@ -9,12 +9,12 @@ height:66px;
 float:left;
 margin:0 10px 5px 0}
 @media only screen and (min-width:768px) {
-.dimg{ display: block; border:2px solid red;}
-.mimg{ display: none;}
+.dimg{ display: block; width:100%;}
+.mimg{ display: none;width:0%;}
 }
 @media only screen and (max-width:767px) {
-    .dimg{ display: none;}
-    .mimg{ display: block; border:2px solid blue;}
+    .dimg{ display: none;width:0%;}
+    .mimg{ display: block;width:100%;}
 }
 @media only screen and (max-width:599px) {
     .dimg{ display: none;}
