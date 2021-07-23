@@ -1,22 +1,30 @@
 import React from "react"
-import { graphql} from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import Hero from "../components/Hero"
 import Layout from '../components/LandingPage/common/layout'
 import HomeSlider from '../components/LandingPage/HomeSlider'
 import SEO from "../components/seo"
+import '../components/LandingPage/css/home.css'
+
+import HowitWorks from '../components/LandingPage/Howitworks'
+import JourneySoFar from "../components/LandingPage/Journeysofar"
+import Whychoosebtr from '../components/LandingPage/Whychoosebtr'
+
+import CustomerReviews from '../components/LandingPage/CustomerReviews'
+import HomeRecentArrivals from '../components/LandingPage/HomeRecentArrivals'
+import LandingBanner from '../components/LandingPage/LandingBanner'
 import Stats from "../components/Stats"
 import OemParts from "../components/OemParts"
 import Brands from "../components/Brands"
 import Reviews from "../components/Reviews"
 import AboutBtr from "../components/AboutBtr"
-import HowItWorks from "../components/HowItWorks"
-import JourneySoFar from "../components/JourneySoFar"
-import styled from "styled-components"
+
+
 import GoGreen from "../components/GoGreen"
-import RecentArrivals from "../components/RecentArrivals"
+//import RecentArrivals from "../components/RecentArrivals"
 
 const IndexPage = (props) => {
-  const { site, PageData, slides } = props.data
+  const { site, PageData, slides, JourneyBg, GoogleImage, BannerImage } = props.data
   const siteURL = site.siteMetadata.siteUrl 
   const seo = {
     title: PageData.seo.title,
@@ -32,6 +40,12 @@ const IndexPage = (props) => {
           cpath = {props.location.pathname}
        />
     {slides && <HomeSlider data={slides}/>}
+    <HowitWorks />
+    <JourneySoFar image={JourneyBg}/>
+    <Whychoosebtr/> 
+    <CustomerReviews gImage={GoogleImage}/>
+    <HomeRecentArrivals/>
+    <LandingBanner bannerImage={BannerImage}/>
     {/* <Hero />
     <AboutBtr />
     <OemParts heading="Genuine OEM Used Auto Parts" /> 
@@ -64,6 +78,27 @@ query HomePageQuery{
       metaKeywords
     }
   }
+  JourneyBg: file(relativePath: { eq: "landing/journey_bg.jpg" }) {
+      childImageSharp {
+          fluid(quality: 100, base64Width: 1600) {
+              base64
+          }
+      }
+  }
+  GoogleImage: file(relativePath: { eq: "landing/google.png" }) {
+      childImageSharp {
+          gatsbyImageData(
+              width: 40
+          )
+      }
+  }
+  BannerImage: file(relativePath: { eq: "landing/ban_img.png" }) {
+      childImageSharp {
+          gatsbyImageData(
+              width: 300
+          )
+      }
+  }
   slides : allHomeSlidesDataJson {
     edges {
       node {
@@ -81,19 +116,3 @@ query HomePageQuery{
 }
 `
 export default IndexPage
-
-const InnerContainer = styled.div`
-  padding: 2rem calc((100vw - 1300px) / 2);
-
-  @media screen and (max-width: 415px) {
-    padding: 1rem 1.4rem;
-  }
-`
-
-const Wrapper = styled.div`
-  background-color: #fdfdfd; /* For browsers that do not support gradients */
-  background-image: linear-gradient(#fdfdfd, #ffffff);
-  border: 10px solid rgba(255,255,255,0.20);
-  /* box-shadow: 2px 2px 16px 8px rgb(245 243 241 / 51%) */
-  box-shadow: 2px 2px 16px 8px rgb(236 236 235 / 51%);
-`

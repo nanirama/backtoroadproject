@@ -2,7 +2,7 @@ import React, { useRef } from "react"
 import useIntersectionObserver from '@react-hook/intersection-observer'
 import { HowItWorksData } from "../../data/HowItWorksData"
 
-const HowitWorks = () => {
+const HowitWorks = ({ background }) => {
     const containerRef4 = useRef() 
     const lockRef4 = useRef()
     let { isIntersecting } = useIntersectionObserver(containerRef4)
