@@ -46,7 +46,7 @@ const LandingHeader = ({ logoImg, cpath }) => {
                             </nav>
                         </div>
                         <a href="tel:18006083868" className="btn1 ph ml-3" title="CLICK TO CALL"><FiPhoneCall className="picon" /><span>1800 608 3868</span><strong>CLICK TO CALL</strong></a>
-                        <a href="tel:18006083868" className="btnm1" title="CLICK TO CALL"><img src={mpIcon}/></a>
+                        <a href="tel:18006083868" className="btnm1" title="CLICK TO CALL"><img src={mpIcon} alt="CLICK TO CALL"/></a>
                   </div>
             </div>
         </div>
