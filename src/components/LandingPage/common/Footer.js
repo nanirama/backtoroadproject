@@ -37,11 +37,13 @@ const LandingFooter = ({logoImg, secureImg, partnersImg}) => {
                     <div className="f_logo w-100 float-left mb-4">
                         <div className="float-left f_logo_img">
                         <Link to="/">
-                        <FooterLogo src={footerLogoImg} alt="Back to Roads Footer Logo" itemprop="logo" width={128} height={47}/>
+                        <FooterLogo src={footerLogoImg} alt="BackToRoad Auto Parts brand logo" itemprop="logo" width={128} height={47}/>
                         </Link>
                         </div>
                     </div>
-                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took.</p>
+                    <p>Contact us for all your used OEM parts needs. We’re the best place to buy used parts online,
+with high quality and genuine used OEM parts at affordable prices. Have a hassle-free
+experience shopping with us and get your car back on the road in no time at all.</p>
                     <div className="s_links w-100 float-left">
                     {socialIcons.map((item, index) => (
                         <a href={item.url} key={index} target="_blank" rel="noopener noreferrer">

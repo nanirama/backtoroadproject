@@ -1,6 +1,6 @@
 import React, { useRef } from "react"
 import useIntersectionObserver from '@react-hook/intersection-observer'
-import { HowItWorksData } from "../../data/HowItWorksData"
+import { HowItWorksData } from "../../data/HomeHowItWorksData"
 
 const HowitWorks = ({ background }) => {
     const containerRef4 = useRef() 
@@ -20,7 +20,7 @@ const HowitWorks = ({ background }) => {
                         <div key={index} className="col-lg-3 col-md-6 col-sm-12 col-xs-12">
                             <div className="work_box w-100 float-left text-center">
                                 <div className="icon mb-4">
-                                    <img className="w-auto" src={item.newicon} alt={item.title} width="70" height="72" />
+                                    <img className="w-auto" src={item.newicon} alt={item.iconalt} width="70" height="72" />
                                 </div>
                                 <h3>{item.title}</h3>
                                 <p className="mb-0">{item.desc}</p>

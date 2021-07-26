@@ -1,37 +1,50 @@
 import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import { graphql } from "gatsby"
 import Hero from "../components/Hero"
 import Layout from '../components/LandingPage/common/layout'
 import HomeSlider from '../components/LandingPage/HomeSlider'
 import SEO from "../components/seo"
 import '../components/LandingPage/css/home.css'
 
+import AboutSection from "../components/LandingPage/AboutSection"
+import OemPartsSection from "../components/LandingPage/OemPartsSection"
 import HowitWorks from '../components/LandingPage/Howitworks'
-import JourneySoFar from "../components/LandingPage/Journeysofar"
-import Whychoosebtr from '../components/LandingPage/Whychoosebtr'
+import HomeJourneySoFar from "../components/LandingPage/HomeJourneysofar"
+import HomeWhychoosebtr from '../components/LandingPage/HomeWhychoosebtr'
+import HomePopularMakes from "../components/LandingPage/HomePopularMakes"
+import GoGreenSection from "../components/LandingPage/GoGreenSection"
 
 import CustomerReviews from '../components/LandingPage/CustomerReviews'
 import HomeRecentArrivals from '../components/LandingPage/HomeRecentArrivals'
 import LandingBanner from '../components/LandingPage/LandingBanner'
-import Stats from "../components/Stats"
-import OemParts from "../components/OemParts"
-import Brands from "../components/Brands"
-import Reviews from "../components/Reviews"
-import AboutBtr from "../components/AboutBtr"
+
+
 
 
 import GoGreen from "../components/GoGreen"
 //import RecentArrivals from "../components/RecentArrivals"
 
 const IndexPage = (props) => {
-  const { site, PageData, slides, JourneyBg, GoogleImage, BannerImage } = props.data
+  const {
+    site,
+    PageData,
+    slides,
+    allMakes,
+    JourneyBg,
+    GoogleImage,
+    BannerImage,
+    AboutImage,
+    gogreenBg,
+    gogreenmBg,
+    saveGreen
+  } = props.data
   const siteURL = site.siteMetadata.siteUrl 
   const seo = {
     title: PageData.seo.title,
     description: PageData.seo.metaDesc,
     url: siteURL
   }
-  //console.log('Page Data',slides);
+  console.log('Page Data',AboutImage);
   return(
   <Layout>
       <SEO
@@ -40,26 +53,16 @@ const IndexPage = (props) => {
           cpath = {props.location.pathname}
        />
     {slides && <HomeSlider data={slides}/>}
+    <AboutSection image={AboutImage}/>
+    <OemPartsSection /> 
     <HowitWorks />
-    <JourneySoFar image={JourneyBg}/>
-    <Whychoosebtr/> 
-    <CustomerReviews gImage={GoogleImage}/>
-    <HomeRecentArrivals/>
+    <HomeJourneySoFar image={JourneyBg}/>
+    <HomeWhychoosebtr/> 
+    <HomePopularMakes data={allMakes}/>
+    <GoGreenSection bg={gogreenBg} mbg={gogreenmBg} img={saveGreen} />
+    <CustomerReviews gImage={GoogleImage}/>    
+    <HomeRecentArrivals/>    
     <LandingBanner bannerImage={BannerImage}/>
-    {/* <Hero />
-    <AboutBtr />
-    <OemParts heading="Genuine OEM Used Auto Parts" /> 
-    <InnerContainer>
-      <Wrapper>
-        <HowItWorks />
-        <JourneySoFar />
-        <Stats />
-      </Wrapper>
-    </InnerContainer>
-    <Brands />
-    <GoGreen />
-    <Reviews />
-    <RecentArrivals /> */}
   </Layout>
 )
 }
@@ -99,27 +102,65 @@ query HomePageQuery{
           )
       }
   }
+  AboutImage: file(relativePath: { eq: "about-btr.png" }) {
+    childImageSharp {
+        gatsbyImageData(
+            width: 500
+        )
+    }
+  }
+  gogreenBg: file(relativePath: {eq: "landing/blue-bg.jpg"}) {
+    childImageSharp {
+      fluid(quality: 100, base64Width: 1200) {
+          base64
+      }
+    }
+  }
+  gogreenmBg: file(relativePath: {eq: "landing/blue-bg-mob.jpg"}) {
+    childImageSharp {
+      fluid(quality: 100, base64Width: 374) {
+        base64
+      }
+    }
+  }
+  saveGreen: file(relativePath: {eq: "landing/save-green.png"}) {
+    childImageSharp {
+      gatsbyImageData(
+          width: 218
+      )
+    }
+  }
+  allMakes : allPopularMakesJson {
+    edges {
+      node {
+        title
+        imgalt
+        img {
+          childImageSharp {
+            gatsbyImageData(width: 150)
+          }
+        }
+      }
+    }
+  }
   slides : allHomeSlidesDataJson {
     edges {
       node {
         title
         content
-        subimgs {
-          childImageSharp {
-            fixed(base64Width: 66) {
-              base64
+        eimg {
+          img {
+            childImageSharp {
+              gatsbyImageData
             }
           }
+          width
+          height
         }
         imgalt
-        dslide: img {
+        img {
           childImageSharp {
-            gatsbyImageData(height: 1000, width: 1600)
-          }
-        }
-        mslide: img {
-          childImageSharp {
-            gatsbyImageData(height: 660, width: 760)
+            gatsbyImageData(height: 900, width: 1600)
           }
         }
       }

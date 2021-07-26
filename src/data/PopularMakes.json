@@ -1,0 +1,83 @@
+[
+    {
+        "img": "../assets/images/popularmakes/bmw.png",
+        "imgalt":"BMW used parts logo",
+        "title": "BMW"        
+    },
+    {
+        "img": "../assets/images/popularmakes/fiat.png",
+        "imgalt":"Fiat used parts logo",
+        "title": "Fiat"        
+    },
+    {
+        "img": "../assets/images/popularmakes/gmc.png",
+        "imgalt":"Gmc used parts logo",
+        "title": "Gmc"        
+    },
+    {
+        "img": "../assets/images/popularmakes/ford.png",
+        "imgalt":"Ford used parts logo",
+        "title": "Ford"        
+    },
+    {
+        "img": "../assets/images/popularmakes/honda.png",
+        "imgalt":"Honda used parts logo",
+        "title": "Honda"        
+    },
+    {
+        "img": "../assets/images/popularmakes/hyundai.png",
+        "imgalt":"Hyundai used parts logo",
+        "title": "Hyundai"        
+    },
+    {
+        "img": "../assets/images/popularmakes/infinity.png",
+        "imgalt":"Infiniti used parts logo",
+        "title": "Infiniti"        
+    },
+    {
+        "img": "../assets/images/popularmakes/jaguar.png",
+        "imgalt":"Jaguar used parts logo",
+        "title": "Jaguar"        
+    },
+    {
+        "img": "../assets/images/popularmakes/buick.jpg",
+        "imgalt":"Buick used parts logo",
+        "title": "Buick"        
+    },
+    {
+        "img": "../assets/images/popularmakes/cadilac.png",
+        "imgalt":"Cadillac used parts logo",
+        "title": "Cadillac"        
+    },
+    {
+        "img": "../assets/images/popularmakes/chervrolet.png",
+        "imgalt":"Chevrolet used parts logo",
+        "title": "Chevrolet"        
+    },
+    {
+        "img": "../assets/images/popularmakes/chrysler.png",
+        "imgalt":"Chrysler used parts logo",
+        "title": "Chrysler"        
+    },
+    {
+        "img": "../assets/images/popularmakes/dodge.png",
+        "imgalt":"Dodge used parts logo",
+        "title": "Dodge"        
+    },
+    {
+        "img": "../assets/images/popularmakes/nissan.png",
+        "imgalt":"Nissan used parts logo",
+        "title": "Nissan"        
+    },
+    {
+        "img": "../assets/images/popularmakes/jeep.png",
+        "imgalt":"Jeep used parts logo",
+        "title": "Jeep"        
+    },
+    {
+        "img": "../assets/images/popularmakes/kia.png",
+        "imgalt":"Kia used parts logo",
+        "title": "Kia"        
+    }
+]
+

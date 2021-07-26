@@ -509,8 +509,12 @@ ul.links li:before {
 	left:0;
 	background:#5fa2dd
 }
-.post_box .btn1,.bot_banner .btn1 {
+.post_box .btn1{
 	width:195px;
+	height: 52px;
+}
+.bot_banner .btn1 {
+	width:210px;
 	height: 52px;
 }
 .bot_banner {

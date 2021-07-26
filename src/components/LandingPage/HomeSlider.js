@@ -1,10 +1,10 @@
 import React from "react"
-import Image from './image'
 import Slider from "react-slick";
+import Image from './image'
 import FormsControler from './FormsControler'
 
+
 const HomeSlider = ({data}) => {
-  console.log('Slides Data ', data);
   const settings = {
     dots: true,
     arrows: false,
@@ -52,23 +52,17 @@ const HomeSlider = ({data}) => {
           <div className="col-md-12 col-sm-12 main-slider">
           <Slider {...settings}>
           {data.edges.map(({node}, index) => {
-          console.log('Each Item ',node.subimgs)
           return (
-              <div key={index} className="slide-item d-flex justify-content-center">                
-                <div className="s_txt_outer">
+            <div key={index} className="slide-item d-flex justify-content-center">           
+                <div className="s_txt_outer d-flex flex-column justify-content-end align-items-center">
                   <div className="container">
                       <div className="row d-flex align-items-center first-col">
                         <div className=" col-md-12 col-xs-12 col-lg-6 first-col">
                           <div className="s_txt">
                             <h2 className="text-uppercase mb-4">{node.title}</h2>
                             <div dangerouslySetInnerHTML={{ __html: node.content }} ></div> 
-                            { node.subimgs && (
-                              <div class="vector_icons w-100 float-left mt-4">
-                                { node.subimgs.map((subimg, subindex)=>(
-                                  <div class="v_icon"><img src={subimg.childImageSharp.fixed.base64} width={56} height={56}/></div>
-                                ))
-                                }
-                              </div>
+                            { node.eimg && (
+                                  <div class="w-100 float-left eimg_icon"><Image img={node.eimg.img} width={node.eimg.width} height={node.eimg.height} className="slider-eimg"/></div>
                             )}
                           </div>
                         </div>
@@ -80,8 +74,7 @@ const HomeSlider = ({data}) => {
                       </div>
                     </div>
                   </div>
-                  <Image img={node.dslide} imgalt={node.imgalt} alt={node.imgalt} className="dimg"/>
-                  <Image img={node.mslide} imgalt={node.imgalt} alt={node.imgalt} className="mimg"/>
+                  <Image img={node.img} imgalt={node.imgalt} alt={node.imgalt} className="slider-img"/>
               </div> 
             )
           })}              
