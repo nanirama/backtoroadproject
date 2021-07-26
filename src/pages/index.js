@@ -21,7 +21,6 @@ import LandingBanner from '../components/LandingPage/LandingBanner'
 
 
 
-import GoGreen from "../components/GoGreen"
 //import RecentArrivals from "../components/RecentArrivals"
 
 const IndexPage = (props) => {
@@ -44,7 +43,6 @@ const IndexPage = (props) => {
     description: PageData.seo.metaDesc,
     url: siteURL
   }
-  console.log('Page Data',AboutImage);
   return(
   <Layout>
       <SEO
