@@ -56,15 +56,8 @@ const IndexPage = (props) => {
     {
       "@context": "https://schema.org",
       "@type": "WebSite",
-      "url": siteURL,
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": "https://query.example.com/search?q={search_term_string}"
-        },
-        "query-input": "required name=search_term_string"
-      }
+      "name": "BackToRoad Auto Parts",
+      "url": "https://backtoroadautoparts.com/"      
     }
   ]
   return(
