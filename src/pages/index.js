@@ -35,20 +35,45 @@ const IndexPage = (props) => {
     AboutImage,
     gogreenBg,
     gogreenmBg,
-    saveGreen
+    saveGreen,
+    SiteLogo
   } = props.data
   const siteURL = site.siteMetadata.siteUrl 
+  const siteLogo = siteURL+SiteLogo.publicURL;
   const seo = {
     title: PageData.seo.title,
+    defaultTitle: PageData.seo.title,
     description: PageData.seo.metaDesc,
     url: siteURL
   }
+  const schemaOrgJSONLD = [
+    {
+       "@context": "http://schema.org",
+       "@type": "Organization",
+        url: siteURL,
+        "logo": siteLogo
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "url": siteURL,
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://query.example.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      }
+    }
+  ]
   return(
   <Layout>
       <SEO
           title={seo.title}
           description={seo.description}
           cpath = {props.location.pathname}
+          schema = {schemaOrgJSONLD}
        />
     {slides && <HomeSlider data={slides}/>}
     <AboutSection image={AboutImage}/>
@@ -70,6 +95,9 @@ query HomePageQuery{
     siteMetadata {
       siteUrl
     }
+  }
+  SiteLogo: file(relativePath: {eq: "landing/logo.png"}) {
+    publicURL
   }
   PageData: wpPage(id: {eq: "cG9zdDozNTg="}) {
     seo {

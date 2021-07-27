@@ -42,27 +42,19 @@ const About = () => {
               }
           }
         }
-        aboutImg1: file(relativePath: { eq: "about-img.jpg" }) {
+        aboutImg1: file(relativePath: { eq: "aboutimg.jpg" }) {
           childImageSharp {
-              fluid(quality: 100, base64Width: 420) {
+              fluid(quality: 100, base64Width: 497) {
                   base64
               }
           }
-        }
-        aboutImg2: file(relativePath: { eq: "about-img1.jpg" }) {
-          childImageSharp {
-              fluid(quality: 100, base64Width: 300) {
-                  base64
-              }
-          }
-        }        
+        }    
       }
     `
   )
   const pageBimg = pageBanner.childImageSharp.fluid.base64
   const pageMimg = pageBannerM.childImageSharp.fluid.base64
   const aImg1 = aboutImg1.childImageSharp.fluid.base64
-  const aImg2 = aboutImg2.childImageSharp.fluid.base64
   const siteURL = site.siteMetadata.siteUrl 
   return(
   <Layout>
@@ -100,16 +92,16 @@ const About = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-6 col-xs-12">
-            <div className="about_img w-100 float-left position-relative">
-              <img src={aImg1} alt=""  />
-              <img className="about_img1" src={aImg2} alt=""  />
+            <div className="w-100 float-left position-relative">
+              <img src={aImg1} alt="BackToRoad auto parts warehouse staff at work" width={497} height={559} />
             </div>
           </div>
           <div className="col-md-6 col-xs-12">
-            <p>Quality Auto Parts is your one-stop shop for replacement high quality used OEM automotive parts and accessories. Since 2002 we have served hundreds of thousands of customers across the world, working hand in hand to find high quality parts for your vehicle.</p>
-            <p>We are headquartered in Chicago, IL, with suppliers across North America. Our goal is to find you the correct part at an inexpensive price, close to your home or business. We can help you locate those hard-to-find parts. We ship your order directly to your home, business or to your mechanic to help you get back onto the road as rapidly as possible.</p>
-            <p>We understand that your car or truck can break-down anytime, and that there is no holiday for your disabled vehicle. We staff sales professionals 365 days a year. Our sales department is available to help you to place new orders from 6am to 9pm CST, 7 days a week. Give us a call today at </p>
-            <a href="#" className="btn1 ph"><ImPhone style={iconStyles}/>(866) 293-3731</a> </div>
+            <p>BackToRoad Auto Parts is your one-stop-shop for high-quality used OEM auto parts and accessories. We sell high-quality and genuine used parts at affordable prices so our customers have a seamless experience when shopping with us. We know that you’ll need to get your car back on the road as quickly as possible so we provide free and fast shipping for our products all over the United States and Canada.</p>
+            <p>Our goal is to provide our customers with used OEM auto parts that are reliable and which do not pale in comparison to brand-new auto parts. You can hand over your requirements to us and we will help you locate those hard-to-find parts and ship them directly to your home, business, or your mechanic in no time at all. Our live inventory is updated on a real-time basis, so you can trust that we will be able to provide you with the used part you need when you need it. And if you can’t find the used auto part you need, you can let us know and our parts locator tool will locate it for you from our network of salvage yards and junkyards around the country. </p>
+            <p>BackToRoad Auto Parts guarantees that our used car parts are of ‘A' grade quality, come with a standard 30-day warranty, and are completely affordable. We also provide nationwide shipping and delivery for our auto parts either to you directly or to your mechanic. Our devoted customer service team also ensures that all of our clients receive personalized attention, answering all of your questions and ensuring that your vehicle is up and running in no time.</p>
+            <p>Give us a call today at 1-800-608-3868 to speak to our Auto Parts Specialists and place your order.</p>
+            <a href="tel:866-293-3731" className="btn1 ph"><ImPhone style={iconStyles}/>(866) 293-3731</a> </div>
         </div>
       </div>
     </div>
