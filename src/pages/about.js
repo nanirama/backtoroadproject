@@ -8,7 +8,7 @@ import LandingBanner from '../components/LandingPage/LandingBanner'
 
 import { ImPhone } from 'react-icons/im';
 import '../components/LandingPage/css/about.css'
-const About = () => {
+const About = (props) => {
   let iconStyles = { color: "white", fontSize: "1.65em", marginRight:"5px" };
   const {site, BannerImage, pageBanner, pageBannerM, aboutImg1, aboutImg2 } = useStaticQuery(
     graphql`
@@ -58,7 +58,11 @@ const About = () => {
   const siteURL = site.siteMetadata.siteUrl 
   return(
   <Layout>
-    <SEO title="About Us" />
+    <SEO
+        title="About Us | BackToRoad Auto Parts"
+        description="BackToRoad Auto Parts Is Your One-Stop Shop For High Quality Used OEM Auto Parts. We're a Used Auto Parts Dealer With 17+ Locations Across USA & Canada."
+        cpath = {props.location.pathname}
+    />
     <PageBannerDiv className="w-100 float-left text-center" img={pageBimg} mimg={pageMimg}>
       <div className="container">
         <h1 className="text-uppercase text-white">WHY BUY FROM US?</h1>
