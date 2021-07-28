@@ -50,8 +50,8 @@ const Parts = (props) => {
     return (
         <Layout>
          <SEO
-            title="Parts List | BackToRoad Auto Parts"
-            description="BackToRoad Auto Parts Is Your One-Stop Shop For High Quality Used OEM Auto Parts. We're a Used Auto Parts Dealer With 17+ Locations Across USA & Canada."
+            title="All Parts | Search For Your Part | BackToRoad Auto Parts"
+            description="Search Our Huge Inventory Of Genuine Used Parts For All Makes & Models Available In USA & Canada. Find Your Part Now!"
             cpath = {props.location.pathname}
         />  
         <PageBannerDiv className="w-100 float-left text-center" img={pageBimg} mimg={pageMimg}>
@@ -85,7 +85,7 @@ const Parts = (props) => {
             </PageBannerDiv> 
             <div className="top_content w-100 float-left">
                 <div className="container">
-                    <p className="mb-0">We carry huge stock Quality Auto Parts in our store. Auto Body Parts stock comprises of doors, bonnets, wind shields, shock absorbers, front grills, back cabins, roofs and all other body parts. We have in our stock body parts of all popular models including AMC, Acura, Ford, BMW etc..</p>
+                    <p className="mb-0">Search for the part you need from our huge inventory of OEM used auto parts. Each and every part available in our inventory are fully tested and graded by our auto part specialists. All the car and truck manufacturers you can think of is listed here. Pick the part you need and fill out the form to get a FREE quote from us instantly.</p>
                 </div>
             </div>
             <MakeSearch/>
