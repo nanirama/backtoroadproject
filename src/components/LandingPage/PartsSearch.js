@@ -1,9 +1,16 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
+import useIntersectionObserver from '@react-hook/intersection-observer'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { FiSearch } from 'react-icons/fi';
 import { BsArrowRightShort } from 'react-icons/bs';
 
 const PartsSearch =()=>{
+    const containerRefs2 = useRef() 
+    const lockRefs2 = useRef()
+    let { isIntersecting } = useIntersectionObserver(containerRefs2)
+    if (isIntersecting && !lockRefs2.current) {
+        lockRefs2.current = true
+    }
     const { PartsList } = useStaticQuery(
         graphql`
           query {
@@ -71,12 +78,13 @@ const PartsSearch =()=>{
     }, [list])
     // Load More functionality Ending
     return(
-        <div className="search_blk w-100 float-left">
+        <div className="search_blk w-100 float-left" ref={containerRefs2}>
+        {lockRefs2.current && (
             <div className="container">
                 <div className="src_box w-100 float-left">
                 <div className="row">
                     <div className="col-md-7 col-xs-12">
-                    <h2>Search by Car Make</h2>
+                    <h2>Search by Part Type</h2>
                     </div>
                     <div className="col-md-5 col-xs-12">
                     <form
@@ -117,7 +125,8 @@ const PartsSearch =()=>{
                     </div>
                 </div>
             </div>
-            </div>
+            )}
+        </div>
     )
 }
 
