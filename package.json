@@ -12,6 +12,7 @@
     "aos": "^2.3.4",
     "axios": "^0.21.1",
     "babel-plugin-styled-components": "^1.11.1",
+    "babel-polyfill": "^6.26.0",
     "babel-preset-gatsby": "^0.12.1",
     "bluebird": "^3.7.2",
     "bootstrap": "^4.6.0",
