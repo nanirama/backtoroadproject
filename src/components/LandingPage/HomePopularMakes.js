@@ -1,18 +1,10 @@
-import React, { useRef } from "react"
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from "react"
 import Slider from "react-slick";
 import Image from './image'
 
 import { FaLongArrowAltLeft, FaLongArrowAltRight } from 'react-icons/fa';
 
 const HomePopularMakes = ({data}) => {
-  const containerRefh3 = useRef() 
-    const lockRefh3 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRefh3)
-    if (isIntersecting && !lockRefh3.current) {
-        lockRefh3.current = true
-    }
-
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <button
       {...props}
@@ -102,8 +94,7 @@ const HomePopularMakes = ({data}) => {
     
       };
   return (
-    <div className="logos_blk w-100 float-left mb-5" ref={containerRefh3}>
-      {lockRefh3.current && (
+    <div className="logos_blk w-100 float-left mb-5">
     <div className="container">
       <h2 className="text-uppercase mb-5 pb-2">Popular Makes</h2>
       <Slider {...settings}>
@@ -120,7 +111,6 @@ const HomePopularMakes = ({data}) => {
       })} 
       </Slider>
     </div>
-    )}
   </div>
   )
 }

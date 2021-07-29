@@ -1,18 +1,9 @@
-import React, { useRef } from "react"
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from "react"
 import { OemPartsData } from "../../data/HomeOemParts"
 import { FaLongArrowAltRight } from 'react-icons/fa';
 const OemPartsSection = () => {
-
-    const containerRefh2 = useRef() 
-    const lockRefh2 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRefh2)
-    if (isIntersecting && !lockRefh2.current) {
-        lockRefh2.current = true
-    }
   return (
-    <div className="oem_parts_blk w-100 float-left text-center" ref={containerRefh2}>
-    {lockRefh2.current && (
+    <div className="oem_parts_blk w-100 float-left text-center">
         <div className="container">
         <h1 className="text-center text-uppercase mb-5 pb-2">Featured Genuine OEM Parts</h1>
         <div className="row d-flex justify-content-between align-items-stretch">
@@ -33,7 +24,6 @@ const OemPartsSection = () => {
            })} 
             </div>
         </div>
-    )}
     </div>
   )
 }

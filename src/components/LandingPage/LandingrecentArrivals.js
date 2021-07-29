@@ -1,14 +1,7 @@
-import React, { useRef } from "react"
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from "react"
 import Image from './image'
 import Slider from "react-slick";
 const LandingRecentArrivals = ({data, blockHeading}) => { 
-    const containerRef6 = useRef()
-    const lockRef6 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRef6)    
-    if (isIntersecting && !lockRef6.current) {
-        lockRef6.current = true
-    }
     const settings = {
       dots: true,
       arrows: false,
@@ -51,8 +44,6 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
       };
     return(
       <>
-      <div ref={containerRef6}>
-                {lockRef6.current && (
                   <div className="recent_post_blk w-100 float-left" id="bestsellers">
                   <div className="container">                       
                   {blockHeading && <h2 property="name" className="tlt text-center text-uppercase">{blockHeading}</h2>}
@@ -77,8 +68,6 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
                   </Slider>
                   </div>
               </div>
-        )}
-        </div>
       </>          
     )
 }

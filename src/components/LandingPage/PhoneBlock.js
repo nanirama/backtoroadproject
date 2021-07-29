@@ -1,19 +1,10 @@
-import React, { useRef } from "react"
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from "react"
 import Image from './image'
 import { ImPhone } from 'react-icons/im';
 
 const PhoneBlock = ({phoneNumberText, phoneNumber,pbImage1, pbImage2, pbImage3, pbImage4}) => {
-    const containerRef12 = useRef() 
-    const lockRef12 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRef12)
-    if (isIntersecting && !lockRef12.current) {
-        lockRef12.current = true
-    }
     let iconStyles = { color: "white", fontSize: "1em", marginBottom:"3px", marginRight:"10px" };
     return(
-        <div ref={containerRef12}>
-        {lockRef12.current && (
         <>
         <div className="phone_blk w-100 float-left py-5">
             <div className="container">
@@ -36,8 +27,6 @@ const PhoneBlock = ({phoneNumberText, phoneNumber,pbImage1, pbImage2, pbImage3, 
             </div>
         </div>
         </>
-        )}
-        </div>
     )
 }
 export default PhoneBlock

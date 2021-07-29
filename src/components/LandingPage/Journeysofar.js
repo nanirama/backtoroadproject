@@ -1,5 +1,4 @@
-import React, { useRef } from "react"
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from "react"
 import styled from "styled-components"
 import { JourneySoFarData } from "../../data/JourneySoFar"
 import journeyIcon from '../../assets/images/landing/jicon.png'
@@ -7,17 +6,9 @@ import { FaUserAlt, FaStar, FaRegCompass } from 'react-icons/fa';
 import { HiCog } from 'react-icons/hi';
 
 const JourneySoFar = ({image}) => {
-    const containerRef2 = useRef() 
-    const lockRef2 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRef2)
-    if (isIntersecting && !lockRef2.current) {
-        lockRef2.current = true
-    }
     let iconStyles = { color: "white" };
     const imageData = image.childImageSharp.fluid.base64
     return(
-        <div ref={containerRef2}>
-        {lockRef2.current && (
         <JourneyDiv
                 className="journey_blk w-100 float-left text-center"
                 img={imageData}
@@ -53,8 +44,6 @@ const JourneySoFar = ({image}) => {
                 </div>
             </div>
         </JourneyDiv>  
-         )}
-         </div>
     )
 }
 const JourneyIcon = styled.div`

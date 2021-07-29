@@ -1,21 +1,12 @@
-import React, { useRef } from "react"
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from "react"
 import styled from "styled-components"
 import Image from './image'
 import buttonBg from '../../assets/images/landing/arrow.png'
 
 const ExtraContent = (props) => {
-    const containerRef = useRef() 
-    const lockRef = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRef)
-    if (isIntersecting && !lockRef.current) {
-        lockRef.current = true
-    }
     const { extracontent } = props
     return(
-        <div ref={containerRef}>
-                {lockRef.current && (
-                    <>
+     <>
             <div
                 className="parts_blk w-100 float-left position-relative"
             >
@@ -86,8 +77,6 @@ const ExtraContent = (props) => {
                 </div>
             </div>
             </>
-                )}
-            </div>
     )
 }
 const Button = styled.button`

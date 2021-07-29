@@ -1,22 +1,13 @@
-import React, {useRef} from 'react'
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from 'react'
 import styled from "styled-components"
 import Image from './image'
 
 const GoGreenSection = ({ bg,mbg, img }) => {
-  const containerRefh4 = useRef() 
-    const lockRefh4 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRefh4)
-    if (isIntersecting && !lockRefh4.current) {
-        lockRefh4.current = true
-    }
-
     const bgImg = bg.childImageSharp.fluid.base64
     const bgmImg = mbg.childImageSharp.fluid.base64
     console.log('Bg image', bg);
     return (
-        <div className="w-100 float-left gogreen mb-5" ref={containerRefh4}>
-         {lockRefh4.current && ( 
+        <div className="w-100 float-left gogreen mb-5">
         <div className="container">
         <SaveGreenDiv
                 className="w-100 float-left p-5"
@@ -46,7 +37,6 @@ or buying a new car.</p>
             </div>
           </SaveGreenDiv>
         </div>
-        )}
       </div>
     )
 }

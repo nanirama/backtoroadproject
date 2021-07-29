@@ -1,17 +1,9 @@
-import React, { useRef } from "react"
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from "react"
 import Image from './image'
 
 const LandingBanner = ({bannerImage}) => {
-    const containerRef10 = useRef()
-    const lockRef10 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRef10)    
-    if (isIntersecting && !lockRef10.current) {
-        lockRef10.current = true
-    }
     return(
-            <div className="container" ref={containerRef10}> 
-            {lockRef10.current && (   
+            <div className="container">  
                 <div className="bot_banner w-100 float-left mt-5">
                 <div className="row">
                     <div className="col-lg-9 col-md-8 col-xs-12">
@@ -27,7 +19,6 @@ const LandingBanner = ({bannerImage}) => {
                     </div>
                 </div>
                 </div>
-            )}
             </div>
     )
 }

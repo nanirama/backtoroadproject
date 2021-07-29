@@ -1,16 +1,9 @@
-import React, { useRef } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import useIntersectionObserver from '@react-hook/intersection-observer'
 import Slider from "react-slick";
 import Image from './image'
 import { FaStar } from 'react-icons/fa';
 const CustomerReviews = ({gImage}) => { 
-  const containerRef5 = useRef()
-    const lockRef5 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRef5)    
-    if (isIntersecting && !lockRef5.current) {
-        lockRef5.current = true
-    }
   let iconStyles = { color: "#FFC93E", fontSize: "1.1em", marginRight:"5px" };
 
   const { ReviewsData } = useStaticQuery(
@@ -77,8 +70,6 @@ const CustomerReviews = ({gImage}) => {
 
   return (
     <>
-    <div ref={containerRef5}>
-                {lockRef5.current && (
                     <div className="tm_blk w-100 float-left" id="reviews">
                     <div className="container">
                       <h2 className="tlt text-center text-uppercase">Customer Reviews</h2>
@@ -123,8 +114,7 @@ const CustomerReviews = ({gImage}) => {
                         </Slider>
                     </div>
                     </div>
-    )}
-    </div>
+   
     </>
     
   )

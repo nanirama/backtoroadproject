@@ -1,17 +1,9 @@
-import React, { useRef } from "react"
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from "react"
 import BlogCard from './BlogCard'
 
 const RecentBlogs = ({data}) => { 
-    const containerRef14 = useRef() 
-    const lockRef14 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRef14)
-    if (isIntersecting && !lockRef14.current) {
-        lockRef14.current = true
-    }
     return(
-        <div className="w-100 float-left pt-2 pb-5" ref={containerRef14}> 
-        {lockRef14.current && (
+        <div className="w-100 float-left pt-2 pb-5">
             <div className="container">
                 <div className="row">
                     <div className="col-md-12 col-xs-12">
@@ -28,7 +20,6 @@ const RecentBlogs = ({data}) => {
                         })}                
                 </div>  
             </div>
-        )}
         </div>
     )
   }

@@ -1,11 +1,8 @@
 import React from "react"
 import { graphql } from "gatsby"
-import Hero from "../components/Hero"
 import Layout from '../components/LandingPage/common/layout'
 import HomeSlider from '../components/LandingPage/HomeSlider'
 import SEO from "../components/seo"
-import '../components/LandingPage/css/home.css'
-
 import AboutSection from "../components/LandingPage/AboutSection"
 import OemPartsSection from "../components/LandingPage/OemPartsSection"
 import HowitWorks from '../components/LandingPage/Howitworks'
@@ -13,15 +10,10 @@ import HomeJourneySoFar from "../components/LandingPage/HomeJourneysofar"
 import HomeWhychoosebtr from '../components/LandingPage/HomeWhychoosebtr'
 import HomePopularMakes from "../components/LandingPage/HomePopularMakes"
 import GoGreenSection from "../components/LandingPage/GoGreenSection"
-
 import CustomerReviews from '../components/LandingPage/CustomerReviews'
 import HomeRecentArrivals from '../components/LandingPage/HomeRecentArrivals'
 import LandingBanner from '../components/LandingPage/LandingBanner'
-
-
-
-
-//import RecentArrivals from "../components/RecentArrivals"
+import '../components/LandingPage/css/home.css'
 
 const IndexPage = (props) => {
   const {

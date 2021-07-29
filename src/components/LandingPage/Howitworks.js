@@ -1,17 +1,9 @@
-import React, { useRef } from "react"
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from "react"
 import { HowItWorksData } from "../../data/HomeHowItWorksData"
 
 const HowitWorks = ({ background }) => {
-    const containerRef4 = useRef() 
-    const lockRef4 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRef4)
-    if (isIntersecting && !lockRef4.current) {
-        lockRef4.current = true
-    }
     return(
-            <div className="how_work_blk w-100 float-left text-center" id="howitworks" ref={containerRef4}>
-                {lockRef4.current && (
+            <div className="how_work_blk w-100 float-left text-center">
                 <div className="container">
                 <h2 className="tlt text-center text-uppercase">How It Works</h2>
                 <div className="row">
@@ -30,7 +22,6 @@ const HowitWorks = ({ background }) => {
                     })}  
                 </div>
                 </div>
-                )}
             </div>
     )
 }

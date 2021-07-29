@@ -1,19 +1,10 @@
-import React, { useRef } from 'react'
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from 'react'
 import { Link } from "gatsby"
 import Image from './image'
 
 const AboutSection = ({ image }) => {
-    const containerRef = useRef() 
-    const lockRef = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRef)
-    if (isIntersecting && !lockRef.current) {
-        lockRef.current = true
-    }
     return (
-        <div className="about_blk w-100 float-left position-relative bg-white" ref={containerRef}>
-        {lockRef.current && (
-            <>
+        <div className="about_blk w-100 float-left position-relative bg-white">
             <div className="container">
             <div className="row d-flex flex-row justify-content-between align-items-center">
                 <div className="col-md-6 col-xs-12 mb-2">
@@ -32,8 +23,6 @@ const AboutSection = ({ image }) => {
                 <Link className="abt btn1">Read More</Link> </div>
             </div>
             </div>
-            </>
-            )}
         </div>
     )
 }

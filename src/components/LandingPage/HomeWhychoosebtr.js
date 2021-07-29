@@ -1,16 +1,8 @@
-import React, { useRef } from "react"
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from "react"
 import { StatsData } from "../../data/HomeStatsData"
 const Whychoosebtr = () => {
-    const containerRef3 = useRef() 
-    const lockRef3 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRef3)
-    if (isIntersecting && !lockRef3.current) {
-        lockRef3.current = true
-    }
     return(
-            <div className="why_choose_blk w-100 float-left text-center" id="whychoose" ref={containerRef3}>
-                {lockRef3.current && (
+            <div className="why_choose_blk w-100 float-left text-center">
                 <div className="container">
                 <h2 className="tlt text-center text-uppercase">Why Choose BTR?</h2>
                 <div className="row d-flex flex-row">
@@ -29,7 +21,6 @@ const Whychoosebtr = () => {
                 })}   
                 </div>
                 </div>
-                 )}
             </div>
     )
 }

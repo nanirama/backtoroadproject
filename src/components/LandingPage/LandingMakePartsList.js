@@ -1,18 +1,10 @@
-import React, { useRef } from "react"
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from "react"
 import styled from "styled-components"
 import buttonBg from '../../assets/images/landing/arrow-down.png'
 
 const LandingMakePartsList = ({data, title, subtitle}) => {
-    const containerRef9 = useRef()
-    const lockRef9 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRef9)    
-    if (isIntersecting && !lockRef9.current) {
-        lockRef9.current = true
-    }
     return(
-            <div className="popular_blk w-100 float-left bg-white" ref={containerRef9}> 
-            {lockRef9.current && (   
+            <div className="popular_blk w-100 float-left bg-white">  
                 <div className="container">
                     <div className="row">
                         <div className="col-md-8 col-xs-12">
@@ -30,7 +22,6 @@ const LandingMakePartsList = ({data, title, subtitle}) => {
                         <Button className="btn1 hide" img={buttonBg} aria-label="View All Parts">View All</Button>
                     </div>
                 </div>
-            )}
             </div>
     )
 }

@@ -1,16 +1,9 @@
-import React, { useState, useEffect, useRef } from 'react'
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import { FiSearch } from 'react-icons/fi';
 import { BsArrowRightShort } from 'react-icons/bs';
 
 const MakeSearch =()=>{
-    const containerRefs1 = useRef() 
-    const lockRefs1 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRefs1)
-    if (isIntersecting && !lockRefs1.current) {
-        lockRefs1.current = true
-    }
     const { MakesList } = useStaticQuery(
         graphql`
           query {
@@ -78,8 +71,7 @@ const MakeSearch =()=>{
     }, [list])
     // Load More functionality Ending
     return(
-        <div className="search_blk w-100 float-left" ref={containerRefs1}>
-        {lockRefs1.current && (
+        <div className="search_blk w-100 float-left">
             <div className="container">
                 <div className="src_box w-100 float-left">
                 <div className="row">
@@ -126,7 +118,6 @@ const MakeSearch =()=>{
                     </div>
                 </div>
             </div>
-            )}
         </div>
     )
 }

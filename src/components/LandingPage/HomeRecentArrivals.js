@@ -1,15 +1,8 @@
-import React, { useRef } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from 'gatsby'
-import useIntersectionObserver from '@react-hook/intersection-observer'
 import Image from './image'
 import Slider from "react-slick";
 const HomeRecentArrivals = () => { 
-    const containerRef6 = useRef()
-    const lockRef6 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRef6)    
-    if (isIntersecting && !lockRef6.current) {
-        lockRef6.current = true
-    }
     const data = useStaticQuery(graphql`
       query HomeRecentArrivalQuery {
         allRecentArrivalsDataJson {
@@ -26,8 +19,7 @@ const HomeRecentArrivals = () => {
             }
         }
       }
-    `)
-      console.log('M Data', data.allRecentArrivalsDataJson.edges);
+    `)    
     const settings = {
       dots: true,
       arrows: false,
@@ -70,8 +62,6 @@ const HomeRecentArrivals = () => {
       };
     return(
       <>
-      <div ref={containerRef6}>
-                {lockRef6.current && (
                   <div className="recent_post_blk w-100 float-left" id="bestsellers">
                   <div className="container">                       
                   <h2 property="name" className="tlt text-center text-uppercase">Recent Arrivals</h2>
@@ -95,8 +85,6 @@ const HomeRecentArrivals = () => {
                   </Slider>
                   </div>
               </div>
-        )}
-        </div>
       </>          
     )
 }

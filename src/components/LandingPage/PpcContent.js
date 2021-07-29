@@ -1,18 +1,9 @@
-import React, {useRef} from "react"
-import useIntersectionObserver from '@react-hook/intersection-observer'
+import React from "react"
 import Image from './image'
 
 const PpcContent = (props) => {
-    const containerRef13 = useRef() 
-    const lockRef13 = useRef()
-    let { isIntersecting } = useIntersectionObserver(containerRef13)
-    if (isIntersecting && !lockRef13.current) {
-        lockRef13.current = true
-    }
     const { content, image, title} = props
     return(
-        <div ref={containerRef13}>
-        {lockRef13.current && (
         <>
             <div className="parts_blk w-100 float-left position-relative">
                 <div className="container">
@@ -30,8 +21,6 @@ const PpcContent = (props) => {
                 </div>
             </div>
         </>
-        )}
-        </div>
     )
 }
 export default PpcContent
