@@ -61,7 +61,7 @@ const IndexPage = (props) => {
           schema = {schemaOrgJSONLD}
        />
     {slides && <HomeSlider data={slides}/>}
-    <AboutSection image={AboutImage}/>
+    {/* <AboutSection image={AboutImage}/>
     <OemPartsSection /> 
     <HowitWorks />
     <HomeJourneySoFar image={JourneyBg}/>
@@ -70,7 +70,7 @@ const IndexPage = (props) => {
     <GoGreenSection bg={gogreenBg} mbg={gogreenmBg} img={saveGreen} />
     <CustomerReviews gImage={GoogleImage}/>    
     <HomeRecentArrivals/>    
-    <LandingBanner bannerImage={BannerImage}/>
+    <LandingBanner bannerImage={BannerImage}/> */}
   </Layout>
 )
 }
@@ -174,9 +174,7 @@ query HomePageQuery{
         imgalt
         img {
           childImageSharp {
-            fluid(base64Width: 1800) {
-              base64
-            }
+            gatsbyImageData(width: 1600, quality: 100)
           }
         }
       }

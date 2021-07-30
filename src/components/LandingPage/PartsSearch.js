@@ -120,7 +120,7 @@ const PartsSearch =()=>{
                         {list && list.map(({node}, index) => {
                             return(
                                 <li key={index} className="col-lg-3 col-md-4 col-sm-6 col-xs-12 align-self-stretch">
-                                    <a target="_blank" href={ `https://backtoroadautoparts.com/${node.slug}` }
+                                    <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${node.slug}` }
                                     className="d-flex flex-wrap flex-row justify-content-between align-items-start"
                                     >
                                         <span>{node.title}</span> <BsArrowRightShort className="slist-icon"/>

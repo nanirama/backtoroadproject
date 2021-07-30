@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react"
+import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import mpIcon from "../../../assets/images/landing/callbtn.svg"
@@ -18,8 +18,7 @@ const LandingHeader = ({ logoImg, cpath }) => {
       )
   const logoImage = logoImg.childImageSharp.fixed.base64
   const siteURL = site.siteMetadata.siteUrl 
-  let iconStyles = { color: "white", fontSize: "1.5em", marginRight:"8px", marginBottom:"2px" };
- 
+  
   return(
     <header className="w-100 float-left pt-4 pb-3">
       <div className="container">

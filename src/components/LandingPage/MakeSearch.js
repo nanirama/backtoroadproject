@@ -130,7 +130,7 @@ const MakeSearch =()=>{
                                 <li
                                 key={index}
                                 className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <a target="_blank" href={ `https://backtoroadautoparts.com/${node.slug}` }>
+                                <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${node.slug}` }>
                                     {node.title} <BsArrowRightShort className="slist-icon"/>
                                 </a>
                                 </li>

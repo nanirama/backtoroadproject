@@ -18,10 +18,6 @@ const Layout = ({ children }) => {
     onSwipedRight: () => setOpen(true)
   });
 
-  const toggle = () => {
-    setOpen(!isOpen)
-    
-  }
   return (
     <StaticQuery
     query={graphql`

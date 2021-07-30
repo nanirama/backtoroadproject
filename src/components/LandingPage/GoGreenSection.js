@@ -4,8 +4,7 @@ import Image from './image'
 
 const GoGreenSection = ({ bg,mbg, img }) => {
     const bgImg = bg.childImageSharp.fluid.base64
-    const bgmImg = mbg.childImageSharp.fluid.base64
-    console.log('Bg image', bg);
+    const bgmImg = mbg.childImageSharp.fluid.base64    
     return (
         <div className="w-100 float-left gogreen mb-5">
         <div className="container">

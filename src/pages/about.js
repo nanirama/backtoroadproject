@@ -10,7 +10,7 @@ import { ImPhone } from 'react-icons/im';
 import '../components/LandingPage/css/about.css'
 const About = (props) => {
   let iconStyles = { color: "white", fontSize: "1.65em", marginRight:"5px" };
-  const {site, BannerImage, pageBanner, pageBannerM, aboutImg1, aboutImg2 } = useStaticQuery(
+  const {site, BannerImage, pageBanner, pageBannerM, aboutImg1 } = useStaticQuery(
     graphql`
       query {
         site {

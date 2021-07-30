@@ -135,7 +135,7 @@ const CustomerReviews = ({gImage}) => {
                                     <div className="d-flex flex-row justify-content-between align-items-center">
                                       <div className="pr-1 author_pic">
                                         <img src={node.img.childImageSharp.fixed.base64} alt={node.title} width={50} height={50}/>                                        
-                                        <Image img={node.img} imgalt={node.title}/>
+                                        {/* <Image img={node.img} imgalt={node.title}/> */}
                                       </div>
                                       <div className="author_info float-left">
                                         <div className="text w-100 float-left pl-3 pr-1">

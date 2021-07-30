@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react"
+import React from "react"
 import { Link } from "gatsby"
 import { menuData } from "../../../data/MenuData"
 import styled from "styled-components"

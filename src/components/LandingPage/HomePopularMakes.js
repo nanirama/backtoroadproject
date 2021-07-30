@@ -100,7 +100,7 @@ const HomePopularMakes = ({data}) => {
       <Slider {...settings}>
       {data.edges.map(({node}, index) => {
             return(
-              <div className="col-lg-12 col-sm-12">
+              <div key={index} className="col-lg-12 col-sm-12">
                 <div
                   className="client-logos w-100 float-left bg-white mb-4 p-2 d-flex justify-content-center align-items-center"
                 >
