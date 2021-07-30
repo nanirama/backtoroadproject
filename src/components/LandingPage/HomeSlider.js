@@ -68,7 +68,7 @@ const HomeSlider = ({data}) => {
                             <div dangerouslySetInnerHTML={{ __html: node.content }} ></div> 
                             { node.eimg && (
                                   <div className="w-100 float-left eimg_icon">
-                                    <Vector src={node.eimg.img.childImageSharp.fluid.base64} alt={node.eimg.imgalt} width={node.eimg.width} height={node.eimg.height} className="slider-eimg"></Vector>                                    
+                                    {/* <Vector src={node.eimg.img.childImageSharp.fluid.base64} alt={node.eimg.imgalt} width={node.eimg.width} height={node.eimg.height} className="slider-eimg"></Vector>                                     */}
                                   </div>
                             )}
                           </div>
