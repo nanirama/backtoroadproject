@@ -10,16 +10,15 @@ const LandingHeader = ({ logoImg }) => {
   return(
     <header className="w-100 float-left pt-4 pb-3">
       <div className="container">
-        <div className="row">
+        <div className="row d-flex">
             <div className="col-lg-2 col-sm-3">
                 <div className="logo w-auto float-left">
                   <Link to="/">
-                    <Logo src={logoImage} alt="Back to Roads Logo" itemprop="logo" width={128} height={47}/>
-                   {/* <GatsbyImage image={} alt="Back to Roads Logo" itemprop="logo" width={128} height={47} /> */}
+                    <Logo src={logoImage} alt="Back to Roads Logo" itemprop="logo" width={128} height={47}/>                   
                   </Link>
                 </div>              
             </div>
-            <div className="col-lg-10 col-sm-9 mobile-right">
+            <div className="col-lg-10 col-sm-6 mobile-right">
                 <div className="h_rgt w-auto float-right">
                         <div className="w-auto float-left mnav">
                               <nav>

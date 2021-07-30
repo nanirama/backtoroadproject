@@ -14,7 +14,7 @@ import CustomerReviews from '../components/LandingPage/CustomerReviews'
 import HomeRecentArrivals from '../components/LandingPage/HomeRecentArrivals'
 import LandingBanner from '../components/LandingPage/LandingBanner'
 import '../components/LandingPage/css/home.css'
-
+import '../components/LandingPage/css/slick-custom.css'
 const IndexPage = (props) => {
   const {
     site,
@@ -134,7 +134,7 @@ query HomePageQuery{
       }
     }
   }
-  saveGreen: file(relativePath: {eq: "landing/save-green.png"}) {
+  saveGreen: file(relativePath: {eq: "landing/save-green-new.png"}) {
     childImageSharp {
       gatsbyImageData(
           width: 218
@@ -162,16 +162,21 @@ query HomePageQuery{
         eimg {
           img {
             childImageSharp {
-              gatsbyImageData
+              fluid(base64Width: 450) {
+                base64
+              }
             }
           }
           width
           height
+          imgalt
         }
         imgalt
         img {
           childImageSharp {
-            gatsbyImageData(height: 900, width: 1600)
+            fluid(base64Width: 1800) {
+              base64
+            }
           }
         }
       }

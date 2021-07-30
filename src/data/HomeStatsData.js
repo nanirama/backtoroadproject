@@ -35,7 +35,7 @@ export const StatsData = [
     icon: HrSupportIcon,
 	  newicon: newIcon4,
     iconalt: "Hassle free warranty protection icon",
-    title: "Dedicated customer service for all part queries icon",
+    title: "Dedicated Customer Support",
     desc: "Our dedicated customer service makes sure to provide you with immediate assistance whenever you require it.",
   },
 ]

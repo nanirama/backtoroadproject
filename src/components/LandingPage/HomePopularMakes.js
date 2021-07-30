@@ -94,9 +94,9 @@ const HomePopularMakes = ({data}) => {
     
       };
   return (
-    <div className="logos_blk w-100 float-left mb-5">
+    <div className="logos_blk w-100 float-left mb-5 text-center">
     <div className="container">
-      <h2 className="text-uppercase mb-5 pb-2">Popular Makes</h2>
+      <h2 className="text-uppercase text-center mb-5 pb-2">Popular Makes</h2>
       <Slider {...settings}>
       {data.edges.map(({node}, index) => {
             return(

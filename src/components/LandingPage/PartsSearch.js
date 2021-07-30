@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql, Link } from "gatsby"
+import styled from "styled-components"
 import { FiSearch } from 'react-icons/fi';
 import { BsArrowRightShort } from 'react-icons/bs';
-
+import arrowMore from '../../assets/images/landing/arrow-more.png'
+import arrowLess from '../../assets/images/landing/arrow-less.png'
 const PartsSearch =()=>{
     const { PartsList } = useStaticQuery(
         graphql`
@@ -50,8 +52,13 @@ const PartsSearch =()=>{
     const [list, setList] = useState([...filteritems.slice(0, numberPer)])
     const [loadMore, setLoadMore] = useState(false)
     const [hasMore, setHasMore] = useState(filteritems.length > numberPer)
+    const [loadLess, setLoadLess] = useState(false)
+    const [hasLess, setHasLess] = useState(filteritems.length < numberPer)
     const handleLoadMore = () => {
         setLoadMore(true)
+    }
+    const handleLoadLess = () => {
+        setLoadLess(true)
     }
     useEffect(() => {
         if (loadMore && hasMore) {
@@ -69,6 +76,19 @@ const PartsSearch =()=>{
         const isMore = list.length < filteritems.length
         setHasMore(isMore)
     }, [list])
+
+    useEffect(() => {
+    if (loadLess) {
+        const currentLength = Math.floor(filteritems.length/numberPer)*numberPer
+        setList(filteritems.slice(0, currentLength)) 
+        setLoadLess(false)
+        }
+    }, [loadLess, hasLess])
+ 
+     useEffect(() => {
+         const isLess = list.length > filteritems.length
+         setHasLess(isLess)
+     }, [list])
     // Load More functionality Ending
     return(
         <div className="search_blk w-100 float-left">
@@ -111,8 +131,11 @@ const PartsSearch =()=>{
                     </ul>
                 </div>
                     <div className="btn_outer w-100 float-left text-center">
-                        {hasMore && (
-                            <button onClick={handleLoadMore} className="btn1">Load More</button>
+                        {hasMore ? (
+                            <Button img={arrowMore} onClick={handleLoadMore} className="btn1">View More</Button>
+                            
+                        ) : (
+                            <Button img={arrowLess} onClick={handleLoadLess} className="btn1">View Less</Button>
                         )}
                     </div>
                 </div>
@@ -120,5 +143,7 @@ const PartsSearch =()=>{
         </div>
     )
 }
-
+const Button = styled.button`
+    background-image: url(${props => props.img});
+`;
 export default PartsSearch

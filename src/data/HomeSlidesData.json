@@ -1,11 +1,12 @@
 [
     {
         "img": "../assets/images/homeslides/slider1.jpg",
-        "imgalt":"High quality used auto parts delivered all over USA &amp; Canada",
+        "imgalt":"High quality used auto parts delivered all over USA & Canada",
         "title": "SHOP REMOTELY",
         "content": "<ul>\n<li>We Ship Nationwide and Local</li>\n<li>17+ Warehouse Locations Across USA &amp; Canada</li>\n<li>Quick Delivery to Your Home or Mechanic</li>\n</ul>\n",
         "eimg": {
             "img": "../assets/images/homeslides/map-1.png",
+            "imgalt":"Map of USA showing BackToRoad Auto Parts Warehouses",
             "width": "370",
             "height":"200"
         }
@@ -17,6 +18,7 @@
         "content": "<ul>\n<li>We Handle All Makes and Models</li>\n<li>Fully Tested and Inspected Auto Parts</li>\n<li>Recycled OEM ‘A’ Grade Parts</li>\n<li>Low Mileage Recycled Parts</li>\n</ul>\n",
         "eimg": {
             "img": "../assets/images/homeslides/vector-img.png",
+            "imgalt":"Speedometer icon, Piston icon, Gears icon, Car icon, ABS icon, Shocks icon",
             "width": "450",
             "height":"70"
         }
@@ -27,9 +29,10 @@
         "title": "IF WE DON’T HAVE IT, WE’LL FIND IT FOR YOU",
         "content": "<ul>\n<li>Free Nationwide Parts Locator Tool</li>\n<li>Find Parts From Junkyards Near You</li>\n<li>Connected to 15k+ Auto Recyclers Nationwide</li>\n</ul>\n",
         "eimg": {
-            "img": "../assets/images/homeslides/sanitization.png",
-            "width": "216",
-            "height":"180"
+            "img": "../assets/images/homeslides/map-2.png",
+            "imgalt":"Connected network of salvage yards across the United States",
+            "width": "300",
+            "height":"250" 
         }
     },
     {
@@ -38,9 +41,10 @@
         "title": "COVID-19 ASSISTANCE",
         "content": "<ul>\n<li>Internal and External Sanitization</li>\n<li>Best Safety and Hygiene Practices</li>\n<li>Contactless Doorstep Delivery</li>\n</ul>\n",
         "eimg": {
-            "img": "../assets/images/homeslides/map-2.png",
-            "width": "300",
-            "height":"250"
+            "img": "../assets/images/homeslides/sanitization.png",
+            "imgalt":"All staff sanitize hands to ensure safe used auto parts delivery",
+            "width": "216",
+            "height":"180"
         }
     }
 ]

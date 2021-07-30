@@ -10,19 +10,19 @@ const GoGreenSection = ({ bg,mbg, img }) => {
         <div className="w-100 float-left gogreen mb-5">
         <div className="container">
         <SaveGreenDiv
-                className="w-100 float-left p-5"
+                className="w-100 float-left"
                 img={bgImg}
                 mimg={bgmImg}
             >
             <div className="row d-flex justify-content-start align-items-center">
               <div className="col-md-3 col-sm-12 col-xs-12">
-                <div className="text-center w-100 float-let">
+                <div className="text-center w-100 float-left save_img">
                 <Image img={img} imgalt="go Green" alt="Buy recycled auto parts to help the environment" width="218" height="218"/>
                 </div>
               </div>
               <div className="col-md-9  col-sm-12 col-xs-12">
                 <div className="save_txt pt-3">
-                  <h2 className="text-uppercase mb-2 pb-2 text-white">Buy Green, Save Green</h2>
+                  <h2 className="text-uppercase  mb-2 pb-2 text-white">Buy Green, Save Green</h2>
                   <p className="text-white mb-0">As a consumer, you have the power to make a difference by consciously choosing products
 that are environmentally safe or from companies that make the environment a top priority.
 When you shop from BackToRoad Auto Parts, you&#39;re assisting in the safe disposal of
@@ -42,8 +42,10 @@ or buying a new car.</p>
 }
 const SaveGreenDiv = styled.div`
     background-image: url(${props => props.img});
+    padding: 3rem !important;
     @media (max-width: 767px) {
         background-image: url(${props => props.mimg});
+        padding: 1rem !important;
     }
     background-repeat:no-repeat;
     background-position:left top;

@@ -1,6 +1,6 @@
 import React from "react"
 import Slider from "react-slick";
-import Image from './image'
+import styled from "styled-components"
 import FormsControler from './FormsControler'
 
 
@@ -50,8 +50,14 @@ const HomeSlider = ({data}) => {
           <div className="row position-relative">          
           
           <div className="col-md-12 col-sm-12 main-slider">
+                <div className="col-lg-6 col-md-6 slider_form_above slider_form_desktop">                          
+                      <div className="slider_form">
+                        <FormsControler/> 
+                      </div>                         
+                 </div>
           <Slider {...settings}>
           {data.edges.map(({node}, index) => {
+          let sImg = node.img.childImageSharp.fluid.base64
           return (
             <div key={index} className="slide-item d-flex justify-content-center">           
                 <div className="s_txt_outer d-flex flex-column justify-content-end align-items-center">
@@ -62,19 +68,18 @@ const HomeSlider = ({data}) => {
                             <h2 className="text-uppercase mb-4">{node.title}</h2>
                             <div dangerouslySetInnerHTML={{ __html: node.content }} ></div> 
                             { node.eimg && (
-                                  <div class="w-100 float-left eimg_icon"><Image img={node.eimg.img} width={node.eimg.width} height={node.eimg.height} className="slider-eimg"/></div>
+                                  <div class="w-100 float-left eimg_icon">
+                                    <Vector src={node.eimg.img.childImageSharp.fluid.base64} alt={node.eimg.imgalt} width={node.eimg.width} height={node.eimg.height} className="slider-eimg"></Vector>                                    
+                                  </div>
                             )}
                           </div>
                         </div>
-                        <div className="col-lg-6 col-md-6 slider_form_above">                          
-                              <div className="slider_form">
-                                <FormsControler/> 
-                              </div>                         
-                        </div>
+                        
                       </div>
                     </div>
                   </div>
-                  <Image img={node.img} imgalt={node.imgalt} alt={node.imgalt} className="slider-img"/>
+                  <img src={node.img.childImageSharp.fluid.base64} alt={node.imgalt} className="slider-img"/>
+                  {/* <Image img={node.img} imgalt={node.imgalt} alt={node.imgalt} className="slider-img"/> */}
               </div> 
             )
           })}              
@@ -88,5 +93,8 @@ const HomeSlider = ({data}) => {
       </div>
     )
 }
-
+const Vector = styled.img`
+    width: ${props => props.width}px !important;
+    height:${props => props.height}px !important;
+`;
 export default HomeSlider

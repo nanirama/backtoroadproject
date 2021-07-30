@@ -5,7 +5,7 @@ const OemPartsSection = () => {
   return (
     <div className="oem_parts_blk w-100 float-left text-center">
         <div className="container">
-        <h1 className="text-center text-uppercase mb-5 pb-2">Featured Genuine OEM Parts</h1>
+        <h1 className="text-uppercase mb-5 pb-2">Featured Genuine OEM Parts</h1>
         <div className="row d-flex justify-content-between align-items-stretch">
         {OemPartsData.map((item, index) => {
             return(
@@ -17,8 +17,9 @@ const OemPartsSection = () => {
                 <div className="sub_box_content w-100">
                     <h3 className="mb-3">{item.name}</h3>
                     <p className="mb-2">{item.desc}</p>
+                    <a target="_blank" href={ `https://backtoroadautoparts.com/${item.to}` } className="more_link w-100 float-left text-center text-uppercase">Read More <FaLongArrowAltRight className="rarrow"/></a>
                 </div>
-                <a href="#" className="more_link w-100 float-left text-center text-uppercase">Read More <FaLongArrowAltRight className="rarrow"/></a> </div>
+             </div>
             </div>
             )
            })} 

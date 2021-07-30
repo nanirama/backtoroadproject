@@ -19,7 +19,7 @@
 .src-list ul li a span{ width:85%; }
 .src-list ul li a.active i{color: #fff;}
 
-.src-list .btn1 {width: 125px;float: none; display:inline-block; background-position: right 20px top 18px;line-height: 40px;padding-left: 20px;margin-top: 10px;}
+.src-list .btn1 {width: 140px;float: none; background-color: #165DA6 !important; display:inline-block; background-size:14px 8px; background-position: right 20px top 18px;line-height: 40px;padding-left: 20px;margin-top: 10px;}
 .search_btn{ color:#ffffff;}
 .src-list ul li a .slist-icon{float:right; color:#230B34; margin-top: -3px; line-height: 1em; font-size: 1.8em;}
 .src-list ul li:hover a .slist-icon,

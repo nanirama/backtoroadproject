@@ -35,10 +35,10 @@ const LandingTemplate = (props) => {
                         }
                     }
             }
-            GoogleImage: file(relativePath: { eq: "landing/google.png" }) {
+            GoogleImage: file(relativePath: { eq: "landing/google-new.png" }) {
                     childImageSharp {
                         gatsbyImageData(
-                            width: 40
+                            width: 42
                         )
                     }
             }

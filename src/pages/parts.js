@@ -56,7 +56,7 @@ const Parts = (props) => {
         />  
         <PageBannerDiv className="w-100 float-left text-center" img={pageBimg} mimg={pageMimg}>
             <div className="container">
-                <h1 className="text-uppercase text-white">PART LIST</h1>
+                <h1 className="page-title text-uppercase text-white">PART LIST</h1>
                 <div className="breadcrumb w-100 float-left border-0 p-0">
                 <ol className="d-flex justify-content-center" itemscope itemScope itemtype="https://schema.org/BreadcrumbList">
                     <li

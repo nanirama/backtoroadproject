@@ -1,3 +1,4 @@
+h1.page-title:before{display: none;}
 .about-page h2 {font-size: 42px;line-height: 42px;font-weight: 700;position: relative;z-index: 999;display: inline-block;}
 .about-page h2:before {content: '';position: absolute;width: 135px;height: 10px;left: 0;bottom: 14px;background: #F0AC3F;z-index: -1;}
 .about_img img{ width:85%;}
@@ -6,3 +7,6 @@ img.about_img1{ position: absolute; bottom:-100px; right: 20px; width:60%;}
 .breadcrumb ol li{font-size:18px; line-height: 24px; color:#F0AC3F;float: none; display: inline-block; text-align: center;}
 .breadcrumb ol li a{ color:#ffffff;font-size:18px; line-height: 24px; text-transform: uppercase;}
 .breadcrumb ol li a:before{ content: '/';}
+@media only screen and (min-width:768px) {
+    .about-img{ margin-right: 10px;}
+}
