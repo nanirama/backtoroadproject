@@ -1,7 +1,6 @@
 import React from "react"
 import Slider from "react-slick";
-import Image from './image'
-import styled from "styled-components"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import FormsControler from './FormsControler'
 
 
@@ -57,6 +56,7 @@ const HomeSlider = ({data}) => {
                  </div>
           <Slider {...settings}>
           {data.edges.map(({node}, index) => {
+            console.log('Image alts',node.imgalt);
           return (
             <div key={index} className="slide-item d-flex justify-content-center">           
                 <div className="s_txt_outer d-flex flex-column justify-content-end align-items-center">
@@ -68,7 +68,13 @@ const HomeSlider = ({data}) => {
                             <div dangerouslySetInnerHTML={{ __html: node.content }} ></div> 
                             { node.eimg && (
                                   <div className="w-100 float-left eimg_icon">
-                                    {/* <Vector src={node.eimg.img.childImageSharp.fluid.base64} alt={node.eimg.imgalt} width={node.eimg.width} height={node.eimg.height} className="slider-eimg"></Vector>                                     */}
+                                      <GatsbyImage
+                                        alt={node.eimg.imgalt}
+                                        image={getImage(node.eimg.img)} 
+                                        width={node.eimg.width}
+                                        height={node.eimg.height}
+                                        className="slider-eimg"
+                                      />                                    
                                   </div>
                             )}
                           </div>
@@ -77,7 +83,12 @@ const HomeSlider = ({data}) => {
                       </div>
                     </div>
                   </div>
-                  <Image img={node.img} imgalt={node.imgalt} alt={node.imgalt} className="slider-img"/>
+                  <GatsbyImage
+                    alt={node.imgalt}
+                    image={getImage(node.img)} 
+                    className="slider-img"
+                  />
+                  {/* <Image img={node.img} imgalt={node.imgalt} alt={node.imgalt} className="slider-img"/> */}
                   {/* <img src={node.img.childImageSharp.fluid.base64} alt={node.imgalt} className="slider-img"/> */}
                   {/* <Image img={node.img} imgalt={node.imgalt} alt={node.imgalt} className="slider-img"/> */}
               </div> 
@@ -93,8 +104,4 @@ const HomeSlider = ({data}) => {
       </div>
     )
 }
-const Vector = styled.img`
-    width: ${props => props.width}px !important;
-    height:${props => props.height}px !important;
-`;
 export default HomeSlider

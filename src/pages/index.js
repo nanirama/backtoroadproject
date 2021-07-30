@@ -162,9 +162,7 @@ query HomePageQuery{
         eimg {
           img {
             childImageSharp {
-              fluid(base64Width: 450) {
-                base64
-              }
+              gatsbyImageData(layout: FIXED)
             }
           }
           width

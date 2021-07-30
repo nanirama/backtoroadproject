@@ -1,12 +1,13 @@
 import React from "react"
 import { Link } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { menuData } from "../../../data/MenuData"
 import styled from "styled-components"
 import mpIcon from "../../../assets/images/landing/callbtn.svg"
 import { FiPhoneCall } from 'react-icons/fi';
 
 const LandingHeader = ({ logoImg }) => {
-  const logoImage = logoImg.childImageSharp.fixed.base64
+  //const logoImage = logoImg.childImageSharp.fixed.base64
   return(
     <header className="w-100 float-left pt-4 pb-3">
       <div className="container">
@@ -14,7 +15,12 @@ const LandingHeader = ({ logoImg }) => {
             <div className="col-lg-2 col-sm-3">
                 <div className="logo w-auto float-left">
                   <Link to="/">
-                    <Logo src={logoImage} alt="Back to Roads Logo" itemprop="logo" width={128} height={47}/>                   
+                    <GatsbyImage
+                      alt="Back to Roads Logo"
+                      image={getImage(logoImg)} 
+                      width={128} height={47}
+                    />
+                    {/* <Logo src={logoImage} alt="Back to Roads Logo" itemprop="logo" width={128} height={47}/>                    */}
                   </Link>
                 </div>              
             </div>

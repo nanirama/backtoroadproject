@@ -7,6 +7,8 @@ const Image = ({ objectFit, objectPosition, img, imgalt, ...rest }) => {
 
   const ImageAlt = imgalt || 'Back to Roads'
 
+  
+
   if (objectFit === 'contain') {
     wrapperStyles.width = '100%';
     wrapperStyles.maxWidth = '100%';
@@ -63,11 +65,11 @@ const Image = ({ objectFit, objectPosition, img, imgalt, ...rest }) => {
     default:
       break;
   }
-
+  console.log('slider alts 2', ImageAlt);
   return (
     <GatsbyImage
-      image={getImage(img)}
       alt={ImageAlt}
+      image={getImage(img)}      
       style={wrapperStyles}
       imgStyle={imageStyles}
       placeholderstyle={imageStyles}

@@ -8,7 +8,7 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from 'react-icons/fa'
 
 
 const LandingFooter = ({logoImg, secureImg, partnersImg}) => {
-    const footerLogoImg = logoImg.childImageSharp.fixed.base64
+    //const footerLogoImg = logoImg.childImageSharp.fixed.base64
     let iconStyles = { color: "white", fontSize: "1.5em", marginRight:"25px" };
     const socialIcons = [
         {
@@ -37,7 +37,11 @@ const LandingFooter = ({logoImg, secureImg, partnersImg}) => {
                     <div className="f_logo w-100 float-left mb-4">
                         <div className="float-left f_logo_img">
                         <Link to="/">
-                        <FooterLogo src={footerLogoImg} alt="BackToRoad Auto Parts brand logo" itemprop="logo" width={128} height={47}/>
+                        <GatsbyImage
+                            alt="BackToRoad Auto Parts brand logo"
+                            image={getImage(logoImg)} 
+                            width={128} height={47}
+                        />
                         </Link>
                         </div>
                     </div>

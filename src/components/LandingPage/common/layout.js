@@ -23,34 +23,24 @@ const Layout = ({ children }) => {
     query={graphql`
       query LayoutQuery {
         FooterLogo: file(relativePath: { eq: "landing/f-logo.png" }) {
-              childImageSharp {
-                fixed(quality: 80, width: 128, base64Width: 256) {
-                  base64
-                }
-          }
+            childImageSharp {
+              gatsbyImageData(layout: FIXED, width: 128)
+            }
         }
         fSecureImage: file(relativePath: { eq: "landing/secure-img.png" }) {
           childImageSharp {
-            gatsbyImageData(
-              width: 180
-              placeholder: BLURRED
-            )
-            }
+            gatsbyImageData(layout: FIXED, width: 180)
+          }
         }
         fPartnersImage: file(relativePath: { eq: "landing/partners-img.png" }) {
           childImageSharp {
-            gatsbyImageData(
-              width: 295
-              placeholder: BLURRED
-            )
-            }
-        }
-        HeaderLogo: file(relativePath: { eq: "landing/logo.png" }) {
-          childImageSharp {
-            fixed(quality: 80, width: 128, base64Width: 256) {
-              base64
-            }
+            gatsbyImageData(layout: FIXED, width: 295)
           }
+        }
+        HeaderLogo: file(relativePath: { eq: "landing/logo.png" }) {          
+            childImageSharp {
+              gatsbyImageData(layout: FIXED, width: 128)
+            }
         }
       }
     `}
