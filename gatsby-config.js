@@ -117,6 +117,12 @@ module.exports = {
         options: {
           features: [`Array.prototype.map`, `fetch`]
         },
+    },
+    {
+      resolve: 'gatsby-plugin-sw',
+      options: {
+        swPath: 'src/sw.js', // Default to 'src/sw.js'
+      },
     }
   ],
 }

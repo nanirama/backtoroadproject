@@ -3918,7 +3918,7 @@
     "domhandler" "^4.2.0"
     "domutils" "^2.7.0"
 
-"cheerio@^1.0.0-rc.3", "cheerio@^1.0.0-rc.9":
+"cheerio@^1.0.0-rc.2", "cheerio@^1.0.0-rc.3", "cheerio@^1.0.0-rc.9":
   "integrity" "sha512-g0J0q/O6mW8z5zxQ3A8E8J1hUgp4SMOvEoW/x84OwyHKe/Zccz83PVT4y5Crcr530FV6NgmKI1qvGTKVl9XXVw=="
   "resolved" "https://registry.npmjs.org/cheerio/-/cheerio-1.0.0-rc.10.tgz"
   "version" "1.0.0-rc.10"
@@ -4183,7 +4183,7 @@
   "resolved" "https://registry.npmjs.org/commander/-/commander-2.20.3.tgz"
   "version" "2.20.3"
 
-"common-tags@^1.8.0":
+"common-tags@^1.4.0", "common-tags@^1.8.0":
   "integrity" "sha512-6P6g0uetGpW/sdyUy/iQQCbFF0kWVMSIVSyYz7Zgjcgh8mgw8PQzDNZeyZ5DQ2gM7LBoZPHmnjz8rUthkBG5tw=="
   "resolved" "https://registry.npmjs.org/common-tags/-/common-tags-1.8.0.tgz"
   "version" "1.8.0"
@@ -7131,6 +7131,16 @@
   dependencies:
     "@babel/runtime" "^7.12.5"
 
+"gatsby-plugin-sw@^1.0.1":
+  "integrity" "sha512-mWOE6HvWLMpQWlpPRSpsF9zZS+wAxDPFerTuVdMWWk7S2GSYT0vYzfJ2sp2vu2eDtyOUV88mFurX53NmRfQPeg=="
+  "resolved" "https://registry.npmjs.org/gatsby-plugin-sw/-/gatsby-plugin-sw-1.0.1.tgz"
+  "version" "1.0.1"
+  dependencies:
+    "cheerio" "^1.0.0-rc.2"
+    "lodash" "^4.17.10"
+    "slash" "^2.0.0"
+    "workbox-build" "^3.4.1"
+
 "gatsby-plugin-typescript@^2.12.0":
   "integrity" "sha512-Gb8mPdIgAmlxb/EgH7h5ewq3nMJ+oU640AyfTCAp9GtQspRztRRKjuGceJH3gDVq8bO6wFOWxdRVYIC2KZF9mw=="
   "resolved" "https://registry.npmjs.org/gatsby-plugin-typescript/-/gatsby-plugin-typescript-2.12.0.tgz"
@@ -8136,6 +8146,11 @@
     "hash.js" "^1.0.3"
     "minimalistic-assert" "^1.0.0"
     "minimalistic-crypto-utils" "^1.0.1"
+
+"hoek@4.x.x":
+  "integrity" "sha512-QLg82fGkfnJ/4iy1xZ81/9SIJiq1NGFUMGs6ParyjBZr6jW2Ufj/snDqTHixNlHdPNwN2RLVD0Pi3igeK9+JfA=="
+  "resolved" "https://registry.npmjs.org/hoek/-/hoek-4.2.1.tgz"
+  "version" "4.2.1"
 
 "hoist-non-react-statics@^3.0.0", "hoist-non-react-statics@^3.3.0", "hoist-non-react-statics@^3.3.1":
   "integrity" "sha512-/gGivxi8JPKWNm/W0jSmzcMPpfpPLc3dY/6GxhX2hQ9iGj3aDfklV4ET7NjKpSinLpJ5vafa9iiGIEZg10SfBw=="
@@ -9173,6 +9188,13 @@
   "resolved" "https://registry.npmjs.org/isarray/-/isarray-2.0.1.tgz"
   "version" "2.0.1"
 
+"isemail@3.x.x":
+  "integrity" "sha512-zKqkK+O+dGqevc93KNsbZ/TqTUFd46MwWjYOoMrjIMZ51eU7DtQG3Wmd9SQQT7i7RVnuTPEiYEWHU3MSbxC1Tg=="
+  "resolved" "https://registry.npmjs.org/isemail/-/isemail-3.2.0.tgz"
+  "version" "3.2.0"
+  dependencies:
+    "punycode" "2.x.x"
+
 "isexe@^2.0.0":
   "integrity" "sha1-6PvzdNxVb/iUehDcsFctYz8s+hA="
   "resolved" "https://registry.npmjs.org/isexe/-/isexe-2.0.0.tgz"
@@ -9266,6 +9288,15 @@
     "@jimp/plugins" "^0.14.0"
     "@jimp/types" "^0.14.0"
     "regenerator-runtime" "^0.13.3"
+
+"joi@^11.1.1":
+  "integrity" "sha512-O7Uw+w/zEWgbL6OcHbyACKSj0PkQeUgmehdoXVSxt92QFCq4+1390Rwh5moI2K/OgC7D8RHRZqHZxT2husMJHA=="
+  "resolved" "https://registry.npmjs.org/joi/-/joi-11.4.0.tgz"
+  "version" "11.4.0"
+  dependencies:
+    "hoek" "4.x.x"
+    "isemail" "3.x.x"
+    "topo" "2.x.x"
 
 "joi@^17.2.1":
   "integrity" "sha512-F4WiW2xaV6wc1jxete70Rw4V/VuMd6IN+a5ilZsxG4uYtUXWu2kq9W5P2dz30e7Gmw8RCbY/u/uk+dMPma9tAg=="
@@ -11934,6 +11965,11 @@
   "resolved" "https://registry.npmjs.org/prettier/-/prettier-2.1.2.tgz"
   "version" "2.1.2"
 
+"pretty-bytes@^4.0.2":
+  "integrity" "sha1-sr+C5zUNZcbDOqlaqlpPYyf2HNk="
+  "resolved" "https://registry.npmjs.org/pretty-bytes/-/pretty-bytes-4.0.2.tgz"
+  "version" "4.0.2"
+
 "pretty-bytes@^5.1.0", "pretty-bytes@^5.4.1":
   "integrity" "sha512-p+T744ZyjjiaFlMUZZv6YPC5JrkNj8maRmPaQCWFJFplUAzpIUTRaTcS+7wmZtUoFXHtESJb23ISliaWyz3SHA=="
   "resolved" "https://registry.npmjs.org/pretty-bytes/-/pretty-bytes-5.5.0.tgz"
@@ -12095,7 +12131,7 @@
   "resolved" "https://registry.npmjs.org/punycode/-/punycode-1.4.1.tgz"
   "version" "1.4.1"
 
-"punycode@^2.1.0":
+"punycode@^2.1.0", "punycode@2.x.x":
   "integrity" "sha512-XRsRjdf+j5ml+y/6GKHPZbrF/8p2Yga0JPtdqTIY2Xe5ohJPD9saDJJLPvp9+NSBprVvevdXZybnj2cv8OEd0A=="
   "resolved" "https://registry.npmjs.org/punycode/-/punycode-2.1.1.tgz"
   "version" "2.1.1"
@@ -13610,6 +13646,11 @@
     "arg" "^5.0.0"
     "sax" "^1.2.4"
 
+"slash@^2.0.0":
+  "integrity" "sha512-ZYKh3Wh2z1PpEXWr0MpSBZ0V6mZHAQfYevttO11c51CaWjGTaadiKZ+wVt1PbMlDV5qhMFslpZCemhwOK7C89A=="
+  "resolved" "https://registry.npmjs.org/slash/-/slash-2.0.0.tgz"
+  "version" "2.0.0"
+
 "slash@^3.0.0":
   "integrity" "sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q=="
   "resolved" "https://registry.npmjs.org/slash/-/slash-3.0.0.tgz"
@@ -14187,7 +14228,7 @@
     "character-entities-legacy" "^1.0.0"
     "xtend" "^4.0.0"
 
-"stringify-object@^3.3.0":
+"stringify-object@^3.2.2", "stringify-object@^3.3.0":
   "integrity" "sha512-rHqiFh1elqCQ9WPLIC8I0Q/g/wj5J1eMkyoiD6eoQApWHP0FtlK7rqnhmabL5VUY9JQCcqwwvlOaSuutekgyrw=="
   "resolved" "https://registry.npmjs.org/stringify-object/-/stringify-object-3.3.0.tgz"
   "version" "3.3.0"
@@ -14722,6 +14763,13 @@
   "integrity" "sha512-w6qS6F5PNtY30DxoRD4a7nC7zOlPM2SlpQ4zLhOmqBaB1VCZrlV82bLpc/lKNOdNmrwIwcsJLDcjEJ8f7UG6Mg=="
   "resolved" "https://registry.npmjs.org/tokenizr/-/tokenizr-1.5.7.tgz"
   "version" "1.5.7"
+
+"topo@2.x.x":
+  "integrity" "sha1-zVYVdSU5BXwNwEkaYhw7xvvh0YI="
+  "resolved" "https://registry.npmjs.org/topo/-/topo-2.0.2.tgz"
+  "version" "2.0.2"
+  dependencies:
+    "hoek" "4.x.x"
 
 "traverse@0.6.6":
   "integrity" "sha1-y99WD9e5r2MlAv7UD5GMFX6pcTc="
@@ -15574,6 +15622,13 @@
   "resolved" "https://registry.npmjs.org/word-wrap/-/word-wrap-1.2.3.tgz"
   "version" "1.2.3"
 
+"workbox-background-sync@^3.6.3":
+  "integrity" "sha512-ypLo0B6dces4gSpaslmDg5wuoUWrHHVJfFWwl1udvSylLdXvnrfhFfriCS42SNEe5lsZtcNZF27W/SMzBlva7Q=="
+  "resolved" "https://registry.npmjs.org/workbox-background-sync/-/workbox-background-sync-3.6.3.tgz"
+  "version" "3.6.3"
+  dependencies:
+    "workbox-core" "^3.6.3"
+
 "workbox-background-sync@^4.3.1":
   "integrity" "sha512-1uFkvU8JXi7L7fCHVBEEnc3asPpiAL33kO495UMcD5+arew9IbKW2rV5lpzhoWcm/qhGB89YfO4PmB/0hQwPRg=="
   "resolved" "https://registry.npmjs.org/workbox-background-sync/-/workbox-background-sync-4.3.1.tgz"
@@ -15581,12 +15636,47 @@
   dependencies:
     "workbox-core" "^4.3.1"
 
+"workbox-broadcast-cache-update@^3.6.3":
+  "integrity" "sha512-pJl4lbClQcvp0SyTiEw0zLSsVYE1RDlCPtpKnpMjxFtu8lCFTAEuVyzxp9w7GF4/b3P4h5nyQ+q7V9mIR7YzGg=="
+  "resolved" "https://registry.npmjs.org/workbox-broadcast-cache-update/-/workbox-broadcast-cache-update-3.6.3.tgz"
+  "version" "3.6.3"
+  dependencies:
+    "workbox-core" "^3.6.3"
+
 "workbox-broadcast-update@^4.3.1":
   "integrity" "sha512-MTSfgzIljpKLTBPROo4IpKjESD86pPFlZwlvVG32Kb70hW+aob4Jxpblud8EhNb1/L5m43DUM4q7C+W6eQMMbA=="
   "resolved" "https://registry.npmjs.org/workbox-broadcast-update/-/workbox-broadcast-update-4.3.1.tgz"
   "version" "4.3.1"
   dependencies:
     "workbox-core" "^4.3.1"
+
+"workbox-build@^3.4.1":
+  "integrity" "sha512-w0clZ/pVjL8VXy6GfthefxpEXs0T8uiRuopZSFVQ8ovfbH6c6kUpEh6DcYwm/Y6dyWPiCucdyAZotgjz+nRz8g=="
+  "resolved" "https://registry.npmjs.org/workbox-build/-/workbox-build-3.6.3.tgz"
+  "version" "3.6.3"
+  dependencies:
+    "babel-runtime" "^6.26.0"
+    "common-tags" "^1.4.0"
+    "fs-extra" "^4.0.2"
+    "glob" "^7.1.2"
+    "joi" "^11.1.1"
+    "lodash.template" "^4.4.0"
+    "pretty-bytes" "^4.0.2"
+    "stringify-object" "^3.2.2"
+    "strip-comments" "^1.0.2"
+    "workbox-background-sync" "^3.6.3"
+    "workbox-broadcast-cache-update" "^3.6.3"
+    "workbox-cache-expiration" "^3.6.3"
+    "workbox-cacheable-response" "^3.6.3"
+    "workbox-core" "^3.6.3"
+    "workbox-google-analytics" "^3.6.3"
+    "workbox-navigation-preload" "^3.6.3"
+    "workbox-precaching" "^3.6.3"
+    "workbox-range-requests" "^3.6.3"
+    "workbox-routing" "^3.6.3"
+    "workbox-strategies" "^3.6.3"
+    "workbox-streams" "^3.6.3"
+    "workbox-sw" "^3.6.3"
 
 "workbox-build@^4.3.1":
   "integrity" "sha512-UHdwrN3FrDvicM3AqJS/J07X0KXj67R8Cg0waq1MKEOqzo89ap6zh6LmaLnRAjpB+bDIz+7OlPye9iii9KBnxw=="
@@ -15617,12 +15707,31 @@
     "workbox-sw" "^4.3.1"
     "workbox-window" "^4.3.1"
 
+"workbox-cache-expiration@^3.6.3":
+  "integrity" "sha512-+ECNph/6doYx89oopO/UolYdDmQtGUgo8KCgluwBF/RieyA1ZOFKfrSiNjztxOrGJoyBB7raTIOlEEwZ1LaHoA=="
+  "resolved" "https://registry.npmjs.org/workbox-cache-expiration/-/workbox-cache-expiration-3.6.3.tgz"
+  "version" "3.6.3"
+  dependencies:
+    "workbox-core" "^3.6.3"
+
+"workbox-cacheable-response@^3.6.3":
+  "integrity" "sha512-QpmbGA9SLcA7fklBLm06C4zFg577Dt8u3QgLM0eMnnbaVv3rhm4vbmDpBkyTqvgK/Ly8MBDQzlXDtUCswQwqqg=="
+  "resolved" "https://registry.npmjs.org/workbox-cacheable-response/-/workbox-cacheable-response-3.6.3.tgz"
+  "version" "3.6.3"
+  dependencies:
+    "workbox-core" "^3.6.3"
+
 "workbox-cacheable-response@^4.3.1":
   "integrity" "sha512-Rp5qlzm6z8IOvnQNkCdO9qrDgDpoPNguovs0H8C+wswLuPgSzSp9p2afb5maUt9R1uTIwOXrVQMmPfPypv+npw=="
   "resolved" "https://registry.npmjs.org/workbox-cacheable-response/-/workbox-cacheable-response-4.3.1.tgz"
   "version" "4.3.1"
   dependencies:
     "workbox-core" "^4.3.1"
+
+"workbox-core@^3.6.3":
+  "integrity" "sha512-cx9cx0nscPkIWs8Pt98HGrS9/aORuUcSkWjG25GqNWdvD/pSe7/5Oh3BKs0fC+rUshCiyLbxW54q0hA+GqZeSQ=="
+  "resolved" "https://registry.npmjs.org/workbox-core/-/workbox-core-3.6.3.tgz"
+  "version" "3.6.3"
 
 "workbox-core@^4.3.1":
   "integrity" "sha512-I3C9jlLmMKPxAC1t0ExCq+QoAMd0vAAHULEgRZ7kieCdUd919n53WC0AfvokHNwqRhGn+tIIj7vcb5duCjs2Kg=="
@@ -15636,6 +15745,16 @@
   dependencies:
     "workbox-core" "^4.3.1"
 
+"workbox-google-analytics@^3.6.3":
+  "integrity" "sha512-RQBUo/6SXtIaQTRFj4RQZ9e1gAl7D8oS5S+Hi173Kk70/BgJjzPwXpC5A249Jv5YfkCOLMQCeF9A27BiD0b0ig=="
+  "resolved" "https://registry.npmjs.org/workbox-google-analytics/-/workbox-google-analytics-3.6.3.tgz"
+  "version" "3.6.3"
+  dependencies:
+    "workbox-background-sync" "^3.6.3"
+    "workbox-core" "^3.6.3"
+    "workbox-routing" "^3.6.3"
+    "workbox-strategies" "^3.6.3"
+
 "workbox-google-analytics@^4.3.1":
   "integrity" "sha512-xzCjAoKuOb55CBSwQrbyWBKqp35yg1vw9ohIlU2wTy06ZrYfJ8rKochb1MSGlnoBfXGWss3UPzxR5QL5guIFdg=="
   "resolved" "https://registry.npmjs.org/workbox-google-analytics/-/workbox-google-analytics-4.3.1.tgz"
@@ -15646,12 +15765,26 @@
     "workbox-routing" "^4.3.1"
     "workbox-strategies" "^4.3.1"
 
+"workbox-navigation-preload@^3.6.3":
+  "integrity" "sha512-dd26xTX16DUu0i+MhqZK/jQXgfIitu0yATM4jhRXEmpMqQ4MxEeNvl2CgjDMOHBnCVMax+CFZQWwxMx/X/PqCw=="
+  "resolved" "https://registry.npmjs.org/workbox-navigation-preload/-/workbox-navigation-preload-3.6.3.tgz"
+  "version" "3.6.3"
+  dependencies:
+    "workbox-core" "^3.6.3"
+
 "workbox-navigation-preload@^4.3.1":
   "integrity" "sha512-K076n3oFHYp16/C+F8CwrRqD25GitA6Rkd6+qAmLmMv1QHPI2jfDwYqrytOfKfYq42bYtW8Pr21ejZX7GvALOw=="
   "resolved" "https://registry.npmjs.org/workbox-navigation-preload/-/workbox-navigation-preload-4.3.1.tgz"
   "version" "4.3.1"
   dependencies:
     "workbox-core" "^4.3.1"
+
+"workbox-precaching@^3.6.3":
+  "integrity" "sha512-aBqT66BuMFviPTW6IpccZZHzpA8xzvZU2OM1AdhmSlYDXOJyb1+Z6blVD7z2Q8VNtV1UVwQIdImIX+hH3C3PIw=="
+  "resolved" "https://registry.npmjs.org/workbox-precaching/-/workbox-precaching-3.6.3.tgz"
+  "version" "3.6.3"
+  dependencies:
+    "workbox-core" "^3.6.3"
 
 "workbox-precaching@^4.3.1":
   "integrity" "sha512-piSg/2csPoIi/vPpp48t1q5JLYjMkmg5gsXBQkh/QYapCdVwwmKlU9mHdmy52KsDGIjVaqEUMFvEzn2LRaigqQ=="
@@ -15660,12 +15793,26 @@
   dependencies:
     "workbox-core" "^4.3.1"
 
+"workbox-range-requests@^3.6.3":
+  "integrity" "sha512-R+yLWQy7D9aRF9yJ3QzwYnGFnGDhMUij4jVBUVtkl67oaVoP1ymZ81AfCmfZro2kpPRI+vmNMfxxW531cqdx8A=="
+  "resolved" "https://registry.npmjs.org/workbox-range-requests/-/workbox-range-requests-3.6.3.tgz"
+  "version" "3.6.3"
+  dependencies:
+    "workbox-core" "^3.6.3"
+
 "workbox-range-requests@^4.3.1":
   "integrity" "sha512-S+HhL9+iTFypJZ/yQSl/x2Bf5pWnbXdd3j57xnb0V60FW1LVn9LRZkPtneODklzYuFZv7qK6riZ5BNyc0R0jZA=="
   "resolved" "https://registry.npmjs.org/workbox-range-requests/-/workbox-range-requests-4.3.1.tgz"
   "version" "4.3.1"
   dependencies:
     "workbox-core" "^4.3.1"
+
+"workbox-routing@^3.6.3":
+  "integrity" "sha512-bX20i95OKXXQovXhFOViOK63HYmXvsIwZXKWbSpVeKToxMrp0G/6LZXnhg82ijj/S5yhKNRf9LeGDzaqxzAwMQ=="
+  "resolved" "https://registry.npmjs.org/workbox-routing/-/workbox-routing-3.6.3.tgz"
+  "version" "3.6.3"
+  dependencies:
+    "workbox-core" "^3.6.3"
 
 "workbox-routing@^4.3.1":
   "integrity" "sha512-FkbtrODA4Imsi0p7TW9u9MXuQ5P4pVs1sWHK4dJMMChVROsbEltuE79fBoIk/BCztvOJ7yUpErMKa4z3uQLX+g=="
@@ -15674,6 +15821,13 @@
   dependencies:
     "workbox-core" "^4.3.1"
 
+"workbox-strategies@^3.6.3":
+  "integrity" "sha512-Pg5eulqeKet2y8j73Yw6xTgLdElktcWExGkzDVCGqfV9JCvnGuEpz5eVsCIK70+k4oJcBCin9qEg3g3CwEIH3g=="
+  "resolved" "https://registry.npmjs.org/workbox-strategies/-/workbox-strategies-3.6.3.tgz"
+  "version" "3.6.3"
+  dependencies:
+    "workbox-core" "^3.6.3"
+
 "workbox-strategies@^4.3.1":
   "integrity" "sha512-F/+E57BmVG8dX6dCCopBlkDvvhg/zj6VDs0PigYwSN23L8hseSRwljrceU2WzTvk/+BSYICsWmRq5qHS2UYzhw=="
   "resolved" "https://registry.npmjs.org/workbox-strategies/-/workbox-strategies-4.3.1.tgz"
@@ -15681,12 +15835,24 @@
   dependencies:
     "workbox-core" "^4.3.1"
 
+"workbox-streams@^3.6.3":
+  "integrity" "sha512-rqDuS4duj+3aZUYI1LsrD2t9hHOjwPqnUIfrXSOxSVjVn83W2MisDF2Bj+dFUZv4GalL9xqErcFW++9gH+Z27w=="
+  "resolved" "https://registry.npmjs.org/workbox-streams/-/workbox-streams-3.6.3.tgz"
+  "version" "3.6.3"
+  dependencies:
+    "workbox-core" "^3.6.3"
+
 "workbox-streams@^4.3.1":
   "integrity" "sha512-4Kisis1f/y0ihf4l3u/+ndMkJkIT4/6UOacU3A4BwZSAC9pQ9vSvJpIi/WFGQRH/uPXvuVjF5c2RfIPQFSS2uA=="
   "resolved" "https://registry.npmjs.org/workbox-streams/-/workbox-streams-4.3.1.tgz"
   "version" "4.3.1"
   dependencies:
     "workbox-core" "^4.3.1"
+
+"workbox-sw@^3.6.3":
+  "integrity" "sha512-IQOUi+RLhvYCiv80RP23KBW/NTtIvzvjex28B8NW1jOm+iV4VIu3VXKXTA6er5/wjjuhmtB28qEAUqADLAyOSg=="
+  "resolved" "https://registry.npmjs.org/workbox-sw/-/workbox-sw-3.6.3.tgz"
+  "version" "3.6.3"
 
 "workbox-sw@^4.3.1":
   "integrity" "sha512-0jXdusCL2uC5gM3yYFT6QMBzKfBr2XTk0g5TPAV4y8IZDyVNDyj1a8uSXy3/XrvkVTmQvLN4O5k3JawGReXr9w=="

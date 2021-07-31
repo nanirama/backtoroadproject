@@ -130,11 +130,4 @@ experience shopping with us and get your car back on the road in no time at all.
         </footer>  
     )
 }
-const FooterLogo = styled.img`
-  font-size: 3rem;
-  align-self: center;
-  width: 128px; 
-  height: 47px;
-  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-`
 export default LandingFooter
