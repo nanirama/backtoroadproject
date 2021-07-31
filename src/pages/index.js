@@ -64,9 +64,9 @@ const IndexPage = (props) => {
     <OemPartsSection /> 
     <HowitWorks />
     <HomeJourneySoFar />
-    {/* <HomeWhychoosebtr/> 
+    <HomeWhychoosebtr/> 
     <HomePopularMakes data={allMakes}/>
-    <GoGreenSection bg={gogreenBg} mbg={gogreenmBg} img={saveGreen} />
+    {/* <GoGreenSection bg={gogreenBg} mbg={gogreenmBg} img={saveGreen} />
     <CustomerReviews gImage={GoogleImage}/>    
     <HomeRecentArrivals/>    
     <LandingBanner bannerImage={BannerImage}/> */}
