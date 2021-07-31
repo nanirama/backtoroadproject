@@ -12,7 +12,7 @@ const HomeRecentArrivals = () => {
                 title
                 img {
                     childImageSharp {
-                      gatsbyImageData(width: 400, height: 400, layout: FULL_WIDTH, quality: 100)
+                      gatsbyImageData(width: 400, height: 400, quality: 100)
                     }
                 }
             }
