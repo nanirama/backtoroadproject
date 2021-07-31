@@ -7,21 +7,21 @@ import Image from './image'
 const GoGreenSection = ({ img }) => {
   const [width, setWidth] = useState(0);
     
-    useEffect(() => {
-      setWidth(window.innerWidth);
-      window.addEventListener("resize", () => {
-        setWidth(window.innerWidth);
-      });
-      return () => {
-        window.removeEventListener("resize", () => {});
-      };
-    }, []);
+    // useEffect(() => {
+    //   setWidth(window.innerWidth);
+    //   window.addEventListener("resize", () => {
+    //     setWidth(window.innerWidth);
+    //   });
+    //   return () => {
+    //     window.removeEventListener("resize", () => {});
+    //   };
+    // }, []);
     //console.log('Window Width is ', width);
     return (
         <div className="w-100 float-left gogreen mb-5">
         <div className="container">
         <div style={{ display: "grid" }}>
-          { width >= 768 && (
+          {/* { width >= 768 && ( */}
             <StaticImage
               style={{
                 gridArea: "1/1",
@@ -34,7 +34,7 @@ const GoGreenSection = ({ img }) => {
               }
               formats={["auto", "webp"]}
             />
-          ) }
+          {/* ) }
           { width < 768 && (
             <StaticImage
               style={{
@@ -48,7 +48,7 @@ const GoGreenSection = ({ img }) => {
               }
               formats={["auto", "webp"]}
             />
-          ) }
+          ) } */}
           
           <div className="w-100 float-left"
             style={{
