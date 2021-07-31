@@ -4,11 +4,9 @@ import styled from "styled-components"
 import { getSrc } from "gatsby-plugin-image"
 import Image from './image'
 
-const GoGreenSection = ({ bg,mbg, img }) => {
+const GoGreenSection = ({img }) => {
   const [width, setWidth] = useState(0);
-    //const bgImg = bg.childImageSharp.fluid.base64
-    //const bgmImg = mbg.childImageSharp.fluid.base64   
-    
+   
     useEffect(() => {
       setWidth(window.innerWidth);
       window.addEventListener("resize", () => {
@@ -19,8 +17,6 @@ const GoGreenSection = ({ bg,mbg, img }) => {
       };
     }, []);
     console.log('Window Width is ', width);
-    const bgImg = getSrc(bg)
-    const bgmImg = getSrc(mbg)
     return (
         <div className="w-100 float-left gogreen mb-5">
         <div className="container">
