@@ -1,20 +1,19 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Slider from "react-slick";
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Image from './image'
 import { FaLongArrowAltLeft, FaLongArrowAltRight, FaStar } from 'react-icons/fa';
-const CustomerReviews = ({gImage}) => { 
+const CustomerReviews = () => { 
   let iconStyles = { color: "#FFC93E", fontSize: "1.1em", marginRight:"5px" };
 
   const { ReviewsData, GoogleImage } = useStaticQuery(
     graphql`
       query {
         GoogleImage: file(relativePath: { eq: "landing/google-new.png" }) {
-            childImageSharp {
-                fixed(width: 42, height: 42, base64Width: 42) {
-                  base64
-                }
-            }
+          childImageSharp {
+            gatsbyImageData(layout: FULL_WIDTH, width: 40, quality: 100)
+          }
         }
         ReviewsData : allReviewsJson {
           edges {
@@ -24,9 +23,7 @@ const CustomerReviews = ({gImage}) => {
               title
               img {
                 childImageSharp {
-                  fixed(width: 50, height: 50, base64Width: 50) {
-                    base64
-                  }
+                  gatsbyImageData(layout: FIXED, width: 46, height: 46, quality: 100)
                 }
               }
             }
@@ -133,9 +130,13 @@ const CustomerReviews = ({gImage}) => {
                                   </div>
                                   <div className="bottom w-100 float-left pt-4">
                                     <div className="d-flex flex-row justify-content-between align-items-center">
-                                      <div className="pr-1 author_pic">
-                                        <img src={node.img.childImageSharp.fixed.base64} alt={node.title} width={50} height={50}/>                                        
-                                        {/* <Image img={node.img} imgalt={node.title}/> */}
+                                      <div className="author_pic">
+                                        <GatsbyImage
+                                          alt={node.title}
+                                          image={getImage(node.img)} 
+                                          width={46}
+                                          height={46}
+                                        /> 
                                       </div>
                                       <div className="author_info float-left">
                                         <div className="text w-100 float-left pl-3 pr-1">
@@ -150,7 +151,12 @@ const CustomerReviews = ({gImage}) => {
                                         </div>
                                       </div>
                                       <div className="google">
-                                        <img src={GoogleImage.childImageSharp.fixed.base64} width={42} height={42} alt={`Google Review ${index}`}/>                                        
+                                        <GatsbyImage
+                                          alt={`Google Review ${index}`}
+                                          image={getImage(GoogleImage)} 
+                                          width={40}
+                                          height={40}
+                                        />                                        
                                       </div>
                                     </div>
                                   </div>

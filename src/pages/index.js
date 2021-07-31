@@ -21,7 +21,6 @@ const IndexPage = (props) => {
     PageData,
     slides,
     allMakes,
-    GoogleImage,
     BannerImage,
     AboutImage,
     gogreenBg,
@@ -67,7 +66,7 @@ const IndexPage = (props) => {
     <HomeWhychoosebtr/> 
     <HomePopularMakes data={allMakes}/>
     <GoGreenSection bg={gogreenBg} mbg={gogreenmBg} img={saveGreen} />
-    <CustomerReviews gImage={GoogleImage}/>    
+    <CustomerReviews/>    
     <HomeRecentArrivals/>    
     <LandingBanner bannerImage={BannerImage}/>
   </Layout>
@@ -91,17 +90,10 @@ query HomePageQuery{
       metaKeywords
     }
   }
-  GoogleImage: file(relativePath: { eq: "landing/google.png" }) {
-      childImageSharp {
-          gatsbyImageData(
-              width: 40
-          )
-      }
-  }
   BannerImage: file(relativePath: { eq: "landing/ban_img.png" }) {
       childImageSharp {
           gatsbyImageData(
-              width: 300
+              width: 300, quality: 100
           )
       }
   }
@@ -112,16 +104,12 @@ query HomePageQuery{
   }
   gogreenBg: file(relativePath: {eq: "landing/blue-bg.jpg"}) {
     childImageSharp {
-      fluid(quality: 100, base64Width: 1200) {
-          base64
-      }
+      gatsbyImageData(width: 1200, layout: FULL_WIDTH, quality: 100)
     }
   }
   gogreenmBg: file(relativePath: {eq: "landing/blue-bg-mob.jpg"}) {
     childImageSharp {
-      fluid(quality: 100, base64Width: 374) {
-        base64
-      }
+      gatsbyImageData(width: 374, layout: FULL_WIDTH, quality: 100)
     }
   }
   saveGreen: file(relativePath: {eq: "landing/save-green-new.png"}) {
