@@ -44,7 +44,7 @@ const LandingFaqs = ({data, title, subtitle}) => {
                                 itemtype="https://schema.org/Question"
                                 className="faq-card"
                                 key={index}
-                                css={css`background-image: url(${bgImg});`}
+                                style={{ backgroundImage: `url(${bgImg})` }}
                             >
                                 <Accordion.Toggle as={Card.Header} eventKey={index+1} itemprop="name">
                                     <h4 onClick={e=>onClickHandler(index)}>{item.title}</h4>

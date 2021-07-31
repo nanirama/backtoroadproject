@@ -29,15 +29,6 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/assets/images`,
       },
-    },
-    {
-      resolve: `gatsby-plugin-emotion`,
-      options: {
-        sourceMap: true,
-        autoLabel: "dev-only",
-        labelFormat: `[local]`,
-        cssPropOptimization: true,
-      },
     },       
     {
       resolve: `gatsby-plugin-manifest`,
@@ -117,12 +108,6 @@ module.exports = {
         options: {
           features: [`Array.prototype.map`, `fetch`]
         },
-    },
-    {
-      resolve: 'gatsby-plugin-sw',
-      options: {
-        swPath: 'src/sw.js', // Default to 'src/sw.js'
-      },
     }
   ],
 }
