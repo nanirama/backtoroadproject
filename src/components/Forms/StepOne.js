@@ -141,7 +141,7 @@ const StepOne = () => {
 export default StepOne
 
 const InputWrapper = styled.div`
-  background: #ffffff;
+  background: #ff00ff;
   display: flex;
   flex-direction: column;
   justify-items: center;

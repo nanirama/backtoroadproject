@@ -84,7 +84,7 @@ const StepTwo = () => {
                 <label htmlFor="vin">VIN (OPTIONAL) *
                 <input
                      aria-labelledby="vin number"
-                    type="text" placeholder='VIN Number' id="vin-number" />
+                    type="text" placeholder='VIN Number' id="vin-number" className="custominput" />
                 </label>
             </InputWrap>
             <InputWrap>

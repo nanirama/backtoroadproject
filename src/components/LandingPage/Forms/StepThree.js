@@ -100,16 +100,16 @@ const StepThree = () => {
     return (
         <InputWrapper>
             <TitleDiv>
-                <h4 className="w-100 mb-1">Vehicle Specifications</h4>
+                <h4 className="w-100 mb-1">For Quotes and Assistance</h4>
             </TitleDiv>
             <InputWrap>
                 <label htmlFor="name">NAME *
-                <input aria-labelledby="name" type="text" placeholder='Name' id="name" />
+                <input className="custominput" aria-labelledby="name" type="text" placeholder='Name' id="name" />
                 </label>
             </InputWrap>
             <InputWrap>
                 <label htmlFor="email">EMAIL (FOR QUOTE ONLY) *
-                <input aria-labelledby="email" type="email" placeholder='Email' id="email" />
+                <input className="custominput" aria-labelledby="email" type="email" placeholder='Email' id="email" />
                 </label>
             </InputWrap>
             <InputWrap>
@@ -117,19 +117,27 @@ const StepThree = () => {
                 <Select aria-label="state" aria-labelledby="state" options={optionsStates} onChange={(e) => clickFunction(e)} styles={colourStyles} />
                 </label>
             </InputWrap>
-            <InputWrap>
-                <label htmlFor="phone">PHONE (FOR QUOTE ONLY)*
-                <input aria-labelledby="phone" type="text" placeholder='Phone' id="phone" />
-                </label>
-            </InputWrap>
-            <InputWrap>
-                <label htmlFor="zip">ZIP (FOR QUOTE ONLY)*
-                <input aria-labelledby="zip" type="text" placeholder='Zip' id="zip" />
-                </label>
-            </InputWrap>
+            <div className="row">
+                <div className="col-md-6 col-xs-6">
+                <InputWrap>
+                    <label htmlFor="phone">PHONE (FOR QUOTE ONLY)*
+                    <input className="custominput" aria-labelledby="phone" type="text" placeholder='Phone' id="phone" />
+                    </label>
+                </InputWrap>
+                </div>
+                <div className="col-md-6 col-xs-6">
+                <InputWrap>
+                    <label htmlFor="zip">ZIP (FOR QUOTE ONLY)*
+                    <input className="custominput" aria-labelledby="zip" type="text" placeholder='Zip' id="zip" />
+                    </label>
+                </InputWrap>
+                </div>
+            </div>
+            
+            
             <InputWrap>
                 <label htmlFor="size">ENTER ANY SPECIAL NOTES FOR THIS PART (SIZE VARIATION) 
-                <textarea aria-labelledby="size" rows="4" cols="50" name="comment" form="usrform" placeholder="Enter here..."></textarea>
+                <textarea className="custominput" aria-labelledby="size" rows="4" cols="50" name="comment" form="usrform" placeholder="Enter here..."></textarea>
                 </label>
             </InputWrap>
         </InputWrapper>
