@@ -88,7 +88,6 @@ or buying a new car.</p>
 const SaveGreenDiv = styled.div`
     padding: 3rem !important;
     @media (max-width: 767px) {
-        background-image: url(${props => props.mimg});
         padding: 1rem !important;
     }
 `;

@@ -20,6 +20,7 @@ margin:0 10px 5px 0}
 .oem_parts_blk .more_link .rarrow{color:#165DA6; font-size: 14px;}
 .abt.btn1{ width:135px; border:2px solid red;}
 .gogreen p{ padding-bottom: 10px; font-size:14px; line-height:24px; color: rgba(255, 255, 255, 0.8);}
+
 @media only screen and (min-width:991px) and (max-width:1050px) {
 .s_txt_outer {
     width:100%;
@@ -44,15 +45,18 @@ margin:0 10px 5px 0}
 @media only screen and (min-width:768px) {
     .eimg_icon{margin:40px 0px 10px 0px;}
     .oem_parts_blk h1{ text-align: center;}
-
 }
 @media only screen and (max-width:767px) {
     .oem_parts_blk, .logos_blk { padding:50px 0;}
     .slider-img{ min-height: 40vh;}
     .oem_parts_blk .sub_box_content{ min-height: 250px}
-    .oem_parts_blk h1{ text-align: left;}
+    .oem_parts_blk h1{ text-align: left;}    
+}
+@media only screen and (min-width:599px) {
+    .client-logos{ min-height: 200px;}
 }
 @media only screen and (max-width:599px) {
+    .client-logos{ min-height: 175px;}
     .v_icon{
     width:56px;
     height:56px;
@@ -71,6 +75,7 @@ margin:0 10px 5px 0}
     .s_txt{ width:100%; margin-top:1rem; margin-left:0rem; margin-bottom: 1rem;}
 }
 @media only screen and (max-width:479px) {
+    .client-logos{ min-height: 150px;}
     .oem_parts_blk .sub_box h3{ font-size: 16px; font-weight: 700; line-height: 22px;}
     .oem_parts_blk, .logos_blk { padding:30px 0;}
     .v_icon{
@@ -84,7 +89,12 @@ margin:0 10px 5px 0}
     .oem_parts_blk .sub_box{padding:20px 10px 15px 10px;}
     .oem_parts_blk .sub_box_content{ min-height: 330px;}
 }
-
+@media only screen and (max-width:399px) {
+    .client-logos{ min-height: 125px;}
+}
+@media only screen and (max-width:360px) {
+    .client-logos{ min-height: 110px;}
+}
 @media only screen and (min-width:1199px) {
   .slider_form_desktop{ width:100%; position:absolute; bottom:40px; z-index: 9999; right:0px;} 
 }
@@ -92,7 +102,7 @@ margin:0 10px 5px 0}
   .slider_form_desktop{ display: none; width:0px;}
 }
  /* .slick-disabled{ cursor: none !important;} */
-.client-logos{ min-height: 200px;}
+
 .border1{ border:1px solid red;}
 .border3{ border:2px solid blue}
 .border4{ border:2px solid pink;}

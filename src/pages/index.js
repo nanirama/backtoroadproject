@@ -64,9 +64,9 @@ const IndexPage = (props) => {
     <HomeWhychoosebtr/> 
     <HomePopularMakes data={allMakes}/>
     <GoGreenSection img={saveGreen} />
-    {/* <CustomerReviews/>    
+    <CustomerReviews/>    
     <HomeRecentArrivals/>    
-    <LandingBanner bannerImage={BannerImage}/> */}
+    <LandingBanner bannerImage={BannerImage}/>
   </Layout>
 )
 }
