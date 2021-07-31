@@ -21,7 +21,6 @@ const IndexPage = (props) => {
     PageData,
     slides,
     allMakes,
-    JourneyBg,
     GoogleImage,
     BannerImage,
     AboutImage,
@@ -63,9 +62,9 @@ const IndexPage = (props) => {
     {slides && <HomeSlider data={slides}/>}
     <AboutSection image={AboutImage}/>
     <OemPartsSection /> 
-    {/* <HowitWorks />
-    <HomeJourneySoFar image={JourneyBg}/>
-    <HomeWhychoosebtr/> 
+    <HowitWorks />
+    <HomeJourneySoFar />
+    {/* <HomeWhychoosebtr/> 
     <HomePopularMakes data={allMakes}/>
     <GoGreenSection bg={gogreenBg} mbg={gogreenmBg} img={saveGreen} />
     <CustomerReviews gImage={GoogleImage}/>    
@@ -91,13 +90,6 @@ query HomePageQuery{
       focuskw
       metaKeywords
     }
-  }
-  JourneyBg: file(relativePath: { eq: "landing/journey_bg.jpg" }) {
-      childImageSharp {
-          fluid(quality: 100, base64Width: 1600) {
-              base64
-          }
-      }
   }
   GoogleImage: file(relativePath: { eq: "landing/google.png" }) {
       childImageSharp {
