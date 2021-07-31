@@ -61,8 +61,8 @@ const IndexPage = (props) => {
           schema = {schemaOrgJSONLD}
        />
     {slides && <HomeSlider data={slides}/>}
-    {/* <AboutSection image={AboutImage}/>
-    <OemPartsSection /> 
+    <AboutSection image={AboutImage}/>
+    {/* <OemPartsSection /> 
     <HowitWorks />
     <HomeJourneySoFar image={JourneyBg}/>
     <HomeWhychoosebtr/> 
@@ -115,9 +115,7 @@ query HomePageQuery{
   }
   AboutImage: file(relativePath: { eq: "about-btr.png" }) {
     childImageSharp {
-        gatsbyImageData(
-            width: 500
-        )
+      gatsbyImageData(width: 504, layout: CONSTRAINED, quality: 100)
     }
   }
   gogreenBg: file(relativePath: {eq: "landing/blue-bg.jpg"}) {

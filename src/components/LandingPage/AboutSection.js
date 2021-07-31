@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from "gatsby"
 import Image from './image'
 
-import {BsArrowRight, BsArrowRightShort } from 'react-icons/bs';
+import { BsArrowRight } from 'react-icons/bs';
 
 const AboutSection = ({ image }) => {
     let iconStyles = { color: "white", fontSize:"1.3em" };
@@ -15,8 +15,8 @@ const AboutSection = ({ image }) => {
                     {image && (<Image img={image}
                         imgalt="Used OEM auto parts combined together"
                         alt="Used OEM auto parts combined together"
-                        width={500}
-                        height={500}
+                        width={504}
+                        height={504}
                     />)}
                 </div>
                 </div>
