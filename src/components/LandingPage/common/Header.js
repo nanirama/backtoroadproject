@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { menuData } from "../../../data/MenuData"
-import styled from "styled-components"
 import mpIcon from "../../../assets/images/landing/callbtn.svg"
 import { FiPhoneCall } from 'react-icons/fi';
 
@@ -20,8 +19,7 @@ const LandingHeader = ({ logoImg }) => {
                       image={getImage(logoImg)} 
                       width={128} height={47}
                     />
-                    {/* <Logo src={logoImage} alt="Back to Roads Logo" itemprop="logo" width={128} height={47}/>                    */}
-                  </Link>
+                    </Link>
                 </div>              
             </div>
             <div className="col-lg-10 col-sm-6 mobile-right">
@@ -44,11 +42,4 @@ const LandingHeader = ({ logoImg }) => {
     </header>
   )
 }
-const Logo = styled.img`
-  font-size: 3rem;
-  align-self: center;
-  width: 128px; 
-  height: 47px;
-  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-`
 export default LandingHeader

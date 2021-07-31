@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
         }
         fSecureImage: file(relativePath: { eq: "landing/secure-img.png" }) {
           childImageSharp {
-            gatsbyImageData(layout: FIXED, width: 180)
+            gatsbyImageData(layout: FIXED, width: 178)
           }
         }
         fPartnersImage: file(relativePath: { eq: "landing/partners-img.png" }) {

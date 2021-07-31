@@ -3,8 +3,8 @@ import { useStaticQuery, graphql } from 'gatsby'
 import { FaRegArrowAltCircleRight, FaRegArrowAltCircleLeft } from "react-icons/fa";
 import Img from 'gatsby-image'
 import styled, { css } from 'styled-components/macro'
-import Aos from "aos"
-import "aos/dist/aos.css"
+/*import Aos from "aos"
+import "aos/dist/aos.css"*/
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";

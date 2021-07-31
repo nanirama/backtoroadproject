@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import { useStateValue } from '../../StateProvider'
-import Aos from "aos"
-import "aos/dist/aos.css"
+
 
 import StepOne from "./Forms/StepOne"
 import StepTwo from "./Forms/StepTwo"
@@ -9,10 +8,6 @@ import StepThree from "./Forms/StepThree"
 
 const FormsControler = ()=>{
     const [{ year, make, model, part, stepOne, stepTwo, stepThree }, Dispatch] = useStateValue();
-
-    useEffect(() => {
-        Aos.init({});
-    }, [])
 
     const [firstStep, setFirstStep] = useState(true);
     const [secondStep, setSecondStep] = useState(false);

@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Aos from "aos"
-import "aos/dist/aos.css"
 import Select from 'react-select'
 
 import { useStateValue } from '../../../StateProvider'
 
 const StepThree = () => {
     useEffect(() => {
-        Aos.init({});
         dispatch({
             type: 'ADD_STEP_TWO',
             item: ''

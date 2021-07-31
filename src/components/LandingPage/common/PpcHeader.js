@@ -1,6 +1,6 @@
 import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import styled from "styled-components"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import mpIcon from "../../../assets/images/landing/callbtn.svg"
 import { FiPhoneCall } from 'react-icons/fi';
 
@@ -16,7 +16,7 @@ const LandingHeader = ({ logoImg, cpath }) => {
           }
         `
       )
-  const logoImage = logoImg.childImageSharp.fixed.base64
+  //const logoImage = logoImg.childImageSharp.fixed.base64
   const siteURL = site.siteMetadata.siteUrl 
   
   return(
@@ -26,7 +26,11 @@ const LandingHeader = ({ logoImg, cpath }) => {
             <div className="col-lg-2 col-sm-3">
           <div className="logo w-auto float-left">
                   <Link to={`${siteURL}${cpath}`}>
-                  <Logo src={logoImage} alt="Back to Roads Logo" itemprop="logo" width={128} height={47}/>
+                    <GatsbyImage
+                      alt="Back to Roads Logo"
+                      image={getImage(logoImg)} 
+                      width={128} height={47}
+                    />
                   </Link>
                 </div>              
             </div>
@@ -53,11 +57,4 @@ const LandingHeader = ({ logoImg, cpath }) => {
     </header>
   )
 }
-const Logo = styled.img`
-  font-size: 3rem;
-  align-self: center;
-  width: 128px; 
-  height: 47px;
-  transition: 1s cubic-bezier(0.075, 0.82, 0.165, 1);
-`
 export default LandingHeader

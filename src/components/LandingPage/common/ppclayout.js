@@ -23,11 +23,9 @@ const PpcLayout = ({ children, cpath }) => {
     query={graphql`
       query PpcLayoutQuery {
         FooterLogo: file(relativePath: { eq: "landing/f-logo.png" }) {
-              childImageSharp {
-                fixed(quality: 80, width: 128, base64Width: 256) {
-                  base64
-                }
-          }
+            childImageSharp {
+              gatsbyImageData(layout: FIXED, width: 128)
+            }
         }
         fSecureImage: file(relativePath: { eq: "landing/secure-img.png" }) {
           childImageSharp {
@@ -45,12 +43,10 @@ const PpcLayout = ({ children, cpath }) => {
             )
             }
         }
-        HeaderLogo: file(relativePath: { eq: "landing/logo.png" }) {
-          childImageSharp {
-            fixed(quality: 80, width: 128, base64Width: 256) {
-              base64
+        HeaderLogo: file(relativePath: { eq: "landing/logo.png" }) {          
+            childImageSharp {
+              gatsbyImageData(layout: FIXED, width: 128)
             }
-          }
         }
       }
     `}
