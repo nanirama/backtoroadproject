@@ -66,8 +66,8 @@ const IndexPage = (props) => {
     <HomeJourneySoFar />
     <HomeWhychoosebtr/> 
     <HomePopularMakes data={allMakes}/>
-    {/* <GoGreenSection bg={gogreenBg} mbg={gogreenmBg} img={saveGreen} />
-    <CustomerReviews gImage={GoogleImage}/>    
+    <GoGreenSection bg={gogreenBg} mbg={gogreenmBg} img={saveGreen} />
+    {/* <CustomerReviews gImage={GoogleImage}/>    
     <HomeRecentArrivals/>    
     <LandingBanner bannerImage={BannerImage}/> */}
   </Layout>
