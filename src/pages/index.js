@@ -23,6 +23,8 @@ const IndexPage = (props) => {
     allMakes,
     BannerImage,
     AboutImage,
+    gogreenBg,
+    gogreenmBg,
     saveGreen,
     SiteLogo
   } = props.data
@@ -63,7 +65,7 @@ const IndexPage = (props) => {
     <HomeJourneySoFar />
     <HomeWhychoosebtr/> 
     <HomePopularMakes data={allMakes}/>
-    <GoGreenSection img={saveGreen} />
+    <GoGreenSection bg={gogreenBg} mbg={gogreenmBg} img={saveGreen} />
     {/* <CustomerReviews/>    
     <HomeRecentArrivals/>    
     <LandingBanner bannerImage={BannerImage}/> */}
@@ -98,6 +100,16 @@ query HomePageQuery{
   AboutImage: file(relativePath: { eq: "about-btr.png" }) {
     childImageSharp {
       gatsbyImageData(width: 504, layout: CONSTRAINED, quality: 100)
+    }
+  }
+  gogreenBg: file(relativePath: {eq: "landing/blue-bg.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 1200, layout: FULL_WIDTH, quality: 100)
+    }
+  }
+  gogreenmBg: file(relativePath: {eq: "landing/blue-bg-mob.jpg"}) {
+    childImageSharp {
+      gatsbyImageData(width: 374, layout: FULL_WIDTH, quality: 100)
     }
   }
   saveGreen: file(relativePath: {eq: "landing/save-green-new.png"}) {

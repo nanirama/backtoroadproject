@@ -1,15 +1,32 @@
 import React, { useState, useEffect } from 'react'
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
+import { getSrc } from "gatsby-plugin-image"
 import Image from './image'
 
-const GoGreenSection = ({ img }) => {
-    //console.log('Window Width is ', width);
+const GoGreenSection = ({ bg,mbg, img }) => {
+  const [width, setWidth] = useState(0);
+    //const bgImg = bg.childImageSharp.fluid.base64
+    //const bgmImg = mbg.childImageSharp.fluid.base64   
+    
+    useEffect(() => {
+      setWidth(window.innerWidth);
+      window.addEventListener("resize", () => {
+        setWidth(window.innerWidth);
+      });
+      return () => {
+        window.removeEventListener("resize", () => {});
+      };
+    }, []);
+    console.log('Window Width is ', width);
+    const bgImg = getSrc(bg)
+    const bgmImg = getSrc(mbg)
     return (
         <div className="w-100 float-left gogreen mb-5">
         <div className="container">
         <div style={{ display: "grid" }}>
-           <StaticImage
+          { width >= 768 && (
+            <StaticImage
               style={{
                 gridArea: "1/1",
               }}
@@ -21,6 +38,21 @@ const GoGreenSection = ({ img }) => {
               }
               formats={["auto", "webp"]}
             />
+          ) }
+          { width < 768 && (
+            <StaticImage
+              style={{
+                gridArea: "1/1",
+              }}
+              layout="fullWidth"
+              aspectRatio={3 / 1}
+              alt=""
+              src={
+                "../../assets/images/landing/blue-bg-mob.jpg"
+              }
+              formats={["auto", "webp"]}
+            />
+          ) }
           
           <div className="w-100 float-left"
             style={{
