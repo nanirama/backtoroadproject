@@ -10,7 +10,7 @@ const OemPartsSection = () => {
         {OemPartsData.map((item, index) => {
             return(
             <div key={index} className="col-lg-3 col-sm-6 col-xs-6 mb-2">
-            <div className="sub_box w-100">
+             <div className="sub_box w-100">
                 <div className="icon mb-4 w-100 text-center">
                     <img className="w-auto" src={item.img} alt={item.alt} width="70" height="70" />
                 </div>
