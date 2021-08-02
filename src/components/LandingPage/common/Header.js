@@ -3,8 +3,6 @@ import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { menuData } from "../../../data/MenuData"
 import mpIcon from "../../../assets/images/landing/callbtn.svg"
-import logoImg from "../../../assets/images/landing/logo.svg"
-import footerImg from "../../../assets/images/landing/logo.svg"
 import { FiPhoneCall } from 'react-icons/fi';
 
 const LandingHeader = ({ logoImg }) => {
@@ -16,16 +14,15 @@ const LandingHeader = ({ logoImg }) => {
             <div className="col-lg-2 col-sm-3">
                 <div className="logo w-auto float-left">
                   <Link to="/">
-                    {/* <GatsbyImage
+                    <GatsbyImage
                       alt="Back to Roads Logo"
                       image={getImage(logoImg)} 
                       width={128} height={47}
-                    /> */}
-                    <img src={footerImg} alt="Back to Roads Logo" width={128} height={47}/>                    
+                    />
                     </Link>
                 </div>              
             </div>
-            <div className="col-lg-10 col-sm-9 mobile-right">
+            <div className="col-lg-10 col-sm-6 mobile-right">
                 <div className="h_rgt w-auto float-right">
                         <div className="w-auto float-left mnav">
                               <nav>

@@ -3,8 +3,6 @@ import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { menuData } from "../../../data/MenuData"
 import footerImg from "../../../assets/images/landing/f-logo.svg"
-import secureImgsvg from "../../../assets/images/landing/secure-img.svg"
-import partnersImgsvg from "../../../assets/images/landing/partners-img.svg"
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 
 
@@ -38,12 +36,11 @@ const LandingFooter = ({logoImg, secureImg, partnersImg}) => {
                     <div className="f_logo w-100 float-left mb-4">
                         <div className="float-left f_logo_img">
                         <Link to="/">                        
-                        {/* <GatsbyImage
+                        <GatsbyImage
                             alt="BackToRoad Auto Parts brand logo"
                             image={getImage(logoImg)} 
-                            
-                        /> */}
-                        <img src={footerImg} alt="BackToRoad Auto Parts brand logo" width={128} height={47}/>
+                            width={128} height={47}
+                        />
                         </Link>
                         </div>
                     </div>
@@ -114,15 +111,13 @@ experience shopping with us and get your car back on the road in no time at all.
                 <div className="col-md-4 col-xs-12">
                     <div className="secure float-right">
                     <p className="mb-0 float-left pr-3">Secured By</p>  
-                        <img src={secureImgsvg} alt="secure" width={178} className="float-right border2"/>
-                        {/* <GatsbyImage image={getImage(secureImg)} alt="secure" />                   */}
+                        <GatsbyImage image={getImage(secureImg)} alt="secure" />                  
                     </div>
                 </div>
                 <div className="col-md-5 col-xs-12">
                     <div className="partners float-right">
                     <p className="mb-0 float-left pr-2">We Accept</p>
-                        {/* <GatsbyImage image={getImage(partnersImg)} alt="Partners" />  */}
-                        <img src={partnersImgsvg} alt="Partners" width={295}/>  
+                        <GatsbyImage image={getImage(partnersImg)} alt="Partners" />   
                     </div>
                 </div>
                 <div className="col-md-3 col-xs-12 hide">
