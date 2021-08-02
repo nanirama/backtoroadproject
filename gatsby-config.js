@@ -108,6 +108,12 @@ module.exports = {
         options: {
           features: [`Array.prototype.map`, `fetch`]
         },
+    },
+    {
+      resolve: 'gatsby-plugin-zopfli',
+      options: {
+        extensions: ['css', 'html', 'js', 'svg', 'webp', 'avif']
+      }
     }
   ],
 }
