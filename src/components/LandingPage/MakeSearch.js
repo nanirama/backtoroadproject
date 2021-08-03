@@ -5,12 +5,25 @@ import { FiSearch } from 'react-icons/fi';
 import { BsArrowRightShort } from 'react-icons/bs';
 import arrowMore from '../../assets/images/landing/arrow-more.png'
 import arrowLess from '../../assets/images/landing/arrow-less.png'
+import useCollapse from "react-collapsed";
+
+
 
 const MakeSearch =()=>{
+    const [width, setWidth] = useState(1200);
+    useEffect(() => {
+        setWidth(window.innerWidth);
+        window.addEventListener("resize", () => {
+          setWidth(window.innerWidth);
+        });
+        return () => {
+          window.removeEventListener("resize", () => {});
+        };
+      }, []);
     const { MakesList } = useStaticQuery(
         graphql`
           query {
-            MakesList : allMakeslistJson {
+            MakesList: allMakeslistJson(sort: {fields: title, order: ASC}) {
                 totalCount
                 edges {
                   node {
@@ -22,12 +35,15 @@ const MakeSearch =()=>{
           }
         `
       )
+    let iconStyles = { color: "white", fontSize: "1.3em", marginBottom: "3px" };
+    const [mname, setMname] = React.useState("");
+    const numberPer = width < 768 ? 20 : 40;
     const [items, setItems] = useState(MakesList.edges);
     const [filteritems, setFilteritems] = useState(items); 
-    const numberPer = 20
-    const [mname, setMname] = React.useState("");
-    let iconStyles = { color: "white", fontSize: "1.3em", marginBottom: "3px" };
-    const onchangeEventHandler=(event)=>{        
+    const [list, setList] = useState(filteritems.slice(0, numberPer));
+    const [isExpanded, setExpanded] = React.useState(false);
+    console.log('Width', width);
+    const onsubmitEventHandler=(event)=>{        
         event.preventDefault();
         if(mname==='')
         {
@@ -49,55 +65,36 @@ const MakeSearch =()=>{
             setList(items.slice(0, numberPer))    
         }
     }
-    // Load More Functionality Starting
-    const [list, setList] = useState([...filteritems.slice(0, numberPer)])
-    const [loadMore, setLoadMore] = useState(false)
-    const [hasMore, setHasMore] = useState(filteritems.length > numberPer)
-    const [loadLess, setLoadLess] = useState(false)
-    const [hasLess, setHasLess] = useState(filteritems.length < numberPer)
-    const handleLoadMore = () => {
-        setLoadMore(true)
-    }
-    const handleLoadLess = () => {
-        setLoadLess(true)
-    }
-    useEffect(() => {
-       if (loadMore && hasMore) {
-          console.log('Load More mvalue',loadMore)
-          const currentLength = list.length
-          console.log('current Length ', currentLength)
-          console.log('List Length ',filteritems.length)
-          const isMore = currentLength < filteritems.length
-          console.log('Is More', isMore)
-          const nextResults = isMore
-            ? filteritems.slice(currentLength, currentLength + numberPer)
-            : []
-        
-          setList([...list, ...nextResults])
-          setLoadMore(false)
-        }
-      }, [loadMore, hasMore])
-
-
-    useEffect(() => {
-        const isMore = list.length < filteritems.length
-        setHasMore(isMore)
-    }, [list])
-
-    useEffect(() => {
-        if (loadLess) {
-           const currentLength = Math.floor(filteritems.length/numberPer)*numberPer
-           setList(filteritems.slice(0, currentLength)) 
-           setLoadLess(false)
-         }
-       }, [loadLess, hasLess])
- 
- 
-     useEffect(() => {
-         const isLess = list.length > filteritems.length
-         setHasLess(isLess)
-     }, [list])
-    // Load More functionality Ending
+    function Collapse({ isActive, filteritems, numberPer, items }) {
+        const [isExpanded, setExpanded] = React.useState(isActive);
+        const { getToggleProps, getCollapseProps } = useCollapse({
+          isExpanded
+        });
+      
+        React.useEffect(() => {
+          setExpanded(isActive);
+        }, [isActive, setExpanded]);
+      
+        return (
+          <>        
+            <div {...getCollapseProps()} className="w-100 float-left">
+            <ul className="w-100 float-left">
+                {filteritems.slice(numberPer, items.length).map(({node}, index) => {
+                    return(
+                        <li key={index} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 align-self-stretch">
+                                    <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${node.slug}` }
+                                    className="d-flex flex-wrap flex-row justify-content-between align-items-start"
+                                    >
+                                        <span>{node.title}</span> <BsArrowRightShort className="slist-icon"/>
+                                    </a>
+                        </li> 
+                    )
+                })}   
+            </ul>
+            </div>
+          </>
+        );
+      }
     return(
         <div className="search_blk w-100 float-left">
             <div className="container">
@@ -109,13 +106,13 @@ const MakeSearch =()=>{
                     <div className="col-md-5 col-xs-12">
                     <form
                         className="search-form w-100 float-left"
-                        onSubmit={onchangeEventHandler}
+                        onSubmit={onsubmitEventHandler}                        
                     >
                     <input
                         type="text"
                         value={mname}
                         placeholder="Search"
-                        onChange={e => inputOnchange(e)}
+                        onChange={e => inputOnchange(e)}                        
                     />
                         <button className="border-0 src_btn"><FiSearch style={iconStyles}/></button>
                     </form>
@@ -127,26 +124,31 @@ const MakeSearch =()=>{
                     <ul className="w-100 float-left">
                         {list && list.map(({node}, index) => {
                             return(
-                                <li
-                                key={index}
-                                className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
-                                <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${node.slug}` }>
-                                    {node.title} <BsArrowRightShort className="slist-icon"/>
-                                </a>
-                                </li>
+                                <li key={index} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 align-self-stretch">
+                                    <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${node.slug}` }
+                                    className="d-flex flex-wrap flex-row justify-content-between align-items-start"
+                                    >
+                                        <span>{node.title}</span> <BsArrowRightShort className="slist-icon"/>
+                                    </a>
+                        </li> 
                             )
                         })}   
                     </ul>
+                    {filteritems.length > numberPer && (
+                        <>                        
+                        <Collapse isActive={isExpanded} filteritems={filteritems} numberPer={numberPer} items={items} />
+                        <div className="btn_outer w-100 float-left text-center">
+                            {isExpanded ? (
+                                <Button img={arrowLess} onClick={() => setExpanded((x) => !x)} className="btn1">View Less</Button>
+                            ) : (
+                                <Button img={arrowMore} onClick={() => setExpanded((x) => !x)} className="btn1">View More</Button>   
+                            )}
+                        </div>
+                        </>   
+                    )}
+                    
                 </div>
-                
-                    <div className="btn_outer w-100 float-left text-center">
-                        {hasMore ? (
-                            <Button img={arrowMore} onClick={handleLoadMore} className="btn1">View More</Button>
-                            
-                        ) : (
-                            <Button img={arrowLess} onClick={handleLoadLess} className="btn1">View Less</Button>
-                        )}
-                    </div>
+  
                 </div>
             </div>
         </div>

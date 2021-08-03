@@ -28,12 +28,6 @@ const IndexPage = (props) => {
   } = props.data
   const siteURL = site.siteMetadata.siteUrl 
   const siteLogo = siteURL+SiteLogo.publicURL;
-  const seo = {
-    title: PageData.seo.title,
-    defaultTitle: PageData.seo.title,
-    description: PageData.seo.metaDesc,
-    url: siteURL
-  }
   const schemaOrgJSONLD = [
     {
        "@context": "http://schema.org",
@@ -51,8 +45,8 @@ const IndexPage = (props) => {
   return(
   <Layout>
       <SEO
-          title={seo.title}
-          description={seo.description}
+          title={PageData.seo.title}
+          description={PageData.seo.metaDesc}
           cpath = {props.location.pathname}
           schema = {schemaOrgJSONLD}
        />

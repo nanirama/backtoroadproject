@@ -6,7 +6,7 @@ module.exports = {
     noindex: `noindex`,
     siteUrl: 'https://backtoroadprojectnanirama.gatsbyjs.io',
   },
-  plugins: [      
+  plugins: [     
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     {

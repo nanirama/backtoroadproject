@@ -44,7 +44,9 @@
 
 
 }
-
+@media only screen and (max-width:540px) {
+    .src-list ul li a span{ width:75%; }
+}
 @media only screen and (max-width:479px) {
 .page_banner h1{ font-size: 25px;}   
 .search-form input{ width: 80%;}
@@ -55,5 +57,5 @@
 .src-list.list2 ul li a{font-size: 13px; height: auto;}
 }
 @media only screen and (max-width:359px) {
-
+    .src-list ul li a span{ width:70%; }
 }
