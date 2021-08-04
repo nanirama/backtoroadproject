@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
 import { HomeJourneySoFarData } from "../../data/HomeJourneySoFar"

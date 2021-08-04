@@ -12,7 +12,7 @@ import CustomerReviews from './CustomerReviews'
 import LandingRecentArrivals from './LandingrecentArrivals'
 import LandingFaqs from './LandingFaq'
 import LandingBanner from './LandingBanner'
-import SEO from '../seo'
+import Seo from '../seo'
 
 const PpcLandingTemplate = (props) => {
     const { PageData } = props.data.data
@@ -67,7 +67,7 @@ const PpcLandingTemplate = (props) => {
                     itemtype:'https://schema.org/FAQPage'
                 }}
                 ></Helmet>
-            <SEO
+            <Seo
               title={PageData.seo.title && PageData.seo.title}
               description={PageData.seo.metaDesc && PageData.seo.metaDesc}
               cpath = {props.cpath}

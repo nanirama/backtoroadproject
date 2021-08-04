@@ -1,17 +1,10 @@
 import React, { useEffect, useState, useRef } from "react"
 import styled, { css } from 'styled-components/macro'
 import { FaRegArrowAltCircleRight, FaRegArrowAltCircleLeft } from "react-icons/fa";
-import Aos from "aos"
-import "aos/dist/aos.css"
 
 import { OemPartsData } from "../data/OemParts"
 
 const OemParts = ({ heading }) => {
-  useEffect(() => {
-    Aos.init({})
-  }, [])
-
-
   const [current, setCurrent] = useState(0);
   const length = OemPartsData.length
 
@@ -34,9 +27,6 @@ const OemParts = ({ heading }) => {
       partsArray.push(
         <ProductCard
           key={index}
-          data-aos="fade-down"
-          data-aos-delay="50"
-          data-aos-duration="1000"
         >
           <ProductImgWrapper>
             <Icon src={item.img} alt={item.alt} className="SvgColorClass"/>
@@ -56,7 +46,6 @@ const OemParts = ({ heading }) => {
 
 
   function getOemPartsMob() {
-    console.log('OemParts ', OemPartsData)
     const partsArrayMob = []
 
     {OemPartsData.map((part, index) => {
@@ -87,10 +76,7 @@ const OemParts = ({ heading }) => {
   return (
     <ProductsContainer>
       <Wrapper>
-        <ProductsHeading
-          data-aos="fade-right"
-          data-aos-delay="50"
-          data-aos-duration="1000">FEATURED GENUINE OEM PARTS
+        <ProductsHeading>FEATURED GENUINE OEM PARTS
         </ProductsHeading>
         <ProductWrapper>
           {getOemParts()}

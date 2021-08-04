@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from '../components/LandingPage/common/layout'
 import HomeSlider from '../components/LandingPage/HomeSlider'
-import SEO from "../components/seo"
+import Seo from "../components/seo"
 import AboutSection from "../components/LandingPage/AboutSection"
 import OemPartsSection from "../components/LandingPage/OemPartsSection"
 import HowitWorks from '../components/LandingPage/Howitworks'
@@ -44,7 +44,7 @@ const IndexPage = (props) => {
   ]
   return(
   <Layout>
-      <SEO
+      <Seo
           title={PageData.seo.title}
           description={PageData.seo.metaDesc}
           cpath = {props.location.pathname}

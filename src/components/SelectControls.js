@@ -2,14 +2,11 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Button } from './Button'
 import Select from 'react-select'
-import Aos from "aos"
-import "aos/dist/aos.css"
 import axios from 'axios';
 
 const SelectControls = () => {
 
   useEffect(() => {
-    Aos.init({});
     fetchYears();
   }, [])
 
@@ -58,7 +55,7 @@ const SelectControls = () => {
     axios
       .get("https://btr-web-backend.default.svc.cluster.local/api/v1/makes/" + e.value)
       .then(resp => {
-        console.log('Makes ', resp);
+        //console.log('Makes ', resp);
         const options = resp.data.map(d => ({
           "value": d,
           "label": d

@@ -1,30 +1,3 @@
-**How to start up the project**
-
-## NPM
-
-In order to start up this project, simply open up your terminal
-
-Then, you need to type npm install and this will install your node_modules folder
-
-Once that is done, you can simply type gatsby develop
-
-Then, click on the http://localhost:8000/ link to open up the website. You need to press cmd + click in order to open the link
-
-## Yarn
-
-If you are using Yarn, you can just type in yarn in your terminal
-
-Then, once it finishes loading, you can type gatsby develop
-
-If you run into any issues with Yarn, I've attached this article below showing how to migrate from npm to yarn and the different commands you can use to start up the project.
-
-There is more information about migrating from npm to yarn here
-
-In order to open the link, press (cmd + click)
-[Yarn link](https://classic.yarnpkg.com/en/docs/migrating-from-npm)
-
----
-
 <!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
   <a href="https://www.gatsbyjs.com">
@@ -43,7 +16,7 @@ _Have another more specific idea? You may want to check out our vibrant collecti
 
 1.  **Create a Gatsby site.**
 
-    Use the Gatsby CLI to create a new site, specifying the default starter.
+    Use the Gatsby CLI ([install instructions](https://www.gatsbyjs.com/docs/tutorial/part-0/#gatsby-cli)) to create a new site, specifying the default starter.
 
     ```shell
     # create a new Gatsby site using the default starter
@@ -66,6 +39,12 @@ _Have another more specific idea? You may want to check out our vibrant collecti
     _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.com/tutorial/part-five/#introducing-graphiql)._
 
     Open the `my-default-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+
+## 🚀 Quick start (Gatsby Cloud)
+
+Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
+
+[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-default)
 
 ## 🧐 What's inside?
 
@@ -119,8 +98,8 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 ## 💫 Deploy
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-default)
+[Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/cloud/)
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/import/project?template=https://github.com/gatsbyjs/gatsby-starter-default)
+Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
 
 <!-- AUTO-GENERATED-CONTENT:END -->

@@ -1,20 +1,13 @@
 import React, { useEffect } from "react"
 import styled from "styled-components"
 import { JourneySoFarData } from "../data/JourneySoFar"
-import Aos from "aos"
-import "aos/dist/aos.css"
+
 
 const JourneySoFar = () => {
-    useEffect(() => {
-        Aos.init({})
-    }, [])
 
     return (
         <JourneyContainer>
             <Heading
-                data-aos="fade-right"
-                data-aos-delay="50"
-                data-aos-duration="1000"
             >
                OUR JOURNEY SO FAR
       </Heading>
@@ -23,9 +16,6 @@ const JourneySoFar = () => {
                     return (
                         <JourneyBox
                             key={index}
-                            data-aos="fade-right"
-                            data-aos-delay="150"
-                            data-aos-duration="1000"
                         >
                             <Icon>{item.icon}</Icon>
                          <TextBox>

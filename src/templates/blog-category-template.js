@@ -4,13 +4,13 @@ import Layout from '../components/LandingPage/common/layout'
 import BlogCard from '../components/blog/BlogCard'
 import BlogFilter from '../components/blog/BlogFilter'
 import Paginate from '../components/blog/paginate'
-import SEO from '../components/seo'
+import Seo from '../components/seo'
 const Blog = (props) => {  
     const { currentPage, numPages } = props.pageContext     
     const { PostData, CatData } = props.data
     return (
     <Layout>
-        <SEO cpath = {props.cpath} />
+        <Seo cpath = {props.cpath} />
         <div className="blog_blk w-100 float-left py-4">   
         <div className="container">
             <div className="row mb-3">

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import { getSrc } from "gatsby-plugin-image"
 import Image from './image'
 
 const GoGreenSection = ({img }) => {
