@@ -12,7 +12,7 @@ const CustomerReviews = () => {
       query {
         GoogleImage: file(relativePath: { eq: "landing/google-new.png" }) {
           childImageSharp {
-            gatsbyImageData(layout: FULL_WIDTH, width: 40, quality: 100)
+            gatsbyImageData(layout: CONSTRAINED, width: 40, quality: 100)
           }
         }
         ReviewsData : allReviewsJson {
