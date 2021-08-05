@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react"
+import styled from "styled-components"
 import { useStateValue } from '../../StateProvider'
+import arrowIcon from '../../assets/images/landing/arrow.png'
 
 
 import StepOne from "./Forms/StepOne"
@@ -36,20 +38,25 @@ const FormsControler = ()=>{
                         <span className={`num ${thirdStep ? "active" : ""}`}>3</span>
                   </div>
             </div>
-            <p className="mb-0 w-100 float-left">Parts in Stock <span className="float-right">200</span></p>
+            <p className="mb-0 w-100 float-left">Parts in Stock <span className="float-right">160</span></p>
             <div className="form_outer">
                 {firstStep ? <StepOne /> : null}
                 {secondStep ? <StepTwo /> : null}
                 {thirdStep ? <StepThree /> : null}
                 <div className="button_outer">
-                    {stepOne !== '' ? <input type="submit" className="btn1" value="Find my part now" onClick={onClick} /> : null}
-                    {stepTwo !== '' ? <input type="submit" className="btn1" value="Next step" onClick={onClickToThree} /> : null}
-                    {stepThree !== '' ? <input type="submit" className="btn1" value="Get Me a price" onClick={onClickToOne} /> : null}
+                    {stepOne !== '' ? <Input img={arrowIcon} className="btn1 border2" value="NEXT STEP" onClick={onClick} /> : null}
+                    {stepTwo !== '' ? <Input img={arrowIcon} className="btn1" value="NEXT STEP" onClick={onClickToThree} /> : null}
+                    {stepThree !== '' ? <Input img={arrowIcon} className="btn1" value="GET PRICE" onClick={onClickToOne} /> : null}
                     {/* <input type="button" className="btn1" value="Nest Step" /> */}
                 </div>
             </div>
         </React.Fragment>
     )
 }
-
+const Input = styled.input.attrs({ 
+  type: 'submit',
+  value: 'NEXT STEP'
+})`
+     background-image: url(${props => props.img});
+`;
 export default FormsControler

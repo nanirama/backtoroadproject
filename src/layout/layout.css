@@ -297,8 +297,9 @@ select {
 }
 .slider_form .form_outer .btn1 {
 	border:0;
-	width:auto;
-	padding:0 25px
+	width:195px !important;
+	text-align: center;
+	padding:0 25px !important;
 }
 .slider_form label{
 	width: 100%;
@@ -713,13 +714,25 @@ transition:.4s
 }
 .slider_form p {
 	background:#fafafa;
+	color:#2860BE !important;
 	border-radius:0 5px 0 0;
 	font-size:18px;
-	line-height:20px;
-	font-weight:500;
+	line-height:30px;
+	font-weight:500 !important;
 	width:545px;
 	float:left;
-	padding:14px 25px
+	padding:15px 25px
+}
+.slider_form p span{
+	width:75px;
+	text-align: center;
+	line-height: 30px;
+	height: 30px;
+	background-color: #2860BE;
+	color:#ffffff;
+	font-weight: 600;
+	font-size: 18px;
+	border-radius:5px;
 }
 .slider_form .form_outer {
 	border-radius:0 0 5px 5px;

@@ -1,10 +1,17 @@
-import React from "react"
+import React, { useEffect } from 'react'
 import Slider from "react-slick";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import FormsControler from './FormsControler'
 
+import Aos from "aos"
+import "aos/dist/aos.css"
+
 
 const HomeSlider = ({data}) => {
+  useEffect(() => {
+      Aos.init({});
+  }, [])
+
   const settings = {
     dots: true,
     arrows: false,
@@ -56,7 +63,6 @@ const HomeSlider = ({data}) => {
                  </div>
           <Slider {...settings}>
           {data.edges.map(({node}, index) => {
-            //console.log('Image alts',node.imgalt);
           return (
             <div key={index} className="slide-item d-flex justify-content-center">           
                 <div className="s_txt_outer d-flex flex-column justify-content-end align-items-center">
@@ -67,7 +73,11 @@ const HomeSlider = ({data}) => {
                             <h2 className="text-uppercase mb-4">{node.title}</h2>
                             <div dangerouslySetInnerHTML={{ __html: node.content }} ></div> 
                             { node.eimg && (
-                                  <div className="w-100 float-left eimg_icon">
+                                  <div className="w-100 float-left eimg_icon"
+                                    data-aos="zoom-in-up"
+                                    data-aos-delay="50"
+                                    data-aos-duration="1000"
+                                  >
                                       <GatsbyImage
                                         alt={node.eimg.imgalt}
                                         image={getImage(node.eimg.img)} 
