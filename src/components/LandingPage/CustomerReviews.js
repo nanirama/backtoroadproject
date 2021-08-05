@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Slider from "react-slick";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Image from './image'
 import { FaLongArrowAltLeft, FaLongArrowAltRight, FaStar } from 'react-icons/fa';
 const CustomerReviews = () => { 
   let iconStyles = { color: "#FFC93E", fontSize: "1.1em", marginRight:"5px" };
@@ -11,7 +12,7 @@ const CustomerReviews = () => {
       query {
         GoogleImage: file(relativePath: { eq: "landing/google-new.png" }) {
           childImageSharp {
-            gatsbyImageData(layout: CONSTRAINED, width: 40, quality: 100)
+            gatsbyImageData(layout: FULL_WIDTH, width: 40, quality: 100)
           }
         }
         ReviewsData : allReviewsJson {

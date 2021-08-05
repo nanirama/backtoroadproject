@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { menuData } from "../../../data/MenuData"
+import footerImg from "../../../assets/images/landing/f-logo.svg"
 import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 
 

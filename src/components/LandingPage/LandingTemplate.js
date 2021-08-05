@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useRef } from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 import Layout from "./common/layout"
@@ -14,7 +14,7 @@ import LandingFaqs from './LandingFaq'
 import LandingMakeModelList from './LandingMakeModelList'
 import LandingMakePartsList from './LandingMakePartsList'
 import LandingBanner from './LandingBanner'
-import Seo from '../seo'
+import SEO from '../seo'
 
 
 
@@ -60,7 +60,7 @@ const LandingTemplate = (props) => {
                     itemtype:'https://schema.org/FAQPage'
                 }}
                 ></Helmet>
-            <Seo
+            <SEO
               title={PageData.seo.title && PageData.seo.title}
               description={PageData.seo.metaDesc && PageData.seo.metaDesc}
               cpath = {props.cpath}

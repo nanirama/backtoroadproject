@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import Layout from '../components/LandingPage/common/layout'
-import Seo from "../components/seo"
+import SEO from "../components/seo"
 import HomeWhychoosebtr from '../components/LandingPage/HomeWhychoosebtr'
 import LandingBanner from '../components/LandingPage/LandingBanner'
 
@@ -58,7 +58,7 @@ const About = (props) => {
   const siteURL = site.siteMetadata.siteUrl 
   return(
   <Layout>
-    <Seo
+    <SEO
         title="About Us | BackToRoad Auto Parts"
         description="BackToRoad Auto Parts Is Your One-Stop Shop For High Quality Used OEM Auto Parts. We're a Used Auto Parts Dealer With 17+ Locations Across USA & Canada."
         cpath = {props.location.pathname}

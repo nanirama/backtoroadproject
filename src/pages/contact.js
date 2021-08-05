@@ -1,11 +1,11 @@
 import React from "react"
 import Email from "../components/Email"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import SEO from "../components/seo"
 
 const Contact = () => (
   <Layout>
-    <Seo title="Contact Us" />
+    <SEO title="Contact Us" />
     <Email />
   </Layout>
 )

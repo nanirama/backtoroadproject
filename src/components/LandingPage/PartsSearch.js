@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import { FiSearch } from 'react-icons/fi';
 import { BsArrowRightShort } from 'react-icons/bs';
@@ -36,6 +36,7 @@ const MakeSearch =()=>{
         `
       )
     let iconStyles = { color: "white", fontSize: "1.3em", marginBottom: "3px" };
+    const [mname, setMname] = React.useState("");
     const numberPer = width < 768 ? 10 : 30;
     const [items, setItems] = useState(PartsList.edges);
     const [filteritems, setFilteritems] = useState(items); 
@@ -44,18 +45,24 @@ const MakeSearch =()=>{
     console.log('Count', filteritems.length);
     const onsubmitEventHandler=(event)=>{        
         event.preventDefault();
-    }
-    const inputOnchange = (e)=>{
-        if(e.target.value==='')
+        if(mname==='')
         {
             setFilteritems(items)  
             setList(items.slice(0, numberPer))   
         }
         else
         {            
-            let newitems = items.filter(({node}) => node.title.toLowerCase().includes(e.target.value.toLowerCase()));
+            let newitems = items.filter(({node}) => node.title.toLowerCase().includes(mname.toLowerCase()));
+            console.log('New Search Items ', newitems)
             setFilteritems(newitems)
             setList(newitems.slice(0, numberPer))    
+        }
+    }
+    const inputOnchange = (e)=>{
+        setMname(e.target.value)
+        if(e.target.value===''){            
+            setFilteritems(items) 
+            setList(items.slice(0, numberPer))    
         }
     }
     function Collapse({ isActive, filteritems, numberPer }) {
@@ -103,6 +110,7 @@ const MakeSearch =()=>{
                     >
                     <input
                         type="text"
+                        value={mname}
                         placeholder="Search"
                         onChange={e => inputOnchange(e)}                        
                     />

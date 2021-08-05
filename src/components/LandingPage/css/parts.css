@@ -11,7 +11,7 @@
 .search-form button{ width:10%;float:left;background: #2E93E4;border-radius: 0px 5px 5px 0px; height:40px;;}
 .src-list{ padding: 30px; border-radius: 0 0 5px 5px;background-color:#fff;}
 .src-list.list2 {background-color:#fafafa;}
-.src-list ul li{ padding-right: 5px !important; padding-left: 5px !important; margin-bottom: 20px; height: auto; overflow: hidden;}
+.src-list ul li{ padding-right: 0px !important; margin-bottom: 20px; height: auto; overflow: hidden;}
 .src-list ul li a{ width:100%; float:left; text-transform:uppercase; font-weight:600; color: #000; background:#FAFAFA;border-radius: 5px; padding: 10px 5px 10px 10px; height:auto;}
 .src-list.list2  ul li a{ background-color: #fff;}
 .src-list ul li a.active,.src-list ul li:hover a{background: #165DA6;color:#fff;}

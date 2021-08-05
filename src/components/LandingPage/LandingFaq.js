@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Accordion from 'react-bootstrap/Accordion'
 import { Card } from 'react-bootstrap'
+import { css } from "@emotion/react"
 import faqIcon from '../../assets/images/landing/Plus.png'
 import faqActiveIcon from '../../assets/images/landing/minus.png'
 

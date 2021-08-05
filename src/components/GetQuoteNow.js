@@ -1,12 +1,21 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import styled from "styled-components"
 import { Button } from "./Button"
+import Aos from "aos"
+import "aos/dist/aos.css"
+import axios from 'axios';
 import Select from 'react-select';
 
 const GetQuoteNow = () => {
+
+    useEffect(() => {
+        Aos.init({});
+    }, [])
+
     const colourStylesTwo = {
         control: styles => ({ ...styles, backgroundColor: 'white', width: '350px', borderRadius: '10px', alignItems: 'left', }),
-        option: (styles, { data, isDisabled, isFocused, isSelected }) => {           
+        option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+            const color = '#000';
             return {
                 ...styles,
                 alignItems: 'left'

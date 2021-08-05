@@ -1,12 +1,12 @@
 import React from "react"
 import { Button } from "../components/Button"
 import Layout from "../components/layout"
-import Seo from "../components/seo"
+import SEO from "../components/seo"
 import styled from "styled-components"
 
 const NotFoundPage = () => (
   <Layout>
-    <Seo title="404: Not found" />
+    <SEO title="404: Not found" />
     <Error>
       <h1>404</h1>
       <p>Oh no! Page not found</p>

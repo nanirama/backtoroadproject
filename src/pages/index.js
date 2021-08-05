@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from '../components/LandingPage/common/layout'
 import HomeSlider from '../components/LandingPage/HomeSlider'
-import Seo from "../components/seo"
+import SEO from "../components/seo"
 import AboutSection from "../components/LandingPage/AboutSection"
 import OemPartsSection from "../components/LandingPage/OemPartsSection"
 import HowitWorks from '../components/LandingPage/Howitworks'
@@ -44,7 +44,7 @@ const IndexPage = (props) => {
   ]
   return(
   <Layout>
-      <Seo
+      <SEO
           title={PageData.seo.title}
           description={PageData.seo.metaDesc}
           cpath = {props.location.pathname}
@@ -74,7 +74,7 @@ query HomePageQuery{
   SiteLogo: file(relativePath: {eq: "landing/logo.png"}) {
     publicURL
   }
-  PageData: wpPage(title: {eq: "Home"}) {
+  PageData: wpPage(id: {eq: "cG9zdDozNTg="}) {
     seo {
       title
       metaDesc

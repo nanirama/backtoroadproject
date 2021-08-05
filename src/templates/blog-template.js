@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Image from '../components/LandingPage/image'
 import Layout from '../components/LandingPage/common/layout'
-import Seo from '../components/seo'
+import SEO from '../components/seo'
 import { FaUserAlt } from 'react-icons/fa';
 import { CgCalendarDates } from 'react-icons/cg';
 import RecentBlogs from '../components/blog/RecentBlogs'
@@ -87,7 +87,7 @@ const Blog = (props) => {
   })
   return (
     <Layout>
-            <Seo
+            <SEO
               title={seo.title}
               description={seo.description}
               cpath = {props.location.pathname}

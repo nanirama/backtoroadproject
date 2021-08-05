@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import Layout from '../components/LandingPage/common/layout'
-import Seo from "../components/seo"
+import SEO from "../components/seo"
 
 import LandingBanner from '../components/LandingPage/LandingBanner'
 import MakeSearch from '../components/LandingPage/MakeSearch'
@@ -49,7 +49,7 @@ const Parts = (props) => {
     const siteURL = site.siteMetadata.siteUrl 
     return (
         <Layout>
-         <Seo
+         <SEO
             title="All Parts | Search For Your Part | BackToRoad Auto Parts"
             description="Search Our Huge Inventory Of Genuine Used Parts For All Makes & Models Available In USA & Canada. Find Your Part Now!"
             cpath = {props.location.pathname}
