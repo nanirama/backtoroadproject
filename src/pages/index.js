@@ -42,6 +42,7 @@ const IndexPage = (props) => {
       "url": "https://backtoroadautoparts.com/"      
     }
   ]
+  console.log('Page Data is ', PageData);
   return(
   <Layout>
       {/* <SEO
