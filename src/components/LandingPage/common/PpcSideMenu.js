@@ -17,7 +17,7 @@ export default props => {
           }
         `
       )
-    console.log('Side Mneu props ', props)
+    //console.log('Side Mneu props ', props)
     const siteURL = site.siteMetadata.siteUrl 
     const cpath = props.cpath
     return (

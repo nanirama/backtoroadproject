@@ -16,8 +16,8 @@ const path = props.path
   const firstPage = `/${path}/`
   const lastPage = `/${path}/${numPages}`
 
-  console.log('From Pagination Page ',numPages)
-  console.log('From Pagination Page ',currentPage)
+  //console.log('From Pagination Page ',numPages)
+  //console.log('From Pagination Page ',currentPage)
     return (
         <section className={styles.links}>
         {!isFirst && (
