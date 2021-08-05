@@ -44,12 +44,12 @@ const IndexPage = (props) => {
   ]
   return(
   <Layout>
-      <SEO
+      {/* <SEO
           title={PageData.seo.title}
           description={PageData.seo.metaDesc}
           cpath = {props.location.pathname}
           schema = {schemaOrgJSONLD}
-       />
+       /> */}
     {slides && <HomeSlider data={slides}/>}
     <AboutSection image={AboutImage}/>
     <OemPartsSection /> 
