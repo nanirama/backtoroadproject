@@ -74,7 +74,7 @@ query HomePageQuery{
   SiteLogo: file(relativePath: {eq: "landing/logo.png"}) {
     publicURL
   }
-  PageData: wpPage(id: {eq: "cG9zdDozNTg="}) {
+  PageData: wpPage(title: {eq: "Home"}) {
     seo {
       title
       metaDesc
