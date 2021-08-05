@@ -1,39 +1,15 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { FiSearch } from 'react-icons/fi';
 import { BsArrowRightShort } from 'react-icons/bs';
 import arrowMore from '../../assets/images/landing/arrow-more.png'
 import arrowLess from '../../assets/images/landing/arrow-less.png'
+import useCollapse from "react-collapsed";
+
 
 
 const MakeSearch =()=>{
-    const collapseBtn = useRef(null);
-    const collapseSec = useRef(null);
-    const [value, setValue] = useState(false);
-    const changeCollapseHandler=()=>{
-        setValue(!value)
-        if(!value)
-        {
-            collapseSec.current.classList.remove('collapsed')
-            collapseBtn.current.style.backgroundImage = `url(${arrowLess})`;
-            collapseBtn.current.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-                inline: "start"
-              });
-        }
-        else
-        {
-            collapseSec.current.classList.add('collapsed') 
-            collapseBtn.current.style.backgroundImage = `url(${arrowMore})`;
-            collapseBtn.current.scrollIntoView({
-                behavior: "smooth",
-                block: "nearest",
-                inline: "start"
-              });
-        }        
-    }
     const [width, setWidth] = useState(1200);
     useEffect(() => {
         setWidth(window.innerWidth);
@@ -64,6 +40,7 @@ const MakeSearch =()=>{
     const [items, setItems] = useState(MakesList.edges);
     const [filteritems, setFilteritems] = useState(items); 
     const [list, setList] = useState(filteritems.slice(0, numberPer));
+    const [isExpanded, setExpanded] = React.useState(false);
     const onsubmitEventHandler=(event)=>{        
         event.preventDefault();
     }
@@ -80,6 +57,36 @@ const MakeSearch =()=>{
             setList(newitems.slice(0, numberPer))    
         }
     }
+    function Collapse({ isActive, filteritems, numberPer, items }) {
+        const [isExpanded, setExpanded] = React.useState(isActive);
+        const { getToggleProps, getCollapseProps } = useCollapse({
+          isExpanded
+        });
+      
+        React.useEffect(() => {
+          setExpanded(isActive);
+        }, [isActive, setExpanded]);
+      
+        return (
+          <>        
+            <div {...getCollapseProps()} className="w-100 float-left">
+            <ul className="w-100 float-left">
+                {filteritems.slice(numberPer, items.length).map(({node}, index) => {
+                    return(
+                        <li key={index} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 align-self-stretch">
+                                    <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${node.slug}` }
+                                    className="d-flex flex-wrap flex-row justify-content-between align-items-start"
+                                    >
+                                        <span>{node.title}</span> <BsArrowRightShort className="slist-icon"/>
+                                    </a>
+                        </li> 
+                    )
+                })}   
+            </ul>
+            </div>
+          </>
+        );
+      }
     return(
         <div className="search_blk w-100 float-left">
             <div className="container">
@@ -119,24 +126,14 @@ const MakeSearch =()=>{
                         })}   
                     </ul>
                     {filteritems.length > numberPer && (
-                        <> 
-                        <div class="more-section-make collapsed" ref={collapseSec}>
-                            <ul className="w-100 float-left">
-                                    {filteritems.slice(numberPer, items.length).map(({node}, index) => {
-                                        return(
-                                            <li key={index} className="col-lg-3 col-md-4 col-sm-6 col-xs-6 align-self-stretch">
-                                                <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${node.slug}` }
-                                                className="d-flex flex-wrap flex-row justify-content-between align-items-start"
-                                                >
-                                                    <span>{node.title}</span> <BsArrowRightShort className="slist-icon"/>
-                                                </a>
-                                            </li> 
-                                        )
-                                    })}   
-                            </ul>
-                        </div>
+                        <>                        
+                        <Collapse isActive={isExpanded} filteritems={filteritems} numberPer={numberPer} items={items} />
                         <div className="btn_outer w-100 float-left text-center">
-                            <Button img={arrowMore} className="btn1" ref={collapseBtn}  onClick={changeCollapseHandler}>{value ? 'View Less' : 'View More'}</Button>
+                            {isExpanded ? (
+                                <Button img={arrowLess} onClick={() => setExpanded((x) => !x)} className="btn1">View Less</Button>
+                            ) : (
+                                <Button img={arrowMore} onClick={() => setExpanded((x) => !x)} className="btn1">View More</Button>   
+                            )}
                         </div>
                         </>   
                     )}
