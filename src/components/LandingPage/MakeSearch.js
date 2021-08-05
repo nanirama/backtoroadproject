@@ -19,7 +19,7 @@ const MakeSearch =()=>{
             collapseBtn.current.style.backgroundImage = `url(${arrowLess})`;
             collapseSec.current.scrollIntoView({
                 behavior: "smooth",
-                block: "end",
+                block: "start",
                 inline: "start"
               });
         }
@@ -29,7 +29,7 @@ const MakeSearch =()=>{
             collapseBtn.current.style.backgroundImage = `url(${arrowMore})`;
             collapseSec.current.scrollIntoView({
                 behavior: "smooth",
-                block: "end",
+                block: "start",
                 inline: "start"
               });
         }        
@@ -60,6 +60,7 @@ const MakeSearch =()=>{
       )
     let iconStyles = { color: "white", fontSize: "1.3em", marginBottom: "3px" };
     const numberPer = width < 768 ? 20 : 40;
+    console.log('Number of records, ', numberPer);
     const [items, setItems] = useState(MakesList.edges);
     const [filteritems, setFilteritems] = useState(items); 
     const [list, setList] = useState(filteritems.slice(0, numberPer));

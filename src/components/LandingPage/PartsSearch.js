@@ -17,13 +17,21 @@ const PartsSearch =()=>{
         {
             collapseSec.current.classList.remove('collapsed')
             collapseBtn.current.style.backgroundImage = `url(${arrowLess})`;
-            collapseSec.current.scrollIntoView();
+            collapseSec.current.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "start"
+              });
         }
         else
         {
             collapseSec.current.classList.add('collapsed') 
             collapseBtn.current.style.backgroundImage = `url(${arrowMore})`;
-            collapseSec.current.scrollIntoView();
+            collapseSec.current.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "start"
+              });
         }        
     }
     const [width, setWidth] = useState(1200);
