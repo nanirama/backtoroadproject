@@ -59,7 +59,7 @@ const StepOne = () => {
         axios
             .get("v1/makes/" + e.value)
             .then(resp => {
-                console.log('Makes ', resp);
+                //console.log('Makes ', resp);
                 const options = resp.data.map(d => ({
                     "value": d,
                     "label": d
