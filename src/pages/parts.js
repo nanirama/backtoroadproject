@@ -88,7 +88,7 @@ const Parts = (props) => {
                     <p className="mb-0">Search for the part you need from our huge inventory of OEM used auto parts. Each and every part available in our inventory are fully tested and graded by our auto part specialists. All the car and truck manufacturers you can think of is listed here. Pick the part you need and fill out the form to get a FREE quote from us instantly.</p>
                 </div>
             </div>
-            <div className="parts-make-search w-100 float-left overflow-hidden">
+            <div className="parts-make-search w-100 float-left">
             <MakeSearch/>
             <PartsSearch/>
             </div>

@@ -17,9 +17,9 @@ const MakeSearch =()=>{
         {
             collapseSec.current.classList.remove('collapsed')
             collapseBtn.current.style.backgroundImage = `url(${arrowLess})`;
-            collapseSec.current.scrollIntoView({
+            collapseBtn.current.scrollIntoView({
                 behavior: "smooth",
-                block: "end",
+                block: "nearest",
                 inline: "start"
               });
         }
@@ -27,9 +27,9 @@ const MakeSearch =()=>{
         {
             collapseSec.current.classList.add('collapsed') 
             collapseBtn.current.style.backgroundImage = `url(${arrowMore})`;
-            collapseSec.current.scrollIntoView({
+            collapseBtn.current.scrollIntoView({
                 behavior: "smooth",
-                block: "end",
+                block: "nearest",
                 inline: "start"
               });
         }        
