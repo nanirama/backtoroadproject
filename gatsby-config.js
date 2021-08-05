@@ -6,7 +6,8 @@ module.exports = {
     noindex: `noindex`,
     siteUrl: 'https://backtoroadprojectnanirama.gatsbyjs.io',
   },
-  plugins: [   
+  plugins: [     
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-sharp`,
@@ -20,7 +21,6 @@ module.exports = {
         }
       }
     },
-    `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
@@ -59,6 +59,23 @@ module.exports = {
       }
     },
     {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Poppins",
+              variants: ["300", "400", "500","600","700","800","900"],
+              strategy: 'base64' // 'base64' || 'cdn'
+            },
+          ],
+        },
+        useMinify: true,
+        usePreload: true
+      },
+    },   
+    
+    {
       resolve: `gatsby-plugin-sitemap`,
       options: {
         createLinkInHead: true
@@ -78,6 +95,19 @@ module.exports = {
           }
         }
       }
+    },
+    {
+      resolve: 'gatsby-plugin-preconnect',
+      options: {
+        domains: ['https://backend.sellectricindia.com/api/','http://stockeye.in'],
+      },
+    },
+    `gatsby-plugin-preload-fonts`,
+    {
+        resolve: `gatsby-plugin-polyfill-io`,
+        options: {
+          features: [`Array.prototype.map`, `fetch`]
+        },
     },
     {
       resolve: 'gatsby-plugin-zopfli',
