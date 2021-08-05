@@ -5,7 +5,7 @@ import { getSrc } from "gatsby-plugin-image"
 import Image from './image'
 
 const GoGreenSection = ({img }) => {
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState(1200);
    
     useEffect(() => {
       setWidth(window.innerWidth);
@@ -16,7 +16,7 @@ const GoGreenSection = ({img }) => {
         window.removeEventListener("resize", () => {});
       };
     }, []);
-    console.log('Window Width is ', width);
+    //console.log('Window Width is ', width);
     return (
         <div className="w-100 float-left gogreen mb-5">
         <div className="container">

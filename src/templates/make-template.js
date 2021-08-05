@@ -4,7 +4,7 @@ import LandingTemplate from '../components/LandingPage/LandingTemplate'
 
 const MakeTemplate = (props) => {
     const { siteUrl } = props.data.site.siteMetadata;
-    console.log('Slides ',props.data.PageData.morecontent.slides)
+    //console.log('Slides ',props.data.PageData.morecontent.slides)
     const bcrumb = [
       {'name':'Home', 'link':siteUrl},
       {'name': props.data.PageData.name, 'link':null}

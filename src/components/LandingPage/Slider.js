@@ -5,7 +5,7 @@ import Slider from "react-slick";
 import FormsControler from './FormsControler'
 
 const LandingSlider = ({data}) => {
-  console.log('Slides Data ', data);
+  //console.log('Slides Data ', data);
   const settings = {
     dots: true,
     arrows: false,

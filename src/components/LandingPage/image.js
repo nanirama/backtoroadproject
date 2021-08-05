@@ -65,7 +65,7 @@ const Image = ({ objectFit, objectPosition, img, imgalt, ...rest }) => {
     default:
       break;
   }
-  console.log('slider alts 2', ImageAlt);
+  //console.log('slider alts 2', ImageAlt);
   return (
     <GatsbyImage
       alt={ImageAlt}

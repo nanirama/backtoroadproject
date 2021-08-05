@@ -56,7 +56,7 @@ const HomeSlider = ({data}) => {
                  </div>
           <Slider {...settings}>
           {data.edges.map(({node}, index) => {
-            console.log('Image alts',node.imgalt);
+            //console.log('Image alts',node.imgalt);
           return (
             <div key={index} className="slide-item d-flex justify-content-center">           
                 <div className="s_txt_outer d-flex flex-column justify-content-end align-items-center">
