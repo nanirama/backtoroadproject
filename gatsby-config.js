@@ -13,7 +13,7 @@ module.exports = {
       resolve: `gatsby-plugin-sharp`,
       options: {
         defaults: {
-          formats: [`auto`, `webp`],
+          formats: [`webp`],
           placeholder: `blurred`,
           quality: 100,
           backgroundColor: `transparent`,

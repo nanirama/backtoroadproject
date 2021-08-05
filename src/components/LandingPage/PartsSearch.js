@@ -1,15 +1,31 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import { FiSearch } from 'react-icons/fi';
 import { BsArrowRightShort } from 'react-icons/bs';
 import arrowMore from '../../assets/images/landing/arrow-more.png'
 import arrowLess from '../../assets/images/landing/arrow-less.png'
-import useCollapse from "react-collapsed";
 
 
-
-const MakeSearch =()=>{
+const PartsSearch =()=>{
+    const collapseBtn = useRef(null);
+    const collapseSec = useRef(null);
+    const [value, setValue] = useState(false);
+    const changeCollapseHandler=()=>{
+        setValue(!value)
+        if(!value)
+        {
+            collapseSec.current.classList.remove('collapsed')
+            collapseBtn.current.style.backgroundImage = `url(${arrowLess})`;
+            collapseSec.current.scrollIntoView();
+        }
+        else
+        {
+            collapseSec.current.classList.add('collapsed') 
+            collapseBtn.current.style.backgroundImage = `url(${arrowMore})`;
+            collapseSec.current.scrollIntoView();
+        }        
+    }
     const [width, setWidth] = useState(1200);
     useEffect(() => {
         setWidth(window.innerWidth);
@@ -20,7 +36,7 @@ const MakeSearch =()=>{
           window.removeEventListener("resize", () => {});
         };
       }, []);
-    const { PartsList } = useStaticQuery(
+      const { PartsList } = useStaticQuery(
         graphql`
           query {
             PartsList : allPartslistJson(sort: {fields: title, order: ASC})  {
@@ -40,8 +56,6 @@ const MakeSearch =()=>{
     const [items, setItems] = useState(PartsList.edges);
     const [filteritems, setFilteritems] = useState(items); 
     const [list, setList] = useState(filteritems.slice(0, numberPer));
-    const [isExpanded, setExpanded] = React.useState(false);
-    console.log('Count', filteritems.length);
     const onsubmitEventHandler=(event)=>{        
         event.preventDefault();
     }
@@ -58,38 +72,8 @@ const MakeSearch =()=>{
             setList(newitems.slice(0, numberPer))    
         }
     }
-    function Collapse({ isActive, filteritems, numberPer }) {
-        const [isExpanded, setExpanded] = React.useState(isActive);
-        const { getToggleProps, getCollapseProps } = useCollapse({
-          isExpanded
-        });
-      
-        React.useEffect(() => {
-          setExpanded(isActive);
-        }, [isActive, setExpanded]);
-      
-        return (
-          <>        
-            <div {...getCollapseProps()} className="w-100 float-left">
-            <ul className="w-100 float-left d-flex flex-wrap flex-row justify-content-start align-items-stretch">
-                {filteritems.slice(numberPer, items.length).map(({node}, index) => {
-                    return(
-                        <li key={index} className="col-lg-4 col-md-6 col-sm-12 col-xs-12 align-self-stretch">
-                                    <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${node.slug}` }
-                                    className="d-flex flex-wrap flex-row justify-content-between align-items-start"
-                                    >
-                                        <span>{node.title}</span> <BsArrowRightShort className="slist-icon"/>
-                                    </a>
-                        </li> 
-                    )
-                })}   
-            </ul>
-            </div>
-          </>
-        );
-      }
     return(
-        <div class="search_blk w-100 float-left bg-white overflow-hidden">
+        <div class="search_blk w-100 bg-white">
             <div className="container">
                 <div className="src_box w-100 float-left">
                 <div className="row">
@@ -127,14 +111,24 @@ const MakeSearch =()=>{
                         })}   
                     </ul>
                     {filteritems.length > numberPer && (
-                        <>                        
-                        <Collapse isActive={isExpanded} filteritems={filteritems} numberPer={numberPer} />
+                        <> 
+                        <div class="more-section-make collapsed" ref={collapseSec}>
+                        <ul className="w-100 float-left d-flex flex-wrap flex-row justify-content-start align-items-stretch">
+                                    {filteritems.slice(numberPer, items.length).map(({node}, index) => {
+                                        return(
+                                            <li key={index} className="col-lg-4 col-md-6 col-sm-12 col-xs-12 align-self-stretch">
+                                                <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${node.slug}` }
+                                                className="d-flex flex-wrap flex-row justify-content-between align-items-start"
+                                                >
+                                                    <span>{node.title}</span> <BsArrowRightShort className="slist-icon"/>
+                                                </a>
+                                            </li>
+                                        )
+                                    })}   
+                            </ul>
+                        </div>
                         <div className="btn_outer w-100 float-left text-center">
-                            {isExpanded ? (
-                                <Button img={arrowLess} onClick={() => setExpanded((x) => !x)} className="btn1">View Less</Button>
-                            ) : (
-                                <Button img={arrowMore} onClick={() => setExpanded((x) => !x)} className="btn1">View More</Button>   
-                            )}
+                            <Button img={arrowMore} className="btn1" ref={collapseBtn}  onClick={changeCollapseHandler}>{value ? 'View Less' : 'View More'}</Button>
                         </div>
                         </>   
                     )}
@@ -149,4 +143,4 @@ const MakeSearch =()=>{
 const Button = styled.button`
     background-image: url(${props => props.img});
 `;
-export default MakeSearch
+export default PartsSearch
