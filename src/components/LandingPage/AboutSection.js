@@ -21,8 +21,9 @@ const AboutSection = ({ image }) => {
                 </div>
                 </div>
                 <div className="col-md-6 col-xs-12 mt-1">
-                <h2 className="tlt mb-2 pb-2 mt-3 text-uppercase">About BTR</h2>
-                <p>We deliver quality used parts to all 50 states and 5 self-governing territories of USA and all over Canada. We work on a live inventory with auto parts updated instantly according to availability, so we can ensure a fast shipment. With our tie-up shipping carriers all over the country, even if the parts you are looking for is not available nearby you or in your state, we ensure quick delivery to your residence or to your mechanic. </p>
+                <h2 className="tlt mb-2 pb-2 mt-3 text-uppercase">About BackToRoad</h2>
+                <p>BackToRoad Auto Parts is your go-to place for high-quality used OEM auto parts. We have an unrivaled selection of used auto parts for sale from a variety of cars, including even the latest models. We make sure to sell only high-quality and genuine OEM parts that are inspected by our Auto Parts team and verified to be in good working condition. </p>
+                <p>All of our products come with a 30-day warranty so our customers are guaranteed a pleasant experience each time they shop with us. We also offer free and quick delivery of our products to our customers across the USA and Canada. We ship either to your doorstep or directly to your mechanic as per your convenience, allowing you to get your car back on the road as soon as possible. </p>
                 <Link to="/about" className="btn2">Read More <BsArrowRight style={iconStyles}/></Link> </div>
             </div>
             </div>
