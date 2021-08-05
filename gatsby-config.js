@@ -6,8 +6,7 @@ module.exports = {
     noindex: `noindex`,
     siteUrl: 'https://backtoroadprojectnanirama.gatsbyjs.io',
   },
-  plugins: [     
-    `gatsby-plugin-image`,
+  plugins: [   
     `gatsby-transformer-sharp`,
     {
       resolve: `gatsby-plugin-sharp`,
@@ -21,6 +20,7 @@ module.exports = {
         }
       }
     },
+    `gatsby-plugin-image`,
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     {
