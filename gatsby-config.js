@@ -109,6 +109,9 @@ module.exports = {
           features: [`Array.prototype.map`, `fetch`]
         },
     },
+    `gatsby-plugin-stylus`,
+    `gatsby-plugin-sass`,
+    `gatsby-plugin-less`,
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-plugin-purgecss`,
