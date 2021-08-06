@@ -1313,6 +1313,7 @@ transform:matrix(.71, .71, -.71, .71, 0, 0)
 .slick-dots li{width:12px !important;
 	height:12px !important;}
 .slick-dots li button {
+	padding:0px 12px !important;
 	width:12px !important;
 	height:12px !important;
 }
