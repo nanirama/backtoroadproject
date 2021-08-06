@@ -65,7 +65,7 @@ query getAllPosts($skip: Int!, $limit: Int!) {
               node {
                 localFile {
                   childImageSharp {
-                    gatsbyImageData(height: 300, width: 400)
+                    gatsbyImageData(height: 400, width: 500)
                   }
                 }
               }

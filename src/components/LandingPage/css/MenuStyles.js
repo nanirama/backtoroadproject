@@ -1,9 +1,4 @@
 import { createGlobalStyle } from "styled-components"
-
-//import menuIcon from '../../../menu-open.png'
-import menuIcon from '../../../assets/images/landing/menu-open.png'
-
-
 export const MenuStyles = createGlobalStyle`
   
   ::-webkit-scrollbar {

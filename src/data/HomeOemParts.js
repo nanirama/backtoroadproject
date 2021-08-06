@@ -14,7 +14,7 @@ export const OemPartsData = [{
   img: EngineIcon,
   alt: "ENGINES",
   name: "Engines",
-  to: "used-engines-assembly",
+  to: "used-engine-assembly",
   desc: "We source low mileage OEM used engine assemblies that have less than 75,000 miles on them so that it isn’t worn down.",
   button: "View More"
 },
@@ -22,7 +22,7 @@ export const OemPartsData = [{
   img: StrearingIcon,
   alt: "STEERING COLUMNS",
   name: "Steering Columns",
-  to: "used-steering-assembly",
+  to: "used-steering-columns",
   desc: "The steering column is the shaft that contains the steering wheel and other accessories such as the ignition switch, turn signals, and light controls.",
   button: "View More"
 },
@@ -30,7 +30,7 @@ export const OemPartsData = [{
   img: TransmissionIcon,
   alt: "TRANSMISSIONS",
   name: "Transmissions",
-  to: "used-transmission-sssembly",
+  to: "used-transmission-assembly",
   desc: "We have automatic and manual transmissions for cars of all makes and models, even the latest ones.",
   button: "View More"
 },

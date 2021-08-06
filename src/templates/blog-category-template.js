@@ -60,7 +60,7 @@ query getAllCatPosts($skip: Int!, $limit: Int!, $id: String) {
               node {
                 localFile {
                   childImageSharp {
-                    gatsbyImageData(height: 300, width: 400)
+                    gatsbyImageData(height: 400, width: 500)
                   }
                 }
               }

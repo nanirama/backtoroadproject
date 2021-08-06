@@ -1311,9 +1311,9 @@ border-radius:2px;
 transform:matrix(.71, .71, -.71, .71, 0, 0)
 }
 .slick-dots li{width:12px !important;
-	height:12px !important;}
+	height:12px !important;padding:0px 10px !important;}
 .slick-dots li button {
-	padding:0px 12px !important;
+	
 	width:12px !important;
 	height:12px !important;
 }
@@ -1323,9 +1323,8 @@ transform:matrix(.71, .71, -.71, .71, 0, 0)
 }
 @media only screen and (max-width:767px) {	
 .col-xs-auto{
-	width:auto !important;
-	float:none !important;
-	margin: auto !important;
+	width:100% !important;
+	float:left !important;	
 	max-width: 100% !important;
 	overflow: hidden !important;
 }
