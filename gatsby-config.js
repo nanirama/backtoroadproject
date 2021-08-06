@@ -107,6 +107,12 @@ module.exports = {
         options: {
           features: [`Array.prototype.map`, `fetch`]
         },
+    },
+    {
+      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
+      options: {
+        devMode: true,
+      },
     }
   ],
 }

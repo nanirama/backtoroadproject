@@ -54,7 +54,7 @@ const IndexPage = (props) => {
           schema = {schemaOrgJSONLD}
        />
     {slides && <HomeSlider data={slides}/>}
-    <AboutSection image={AboutImage}/>
+    {/* <AboutSection image={AboutImage}/>
     <OemPartsSection /> 
     <HowitWorks />
     <HomeJourneySoFar />
@@ -63,7 +63,7 @@ const IndexPage = (props) => {
     <GoGreenSection img={saveGreen} />
     <CustomerReviews/>    
     <HomeRecentArrivals/>    
-    <LandingBanner bannerImage={BannerImage}/>
+    <LandingBanner bannerImage={BannerImage}/> */}
   </Layout>
 )
 }
