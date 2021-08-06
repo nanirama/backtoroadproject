@@ -198,6 +198,7 @@ p{
 .btn1.ph i {
 	transform:rotate(-35deg)
 }
+.btn1.ph svg{ fill:#ffffff; margin-right: 7px;}
 .nav ul li, nav ul li {
 padding:.5rem 15px
 }
@@ -1969,6 +1970,7 @@ font-size:16px
 	}
 	.btnm1{ display: block; float: left; margin-right: 65px; width:44px; height:44px;}
 	.btnm1 img{width:44px; height:44px;}
+	.btnm1 svg{width:84px; height:84px;}
 }
 @media only screen and (max-width:400px) {
 .count_blk h3{ font-size: 30px !important;}
