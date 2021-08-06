@@ -55,7 +55,7 @@ const IndexPage = (props) => {
        />
     {slides && <HomeSlider data={slides}/>}
     <AboutSection image={AboutImage}/>
-    {/* <OemPartsSection /> 
+    <OemPartsSection /> 
     <HowitWorks />
     <HomeJourneySoFar />
     <HomeWhychoosebtr/> 
@@ -63,7 +63,7 @@ const IndexPage = (props) => {
     <GoGreenSection img={saveGreen} />
     <CustomerReviews/>    
     <HomeRecentArrivals/>    
-    <LandingBanner bannerImage={BannerImage}/> */}
+    <LandingBanner bannerImage={BannerImage}/>
   </Layout>
 )
 }
