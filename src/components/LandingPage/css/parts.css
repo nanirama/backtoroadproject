@@ -1,6 +1,6 @@
-.breadcrumb ol li{font-size:18px; line-height: 24px; color:#F0AC3F;float: none; display: inline-block; text-align: center;}
-.breadcrumb ol li a{ color:#ffffff;font-size:18px; line-height: 24px; text-transform: uppercase;}
-.breadcrumb ol li a:before{ content: '/';}
+.page-header .breadcrumb ol li{color:#F0AC3F !important;float: none; display: inline-block; text-align: center;}
+.page-header .breadcrumb ol li a{ color:#ffffff !important;text-transform: uppercase;}
+.page-header .breadcrumb ol li a:before{ content: '/';}
 
 .top_content{ padding: 60px 0;}
 

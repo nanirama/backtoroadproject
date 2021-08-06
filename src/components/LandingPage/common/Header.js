@@ -11,7 +11,7 @@ const LandingHeader = ({ logoImg }) => {
     <header className="w-100 float-left pt-4 pb-3">
       <div className="container">
         <div className="row d-flex">
-            <div className="col-lg-2 col-sm-3">
+            <div className="col-lg-2 col-sm-4">
                 <div className="logo w-auto float-left">
                   <Link to="/">
                     <GatsbyImage
@@ -22,7 +22,7 @@ const LandingHeader = ({ logoImg }) => {
                     </Link>
                 </div>              
             </div>
-            <div className="col-lg-10 col-sm-6 mobile-right">
+            <div className="col-lg-10 col-sm-8 mobile-right">
                 <div className="h_rgt w-auto float-right">
                         <div className="w-auto float-left mnav">
                               <nav>

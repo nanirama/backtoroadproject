@@ -108,19 +108,38 @@ p{
 }
 .btn2 {
 	width:auto;
-	padding:0 20px 0 20px;
+	padding:0px 20px 0px 20px;
 	float:left;
 	background-color:#165DA6;
-	font-weight:600;
-	line-height:45px;
+	font-weight:500;
+	line-height:55px !important;
 	border-radius:5px;
 	color:#fff;
+	font-size:14px;
 	background-position:right 35px center;
 	text-transform:uppercase;
 	text-align:left
 }
 .btn2:hover {
 	background-color:#165DA6;
+	color:#fff
+}
+.btn3 {
+	width:auto;
+	padding:0px 30px 0px 30px;
+	float:left;
+	background-color:#F0AC3F;
+	font-weight:500;
+	line-height:55px !important;
+	border-radius:5px;
+	color:#fff;
+	font-size:14px;
+	background-position:right 35px center;
+	text-transform:uppercase;
+	text-align:left
+}
+.btn3:hover {
+	background-color:#F0AC3F;
 	color:#fff
 }
 .btn1 {
@@ -351,11 +370,12 @@ select {
 	padding:25px 0;
 	border-bottom:1px solid #cdcdcd;
 	background-color:inherit;
-	border-radius:0
+	border-radius:0;
+
 }
 .breadcrumb ol{ list-style:none; width:100%; float:left; padding: 0px; margin:0px;}
 .breadcrumb ol li, .breadcrumb ol li a {
-	color:#060608;
+	color:#060608 !important;
 	font-size:14px;
 	float:left;
 }
@@ -495,7 +515,7 @@ h4.tm-sub-heading {
 	width:87%
 }
 .tm_box .google {
-	width:11%;
+	width:35px;
 }
 .post_box p, .tm_box h4 {
 	font-weight:600
@@ -794,7 +814,7 @@ nav ul.slide {
 	transform:translateX(0)
 }
 @media only screen and (min-width:1200px) {
-.recent_post_blk .post_img{ min-height: 355px;}
+.recent_post_blk .post_img{ min-height: 360px;}
 .main-slider .slick-dots {
 bottom:5%;
 left:10%
@@ -1043,8 +1063,10 @@ display:flex!important;
 flex-direction:row-reverse!important
 }
 .h_rgt .btn1 {
-margin-right:45px;
+margin-right:80px;
 margin-left:0!important;
+padding-top: 3px;
+padding-bottom: 3px;
 }
 .mnav {
 justify-content:flex-start
@@ -1491,7 +1513,7 @@ margin-bottom:18px!important
 }
 .work_box {
 margin-bottom:50px;
-/* width:300px!important; */
+max-width:300px!important;
 float:none!important;
 display:inline-block
 }
@@ -1677,7 +1699,19 @@ font-size:15px;
 line-height:28px
 }
 }
+@media only screen and (min-width:440px) and (max-width:575px) {
+	.col-lg-2.col-sm-4{
+		flex: 0 0 33.333333%;
+		max-width: 33.333333%;
+	}
+	
+	.col-lg-10.col-sm-8 {
+		flex: 0 0 66.666667%;
+		max-width: 66.666667%;
+	}
+}
 @media only screen and (max-width:575px) {
+
 .col-lg-10.col-sm-6,
 #findmypart .col-sm-6, .col-sm-6.col-xs-6 {
 	flex: 0 0 50% !important;
@@ -1729,7 +1763,7 @@ margin-right:50px
 }
 }
 @media only screen and (max-width:479px) {
-	.h_rgt .btn1{ margin-right: 50px !important;}
+	.h_rgt .btn1{ margin-right: 70px !important; padding-top: 3px; padding-bottom: 3px;}
 	.numcontroller{ max-width: 140px;}
 	span.num:nth-child(1):before {
 		content:'';
@@ -1881,10 +1915,10 @@ img.author {
 width:35px!important
 }
 .tm_box .google {
-width:6%
+width:34px
 }
 .tm_box .google img {
-width:20px!important
+
 }
 .popular_blk ul li {
 width:100%
@@ -1912,16 +1946,27 @@ font-size:16px
 }
 }
 @media only screen and (min-width:440px) {
+	
 	.picon{ color:#ffffff;  font-size: 1.5em; margin:0px 8px 2px 0px; }
 	.btnm1{display: none;
-		visibility: hidden; border:2px solid blue;}
+		visibility: hidden;}
 }
 @media only screen and (max-width:440px) {
+	.col-lg-2.col-sm-4{
+		flex: 0 0 50% !important;
+		max-width: 50% !important;
+
+	}
+	
+	.col-lg-10.col-sm-8 {
+		flex: 0 0 50% !important;
+		max-width: 50% !important;
+	}
 	.btn1.ph {
 		display: none;
 		visibility: hidden;
 	}
-	.btnm1{ display: block; float: left; margin-right: 70px; width:44px; height:44px;}
+	.btnm1{ display: block; float: left; margin-right: 65px; width:44px; height:44px;}
 	.btnm1 img{width:44px; height:44px;}
 }
 @media only screen and (max-width:400px) {
@@ -2181,5 +2226,38 @@ select {
 		line-height: 21px !important;
 		color:#000000 !important;
 	}
-   
+	.bm-burger-button {
+		background-image: url('../assets//images/landing/menu-icon.png');
+		background-size:100% 100%;
+	}
+   .recent-title-content{
+	   min-height: 100px;
+	   float: left;
+	   width:100%;
+	   overflow: hidden;
+   }
  
+   @media only screen and (min-width:768px) {
+    .about-img{ margin-right: 10px;}
+    .page-header .breadcrumb ol{justify-content:center}
+    .page-header .breadcrumb ol li,
+    .page-header .breadcrumb ol li a{font-size:18px; line-height: 24px;}
+}
+@media only screen and (max-width:767px) {
+    .about_blk .btn2{ float: none !important; padding:12px 20px 12px 20px;  height: 35px !important; }
+    .about_blk h2,.about_blk .mt-1{ text-align: center !important;}
+    .page-header{ text-align: left !important;}
+    .page-header h1{
+        text-align: left !important;
+        font-size: 22px;
+        line-height: 30px;
+    }
+    .page-header .breadcrumb ol li,
+    .page-header .breadcrumb ol li a{font-size:12px; line-height: 18px;}
+    .page-header .breadcrumb ol{ justify-content:flex-start;}
+	.btn3 {
+		padding:0px 24px 0px 24px;
+		line-height:50px !important;
+	}
+}
+

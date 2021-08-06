@@ -9,7 +9,7 @@ import LandingBanner from '../components/LandingPage/LandingBanner'
 import { ImPhone } from 'react-icons/im';
 import '../components/LandingPage/css/about.css'
 const About = (props) => {
-  let iconStyles = { color: "white", fontSize: "1.65em", marginRight:"5px" };
+  let iconStyles = { color: "white", fontSize: "1.75em", marginRight:"5px" };
   const {site, BannerImage, pageBanner, pageBannerM, aboutImg1 } = useStaticQuery(
     graphql`
       query {
@@ -63,11 +63,11 @@ const About = (props) => {
         description="BackToRoad Auto Parts Is Your One-Stop Shop For High Quality Used OEM Auto Parts. We're a Used Auto Parts Dealer With 17+ Locations Across USA & Canada."
         cpath = {props.location.pathname}
     />
-    <PageBannerDiv className="w-100 float-left text-center" img={pageBimg} mimg={pageMimg}>
+    <PageBannerDiv className="w-100 float-left text-center page-header" img={pageBimg} mimg={pageMimg}>
       <div className="container">
         <h1 className="page-title text-uppercase text-white">WHY BUY FROM US?</h1>
         <div className="breadcrumb w-100 float-left border-0 p-0">
-          <ol className="d-flex justify-content-center" itemscope itemScope itemtype="https://schema.org/BreadcrumbList">
+          <ol className="d-flex" itemscope itemScope itemtype="https://schema.org/BreadcrumbList">
             <li
                 itemprop="itemListElement"                
                 itemScope
@@ -107,7 +107,7 @@ const About = (props) => {
             <p>BackToRoad Auto Parts guarantees that our used car parts are of ‘A' grade quality, come with a standard 30-day warranty, and are completely affordable. We also provide nationwide shipping and delivery for our auto parts either to you directly or to your mechanic. Our devoted customer service team also ensures that all of our clients receive personalized attention, answering all of your questions and ensuring that your vehicle is up and running in no time.</p>
           
             <p>Give us a call today at 1-800-608-3868 to speak to our Auto Parts Specialists and place your order.</p>
-            <a href="tel:866-293-3731" className="btn2"><ImPhone style={iconStyles}/>(866) 293-3731</a> </div>
+            <a href="tel:866-293-3731" className="btn3"><ImPhone style={iconStyles}/>(866) 293-3731</a> </div>
       
             </div>
       </div>      

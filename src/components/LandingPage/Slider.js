@@ -51,6 +51,11 @@ const LandingSlider = ({data}) => {
           <div className="row position-relative">          
           
           <div className="col-md-12 col-sm-12 main-slider">
+          <div className="col-lg-6 col-md-6 slider_form_above slider_form_desktop">                          
+                      <div className="slider_form">
+                        <FormsControler/> 
+                      </div>                         
+                 </div>
           <Slider {...settings}>
           {data.map((item, index) => {
           return (
@@ -63,15 +68,10 @@ const LandingSlider = ({data}) => {
                             <h2 className="text-uppercase mb-4">{item.title}</h2>
                             <div dangerouslySetInnerHTML={{ __html: item.content }} ></div> 
                           </div>
-                        </div>
-                        <div className="col-lg-6 col-md-6 slider_form_above">                          
-                              <div className="slider_form">
-                                <FormsControler/> 
-                              </div>                         
-                        </div>
+                        </div>                        
                       </div>
                     </div>
-                  </div>
+                  </div>                  
                   {/* <Img fixed={item.featuredImage.node.localFile.childImageSharp.fluid} /> */}
                   {/* <img src={item.featuredImage.node.localFile.childImageSharp.fluid.base64} alt={item.title}/> */}
                    <Image img={item.featuredImage.node.localFile} imgalt={item.title} alt={item.title}/>

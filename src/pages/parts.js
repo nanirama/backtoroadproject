@@ -59,11 +59,11 @@ const Parts = (props) => {
         
 
 
-        <PageBannerDiv className="w-100 float-left text-center" img={pageBimg} mimg={pageMimg}>
+        <PageBannerDiv className="w-100 float-left text-center page-header" img={pageBimg} mimg={pageMimg}>
             <div className="container">
                 <h1 className="page-title text-uppercase text-white">PART LIST</h1>
                 <div className="breadcrumb w-100 float-left border-0 p-0">
-                <ol className="d-flex justify-content-center" itemscope itemScope itemtype="https://schema.org/BreadcrumbList">
+                <ol className="d-flex" itemscope itemScope itemtype="https://schema.org/BreadcrumbList">
                     <li
                         itemprop="itemListElement"                
                         itemScope
@@ -94,8 +94,8 @@ const Parts = (props) => {
                 </div>
             </div>
             <div className="w-100">
-            <MakeSearch/>
-            <PartsSearch/>            
+                <PartsSearch/>  
+                <MakeSearch/>                      
             </div>
             <LandingBanner bannerImage={BannerImage}/> 
         </Layout>

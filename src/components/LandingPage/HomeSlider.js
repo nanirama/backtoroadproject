@@ -98,9 +98,6 @@ const HomeSlider = ({data}) => {
                     image={getImage(node.img)} 
                     className="slider-img"
                   />
-                  {/* <Image img={node.img} imgalt={node.imgalt} alt={node.imgalt} className="slider-img"/> */}
-                  {/* <img src={node.img.childImageSharp.fluid.base64} alt={node.imgalt} className="slider-img"/> */}
-                  {/* <Image img={node.img} imgalt={node.imgalt} alt={node.imgalt} className="slider-img"/> */}
               </div> 
             )
           })}              

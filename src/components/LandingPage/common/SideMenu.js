@@ -2,6 +2,7 @@ import React from 'react'
 import { slide as Menu } from "react-burger-menu";
 import { menuData } from "../../../data/MenuData"
 import { Link } from "gatsby"
+import { ThemeProvider } from 'styled-components';
 import styled from "styled-components"
 import Marrow from "../../../assets/images/landing/marrow.png"
 import MarrowActive from "../../../assets/images/landing/marrow-active.png"

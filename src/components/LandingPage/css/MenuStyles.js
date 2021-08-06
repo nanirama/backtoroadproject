@@ -1,5 +1,9 @@
 import { createGlobalStyle } from "styled-components"
 
+//import menuIcon from '../../../menu-open.png'
+import menuIcon from '../../../assets/images/landing/menu-open.png'
+
+
 export const MenuStyles = createGlobalStyle`
   
   ::-webkit-scrollbar {
@@ -49,50 +53,40 @@ export const MenuStyles = createGlobalStyle`
   overflow: hidden;
 }
 .bm-burger-button {
-  /* position: fixed;
-  width: 36px;
-  height: 30px;
-  left: 36px;
-  top: 36px; */
-  display: none;
-
+    display: none;
+    width: 38px;
+    height: 34px;
+    right: 20px;
+    top: 28px;  
   @media screen and (max-width: 1024px) {
     display: block;
-    position: absolute;
-    width: 34px;
-    height: 30px;
-    right: 20px;
-    top: 28px;
-    
+    position: absolute; 
   }
   @media screen and (max-width: 345px) {
-    display: block;
-    width: 34px;
-    height: 30px;
-    right: 20px;
-    top: 28px;
+    display: block;    
   }
 }
 .bm-burger-bars{
-    display:block;
-    height:5px !important;
+    display:none;
+    height:0.8vh !important;
     background-color:rgb(0, 15, 74);
     border-radius: 5px !important;
     transition: all 0.3s;
+    
 }
 /* Color/shape of burger icon bars */
-.bm-burger-bars:nth-child(1) {
+/* .bm-burger-bars:nth-child(1) {
     width:24px;
-    margin-left: 10px;
+    margin-left: 12px;
 }
 .bm-burger-bars:nth-child(2) {
-    width:34px;
+    width:36px;
     margin-left: 0px;
 }
 .bm-burger-bars:nth-child(3) {
     width:16px;
-    margin-left: 18px;
-}
+    margin-left: 20px;
+} */
 
 /* Position and sizing of clickable cross button */
 .bm-cross-button {

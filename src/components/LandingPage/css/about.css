@@ -4,9 +4,6 @@ h1.page-title:before{display: none;}
 .about_img img{ width:85%;}
 img.about_img1{ position: absolute; bottom:-100px; right: 20px; width:60%;}
 
-.breadcrumb ol li{font-size:18px; line-height: 24px; color:#F0AC3F;float: none; display: inline-block; text-align: center;}
-.breadcrumb ol li a{ color:#ffffff;font-size:18px; line-height: 24px; text-transform: uppercase;}
-.breadcrumb ol li a:before{ content: '/';}
-@media only screen and (min-width:768px) {
-    .about-img{ margin-right: 10px;}
-}
+.page-header .breadcrumb ol li{color:#F0AC3F !important; float: none; display: inline-block; text-align: center;}
+.page-header .breadcrumb ol li a{ color:#ffffff !important;text-transform: uppercase;}
+.page-header .breadcrumb ol li a:before{ content: '/';}

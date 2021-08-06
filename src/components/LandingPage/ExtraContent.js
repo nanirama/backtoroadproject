@@ -10,9 +10,9 @@ const ExtraContent = (props) => {
             <div
                 className="parts_blk w-100 float-left position-relative"
             >
-                <div className="container"> <span className="superhead w-100 float-left text-center text-uppercase">Parts</span>
+                <div className="container text-center "> <span className="superhead w-100 float-left text-center text-uppercase">Parts</span>
                 {extracontent.summaryAboveTitle && <h1 className="text-center text-uppercase">{extracontent.summaryAboveTitle}</h1>}
-                <div className="row">
+                <div className="row text-left">
                     <div className="col-md-6 col-xs-12 pr-4">
                     <h2 className="mb-4 pb-2">{extracontent.summaryTitle}</h2>
                     {extracontent.summaryContent && <div dangerouslySetInnerHTML={{ __html: extracontent.summaryContent }} className="w-100 float-left overflow-hidden main-content" ></div>}                    
