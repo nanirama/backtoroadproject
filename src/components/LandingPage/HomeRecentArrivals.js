@@ -23,38 +23,29 @@ const HomeRecentArrivals = () => {
     const settings = {
       dots: true,
       arrows: false,
-      slidesToShow: 3,
-      slidesToScroll: 3,
       infinite: false,
+      initialSlide: 0,
       centerMode: false,
         responsive: [
           {
-            breakpoint: 1025,
+            breakpoint: 1800,
             settings: {
-              arrows: false,
-              initialSlide: 0,
               slidesToShow: 3,
-              slidesToScroll: 3,
-              dots: true
+              slidesToScroll: 3
             }
           },
           {
             breakpoint: 991,
             settings: {
-              arrows: false,
-              initialSlide: 0,
               slidesToShow: 2,
-              slidesToScroll: 2,
-              dots: true
+              slidesToScroll: 2
             }
           },
           {
-            breakpoint: 600,
+            breakpoint: 767,
             settings: {
-              initialSlide: 0,
               slidesToShow: 1,
-              slidesToScroll: 1,
-              dots: true
+              slidesToScroll: 1
             }
           },
         ]
