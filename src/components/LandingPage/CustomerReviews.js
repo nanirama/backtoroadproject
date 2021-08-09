@@ -2,7 +2,6 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Slider from "react-slick";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import Image from './image'
 const CustomerReviews = () => { 
   const { ReviewsData, GoogleImage } = useStaticQuery(
     graphql`
@@ -98,7 +97,7 @@ const CustomerReviews = () => {
         }
       },
       {
-        breakpoint: 600,
+        breakpoint: 767,
         settings: {
           initialSlide: 0,
           infinite: true,
@@ -125,11 +124,12 @@ const CustomerReviews = () => {
                           return (
                             <div className="col-md-12 col-xs-12" key={index}>
                               <div className="tm_box w-100 float-left">
-                                  <div className="text-left reviewcontentheight d-flex flex-column align-self-stretch">
+                                <h3>Hai</h3>
+                                  {/* <div className="text-left reviewcontentheight d-flex flex-column align-self-stretch">
                                     <h3>{ `"${node.heading}"` }</h3>
                                     <p>{node.content}</p>
-                                  </div>
-                                  <div className="bottom w-100 float-left pt-4">
+                                  </div> */}
+                                  {/* <div className="bottom w-100 float-left pt-4">
                                     <div className="d-flex flex-row justify-content-between align-items-center">
                                       <div className="author_pic">
                                         <GatsbyImage
@@ -160,7 +160,7 @@ const CustomerReviews = () => {
                                         />                                        
                                       </div>
                                     </div>
-                                  </div>
+                                  </div> */}
                               </div>
                             </div>
                           )
