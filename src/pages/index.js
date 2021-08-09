@@ -55,8 +55,8 @@ const IndexPage = (props) => {
        />
     {slides && <HomeSlider data={slides}/>}
     <AboutSection image={AboutImage}/>
-    {/* <OemPartsSection /> 
-    <HowitWorks />
+    <OemPartsSection /> 
+    {/* <HowitWorks />
     <HomeJourneySoFar />
     <HomeWhychoosebtr/> 
     <HomePopularMakes data={allMakes}/>
