@@ -1,0 +1,26 @@
+[
+  {
+	"newicon": "../assets/images/landing/icon5.png",
+    "iconalt": "Step 1 to order used auto parts",
+    "title": "STEP 1",
+    "desc": "Search for the used part you need by plugging in information about your vehicle and part name."
+  },
+  {
+	"newicon": "../assets/images/landing/icon6.png",
+    "iconalt": "Step 2 get price for used auto parts",
+    "title": "STEP 2",
+    "desc": "Get the lowest prices from our inventory and from 15k auto recyclers using our Nationwide Parts Locator Tool."
+  },
+  {
+	"newicon": "../assets/images/landing/icon7.png",
+    "iconalt": "Step 3 make payment for the used parts you need",
+    "title": "STEP 3",
+    "desc": "Carry out secure transactions and get the part delivered to your doorstep or your mechanic in a jiffy with our fast shipping."
+  },
+  {
+	"newicon": "../assets/images/landing/icon8.png",
+    "iconalt": "Step 4 get the used auto part delivered to you",
+    "title": "STEP 4",
+    "desc": "Install the part in your car and get back on the road in no time at all."
+  }
+]

@@ -466,7 +466,8 @@ ul.links li:before {
 	display:inline-block
 }
 .work_box .icon img {
-	margin-top:-20px
+	width:70px;
+	height: 72px;
 }
 .reviewcontentheight {
 	margin-bottom:5px!important;

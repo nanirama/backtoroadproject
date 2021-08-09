@@ -162,8 +162,6 @@ const CustomerReviews = () => {
                                     </div>
                                   </div>
                               </div>
-                              
-
                             </div>
                           )
                         })}

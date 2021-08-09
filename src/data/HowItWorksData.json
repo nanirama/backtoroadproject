@@ -1,0 +1,22 @@
+[
+  {
+	"newicon": "../assets/images/landing/icon5.png",
+    "title": "STEP 1",
+    "desc": "Choose your vehicle and part name"
+  },
+  {
+	"newicon": "../assets/images/landing/icon6.png",
+    "title": "STEP 2",
+    "desc": "Get a price quote for your part with invoice (and additional paperworks of donor vehicle, if any)"
+  },
+  {
+	"newicon": "../assets/images/landing/icon7.png",
+    "title": "STEP 3",
+    "desc": "Secure payment with our 100% Money Back Guarantee, get the part delivered with our fast and free shipment"
+  },
+  {
+	"inewcon": "../assets/images/landing/icon8.png",
+    "title": "STEP 4",
+    "desc": "Install the part and enjoy the money you saved by going with recycled parts"
+  }
+]
