@@ -16,7 +16,9 @@ const HomePopularMakes = ({data}) => {
       aria-disabled={currentSlide === 0 ? true : false}
       type="button"
     >
-      <FaLongArrowAltLeft className="arr"/>
+      <svg viewBox="0 0 500 500" >
+       <path d="M357,214v-64a9,9 0 01 15-5l106,96.5a9.5,9.5 0 01 0,15.5l-106,96.5a9,9 0 01-15-5v-64h-348a9,9 0 01 -9-9v-52.5a9,9 0 01 9-9z" />
+    </svg>
     </button>
   );
   const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
@@ -30,7 +32,9 @@ const HomePopularMakes = ({data}) => {
       aria-disabled={currentSlide === slideCount - 1 ? true : false}
       type="button"
     >
-      <FaLongArrowAltRight className="arr"/>
+      <svg viewBox="0 0 500 500" >
+       <path d="M357,214v-64a9,9 0 01 15-5l106,96.5a9.5,9.5 0 01 0,15.5l-106,96.5a9,9 0 01-15-5v-64h-348a9,9 0 01 -9-9v-52.5a9,9 0 01 9-9z" />
+    </svg>
     </button>
   );
     const settings = {
