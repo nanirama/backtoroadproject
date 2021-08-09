@@ -199,6 +199,7 @@ p{
 	transform:rotate(-35deg)
 }
 .btn1.ph svg{ fill:#ffffff; margin-right: 7px;}
+.btn2 svg{ fill:#ffffff; width:24px; height:18px; margin:0px 3px}
 .nav ul li, nav ul li {
 padding:.5rem 15px
 }
