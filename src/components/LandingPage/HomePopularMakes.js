@@ -1,9 +1,6 @@
 import React from "react"
 import Slider from "react-slick";
 import Image from './image'
-
-import { FaLongArrowAltLeft, FaLongArrowAltRight } from 'react-icons/fa';
-
 const HomePopularMakes = ({data}) => {
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <button

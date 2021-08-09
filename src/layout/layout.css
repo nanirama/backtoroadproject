@@ -513,6 +513,11 @@ h4.tm-sub-heading {
 	color:#ffc93e;
 	padding:0 1px
 }
+.tm_box .rating svg {
+	fill:#ffc93e;
+	width:20px;
+	margin-right: 3px;
+}
 .tm_box .author_info {
 	width:87%
 }

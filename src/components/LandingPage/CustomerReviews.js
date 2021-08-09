@@ -3,10 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import Slider from "react-slick";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Image from './image'
-import { FaLongArrowAltLeft, FaLongArrowAltRight, FaStar } from 'react-icons/fa';
 const CustomerReviews = () => { 
-  let iconStyles = { color: "#FFC93E", fontSize: "1.1em", marginRight:"5px" };
-
   const { ReviewsData, GoogleImage } = useStaticQuery(
     graphql`
       query {
@@ -43,7 +40,9 @@ const CustomerReviews = () => {
       aria-disabled={currentSlide === 0 ? true : false}
       type="button"
     >
-      <FaLongArrowAltLeft className="arr"/>
+       <svg viewBox="0 0 500 500" >
+        <path d="M357,214v-64a9,9 0 01 15-5l106,96.5a9.5,9.5 0 01 0,15.5l-106,96.5a9,9 0 01-15-5v-64h-348a9,9 0 01 -9-9v-52.5a9,9 0 01 9-9z" />
+      </svg>
     </button>
   );
   const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
@@ -57,7 +56,9 @@ const CustomerReviews = () => {
       aria-disabled={currentSlide === slideCount - 1 ? true : false}
       type="button"
     >
-      <FaLongArrowAltRight className="arr"/>
+       <svg viewBox="0 0 500 500" >
+        <path d="M357,214v-64a9,9 0 01 15-5l106,96.5a9.5,9.5 0 01 0,15.5l-106,96.5a9,9 0 01-15-5v-64h-348a9,9 0 01 -9-9v-52.5a9,9 0 01 9-9z" />
+      </svg>
     </button>
   );
   const settings = {
@@ -142,11 +143,11 @@ const CustomerReviews = () => {
                                         <div className="text w-100 float-left pl-3 pr-1">
                                           <h4 className="tm-sub-heading w-100 float-left mb-0 text-left">{node.title}</h4>
                                             <div className="rating w-100 float-left text-left">
-                                              <FaStar style={iconStyles} />
-                                              <FaStar style={iconStyles} />
-                                              <FaStar style={iconStyles} />
-                                              <FaStar style={iconStyles} />
-                                              <FaStar style={iconStyles} />
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
+                                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg>
                                             </div>
                                         </div>
                                       </div>

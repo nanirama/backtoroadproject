@@ -1,12 +1,12 @@
 .slick-arrow:before{ display: none;}
-.logos_blk .slick-arrow svg{
+.slick-arrow svg{
   fill:#165DA6;
   width:22px;
 }
-.logos_blk .slick-prev svg{
+.slick-prev svg{
   transform: rotate(180deg);
 }
-.logos_blk .slick-arrow:hover svg{fill:#fff;}
+.slick-arrow:hover svg{fill:#fff;}
 @media only screen and (min-width:1199px) { 
     .logos_blk .slick-arrow .arr{ color:#165DA6; width:20px; height:20px; }
     .logos_blk .slick-arrow{ font-size:0;width: 50px;height:50px;box-sizing: border-box;border-radius: 5px;border: 1px solid #165DA6;}
