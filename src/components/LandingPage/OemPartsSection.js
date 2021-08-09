@@ -1,6 +1,5 @@
 import React from "react"
 import { OemPartsData } from "../../data/HomeOemParts"
-import { FaLongArrowAltRight } from 'react-icons/fa';
 const OemPartsSection = () => {
   return (
     <div className="oem_parts_blk w-100 float-left text-center">
@@ -17,7 +16,9 @@ const OemPartsSection = () => {
                 <div className="sub_box_content w-100">
                     <h3 className="mb-3">{item.name}</h3>
                     <p className="mb-2">{item.desc}</p>
-                    <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${item.to}` } className="more_link w-100 float-left text-center text-uppercase">Read More <FaLongArrowAltRight className="rarrow"/></a>
+                    <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${item.to}` } className="more_link w-100 float-left text-center text-uppercase">Read More <svg viewBox="0 0 500 500" >
+       <path d="M357,214v-64a9,9 0 01 15-5l106,96.5a9.5,9.5 0 01 0,15.5l-106,96.5a9,9 0 01-15-5v-64h-348a9,9 0 01 -9-9v-52.5a9,9 0 01 9-9z" />
+    </svg></a>
                 </div>
              </div>
             </div>
