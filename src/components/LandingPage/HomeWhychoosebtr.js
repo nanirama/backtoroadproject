@@ -1,20 +1,45 @@
 import React from "react"
-import { StatsData } from "../../data/HomeStatsData"
+import { useStaticQuery, graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 const Whychoosebtr = () => {
+    const { data } = useStaticQuery(
+        graphql`
+          query {
+            data : allHomeStatsDataJson {
+                edges {
+                  node {
+                    desc
+                    title
+                    newicon {
+                      childImageSharp {
+                        gatsbyImageData(width: 64, height: 60, quality: 100)
+                      }
+                    }
+                  }
+                }
+              }
+          }
+        `
+      )
     return(
             <div className="why_choose_blk w-100 float-left text-center">
                 <div className="container">
                 <h2 className="tlt text-center text-uppercase">Why Choose BTR?</h2>
                 <div className="row d-flex flex-row">
-                {StatsData.map((item, index) => {
+                {data.edges.map(({node}, index) => {
                 return (
                     <div key={index} className="col-lg-3 col-sm-6 col-xs-6">
                     <div className="sub_box w-100 float-left text-center">
                         <div className="icon mb-4">
-                            <img className="w-auto" src={item.newicon} alt={item.iconalt} width="61" height="60" />
+                            <GatsbyImage
+                                alt={node.iconalt}
+                                image={getImage(node.newicon)} 
+                                width={64}
+                                height={60}
+                            /> 
                         </div>
-                        <h3 className="mb-4">{item.title}</h3>
-                        <p className="mb-0">{item.desc}</p>
+                        <h3 className="mb-4">{node.title}</h3>
+                        <p className="mb-0">{node.desc}</p>
                     </div>
                     </div>
                 )

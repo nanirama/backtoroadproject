@@ -60,8 +60,8 @@ const IndexPage = (props) => {
     
     <HowitWorks />
     <HomeJourneySoFar />
-    {/* <HomeWhychoosebtr/> 
-    <HomePopularMakes data={allMakes}/>
+    <HomeWhychoosebtr/> 
+    {/* <HomePopularMakes data={allMakes}/>
     <GoGreenSection img={saveGreen} /> */}
     {/* <CustomerReviews/>     */}
     {/* <HomeRecentArrivals/>    

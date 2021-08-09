@@ -1,0 +1,26 @@
+[
+  {
+	  "newicon": "../assets/images/landing/icon1.png",
+    "iconalt": "Hassle free warranty protection icon",
+    "title": "Fully Tested and Inspected Parts",
+    "desc": "Our Auto Parts Specialists check all used parts for internal and external signs of damage and only add used parts that are in perfect shape to our inventory."
+  },
+  {
+	  "newicon": "../assets/images/landing/icon2.png",
+    "iconalt": "Quality tested used OEM parts icon",
+    "title": "Hassle Free Warranty Protection",
+    "desc": "All of our products come with an assured warranty protection so our customers have a pleasant experience each time they shop with us."
+  },
+  {
+	  "newicon": "../assets/images/landing/icon3.png",
+    "iconalt": "Fully secure transactions with money back guarantee icon",
+    "title": "Secure Transactions",
+    "desc": "We provide secure payments with a 100% money-back guarantee on every transaction in case of any issues."
+  },
+  {
+	  "newicon": "../assets/images/landing/icon4.png",
+    "iconalt": "Dedicated customer service for all part queries icon",
+    "title": "Dedicated Customer Support",
+    "desc": "Our dedicated customer service makes sure to provide you with immediate assistance whenever you require it."
+  }
+]
