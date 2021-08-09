@@ -63,7 +63,7 @@ const IndexPage = (props) => {
     <GoGreenSection img={saveGreen} />
     {/* <CustomerReviews/>     */}
     <HomeRecentArrivals/>    
-    {/* <LandingBanner bannerImage={BannerImage}/> */}
+    <LandingBanner bannerImage={BannerImage}/>
   </Layout>
 )
 }
