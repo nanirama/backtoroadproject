@@ -63,50 +63,31 @@ const CustomerReviews = () => {
   const settings = {
     dots: false,
     arrows: true,
-    slidesToShow: 3,
-    slidesToScroll: 3,
     infinite: true,
     centerMode: false,
+    initialSlide: 0,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
     responsive: [
       {
-        breakpoint: 1025,
+        breakpoint: 1800,
         settings: {
-          dots: false,
-          arrows: true,
-          infinite: true,
-          initialSlide: 0,
           slidesToShow: 3,
-          slidesToScroll: 3,
-          prevArrow: <SlickArrowLeft />,
-          nextArrow: <SlickArrowRight />
+          slidesToScroll: 3
         }
       },
       {
         breakpoint: 991,
         settings: {
-          dots: false,
-          arrows: true,
-          infinite: true,
-          initialSlide: 0,
           slidesToShow: 2,
-          slidesToScroll: 2,
-          prevArrow: <SlickArrowLeft />,
-          nextArrow: <SlickArrowRight />
+          slidesToScroll: 2
         }
       },
       {
         breakpoint: 767,
         settings: {
-          initialSlide: 0,
-          infinite: true,
           slidesToShow: 1,
-          slidesToScroll: 1,
-          dots: false,
-          arrows: true,
-          prevArrow: <SlickArrowLeft />,
-          nextArrow: <SlickArrowRight />
+          slidesToScroll: 1
         }
       },
     ]
@@ -124,12 +105,11 @@ const CustomerReviews = () => {
                           return (
                             <div className="col-md-12 col-xs-12" key={index}>
                               <div className="tm_box w-100 float-left">
-                                <h3>Hai</h3>
-                                  {/* <div className="text-left reviewcontentheight d-flex flex-column align-self-stretch">
+                                  <div className="text-left reviewcontentheight d-flex flex-column align-self-stretch">
                                     <h3>{ `"${node.heading}"` }</h3>
                                     <p>{node.content}</p>
-                                  </div> */}
-                                  {/* <div className="bottom w-100 float-left pt-4">
+                                  </div>
+                                  <div className="bottom w-100 float-left pt-4">
                                     <div className="d-flex flex-row justify-content-between align-items-center">
                                       <div className="author_pic">
                                         <GatsbyImage
@@ -160,7 +140,7 @@ const CustomerReviews = () => {
                                         />                                        
                                       </div>
                                     </div>
-                                  </div> */}
+                                  </div>
                               </div>
                             </div>
                           )
