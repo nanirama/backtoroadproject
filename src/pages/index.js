@@ -57,10 +57,10 @@ const IndexPage = (props) => {
     {slides && <HomeSlider data={slides}/>}
     {/* <AboutSection image={AboutImage}/>
     <OemPartsSection />  */}
+    
     <HowitWorks />
-    {/* <HowitWorks />
     <HomeJourneySoFar />
-    <HomeWhychoosebtr/> 
+    {/* <HomeWhychoosebtr/> 
     <HomePopularMakes data={allMakes}/>
     <GoGreenSection img={saveGreen} /> */}
     {/* <CustomerReviews/>     */}

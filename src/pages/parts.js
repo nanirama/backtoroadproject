@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import Layout from '../components/LandingPage/common/layout'
@@ -53,12 +53,7 @@ const Parts = (props) => {
             title="All Parts | Search For Your Part | BackToRoad Auto Parts"
             description="Search Our Huge Inventory Of Genuine Used Parts For All Makes & Models Available In USA & Canada. Find Your Part Now!"
             cpath = {props.location.pathname}
-        />  
-        
-
-        
-
-
+        /> 
         <PageBannerDiv className="w-100 float-left text-center page-header" img={pageBimg} mimg={pageMimg}>
             <div className="container">
                 <h1 className="page-title text-uppercase text-white">PART LIST</h1>

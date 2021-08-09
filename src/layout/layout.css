@@ -430,6 +430,7 @@ ul.links li:before {
 .journey_blk h2 {
 	margin-bottom:90px
 }
+.journey_blk svg{ fill:#ffffff; width:24px; height:24px;}
 .count_blk {
 	background-color:#fff;
 	border-radius:5px
