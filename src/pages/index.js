@@ -57,8 +57,8 @@ const IndexPage = (props) => {
     <AboutSection image={AboutImage}/>
     <OemPartsSection /> 
     <HowitWorks />
-    {/* <HomeJourneySoFar />
-    <HomeWhychoosebtr/> 
+    <HomeJourneySoFar />
+    {/* <HomeWhychoosebtr/> 
     <HomePopularMakes data={allMakes}/>
     <GoGreenSection img={saveGreen} />
     <CustomerReviews/>    
