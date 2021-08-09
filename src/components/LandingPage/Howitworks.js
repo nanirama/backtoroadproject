@@ -1,7 +1,27 @@
 import React from "react"
+import { useStaticQuery, graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-const HowitWorks = ({ data }) => {
+const HowitWorks = () => {
+    const { data } = useStaticQuery(
+        graphql`
+          query {
+            data : allHomeHowItWorksDataJson {
+                edges {
+                  node {
+                    desc
+                    title
+                    newicon {
+                      childImageSharp {
+                        gatsbyImageData(width: 70, height: 72, quality: 100)
+                      }
+                    }
+                  }
+                }
+              }
+          }
+        `
+      )
     return(
             <div className="how_work_blk w-100 float-left text-center">
                 <div className="container">

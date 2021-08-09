@@ -57,7 +57,7 @@ const IndexPage = (props) => {
     {slides && <HomeSlider data={slides}/>}
     {/* <AboutSection image={AboutImage}/>
     <OemPartsSection />  */}
-    { HowItWorks && <HowitWorks data={HowItWorks} /> }
+    <HowitWorks />
     {/* <HowitWorks />
     <HomeJourneySoFar />
     <HomeWhychoosebtr/> 
@@ -104,19 +104,6 @@ query HomePageQuery{
       gatsbyImageData(
           width: 218, layout: CONSTRAINED
       )
-    }
-  }
-  HowItWorks : allHomeHowItWorksDataJson {
-    edges {
-      node {
-        desc
-        title
-        newicon {
-          childImageSharp {
-            gatsbyImageData(width: 70, height: 72, quality: 100)
-          }
-        }
-      }
     }
   }
   allMakes : allPopularMakesJson {
