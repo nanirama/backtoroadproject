@@ -29,23 +29,23 @@ const Parts = (props) => {
             }
             pageBanner: file(relativePath: { eq: "part-banner.jpg" }) {
                 childImageSharp {
-                    fluid(quality: 100, base64Width: 1920) {
-                        base64
-                    }
+                    fluid(quality: 100, webpQuality: 100, maxWidth: 1920) {
+                        srcWebp
+                      }
                 }
             }
             pageBannerM: file(relativePath: { eq: "part-banner_mobile.jpg" }) {
               childImageSharp {
-                  fluid(quality: 100, base64Width: 767) {
-                      base64
+                fluid(quality: 100, webpQuality: 100, maxWidth: 768) {
+                    srcWebp
                   }
               }
             } 
           }
         `
       )
-    const pageBimg = pageBanner.childImageSharp.fluid.base64
-    const pageMimg = pageBannerM.childImageSharp.fluid.base64
+    const pageBimg = pageBanner.childImageSharp.fluid.srcWebp
+    const pageMimg = pageBannerM.childImageSharp.fluid.srcWebp
     const siteURL = site.siteMetadata.siteUrl 
     return (
         <Layout>

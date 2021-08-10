@@ -3,10 +3,10 @@ import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import Layout from '../components/LandingPage/common/layout'
 import SEO from "../components/seo"
+import Image from '../components/LandingPage/image'
 import HomeWhychoosebtr from '../components/LandingPage/HomeWhychoosebtr'
 import LandingBanner from '../components/LandingPage/LandingBanner'
 
-import { ImPhone } from 'react-icons/im';
 import '../components/LandingPage/css/about.css'
 const About = (props) => {
   let iconStyles = { color: "white", fontSize: "1.75em", marginRight:"5px" };
@@ -28,33 +28,30 @@ const About = (props) => {
               )
           }
         }
-        pageBanner: file(relativePath: { eq: "about-banner.jpg" }) {
-            childImageSharp {
-                fluid(quality: 100, base64Width: 1920) {
-                    base64
-                }
+        pageBanner: file(relativePath: {eq: "about-banner.jpg"}) {
+          childImageSharp {
+            fluid(quality: 100, webpQuality: 100, maxWidth: 1920) {
+              srcWebp
             }
+          }
         }
         pageBannerM: file(relativePath: { eq: "about-banner-m.jpg" }) {
           childImageSharp {
-              fluid(quality: 100, base64Width: 767) {
-                  base64
-              }
+            fluid(quality: 100, webpQuality: 100, maxWidth: 768) {
+              srcWebp
+            }
           }
         }
-        aboutImg1: file(relativePath: { eq: "aboutimg.png" }) {
+        aboutImg1: file(relativePath: {eq: "aboutimg.png"}) {
           childImageSharp {
-              fluid(quality: 100, base64Width: 498) {
-                  base64
-              }
+            gatsbyImageData(width: 1200, layout: CONSTRAINED, quality: 100)
           }
-        }    
+        }  
       }
     `
   )
-  const pageBimg = pageBanner.childImageSharp.fluid.base64
-  const pageMimg = pageBannerM.childImageSharp.fluid.base64
-  const aImg1 = aboutImg1.childImageSharp.fluid.base64
+  const pageBimg = pageBanner.childImageSharp.fluid.srcWebp
+  const pageMimg = pageBannerM.childImageSharp.fluid.srcWebp
   const siteURL = site.siteMetadata.siteUrl 
   return(
   <Layout>
@@ -99,7 +96,7 @@ const About = (props) => {
           <div className="col-md-12 col-xs-12">
           <div className="col-md-6 about-img float-left col-xs-12 mb-2">
             <div className="w-100 float-left position-relative">
-              <img src={aImg1} alt="BackToRoad auto parts warehouse staff at work" width={497} height={559} />
+              <Image img={aboutImg1} imgalt="BackToRoad auto parts warehouse staff at work"  alt="BackToRoad auto parts warehouse staff at work" width={497} height={559}/>              
             </div>
           </div>
             <p>BackToRoad Auto Parts is your one-stop-shop for high-quality used OEM auto parts and accessories. We sell high-quality and genuine used parts at affordable prices so our customers have a seamless experience when shopping with us. We know that you’ll need to get your car back on the road as quickly as possible so we provide free and fast shipping for our products all over the United States and Canada.</p>
@@ -133,6 +130,6 @@ const PageBannerDiv = styled.div`
       background-size: cover;
     }    
     background-repeat:no-repeat;
-    background-position:left top;    
+    background-position:left center;    
 `;
 export default About
