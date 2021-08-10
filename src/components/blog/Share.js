@@ -8,35 +8,27 @@ import {
 	RedditShareButton
 } from 'react-share';
 
-import { FaFacebookSquare, FaTwitterSquare, FaLinkedin, FaRedditSquare, FaWhatsappSquare } from 'react-icons/fa';
-
-
 const Share = ({ socialConfig, tags }) => {
-    let fStyles = { color: "#3B5998", fontSize: "2em", marginRight:"5px" };
-    let tStyles = { color: "#1DA1F2", fontSize: "2em", marginRight:"5px" };
-    let lStyles = { color: "#0077B5", fontSize: "2em", marginRight:"5px" };
-    let rStyles = { color: "#FF4500", fontSize: "2em", marginRight:"5px" };
-    let wStyles = { color: "#128C7E", fontSize: "2em", marginRight:"5px" };
     return(
 	<div className="post-social">
-         <FacebookShareButton url={socialConfig.config.url} quote={socialConfig.config.title} hashtag={""}>
-            <FaFacebookSquare style={fStyles}/>
+         <FacebookShareButton className="facebook" url={socialConfig.config.url} quote={socialConfig.config.title} hashtag={""}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"viewBox="0 0 24 24"><path d="M22.675 0h-21.35c-.732 0-1.325.593-1.325 1.325v21.351c0 .731.593 1.324 1.325 1.324h11.495v-9.294h-3.128v-3.622h3.128v-2.671c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24l-1.918.001c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12v9.293h6.116c.73 0 1.323-.593 1.323-1.325v-21.35c0-.732-.593-1.325-1.325-1.325z"/></svg>
          </FacebookShareButton>
 
-          <TwitterShareButton url={socialConfig.config.url} quote={socialConfig.config.title}>
-              <FaTwitterSquare style={tStyles}/>
+          <TwitterShareButton className="twitter" url={socialConfig.config.url} quote={socialConfig.config.title}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-.139 9.237c.209 4.617-3.234 9.765-9.33 9.765-1.854 0-3.579-.543-5.032-1.475 1.742.205 3.48-.278 4.86-1.359-1.437-.027-2.649-.976-3.066-2.28.515.098 1.021.069 1.482-.056-1.579-.317-2.668-1.739-2.633-3.26.442.246.949.394 1.486.411-1.461-.977-1.875-2.907-1.016-4.383 1.619 1.986 4.038 3.293 6.766 3.43-.479-2.053 1.08-4.03 3.199-4.03.943 0 1.797.398 2.395 1.037.748-.147 1.451-.42 2.086-.796-.246.767-.766 1.41-1.443 1.816.664-.08 1.297-.256 1.885-.517-.439.656-.996 1.234-1.639 1.697z"/></svg>
           </TwitterShareButton>          
 
-          <LinkedinShareButton url={socialConfig.config.url} quote={socialConfig.config.title}>
-            <FaLinkedin style={lStyles}/>
+          <LinkedinShareButton className="linkedin" url={socialConfig.config.url} quote={socialConfig.config.title}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
           </LinkedinShareButton>
 
-          <RedditShareButton url={socialConfig.config.url} title={socialConfig.config.title} >
-            <FaRedditSquare style={rStyles}/>
+          <RedditShareButton className="reddit" url={socialConfig.config.url} title={socialConfig.config.title} >
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"viewBox="0 0 24 24"><path d="M14.558 15.827c.097.096.097.253 0 .349-.531.529-1.365.786-2.549.786l-.009-.002-.009.002c-1.185 0-2.018-.257-2.549-.786-.097-.096-.097-.253 0-.349.096-.096.254-.096.351 0 .433.431 1.152.641 2.199.641l.009.002.009-.002c1.046 0 1.765-.21 2.199-.641.095-.097.252-.097.349 0zm-.126-3.814c-.581 0-1.054.471-1.054 1.05 0 .579.473 1.049 1.054 1.049.581 0 1.054-.471 1.054-1.049 0-.579-.473-1.05-1.054-1.05zm-3.806 1.05c0-.579-.473-1.05-1.054-1.05-.581 0-1.055.471-1.055 1.05 0 .579.473 1.049 1.055 1.049.581.001 1.054-.47 1.054-1.049zm13.374-8.063v14c0 2.761-2.238 5-5 5h-14c-2.761 0-5-2.239-5-5v-14c0-2.761 2.239-5 5-5h14c2.762 0 5 2.239 5 5zm-4 6.853c0-.972-.795-1.764-1.772-1.764-.477 0-.908.191-1.227.497-1.207-.794-2.84-1.299-4.647-1.364l.989-3.113 2.677.628-.004.039c0 .795.65 1.442 1.449 1.442.798 0 1.448-.647 1.448-1.442 0-.795-.65-1.442-1.448-1.442-.613 0-1.136.383-1.347.919l-2.886-.676c-.126-.031-.254.042-.293.166l-1.103 3.471c-1.892.023-3.606.532-4.867 1.35-.316-.292-.736-.474-1.2-.474-.975-.001-1.769.79-1.769 1.763 0 .647.355 1.207.878 1.514-.034.188-.057.378-.057.572 0 2.607 3.206 4.728 7.146 4.728 3.941 0 7.146-2.121 7.146-4.728 0-.183-.019-.362-.05-.54.555-.299.937-.876.937-1.546z"/></svg>
           </RedditShareButton>
 
-          <WhatsappShareButton url={socialConfig.config.url} title={socialConfig.config.title}>
-               <FaWhatsappSquare style={wStyles}/>
+          <WhatsappShareButton className="whatsapp" url={socialConfig.config.url} title={socialConfig.config.title}>
+               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28"viewBox="0 0 24 24"><path d="M12.036 5.339c-3.635 0-6.591 2.956-6.593 6.589-.001 1.483.434 2.594 1.164 3.756l-.666 2.432 2.494-.654c1.117.663 2.184 1.061 3.595 1.061 3.632 0 6.591-2.956 6.592-6.59.003-3.641-2.942-6.593-6.586-6.594zm3.876 9.423c-.165.463-.957.885-1.337.942-.341.051-.773.072-1.248-.078-.288-.091-.657-.213-1.129-.417-1.987-.858-3.285-2.859-3.384-2.991-.099-.132-.809-1.074-.809-2.049 0-.975.512-1.454.693-1.653.182-.2.396-.25.528-.25l.38.007c.122.006.285-.046.446.34.165.397.561 1.372.611 1.471.049.099.083.215.016.347-.066.132-.099.215-.198.33l-.297.347c-.099.099-.202.206-.087.404.116.198.513.847 1.102 1.372.757.675 1.395.884 1.593.983.198.099.314.083.429-.05.116-.132.495-.578.627-.777s.264-.165.446-.099 1.156.545 1.354.645c.198.099.33.149.38.231.049.085.049.482-.116.945zm3.088-14.762h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-6.967 19.862c-1.327 0-2.634-.333-3.792-.965l-4.203 1.103 1.125-4.108c-.694-1.202-1.059-2.566-1.058-3.964.002-4.372 3.558-7.928 7.928-7.928 2.121.001 4.112.827 5.609 2.325s2.321 3.491 2.32 5.609c-.002 4.372-3.559 7.928-7.929 7.928z"/></svg>
            </WhatsappShareButton>
 	</div>
 )};

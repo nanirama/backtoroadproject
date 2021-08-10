@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { Helmet } from "react-helmet"
 import Layout from "./common/layout"

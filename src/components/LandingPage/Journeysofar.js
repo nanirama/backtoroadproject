@@ -2,11 +2,8 @@ import React from "react"
 import styled from "styled-components"
 import { JourneySoFarData } from "../../data/JourneySoFar"
 import journeyIcon from '../../assets/images/landing/jicon.png'
-import { FaUserAlt, FaStar, FaRegCompass } from 'react-icons/fa';
-import { HiCog } from 'react-icons/hi';
 
 const JourneySoFar = ({image}) => {
-    let iconStyles = { color: "white" };
     const imageData = image.childImageSharp.fluid.base64
     return(
         <JourneyDiv
@@ -30,11 +27,11 @@ const JourneySoFar = ({image}) => {
                                     className="count_blk w-100 text-center d-flex align-items-center justify-content-center flex-column align-self-stretch"
                                 >
                                     <JourneyIcon img={journeyIcon} className="icon d-flex align-items-center justify-content-center flex-row"  itemprop="image">
-                                        {item.newicon==='cog' && <HiCog style={iconStyles} className="iconr" /> }
-                                        {item.newicon==='user' && <FaUserAlt style={iconStyles} className="iconr" /> }
-                                        {item.newicon==='star' && <FaStar style={iconStyles} className="iconr" /> }
-                                        {item.newicon==='compass' && <FaRegCompass style={iconStyles} className="iconr" /> }
-                                    </JourneyIcon>
+                                        {item.newicon==='cog' && <svg class="icon icon-settings" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19.43 12.98c.04-.32.07-.64.07-.98s-.03-.66-.07-.98l2.11-1.65c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.3-.61-.22l-2.49 1c-.52-.4-1.08-.73-1.69-.98l-.38-2.65C14.46 2.18 14.25 2 14 2h-4c-.25 0-.46.18-.49.42l-.38 2.65c-.61.25-1.17.59-1.69.98l-2.49-1c-.23-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64l2.11 1.65c-.04.32-.07.65-.07.98s.03.66.07.98l-2.11 1.65c-.19.15-.24.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.4 1.08.73 1.69.98l.38 2.65c.03.24.24.42.49.42h4c.25 0 .46-.18.49-.42l.38-2.65c.61-.25 1.17-.59 1.69-.98l2.49 1c.23.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.65zM12 15.5c-1.93 0-3.5-1.57-3.5-3.5s1.57-3.5 3.5-3.5 3.5 1.57 3.5 3.5-1.57 3.5-3.5 3.5z"/></svg> }
+                                        {item.newicon==='user' && <svg class="icon icon-person" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg> }
+                                        {item.newicon==='star' && <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/></svg> }
+                                        {item.newicon==='compass' && <svg xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M12 0c6.623 0 12 5.377 12 12s-5.377 12-12 12-12-5.377-12-12 5.377-12 12-12zm0 2c5.519 0 10 4.481 10 10s-4.481 10-10 10-10-4.481-10-10 4.481-10 10-10zm1.476 12.955c.988-.405 1.757-1.211 2.116-2.216l2.408-6.739-6.672 2.387c-1.006.36-1.811 1.131-2.216 2.119l-3.065 7.494 7.429-3.045zm-.122-4.286c.551.551.551 1.446 0 1.996-.551.551-1.445.551-1.996 0-.551-.55-.551-1.445 0-1.996.551-.551 1.445-.551 1.996 0z"/></svg> }
+                                    </JourneyIcon>                                   
                                     <h3 className="mb-0">{item.title}</h3>
                                     <p className="mb-3">{item.desc}</p>
                                 </div>

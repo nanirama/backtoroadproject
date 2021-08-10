@@ -1,11 +1,7 @@
 import React from 'react'
 import { Link } from "gatsby"
 import Image from './image'
-
-import { BsArrowRight } from 'react-icons/bs';
-
 const AboutSection = ({ image }) => {
-    let iconStyles = { color: "white", fontSize:"1.3em" };
     return (
         <div className="about_blk w-100 float-left position-relative bg-white">
             <div className="container">

@@ -2,13 +2,9 @@ import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { menuData } from "../../../data/MenuData"
-import footerImg from "../../../assets/images/landing/f-logo.svg"
-import { FaFacebookF, FaTwitter, FaLinkedinIn, FaYoutube } from 'react-icons/fa';
 
 
 const LandingFooter = ({logoImg, secureImg, partnersImg}) => {
-    //const footerLogoImg = logoImg.childImageSharp.fixed.base64
-    let iconStyles = { color: "white", fontSize: "1.5em", marginRight:"25px" };
     const socialIcons = [
         {
             'name': 'facebook',

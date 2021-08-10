@@ -56,7 +56,6 @@ const MakeSearch =()=>{
           }
         `
       )
-    let iconStyles = { color: "white", fontSize: "1.3em", marginBottom: "3px" };
     const numberPer = width < 768 ? 20 : 40;
     //console.log('Number of records, ', numberPer);
     const [items, setItems] = useState(MakesList.edges);

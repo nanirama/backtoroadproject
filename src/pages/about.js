@@ -9,7 +9,6 @@ import LandingBanner from '../components/LandingPage/LandingBanner'
 
 import '../components/LandingPage/css/about.css'
 const About = (props) => {
-  let iconStyles = { color: "white", fontSize: "1.75em", marginRight:"5px" };
   const {site, BannerImage, pageBanner, pageBannerM, aboutImg1 } = useStaticQuery(
     graphql`
       query {

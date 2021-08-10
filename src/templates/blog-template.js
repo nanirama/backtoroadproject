@@ -3,15 +3,11 @@ import { graphql } from "gatsby"
 import Image from '../components/LandingPage/image'
 import Layout from '../components/LandingPage/common/layout'
 import SEO from '../components/seo'
-import { FaUserAlt } from 'react-icons/fa';
-import { CgCalendarDates } from 'react-icons/cg';
 import RecentBlogs from '../components/blog/RecentBlogs'
 import LandingBanner from '../components/LandingPage/LandingBanner'
 import Share from '../components/blog/Share'
 const Blog = (props) => {
   const { postDetails, site, RecentPosts, BannerImage } = props.data
-  let iconStyles = { color: "gray", fontSize: "1.5em", marginRight:"5px" };
-  let iconStyles2 = { color: "gray", fontSize: "1.9em", marginRight:"5px" };
 
   
 
@@ -103,8 +99,20 @@ const Blog = (props) => {
                     <div className="post_info d-flex justify-content-start flex-column">
                       <h1 className="w-100 py-2">{postDetails.title}</h1>
                       <div className="d-flex justify-content-between mb-2">
-                        <small className="align-self-start text-capitalize"><FaUserAlt style={iconStyles} />By {postDetails.author.node.name}</small>
-                        <small className="align-self-end"><CgCalendarDates style={iconStyles2} />{postDetails.date}</small>
+                        <small className="align-self-start text-capitalize"><svg class="icon icon-person" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+    </svg>By {postDetails.author.node.name}</small>
+                        <small className="align-self-end"><svg viewBox="0 0 500 500">
+      <path fill-rule="evenodd" d="M19,107a35,35 0 01 35-35h36v-27a44,44 0 01 44-44h19a44,44 0 01 44,44v27h106v-27a44,44 0 01 44-44h19a44,44 0 01 44,44v27h36a35,35 0 01 35,35v357a35,35 0 01-35,35h-392a35,35 0 01-35-35zM125.5,45a8.5,8.5 0 01 8.5-8.5h18.5a8.5,8.5 0 01 8.5,8.5v81a8.5,8.5 0 01-8.5,8.5h-18.5a8.5,8.5 0 01-8.5-8.5zM339,45a8.5,8.5 0 01 8.5-8.5h18.5a8.5,8.5 0 01 8.5,8.5v81a8.5,8.5 0 01-8.5,8.5h-18.5a8.5,8.5 0 01-8.5-8.5zM54,179h392v285h-392z" />
+
+      <rect width="100" height="80" x="80" y="220" />
+      <rect width="100" height="80" x="200" y="220" />
+      <rect width="100" height="80" x="320" y="220" />
+
+      <rect width="100" height="80" x="80" y="325" />
+      <rect width="100" height="80" x="200" y="325" />
+      <rect width="100" height="80" x="320" y="325" />
+    </svg>{postDetails.date}</small>
                       </div>  
                       <div className="d-flex my-3 w-100">
                         {/* <span className="pt-2">Share:&nbsp;</span> <div className="sharethis-inline-share-buttons"></div>  */}

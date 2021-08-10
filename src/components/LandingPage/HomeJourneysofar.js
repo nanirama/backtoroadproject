@@ -1,15 +1,10 @@
-import React, { useRef } from "react"
+import React from "react"
 import { StaticImage } from "gatsby-plugin-image"
 import styled from "styled-components"
-import { useStaticQuery, graphql } from "gatsby"
 import { HomeJourneySoFarData } from "../../data/HomeJourneySoFar"
 import journeyIcon from '../../assets/images/landing/jicon.png'
-import { FaStar, FaRegCompass } from 'react-icons/fa';
-import { HiCog } from 'react-icons/hi';
 
-import { ImLocation2 } from 'react-icons/im';
 const HomeJourneySoFar = ()=>{
-    let iconStyles = { color: "white" };
     return (
         <div style={{ display: "grid" }} className="journey_blk  pt-5 w-100 float-left text-center">
           <StaticImage

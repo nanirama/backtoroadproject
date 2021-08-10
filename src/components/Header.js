@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { Link } from "gatsby"
 import styled from "styled-components"
-import { FaBars } from "react-icons/fa"
 import { menuData } from "../data/MenuData"
 import logoBtr from "../assets/images/logo/logo.svg"
 
@@ -74,10 +73,9 @@ const NavLink = styled(Link)`
   }
 `
 
-const Bars = styled(FaBars)`
+const Bars = styled.div`
   display: none;
   color: #fff;
-
   @media screen and (max-width: 768px) {
     display: block;
     position: absolute;

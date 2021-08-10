@@ -57,7 +57,6 @@ const PartsSearch =()=>{
           }
         `
       )
-    let iconStyles = { color: "white", fontSize: "1.3em", marginBottom: "3px" };
     const numberPer = width < 768 ? 10 : 30;
     const [items, setItems] = useState(PartsList.edges);
     const [filteritems, setFilteritems] = useState(items); 
