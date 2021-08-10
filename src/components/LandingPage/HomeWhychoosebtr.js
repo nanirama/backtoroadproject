@@ -12,7 +12,9 @@ const Whychoosebtr = () => {
                     title
                     newicon {
                       childImageSharp {
-                        gatsbyImageData(width: 64, height: 60, quality: 100)
+                        fixed(quality: 100, webpQuality: 100, width: 64, height: 60) {
+                          srcWebp
+                        }
                       }
                     }
                   }
@@ -31,12 +33,18 @@ const Whychoosebtr = () => {
                     <div key={index} className="col-lg-3 col-sm-6 col-xs-6">
                     <div className="sub_box w-100 float-left text-center">
                         <div className="icon mb-4">
-                            <GatsbyImage
+                            {/* <GatsbyImage
                                 alt={node.iconalt}
                                 image={getImage(node.newicon)} 
                                 width={64}
                                 height={60}
-                            /> 
+                            />  */}
+                            <img className="w-auto"
+                              src={node.newicon.childImageSharp.fixed.srcWebp}
+                              alt={node.iconalt}
+                              width={64}
+                              height={60}
+                            />
                         </div>
                         <h3 className="mb-4">{node.title}</h3>
                         <p className="mb-0">{node.desc}</p>

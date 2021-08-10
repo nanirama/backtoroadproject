@@ -13,7 +13,9 @@ const HowitWorks = () => {
                     title
                     newicon {
                       childImageSharp {
-                        gatsbyImageData(width: 70, height: 72, quality: 100)
+                        fixed(quality: 100, webpQuality: 100, width: 70, height: 72) {
+                          srcWebp
+                        }
                       }
                     }
                   }
@@ -32,13 +34,13 @@ const HowitWorks = () => {
                         <div key={index} className="col-lg-3 col-md-6 col-sm-12 col-xs-12">
                             <div className="work_box w-100 float-left text-center">
                                 <div className="icon mb-4">
-                                    <GatsbyImage
+                                    {/* <GatsbyImage
                                         alt={node.iconalt}
                                         image={getImage(node.newicon)} 
                                         width={70}
                                         height={72}
-                                      />  
-                                    {/* <img className="w-auto" src={item.newicon} alt={item.iconalt} width="70" height="72" /> */}
+                                      />   */}
+                                    <img className="w-auto" src={node.newicon.childImageSharp.fixed.srcWebp} alt={node.iconalt} width="70" height="72" />
                                 </div>
                                 <h3>{node.title}</h3>
                                 <p className="mb-0">{node.desc}</p>
