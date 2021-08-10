@@ -121,14 +121,18 @@ const About = (props) => {
   </Layout>
 )
 }
-const PageBannerDiv = styled.div`
-    background-image: url(${props => props.img});
+const PageBannerDiv = styled.div`    
     @media (max-width: 767px) {
         background-image: url(${props => props.mimg});
+        background-size: 100% 100% !important;
+        padding:16vw 0;
     }
-    padding:120px 0;
+    @media (min-width: 767px) {
+      background-image: url(${props => props.img});
+      padding:120px 0;
+      background-size: cover;
+    }    
     background-repeat:no-repeat;
-    background-position:left top;
-    background-size: cover;
+    background-position:left top;    
 `;
 export default About
