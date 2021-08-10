@@ -12265,13 +12265,6 @@
     "shallowequal" "^1.1.0"
     "source-map" "^0.7.3"
 
-"react-icons@^3.11.0":
-  "integrity" "sha512-JRgiI/vdF6uyBgyZhVyYJUZAop95Sy4XDe/jmT3R/bKliFWpO/uZBwvSjWEdxwzec7SYbEPNPck0Kff2tUGM2Q=="
-  "resolved" "https://registry.npmjs.org/react-icons/-/react-icons-3.11.0.tgz"
-  "version" "3.11.0"
-  dependencies:
-    "camelcase" "^5.0.0"
-
 "react-input-autosize@^3.0.0":
   "integrity" "sha512-nL9uS7jEs/zu8sqwFE5MAPx6pPkNAriACQ2rGLlqmKr2sPGtN7TXTyDdQt4lbNXVx7Uzadb40x8qotIuru6Rhg=="
   "resolved" "https://registry.npmjs.org/react-input-autosize/-/react-input-autosize-3.0.0.tgz"
