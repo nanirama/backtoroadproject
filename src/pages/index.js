@@ -21,7 +21,6 @@ const IndexPage = (props) => {
     PageData,
     slides,
     allMakes,
-    HowItWorks,
     BannerImage,
     AboutImage,
     saveGreen,

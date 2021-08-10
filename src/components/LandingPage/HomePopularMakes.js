@@ -41,6 +41,7 @@ const HomePopularMakes = ({data}) => {
         slidesPerRow: 2,
         slidesToShow: 2,
         slidesToScroll: 2,
+        initialSlide: 0,
         infinite: true,
         centerMode: false,
         prevArrow: <SlickArrowLeft />,
@@ -49,46 +50,28 @@ const HomePopularMakes = ({data}) => {
           {
             breakpoint: 1025,
             settings: {
-              dots: false,
-              arrows: true,
-              infinite: true,
-              initialSlide: 0,
               rows: 2,
               slidesPerRow: 2,
               slidesToShow: 2,
-              slidesToScroll: 2,
-              prevArrow: <SlickArrowLeft />,
-              nextArrow: <SlickArrowRight />
+              slidesToScroll: 2
             }
           },
           {
             breakpoint: 991,
             settings: {
-              dots: false,
-              arrows: true,
-              infinite: true,
-              initialSlide: 0,
               rows: 2,
               slidesPerRow: 3,
               slidesToShow: 1,
-              slidesToScroll: 1,
-              prevArrow: <SlickArrowLeft />,
-              nextArrow: <SlickArrowRight />
+              slidesToScroll: 1
             }
           },
           {
             breakpoint: 767,
             settings: {
-              initialSlide: 0,
-              infinite: true,
               rows: 1,
               slidesPerRow: 2,
               slidesToShow: 1,
-              slidesToScroll: 1,
-              dots: false,
-              arrows: true,
-              prevArrow: <SlickArrowLeft />,
-              nextArrow: <SlickArrowRight />
+              slidesToScroll: 1
             }
           },
         ]

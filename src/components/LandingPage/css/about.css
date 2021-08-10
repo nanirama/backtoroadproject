@@ -7,3 +7,4 @@ img.about_img1{ position: absolute; bottom:-100px; right: 20px; width:60%;}
 .page-header .breadcrumb ol li{color:#F0AC3F !important; float: none; display: inline-block; text-align: center;}
 .page-header .breadcrumb ol li a{ color:#ffffff !important;text-transform: uppercase;}
 .page-header .breadcrumb ol li a:before{ content: '/';}
+.about_blk svg{ width: 20px; margin-right: 4px; fill:#ffffff;}

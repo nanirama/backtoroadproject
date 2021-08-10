@@ -107,7 +107,11 @@ const About = (props) => {
             <p>BackToRoad Auto Parts guarantees that our used car parts are of ‘A' grade quality, come with a standard 30-day warranty, and are completely affordable. We also provide nationwide shipping and delivery for our auto parts either to you directly or to your mechanic. Our devoted customer service team also ensures that all of our clients receive personalized attention, answering all of your questions and ensuring that your vehicle is up and running in no time.</p>
           
             <p>Give us a call today at 1-800-608-3868 to speak to our Auto Parts Specialists and place your order.</p>
-            <a href="tel:866-293-3731" className="btn3"><ImPhone style={iconStyles}/>(866) 293-3731</a> </div>
+            <a href="tel:866-293-3731" className="btn3"><span class="icon">
+    <svg viewBox="0 0 500 500">
+      <path d="M128,21q40,75,53,91.5q10,15.5-2,27.5c-10,13-38,32-45,40c-10,9-12,15-3,32q54,105,158,156c18,10,20,5,32-5c8-8,20-27,35-41c10-11,20-12,32-3q14,11,88,51c9,5,11,8,9,27q-7,40-22,51q-67,53-133,29c-180-55-286-195-315-336q-4-62,36-105q10-13,30-17c35-11,42-6,47,2z" />
+    </svg>
+  </span>(866) 293-3731</a> </div>
       
             </div>
       </div>      
