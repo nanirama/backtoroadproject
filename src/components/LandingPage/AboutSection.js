@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import Image from './image'
 const AboutSection = ({ image }) => {
     return (
-        <div className="about_blk w-100 float-left position-relative bg-white">
+        <div className="home_blk w-100 float-left position-relative bg-white">
             <div className="container">
             <div className="row d-flex flex-row justify-content-between align-items-center">
                 <div className="col-md-6 col-xs-12 mb-2">

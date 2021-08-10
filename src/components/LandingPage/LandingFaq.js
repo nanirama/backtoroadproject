@@ -28,7 +28,7 @@ const LandingFaqs = ({data, title, subtitle}) => {
         }             
     }
     return(
-            <div className="faq_blk w-100" id="faq">      
+            <div className="faq_blk w-100 float-left" id="faq">      
                 <div className="container">
                 <h2 className="tlt text-center">{title && title}</h2>
                 <h3>{subtitle && subtitle}</h3>

@@ -14,7 +14,7 @@ const ExtraContent = (props) => {
                 {extracontent.summaryAboveTitle && <h1 className="text-center text-uppercase">{extracontent.summaryAboveTitle}</h1>}
                 <div className="row text-left">
                     <div className="col-md-6 col-xs-12 pr-4">
-                    <h2 className="mb-4 pb-2">{extracontent.summaryTitle}</h2>
+                    <h2 className="mb-4 pb-2 sub">{extracontent.summaryTitle}</h2>
                     {extracontent.summaryContent && <div dangerouslySetInnerHTML={{ __html: extracontent.summaryContent }} className="w-100 float-left overflow-hidden main-content" ></div>}                    
                     </div>
                     <div className="col-md-6 col-xs-auto">
@@ -38,7 +38,7 @@ const ExtraContent = (props) => {
                     {extracontent.aboutContent && <div dangerouslySetInnerHTML={{ __html: extracontent.aboutContent }} ></div>}                    
                     </div>
                     <div className="col-md-6 col-xs-auto hide">
-                    <div className="w-auto">
+                    <div className="w-auto  mimage">
                     {extracontent.aboutImage && <Image img={extracontent.aboutImage.localFile} imgalt="About Part"/>} 
                     </div>
                     </div>
@@ -55,7 +55,7 @@ const ExtraContent = (props) => {
                         {extracontent.benefitsListingContent && <div dangerouslySetInnerHTML={{ __html: extracontent.benefitsListingContent }} className="w-100 float-left overflow-hidden" ></div>}
                         </div>
                         <div className="col-md-6 col-xs-auto">
-                        <div className="w-100 float-left">
+                        <div className="w-100 mimage">
                             {extracontent.benefitsImage && <Image img={extracontent.benefitsImage.localFile} imgalt="Benefits"/>}                            
                         </div>
                         </div>
@@ -70,7 +70,7 @@ const ExtraContent = (props) => {
                     {extracontent.whyBackroad && <h2 className="pb-2 mb-4">{extracontent.whyBackroad}</h2>}   
                     {extracontent.whyBackroadTopContent && <div dangerouslySetInnerHTML={{ __html: extracontent.whyBackroadTopContent }} className="w-100 float-left overflow-hidden" ></div>}                 
                     
-                    <div className="w-100 float-left mb-4 col-xs-auto mb-2">
+                    <div className="w-100 mb-4 col-xs-auto mb-2 mimage">
                         {extracontent.wnyBackroadImage.localFile && <Image img={extracontent.wnyBackroadImage.localFile} imgalt="Why Backtoroads"/>}                    
                     </div>
                     {extracontent.whyBackroadBottomContent && <div dangerouslySetInnerHTML={{ __html: extracontent.whyBackroadBottomContent }} className="w-100 float-left overflow-hidden" ></div>}                    

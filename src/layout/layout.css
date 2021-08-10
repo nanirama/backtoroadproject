@@ -1,4 +1,4 @@
-body, h1, h2, h3, h4, h5, h6 {
+body, h1, h2, h3, h4, h5, h6,p, span {
 	font-family:'Poppins', sans-serif
 }
 body {
@@ -379,7 +379,6 @@ select {
 .breadcrumb ol{ list-style:none; width:100%; float:left; padding: 0px; margin:0px;}
 .breadcrumb ol li, .breadcrumb ol li a {
 	color:#060608 !important;
-	font-size:14px;
 	float:left;
 }
 .breadcrumb ol li a {
@@ -392,8 +391,10 @@ select {
 	right:8px
 }
 .benifits_blk p span {
-	font-weight:500;
-	color:#101928
+	font-weight:400;
+	line-height:30px;
+	font-size:18px;
+	color:rgba(16, 25, 40, 0.8);
 }
 .parts_blk ul li,
 .about_blk ul li,
@@ -404,9 +405,10 @@ ul.links li {
 	font-size:18px;
 	line-height:30px;
 	margin-bottom:8px;
-	color:rgba(16, 25, 40, .8);
+	color:rgba(16, 25, 40, 0.8);
 	position:relative;
-	padding-left:25px
+	padding-left:25px;
+	font-weight: 400;
 }
 .parts_blk ul li:before,
 .about_blk ul li:before,
@@ -747,8 +749,6 @@ transition:.4s
 	background:#fafafa;
 	color:#2860BE !important;
 	border-radius:0 5px 0 0;
-	font-size:18px;
-	line-height:30px;
 	font-weight:500 !important;
 	width:545px;
 	float:left;
@@ -757,12 +757,10 @@ transition:.4s
 .slider_form p span{
 	width:75px;
 	text-align: center;
-	line-height: 30px;
 	height: 30px;
 	background-color: #2860BE;
 	color:#ffffff;
 	font-weight: 600;
-	font-size: 18px;
 	border-radius:5px;
 }
 .slider_form .form_outer {
@@ -770,8 +768,15 @@ transition:.4s
 	background-color:#fff;
 	padding:25px;
 	width:545px;
-	float:left
+	float:left;
 }
+.slider_form h3,.slider_form p{
+	box-shadow: 0px 0px 20px rgba(198, 198, 198, 0.3) !important;
+}
+.slider_form .form_outer{
+	box-shadow: 0px 4px 20px rgba(198, 198, 198, 0.3) !important;
+}
+
 .main-slider img {
 	z-index:-1!important
 }
@@ -849,7 +854,7 @@ color:#fff
 }
 .s_txt_outer {
 width:100%;
-bottom:8%
+top:8%;
 }
 .slider_form h3 {
 font-size:22px;
@@ -920,7 +925,7 @@ padding:30px 2rem;
 margin:0
 }
 }
-@media only screen and (min-width:1051px) and (max-width:1199px) {
+@media only screen and (min-width:1051px) and (max-width:1200px) {
 .reviewcontentheight {
 	min-height:360px;
 }
@@ -936,8 +941,8 @@ margin-bottom:17rem
 }
 .s_txt_outer {
 width:90%;
-bottom:8%;
-left:8%
+top:1%;
+left:8%;
 }
 .slider_form h3 {
 font-size:22px;
@@ -1040,7 +1045,7 @@ margin-bottom:4rem
 }
 .s_txt_outer {
 width:100%;
-bottom:8%;
+top:1%;
 left:8%
 }
 .s_txt h2 {
@@ -1196,7 +1201,7 @@ margin-top:80px
 }
 .s_txt_outer {
 width:90%;
-bottom:15%
+top:10%;
 }
 .s_txt h2 {
 font-size:38px;
@@ -1329,6 +1334,10 @@ transform:matrix(.71, .71, -.71, .71, 0, 0)
 	.recent_post_blk .post_img{min-height: 325px;}
 }
 @media only screen and (max-width:767px) {	
+	.parts_blk span.superhead {
+		top:22px;
+		font-size:65px
+		}
 .col-xs-auto{
 	width:100% !important;
 	float:left !important;	
@@ -1364,17 +1373,17 @@ width:60px
 .how_work_blk h2.tlt {
 margin-bottom:50px
 }
+.benifits_blk p span,
 .parts_blk ul li,
 .about_blk ul li,
 .benifits_blk ul li,
 .backroad_blk ul li,
-ul.links li {
+ul.links li,
+p {
 	font-size:16px;
 	line-height:28px;
 }
 p {
-font-size:16px;
-line-height:28px;
 margin-bottom:25px
 }
 .benifits_blk .btn1 {
@@ -1412,7 +1421,7 @@ font-size:12px
 }
 .s_txt_outer {
 width:90%;
-bottom:15%;
+top:20%;
 left:0
 }
 .s_txt {
@@ -1448,7 +1457,7 @@ border-radius:2px;
 transform:matrix(.71, .71, -.71, .71, 0, 0)
 }
 .slider_form h3 {
-font-size:17px;
+font-size:16px;
 line-height:33px;
 width:100%;
 font-weight:600;
@@ -1468,7 +1477,7 @@ margin-top:8px
 span.num:before {
 color:#5b6472
 }
-.about_blk, .backroad_blk, .benifits_blk, .faq_blk, .parts_blk, .popular_blk, .recent_post_blk, .tm_blk {
+.about_blk, .backroad_blk, .benifits_blk, .faq_blk .container, .parts_blk, .popular_blk, .recent_post_blk, .tm_blk {
 padding:50px 0
 }
 .how_work_blk, .why_choose_blk {
@@ -1661,7 +1670,7 @@ font-size:38px;
 line-height:50px
 }
 .slider_form h3 {
-font-size:17px!important
+font-size:16px!important
 }
 span.num {
 width:30px;
@@ -1754,8 +1763,8 @@ right:0;
 position:absolute
 }
 .s_txt_outer {
-bottom:2%;
-width:100%
+top:10%;
+width:100%;
 }
 .slider_form h3 {
 font-size:15px;
@@ -1843,12 +1852,13 @@ margin-bottom:15px
 .benifits_blk ul li,
 .backroad_blk ul li,
 ul.links li,
+.benifits_blk p span,
 .popular_blk p .popular_blk ul li a, .sub_box p, .work_box p, p, ul.links li {
-font-size:14px;
-line-height:24px
+font-size:15px;
+line-height:28px
 }
 .s_txt_outer {
-bottom:0;
+top:7%;
 width:100%
 }
 .s_txt h2 {
@@ -1865,8 +1875,8 @@ margin:0
 }
 .slider_form h3 {
 	width:100%;
-font-size:12px!important;
-padding:6px 2rem!important;
+font-size:16px!important;
+padding:6px 15px !important;
 margin-right:10px!important
 }
 
@@ -1980,10 +1990,11 @@ font-size:16px
 @media only screen and (max-width:400px) {
 .count_blk h3{ font-size: 30px !important;}
 .slider_form h3 {
-padding:6px 0.5rem!important
+padding:6px 14px !important;
+font-size: 14px !important;
 }
 .s_txt_outer {
-bottom:-7%!important;
+top:8%;
 width:100%
 }
 .s_txt ul li {
@@ -2029,7 +2040,8 @@ width:170px!important
 }
 
 .slider_form h3 {
-padding:6px .5rem!important
+	padding:6px 14px !important;
+	font-size: 11px !important;
 }
 .s_txt h2 {
 font-size:15px!important;
@@ -2283,3 +2295,84 @@ select {
 .post-social .linkedin svg{ fill:#0077B5;}
 .post-social .reddit svg{ fill:#FF4500;}
 .post-social .whatsapp svg{ fill:#128C7E;}
+
+@media only screen and (min-width:768px) {
+	.parts_blk h2, 
+	.about_blk h2,
+	.benifits_blk h2,
+	.backroad_blk h2{
+		font-size:32px !important;
+		line-height:48px !important;
+		font-weight:600 !important;
+		position:relative !important;
+		display: block;
+	}
+	.parts_blk h2.sub:before, 
+	.about_blk h2:before, 
+	.benifits_blk h2:before, 
+	.backroad_blk h2:before{
+		content:''; position:absolute;
+		left:0;
+		bottom:0 !important;
+		width:78px;
+		height:3px;
+		background:#5FA2DD;
+	}
+	.slider_form p {
+		font-size:18px;
+		line-height:30px;
+	}
+	.slider_form p span{
+		line-height: 30px;
+		height: 30px;
+		font-size: 18px;
+	}
+	.breadcrumb ol li, .breadcrumb ol li a {
+		font-size: 14px;
+		line-height: 18px;
+	}
+}
+@media only screen and (max-width:767px) {
+	.parts_blk h2, 
+	.about_blk h2,
+	.benifits_blk h2,
+	.backroad_blk h2{
+		font-size:22px !important;
+		line-height:33px !important;
+		font-weight:600 !important;
+		position:relative !important;
+		text-align: left !important;		
+	}
+	.parts_blk h2.sub:before, 
+	.about_blk h2:before, 
+	.benifits_blk h2:before, 
+	.backroad_blk h2:before{
+		content:''; position:absolute;
+		left:0;
+		bottom:0 !important;
+		width:78px;
+		height:3px;
+		background:#5FA2DD;
+	}
+	.slider_form p {
+		font-size:12px !important;
+		line-height:18px !important;
+		height: 50px;
+	}
+	.slider_form p span{
+		line-height: 30px;
+		height: 24px;
+		font-size: 12px !important;
+	}
+	.breadcrumb ol li, .breadcrumb ol li a {
+		font-size: 12px;
+		line-height: 18px;
+	}
+	
+}
+.s_txt h2{text-shadow: 0px 2px 9px rgba(150, 150, 150, 1) !important;}
+.s_txt ul li{text-shadow: 0px 2px 9px rgba(150, 150, 150, 1) !important;}
+.mimage{
+	display: flex;
+	justify-content: center;
+}

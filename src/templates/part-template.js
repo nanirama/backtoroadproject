@@ -106,9 +106,7 @@ query($id : String){
     wnyBackroadImage{
         localFile {
             childImageSharp {
-                gatsbyImageData(
-                    width: 1200
-                  )
+              gatsbyImageData(quality: 100, layout: CONSTRAINED)
             }
         }
     }
