@@ -11,6 +11,7 @@ const OemPartsSection = () => {
               desc
               name
               alt
+              to
               img {
                 childImageSharp {
                   gatsbyImageData(width: 70, quality: 100, layout: FIXED)
