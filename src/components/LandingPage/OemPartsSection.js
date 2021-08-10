@@ -14,7 +14,9 @@ const OemPartsSection = () => {
               to
               img {
                 childImageSharp {
-                  gatsbyImageData(width: 70, quality: 100, layout: FIXED)
+                  fixed(quality: 100, webpQuality: 100, width: 70) {
+                    srcWebp
+                  }
                 }
               }
             }
@@ -33,13 +35,13 @@ const OemPartsSection = () => {
             <div key={index} className="col-lg-3 col-sm-6 col-xs-6 mb-2">
              <div className="sub_box w-100">
                 <div className="icon mb-4 w-100 text-center d-flex justify-content-center align-items-center">
-                     <GatsbyImage
+                     {/* <GatsbyImage
                         alt={node.alt}
                         image={getImage(node.img)} 
                         width={70}
                         height={70}
-                      /> 
-                    {/* <img className="w-auto" src={item.img} alt={item.alt} width="70" height="70" /> */}
+                      />  */}
+                    <img className="w-auto" src={node.img.childImageSharp.fixed.srcWebp} alt={node.alt} width="70" height="70" />
                 </div>
                 <div className="sub_box_content w-100">
                     <h3 className="mb-3">{node.name}</h3>
