@@ -390,6 +390,9 @@ select {
 	position:absolute;
 	right:8px
 }
+.breadcrumb ol li.active span{
+	color:#08275C !important;
+}
 .benifits_blk p span {
 	font-weight:400;
 	line-height:30px;
@@ -705,13 +708,13 @@ footer p, footer p a {
 	background-position:left 0 top 25px;
 	background-repeat:no-repeat;
 	background-color:#fff!important;
-	padding:0 0 0 20px!important
+	padding:0 0 5px 20px!important;
 }
 .faq-card .card-header {
 	background-color:inherit;
 	color:#08275c;
 	cursor:pointer;
-	padding:20px 15px 20px 10px;
+	padding:20px 15px 10px 10px;
 	width:100%;
 	border:0;
 	text-align:left;
@@ -727,11 +730,12 @@ transition:.4s
 	line-height:28px!important;
 	padding:0 15px 0 10px;
 	background-color:#fff!important;
-	font-weight:500
+	font-weight:500;
 }
 .faq-card .card-body p {
 	font-size:16px!important;
-	line-height:28px!important
+	line-height:28px!important;
+	margin-bottom: 14px !important;
 }
 .fullwidth_bg {
 	width:100%;
@@ -924,6 +928,29 @@ float:left;
 padding:30px 2rem;
 margin:0
 }
+.s_txt_outer .col-lg-6.first-col{
+	width:100% !important;
+	flex: 0 0 100% !important;
+	max-width: 100% !important;
+}
+.s_txt_outer {
+    width:80%;
+    height: 95%;
+    left:10%;
+    right:10%;
+    display: flex !important;
+    align-content: center !important;
+    align-items:center !important;
+    justify-content: center !important;
+    }
+.s_txt_outer .container{
+	height:fit-content;
+	padding: 0px !important;
+}
+.main-slider .slick-dots {
+	bottom:8%;
+	left:10%;
+	}
 }
 @media only screen and (min-width:1051px) and (max-width:1200px) {
 .reviewcontentheight {
@@ -939,11 +966,6 @@ width:560px;
 max-width:100%;
 margin-bottom:17rem
 }
-.s_txt_outer {
-width:90%;
-top:1%;
-left:8%;
-}
 .slider_form h3 {
 font-size:22px;
 line-height:33px;
@@ -957,10 +979,6 @@ margin-right:50px
 }
 }
 @media only screen and (min-width:992px) and (max-width:1200px) {
-.main-slider .slick-dots {
-bottom:10%;
-left:5%
-}
 .container {
 max-width:100%
 }
@@ -1032,11 +1050,6 @@ display:none!important;
 width:0;
 height:0;
 visibility:hidden
-}
-.main-slider .slick-dots {
-bottom:20%;
-
-left:10%
 }
 .s_txt {
 width:100%;
@@ -1136,17 +1149,11 @@ padding:.5rem 10px
 .slider img {
 height:680px
 }
-.s_txt, .s_txt_outer {
-width:80%
-}
+
 .s_txt {
 overflow:hidden;
 margin-top:15rem;
 margin-left:5%
-}
-.main-slider .slick-dots {
-bottom:10%;
-left:5%
 }
 .s_txt h2 {
 font-size:3rem;
@@ -1199,10 +1206,6 @@ width:100%
 .slider_form {
 margin-top:80px
 }
-.s_txt_outer {
-width:90%;
-top:10%;
-}
 .s_txt h2 {
 font-size:38px;
 line-height:50px;
@@ -1219,10 +1222,6 @@ border-radius:5px 5px 0 0
 .slider_form h3, .slider_form p {
 font-size:17px;
 padding:10px 15px
-}
-.main-slider .slick-dots {
-bottom:10%;
-left:5%
 }
 span.num {
 margin:0 20px 0 0;
@@ -1363,9 +1362,13 @@ line-height:50px
 h2, h2.tlt {
 line-height:40px
 }
-.logos_blk h2, .save_txt h2, h2.tlt,.oem_parts_blk h1 {
-font-size:32px;
+.logos_blk h2, .save_txt h2, h2.tlt,.oem_parts_blk h1
+{
+font-size:22px;
 margin-bottom:35px
+}
+.logos_blk h2:before, .save_txt h2:before, h2.tlt:before,.oem_parts_blk h1:before{
+	top:22px !important;
 }
 .faq_blk h2.tlt::before, .faq_blk h2:before {
 width:60px
@@ -1419,11 +1422,8 @@ line-height:40px;
 height:40px;
 font-size:12px
 }
-.s_txt_outer {
-width:90%;
-top:20%;
-left:0
-}
+
+
 .s_txt {
 width:100%;
 overflow:hidden;
@@ -1439,7 +1439,7 @@ margin-bottom:20px!important
 .s_txt ul li {
 width:100%;
 font-size:18px;
-line-height:37px;
+line-height:4.5vh;
 font-weight:500;
 color:#fff;
 position:relative;
@@ -1467,18 +1467,18 @@ border-radius:5px 5px 0 0;
 float:left;
 margin-right:30px
 }
-.main-slider .slick-dots {
-bottom:10%;
-left:5%
-}
+
 span.num {
 margin-top:8px
 }
 span.num:before {
 color:#5b6472
 }
-.about_blk, .backroad_blk, .benifits_blk, .faq_blk .container, .parts_blk, .popular_blk, .recent_post_blk, .tm_blk {
+.about_blk, .backroad_blk, .benifits_blk, .parts_blk, .popular_blk, .recent_post_blk, .tm_blk {
 padding:50px 0
+}
+.faq_blk .container{
+	padding:50px 10px	
 }
 .how_work_blk, .why_choose_blk {
 padding:50px 0 0
@@ -1651,10 +1651,10 @@ header .col-xs-9 {
 flex:0 0 66%;
 max-width:66%
 }
-h2.tlt,.oem_parts_blk h1,
+/* h2.tlt,.oem_parts_blk h1,
 .logos_blk h2, .save_txt h2 {
 font-size:28px
-}
+} */
 h2.tlt:before,.oem_parts_blk h1:before,
 .logos_blk h2:before, .save_txt h2:before {
 	top:25px;
@@ -1762,10 +1762,10 @@ top:25px;
 right:0;
 position:absolute
 }
-.s_txt_outer {
+/* .s_txt_outer {
 top:10%;
 width:100%;
-}
+} */
 .slider_form h3 {
 font-size:15px;
 line-height:33px;
@@ -1833,14 +1833,14 @@ line-height:35px
 h2 {
 line-height:30px
 }
-h2.tlt:before,.oem_parts_blk h1:before,
+/* h2.tlt:before,.oem_parts_blk h1:before,
 .logos_blk h2:before, .save_txt h2:before {
 	top:22px;
-}
-h2, h2.tlt,.oem_parts_blk h1,
+} */
+/* h2, h2.tlt,.oem_parts_blk h1,
 .logos_blk h2, .save_txt h2 {
 font-size:22px
-}
+} */
 h2.tlt,.oem_parts_blk h1 {
 line-height:35px
 }
@@ -1857,10 +1857,10 @@ ul.links li,
 font-size:15px;
 line-height:28px
 }
-.s_txt_outer {
+/* .s_txt_outer {
 top:7%;
 width:100%
-}
+} */
 .s_txt h2 {
 font-size:20px!important;
 line-height:26px!important;
@@ -1993,10 +1993,10 @@ font-size:16px
 padding:6px 14px !important;
 font-size: 14px !important;
 }
-.s_txt_outer {
+/* .s_txt_outer {
 top:8%;
 width:100%
-}
+} */
 .s_txt ul li {
 font-size:12px;
 line-height:20px;
@@ -2024,10 +2024,10 @@ transform:matrix(.71, .71, -.71, .71, 0, 0)
 }
 @media only screen and (max-width:359px) {
 .slider_form h3{ font-size: 11px !important;}
-h2.tlt,.oem_parts_blk h1 {
+/* h2.tlt,.oem_parts_blk h1 {
 font-size:19px;
 line-height: 24px !important;
-}
+} */
 h2.tlt,.oem_parts_blk h1:before{ top:12px;}
 .sub_box, .work_box {
 width:100%!important
@@ -2273,8 +2273,8 @@ select {
     .page-header .breadcrumb ol li a{font-size:18px; line-height: 24px;}
 }
 @media only screen and (max-width:767px) {
-    .about_blk .btn2{ float: none !important; padding:12px 20px 12px 20px;  height: 35px !important; }
-    .about_blk h2,.about_blk .mt-1{ text-align: center !important;}
+    .home_blk .btn2{ float: none !important; padding:12px 20px 12px 20px;  height: 35px !important; }
+    .home_blk h2,.home_blk .mt-1{ text-align: center !important;}
     .page-header{ text-align: left !important;}
     .page-header h1{
         text-align: left !important;
@@ -2331,6 +2331,29 @@ select {
 		font-size: 14px;
 		line-height: 18px;
 	}
+	.slick-dots.slick-thumb li{
+		margin:0px 8px 0px 0px;
+	}
+	.slick-dots.slick-thumb li a{
+		width:11px !important;
+		height:11px !important;		
+	}
+	.home_blk h2,.home_blk h1,.oem_parts_blk h1{
+		font-size:42px;
+		line-height:42px;
+	}
+	.home_blk h2:before,
+	.home_blk h1:before
+	{
+		content:'';
+		position: absolute;
+		width: 135px;
+		height: 8px;
+		left: 0;
+		top:28px;
+		background: #F0AC3F;
+		z-index:-1;
+	}
 }
 @media only screen and (max-width:767px) {
 	.parts_blk h2, 
@@ -2368,6 +2391,43 @@ select {
 		font-size: 12px;
 		line-height: 18px;
 	}
+	.slick-dots.slick-thumb li{
+		margin:0px 8px 0px 0px !important;
+	}
+	.slick-dots.slick-thumb li a{
+		width:7px !important;
+		height:7px !important;
+	}
+	.home_blk h2,.home_blk h1,.oem_parts_blk h1{
+		font-size:22px;
+		line-height:38px;
+	}
+	.home_blk h2:before,
+	.home_blk h1:before,
+	.oem_parts_blk h1::before
+	{
+		content:'';
+		position: absolute;
+		width: 135px;
+		height: 8px;
+		left: inherit !important;
+		top:20px;
+		background: #F0AC3F;
+		z-index:-1;
+	}
+	.home_blk h2,
+	.home_blk h1,
+	.oem_parts_blk h1,
+	.home_blk p{
+		text-align: center !important;		
+	}
+	.home_blk .btn2{
+		float: left;
+	}
+	.recent_post_blk .container,
+	.recent_post_blk .col-xs-12,
+	.tm_blk .container,
+	.tm_blk .col-xs-12{ padding:0px 5px !important;}
 	
 }
 .s_txt h2{text-shadow: 0px 2px 9px rgba(150, 150, 150, 1) !important;}
@@ -2375,4 +2435,28 @@ select {
 .mimage{
 	display: flex;
 	justify-content: center;
+}
+.slick-dots.slick-thumb li a{
+	background:#FAFAFA;
+	text-indent: -1000px;
+	font-size: 0px;
+	padding: 0px;
+	display: block;	
+	border-radius:2px;
+	/* border:none !important; */
+	transform: matrix(0.71, 0.71, -0.71, 0.71, 0, 0);
+}
+.slick-dots.slick-thumb li.slick-active a{
+	background:#5FA2DD;
+}
+.main-slider .slider-img{
+	background: linear-gradient(
+	rgba(20,20,20, .5), 
+	rgba(20,20,20, .5));
+}
+.home_blk h2,.home_blk h1,.oem_parts_blk h1{
+	font-weight:700;
+	position:relative;
+	z-index:999;
+	display:inline-block;
 }

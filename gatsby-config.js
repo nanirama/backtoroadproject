@@ -4,7 +4,7 @@ module.exports = {
     description: `BackToRoad Auto Parts is your one-stop shop for tested high quality used OEM parts to customers in all 50 states and worldwide`,
     author: `@backtoroad`,
     noindex: `noindex`,
-    siteUrl: 'https://backtoroadprojectnanirama.gatsbyjs.io',
+    siteUrl: 'http://localhost:8000',
   },
   plugins: [     
     `gatsby-plugin-image`,
@@ -58,22 +58,22 @@ module.exports = {
         },
       }
     },
-    // {
-    //   resolve: `gatsby-plugin-webfonts`,
-    //   options: {
-    //     fonts: {
-    //       google: [
-    //         {
-    //           family: "Poppins",
-    //           variants: ["300", "400", "500","600","700","800","900"],
-    //           strategy: 'base64' // 'base64' || 'cdn'
-    //         },
-    //       ],
-    //     },
-    //     useMinify: true,
-    //     usePreload: true
-    //   },
-    // },      
+    {
+      resolve: `gatsby-plugin-webfonts`,
+      options: {
+        fonts: {
+          google: [
+            {
+              family: "Poppins",
+              variants: ["300", "400", "500","600","700","800","900"],
+              strategy: 'base64' // 'base64' || 'cdn'
+            },
+          ],
+        },
+        useMinify: true,
+        usePreload: true
+      },
+    },      
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
@@ -107,12 +107,6 @@ module.exports = {
         options: {
           features: [`Array.prototype.map`, `fetch`]
         },
-    },
-    {
-      resolve: "gatsby-plugin-webpack-bundle-analyser-v2",
-      options: {
-        devMode: true,
-      },
     }
   ],
 }

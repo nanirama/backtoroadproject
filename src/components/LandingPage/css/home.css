@@ -1,6 +1,4 @@
-.home_blk h2,.home_blk h1{ font-size:42px; line-height:42px; font-weight:700; position:relative; z-index:999; display:inline-block;}
-.home_blk h2:before,
-.home_blk h1:before{ content:'';position: absolute;width: 135px;height: 8px;left: 0;top:28px;background: #F0AC3F; z-index:-1;}
+/* .oem_parts_blk h1:before{ content:'';position: absolute;width: 135px;height: 8px;left: 0;top:28px;background: #F0AC3F; z-index:-1;} */
 .how_work_blk{ background-color: #ffffff !important;}
 .save_img,.save_img img{ width:218px; height:218px; overflow: hidden;}
 .post_box h4{ font-size: 16px !important; font-weight: 600 !important;}
@@ -25,11 +23,6 @@ margin:0 10px 5px 0}
 
 .oem_parts_blk .more_link svg{fill:#165DA6; width:18px;}
 @media only screen and (min-width:991px) and (max-width:1050px) {
-/* .s_txt_outer {
-    width:100%;
-    top:3%;
-    left:2%;
-} */
 .s_txt{ width:100%; margin-top:1rem; margin-left:0rem;}
 .oem_parts_blk .sub_box_content{ min-height: 150px;}
 }
@@ -38,11 +31,6 @@ margin:0 10px 5px 0}
 }
 @media only screen and (max-width:991px) {
     .eimg_icon{ display: none; visibility: hidden; width: 0px;}
-    /* .s_txt_outer {
-        width:100%;
-        top:3%;
-        left:2%;
-    } */
     .s_txt{ width:100%; margin-top:1rem; margin-left:0rem; margin-bottom: 1rem;}
 }
 @media only screen and (min-width:768px) {
@@ -64,17 +52,9 @@ margin:0 10px 5px 0}
     width:56px;
     height:56px;
     }
-    /* .s_txt_outer {
-        top:20%!important;
-    } */
-    .oem_parts_blk .sub_box_content{ min-height: 300px;}
+arts_blk .sub_box_content{ min-height: 300px;}
 }
 @media only screen and (max-width:574px) {
-    /* .s_txt_outer {
-        width:100%;
-        bottom:15% !important;
-        left:2%;
-    } */
     .s_txt{ width:100%; margin-top:1rem; margin-left:0rem; margin-bottom: 1rem;}
 }
 @media only screen and (max-width:479px) {
@@ -86,9 +66,6 @@ margin:0 10px 5px 0}
     width:30px;
     height:30px;
     }
-    /* .s_txt_outer {
-        top:20%!important;
-    } */
     .oem_parts_blk .sub_box{padding:20px 10px 15px 10px;}
     .oem_parts_blk .sub_box_content{ min-height: 330px;}
 }
@@ -104,10 +81,20 @@ margin:0 10px 5px 0}
 @media only screen and (max-width:1200px) {
   .slider_form_desktop{ display: none; width:0px;}
 }
- /* .slick-disabled{ cursor: none !important;} */
 
-.border1{ border:1px solid red;}
-.border3{ border:2px solid blue}
-.border4{ border:2px solid pink;}
 
+.s_txt_outer {
+    width:80%;
+    height: 95%;
+    left:10%;
+    right:10%;
+    display: flex !important;
+    align-content: center !important;
+    align-items:center !important;
+    justify-content: center !important;
+    }
+    .s_txt_outer .container{
+        height:fit-content;
+        padding: 0px !important;
+    }
 

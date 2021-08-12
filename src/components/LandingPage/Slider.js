@@ -5,9 +5,14 @@ import Slider from "react-slick";
 import FormsControler from './FormsControler'
 
 const LandingSlider = ({data}) => {
-  //console.log('Slides Data ', data);
   const settings = {
+    customPaging: function(i) {
+      return (
+        <a>1</a>
+      );
+    },
     dots: true,
+    dotsClass: "slick-dots slick-thumb",
     arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -72,9 +77,7 @@ const LandingSlider = ({data}) => {
                       </div>
                     </div>
                   </div>                  
-                  {/* <Img fixed={item.featuredImage.node.localFile.childImageSharp.fluid} /> */}
-                  {/* <img src={item.featuredImage.node.localFile.childImageSharp.fluid.base64} alt={item.title}/> */}
-                   <Image img={item.featuredImage.node.localFile} imgalt={item.title} alt={item.title}/>
+                   <Image img={item.featuredImage.node.localFile} imgalt={item.title} alt={item.title} className="slider-img"/>
               </div> 
             )
           })}              

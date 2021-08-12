@@ -36,6 +36,7 @@ const LandingBreadcrumbs = (props) => {
                             itemscope
                             itemScope
                             itemtype="https://schema.org/ListItem"
+                            className="active"
                         >
                         <span itemprop="name">{item.name}</span>
                         <meta itemprop="position" content={index+1} />

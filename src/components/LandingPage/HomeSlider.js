@@ -13,8 +13,13 @@ const HomeSlider = ({data}) => {
   }, [])
 
   const settings = {
+    customPaging: function(i) {
+      return (
+        <a>1</a>
+      );
+    },
     dots: true,
-    arrows: false,
+    dotsClass: "slick-dots slick-thumb",
     slidesToShow: 1,
     slidesToScroll: 1,
     infinite: false,

@@ -24,7 +24,7 @@ const HowitWorks = () => {
         `
       )
     return(
-            <div className="how_work_blk w-100 float-left text-center">
+            <div className="how_work_blk w-100 float-left text-center" id="howitworks">
                 <div className="container">
                 <h2 className="tlt text-center text-uppercase">How It Works</h2>
                 <div className="row">
