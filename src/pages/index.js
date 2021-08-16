@@ -28,6 +28,7 @@ const IndexPage = (props) => {
   } = props.data
   const siteURL = site.siteMetadata.siteUrl 
   const siteLogo = siteURL+SiteLogo.publicURL;
+  
   const schemaOrgJSONLD = [
     {
        "@context": "http://schema.org",
