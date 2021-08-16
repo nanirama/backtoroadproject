@@ -21,11 +21,14 @@ const LandingBreadcrumbs = (props) => {
                 >     
                     {item.itemtype && (<Link
                         itemprop="item" 
+                        property="item"
                         typeof="WebPage"
                         to={item.link}                                               
                     ><span itemprop="name" property="name">{item.name}</span></Link>)}     
                     {!item.itemtype && (<Link
                         itemprop="item"
+                        property="item"
+                        typeof="WebPage"
                         to={item.link}                        
                     ><span itemprop="name" property="name">{item.name}</span></Link>)}     
                     <meta property="position" itemprop="position" content={index+1} />

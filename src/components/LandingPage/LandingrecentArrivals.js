@@ -61,9 +61,11 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
                               <div className="post_img w-100 float-left mb-4">
                                 <Image img={item.featuredImage.node.localFile} alt={item.title}/>
                               </div>
-                              <h3>{item.title}</h3>
-                              <h4>{item.itemprice.itemPrice}</h4>
-                              <p>{item.desc}</p>
+                              <div className="recent-title-content">
+                                <h3>{item.title}</h3>
+                                <h4>{item.itemprice.itemPrice}</h4>
+                                {item.desc && <p>{item.desc}</p>}
+                              </div>
                               <button className="btn1" aria-label={item.title}>Shop Now</button> </div>                        
                           </div>
                       )
