@@ -65,7 +65,7 @@ const GoGreenSection = ({img }) => {
               </div>
               <div className="col-md-9  col-sm-12 col-xs-12">
                 <div className="save_txt pt-3">
-                  <h2 className="text-uppercase  mb-2 pb-2 text-white">Buy Green, Save Green</h2>
+                  <h2 className="tlt text-uppercase  mb-2 pb-2 text-white">Buy Green, Save Green</h2>
                   <p className="text-white mb-0">As a consumer, you have the power to make a difference by consciously choosing products
 that are environmentally safe or from companies that make the environment a top priority.
 When you shop from BackToRoad Auto Parts, you&#39;re assisting in the safe disposal of

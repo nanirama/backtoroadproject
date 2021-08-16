@@ -12,6 +12,8 @@ const LandingSlider = ({data}) => {
       );
     },
     dots: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
     dotsClass: "slick-dots slick-thumb",
     arrows: false,
     slidesToShow: 1,
@@ -83,7 +85,7 @@ const LandingSlider = ({data}) => {
           })}              
           </Slider>
         </div>  
-          <div className="slider_form mob_form">
+          <div className="slider_form mob_form" id="findmmypart">
               <FormsControler/>
           </div> 
         </div>  

@@ -26,38 +26,44 @@ export default props => {
             <NavMenu>
                 <NavLink
                     className="menu-item"
-                    to={`${siteURL}${cpath}#findmypart`}
-                    img={Marrow} himg={MarrowActive}>
+                    to={`${cpath}#findmmypart`}
+                    img={Marrow} himg={MarrowActive}
+                    onClick={props.handleMenuClose}>
                     Find My Part
                 </NavLink>
                 <NavLink
                     className="menu-item"
-                    to={`${siteURL}${cpath}#bestsellers`}
-                    img={Marrow} himg={MarrowActive}>
+                    to={`${cpath}#bestsellers`}
+                    img={Marrow} himg={MarrowActive}
+                    onClick={props.handleMenuClose}>
                     Best Selling Units
                 </NavLink>
                 <NavLink
                     className="menu-item"
-                    to={`${siteURL}${cpath}#howitworks`}
-                    img={Marrow} himg={MarrowActive}>
+                    to={`${cpath}#howitworks`}
+                    img={Marrow} himg={MarrowActive}
+                    onClick={props.handleMenuClose}>
                     How It Works?
                 </NavLink>
                 <NavLink
                     className="menu-item"
-                    to={`${siteURL}${cpath}#whychoose`}
-                    img={Marrow} himg={MarrowActive}>
+                    to={`${cpath}#whychoose`}
+                    img={Marrow} himg={MarrowActive}
+                    onClick={props.handleMenuClose}>
                     Why Choose Us
                 </NavLink>
                 <NavLink
                     className="menu-item"
-                    to={`${siteURL}${cpath}#reviews`}
-                    img={Marrow} himg={MarrowActive}>
+                    to={`${cpath}#reviews`}
+                    img={Marrow} himg={MarrowActive}
+                    onClick={props.handleMenuClose}>
                     Customer Reviews
                 </NavLink>
                 <NavLink
                     className="menu-item"
-                    to={`${siteURL}${cpath}#faq`}
-                    img={Marrow} himg={MarrowActive}>
+                    to={`${cpath}#faq`}
+                    img={Marrow} himg={MarrowActive}
+                    onClick={props.handleMenuClose}>
                     FAQ
                 </NavLink>
             </NavMenu>

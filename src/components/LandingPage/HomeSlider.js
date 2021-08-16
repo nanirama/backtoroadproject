@@ -19,6 +19,8 @@ const HomeSlider = ({data}) => {
       );
     },
     dots: true,
+    autoplay: true,
+    autoplaySpeed: 4000,
     dotsClass: "slick-dots slick-thumb",
     slidesToShow: 1,
     slidesToScroll: 1,

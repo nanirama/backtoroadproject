@@ -22,6 +22,8 @@ const HomeRecentArrivals = () => {
     `)    
     const settings = {
       dots: true,
+      autoplay: true,
+      autoplaySpeed: 4000,
       arrows: false,
       infinite: false,
       initialSlide: 0,

@@ -4,7 +4,7 @@ module.exports = {
     description: `BackToRoad Auto Parts is your one-stop shop for tested high quality used OEM parts to customers in all 50 states and worldwide`,
     author: `@backtoroad`,
     noindex: `noindex`,
-    siteUrl: 'http://localhost:8000',
+    siteUrl: 'https://btr-dev.sellectricindia.com',
   },
   plugins: [     
     `gatsby-plugin-image`,
@@ -83,8 +83,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://backtoroadprojectnanirama.gatsbyjs.io/',
-        sitemap: 'https://backtoroadprojectnanirama.gatsbyjs.io/sitemap/sitemap-0.xml',
+        host: 'https://btr-dev.sellectricindia.com/',
+        sitemap: 'https://btr-dev.sellectricindia.com/sitemap/sitemap-0.xml',
         env: {
           development: {
             policy: [{ userAgent: '*', disallow: ['/'] }]

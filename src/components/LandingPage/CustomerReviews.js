@@ -62,6 +62,8 @@ const CustomerReviews = () => {
   );
   const settings = {
     dots: false,
+    autoplay: true,
+    autoplaySpeed: 4000,
     arrows: true,
     infinite: true,
     centerMode: false,

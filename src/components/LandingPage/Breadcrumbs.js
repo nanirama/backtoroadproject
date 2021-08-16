@@ -2,11 +2,10 @@ import React from "react"
 import { Link } from "gatsby"
 const LandingBreadcrumbs = (props) => {
     const { makemodels, partname, bcrumb } = props
-    //console.log('Make and Models from Breadcurmb', bcrumb);
     return(
         <div className="container">
             <div className="breadcrumb w-100 float-left">
-            <ol itemscope itemScope itemtype="https://schema.org/BreadcrumbList">
+            <ol vocab="https://schema.org/" typeof="BreadcrumbList" itemscope itemScope itemtype="https://schema.org/BreadcrumbList">
             { bcrumb.map((item, index)=>{
                 return(
                     <>
@@ -17,15 +16,18 @@ const LandingBreadcrumbs = (props) => {
                     itemprop="itemListElement"                
                     itemScope
                     itemtype="https://schema.org/ListItem"
+                    property="itemListElement"
+                    typeof="ListItem"
                 >     
                     {item.itemtype && (<Link
                         itemprop="item" 
+                        typeof="WebPage"
                         to={item.link}                                               
-                    ><span itemprop="name">{item.name}</span></Link>)}     
+                    ><span itemprop="name" property="name">{item.name}</span></Link>)}     
                     {!item.itemtype && (<Link
                         itemprop="item"
                         to={item.link}                        
-                    ><span itemprop="name">{item.name}</span></Link>)}     
+                    ><span itemprop="name" property="name">{item.name}</span></Link>)}     
                     <meta itemprop="position" content={index+1} />
                     </li> 
                     ) } 
@@ -37,8 +39,10 @@ const LandingBreadcrumbs = (props) => {
                             itemScope
                             itemtype="https://schema.org/ListItem"
                             className="active"
+                            property="itemListElement"
+                            typeof="ListItem"
                         >
-                        <span itemprop="name">{item.name}</span>
+                        <span itemprop="name" property="name">{item.name}</span>
                         <meta itemprop="position" content={index+1} />
                     </li>
                     )}

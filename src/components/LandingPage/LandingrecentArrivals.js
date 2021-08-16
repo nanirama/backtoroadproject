@@ -2,9 +2,12 @@ import React from "react"
 import Image from './image'
 import Slider from "react-slick";
 const LandingRecentArrivals = ({data, blockHeading}) => { 
+  console.log('Recent Arrivals data ',data);
     const settings = {
       dots: true,
       arrows: false,
+      autoplay: true,
+      autoplaySpeed: 4000,
       slidesToShow: 3,
       slidesToScroll: 3,
       infinite: false,
@@ -47,13 +50,13 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
                   <div className="recent_post_blk w-100 float-left" id="bestsellers">
                   <div className="container">                       
                   {blockHeading && <h2 property="name" className="tlt text-center text-uppercase">{blockHeading}</h2>}
-                  <Slider {...settings} className="d-flex align-items-stretch">
+                  <Slider {...settings}>
                   {data.map((item, index) => {
                       return (
-                          <div
-                            className="col-md-12 col-xs-12 d-flex align-items-stretch"
-                            key={index}
-                            >
+                        <div
+                        className="col-md-12 col-xs-12"
+                        key={index}
+                        >
                               <div className="post_box w-100 float-left">
                               <div className="post_img w-100 float-left mb-4">
                                 <Image img={item.featuredImage.node.localFile} alt={item.title}/>

@@ -1,6 +1,5 @@
 import React from "react"
 import styled from "styled-components"
-import buttonBg from '../../assets/images/landing/arrow-down.png'
 
 const LandingMakePartsList = ({data, title, subtitle}) => {
     return(
@@ -10,17 +9,17 @@ const LandingMakePartsList = ({data, title, subtitle}) => {
                         <div className="col-md-8 col-xs-12">
                         <h2 className="tlt text-uppercase mb-3">{ title && title }</h2>
                         </div>
-                        <div className="col-md-4 col-xs-12">
+                        {/* <div className="col-md-4 col-xs-12">
                             <Button className="btn1 show" img={buttonBg}>View All</Button>
-                        </div>
+                        </div> */}
                     </div>
                     <h3>{ subtitle && subtitle }</h3>
-                    <div className="container">
+                    <div className="container float-left overflow-hidden">
                         <div dangerouslySetInnerHTML={{ __html: data }} className="row float-left overflow-hidden" ></div>                  
                     </div>            
-                    <div className="btn_outer w-100 float-left text-center">
+                    {/* <div className="btn_outer w-100 float-left text-center">
                         <Button className="btn1 hide" img={buttonBg} aria-label="View All Parts">View All</Button>
-                    </div>
+                    </div> */}
                 </div>
             </div>
     )

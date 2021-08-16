@@ -1,5 +1,5 @@
-body, h1, h2, h3, h4, h5, h6,p, span {
-	font-family:'Poppins', sans-serif
+body, h1, h2, h3, h4, h5, h6,p, span,a {
+	font-family:'Poppins', sans-serif !important;
 }
 body {
 	overflow-x:hidden
@@ -13,7 +13,8 @@ ul li {
 	float:left
 }
 .sidenav a, a:hover {
-	text-decoration:none
+	text-decoration:none;
+	font-family:'Poppins', sans-serif !important;
 }
 img {
 	width:100%;
@@ -550,11 +551,8 @@ h4.tm-sub-heading {
 	background-color: #165DA6;
 }
 .popular_blk h3 {
-	font-size:22px;
-	line-height:34px;
 	color:#08275c;
 	font-weight:500;
-	margin-bottom:40px
 }
 .f_top h4, .popular_blk ul li a {
 	line-height:30px;
@@ -563,29 +561,13 @@ h4.tm-sub-heading {
 }
 .popular_blk ul{ display: flex; justify-content:flex-start; flex-wrap: wrap; align-items: stretch}
 .popular_blk ul li{ padding-left:0px;}
-.popular_blk ul li a {
-	width:100%;
-	float:left;
-	line-height: 22px;
-	font-size:16px;
-	margin-bottom:8px;
-	color:rgba(16, 25, 40, .8);
-	padding-left:20px
-}
+
 .popular_blk ul li a:before, .slick-dots li button, ul.links li:before {
 	border-radius:2px;
 	transform:matrix(.71, .71, -.71, .71, 0, 0)
 }
 
-.popular_blk ul li a:before {
-	position:absolute;
-	content:'';
-	width:8px;
-	height:8px;
-	top:7px;
-	left:0;
-	background:#5fa2dd
-}
+
 .post_box .btn1{
 	width:195px;
 	height: 52px;
@@ -2343,7 +2325,8 @@ select {
 		line-height:42px;
 	}
 	.home_blk h2:before,
-	.home_blk h1:before
+	.home_blk h1:before,
+	.oem_parts_blk h1:before
 	{
 		content:'';
 		position: absolute;
@@ -2353,6 +2336,29 @@ select {
 		top:28px;
 		background: #F0AC3F;
 		z-index:-1;
+	}	
+	.popular_blk h3 {
+		font-size:22px;
+		line-height:34px;		
+		margin-bottom:40px;
+	}
+	.popular_blk ul li a:before {
+		position:absolute;
+		content:'';
+		width:8px;
+		height:8px;
+		top:7px;
+		left:1px;
+		background:#5fa2dd
+	}
+	.popular_blk ul li a {
+		width:100%;
+		float:left;
+		line-height: 22px;
+		font-size:16px;
+		margin-bottom:8px;
+		color:rgba(16, 25, 40, .8);
+		padding-left:20px
 	}
 }
 @media only screen and (max-width:767px) {
@@ -2403,17 +2409,27 @@ select {
 		line-height:38px;
 	}
 	.home_blk h2:before,
-	.home_blk h1:before,
-	.oem_parts_blk h1::before
+	.home_blk h1:before
 	{
-		content:'';
-		position: absolute;
-		width: 135px;
-		height: 8px;
+		content:'' !important;
+		position: absolute !important;
+		width: 135px !important;
+		height: 8px !important;
 		left: inherit !important;
-		top:20px;
+		top:20px !important;
 		background: #F0AC3F;
-		z-index:-1;
+		z-index:-1 !important;
+	}
+	.oem_parts_blk h1:before
+	{
+		content:'' !important;
+		position: absolute !important;
+		width: 135px !important;
+		height: 8px !important;
+		left: inherit !important;
+		top:20px !important;
+		background: #F0AC3F;
+		z-index:-1 !important;
 	}
 	.home_blk h2,
 	.home_blk h1,
@@ -2428,7 +2444,32 @@ select {
 	.recent_post_blk .col-xs-12,
 	.tm_blk .container,
 	.tm_blk .col-xs-12{ padding:0px 5px !important;}
-	
+	.popular_blk h2{
+		text-align: center;
+	}
+	.popular_blk h3 {
+		font-size:12px;
+		line-height:17px;
+		margin-bottom:20px;
+	}	
+	.popular_blk ul li a:before {
+		position:absolute;
+		content:'';
+		width:8px;
+		height:8px;
+		top:5px;
+		left:1px;
+		background:#5fa2dd
+	}
+	.popular_blk ul li a {
+		width:100%;
+		float:left;
+		line-height: 18px;
+		font-size:14px;
+		margin-bottom:8px;
+		color:rgba(16, 25, 40, .8);
+		padding-left:20px
+	}
 }
 .s_txt h2{text-shadow: 0px 2px 9px rgba(150, 150, 150, 1) !important;}
 .s_txt ul li{text-shadow: 0px 2px 9px rgba(150, 150, 150, 1) !important;}
@@ -2460,3 +2501,8 @@ select {
 	z-index:999;
 	display:inline-block;
 }
+
+.bm-overlay {
+	display: none !important;
+	background: rgba(136, 84, 84, 0.3) !important;
+  }

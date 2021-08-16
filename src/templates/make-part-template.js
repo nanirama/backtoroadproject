@@ -125,9 +125,7 @@ query($id : String){
                 node {
                   localFile {
                     childImageSharp {
-                        gatsbyImageData(
-                            width: 400
-                          )
+                      gatsbyImageData(width: 600, quality: 100, height: 600)
                     }
                   }
                 }

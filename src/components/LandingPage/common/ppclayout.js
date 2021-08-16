@@ -14,9 +14,13 @@ const PpcLayout = ({ children, cpath }) => {
   const [isOpen, setOpen] = React.useState(false);
 
   const handlers = useSwipeable({
-    trackMouse: true,
-    onSwipedRight: () => setOpen(true)
+    //trackMouse: true,
+    //onSwipedRight: () => setOpen(true)
   });
+
+  const handleMenuClose=()=>{
+    setOpen(false)
+  }
 
   return (
     <StaticQuery
@@ -54,12 +58,13 @@ const PpcLayout = ({ children, cpath }) => {
       <>
       <div className={`wrapper w-100 float-left`}>
       <MenuStyles />
-      <SwipeLayer {...handlers} />
+      {/* <SwipeLayer {...handlers} /> */}
         <PpcSideBar
           isOpen={isOpen}
           onStateChange={s => setOpen(s.isOpen)}
           pageWrapId={"inner-wrap"}
           outerContainerId={"outer"}
+          handleMenuClose={handleMenuClose}
           cpath={cpath}
         />
         <div id="inner-wrap">
