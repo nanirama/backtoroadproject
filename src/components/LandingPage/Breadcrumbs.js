@@ -5,12 +5,12 @@ const LandingBreadcrumbs = (props) => {
     return(
         <div className="container">
             <div className="breadcrumb w-100 float-left">
-            <ol vocab="https://schema.org/" typeof="BreadcrumbList" itemscope itemScope itemtype="https://schema.org/BreadcrumbList">
+            <ol vocab="https://schema.org/" typeof="BreadcrumbList">
             { bcrumb.map((item, index)=>{
                 return(
-                <li property="itemListElement" typeof="ListItem">
+                <>
                 { item.link != null &&  (
-                   <>
+                    <li property="itemListElement" typeof="ListItem">
                     {item.itemtype && (<Link
                         property="item" typeof="WebPage"
                         to={item.link}                                               
@@ -20,15 +20,15 @@ const LandingBreadcrumbs = (props) => {
                         to={item.link}                        
                     ><span property="name">{item.name}</span></Link>)}     
                     <meta property="position" content={index+1} />
-                   </>
+                    </li>
                     ) } 
                     { item.link === null &&  (
-                       <>
+                        <li property="itemListElement" typeof="ListItem">
                         <span property="name">{item.name}</span>
                         <meta property="position" content={index+1} />
-                        </>
+                        </li>
                     )}
-                    </li>
+                    </>
                 )
             })}
             </ol>
