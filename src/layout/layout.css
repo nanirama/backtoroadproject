@@ -1421,7 +1421,7 @@ margin-bottom:20px!important
 .s_txt ul li {
 width:100%;
 font-size:18px;
-line-height:4.5vh;
+/* line-height:4.5vh; */
 font-weight:500;
 color:#fff;
 position:relative;
@@ -1432,7 +1432,7 @@ position:absolute;
 content:'';
 width:8px;
 height:8px;
-top:14px;
+top:10px;
 left:0;
 background:#f0ac3f;
 border-radius:2px;
