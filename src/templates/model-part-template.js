@@ -4,6 +4,8 @@ import LandingTemplate from '../components/LandingPage/LandingTemplate'
 
 const ModelPartTemplate = (props) => {
    const { siteUrl } = props.data.site.siteMetadata;
+   //alert(siteUrl);
+   console.log('Breadcurm ',props.data.PageData.makemodels);
    const bcrumb = [
       {'name':'Home', 'link':siteUrl},
       {'name': props.data.PageData.makemodels.nodes[0].name ? props.data.PageData.makemodels.nodes[0].name : '', 'link':siteUrl+'/'+props.data.PageData.makemodels.nodes[0].slug ? props.data.PageData.makemodels.nodes[0].slug : ''},
