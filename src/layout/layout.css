@@ -924,6 +924,7 @@ margin:0
     align-content: center !important;
     align-items:center !important;
     justify-content: center !important;
+	flex-wrap: wrap !important;
     }
 .s_txt_outer .container{
 	height:fit-content;
@@ -1037,11 +1038,6 @@ visibility:hidden
 width:100%;
 max-width:100%;
 margin-bottom:4rem
-}
-.s_txt_outer {
-width:100%;
-top:1%;
-left:8%
 }
 .s_txt h2 {
 font-size:60px;
@@ -1168,6 +1164,18 @@ display:block
 }
 }
 @media only screen and (min-width:768px) and (max-width:991px) {
+.benifits_blk p span,
+.popular_blk ul li a, 
+ul.links li,
+.parts_blk ul li,
+.about_blk ul li,
+.benifits_blk ul li,
+.backroad_blk ul li,
+ul.links li,
+p, span {
+	font-size:15px !important;
+	line-height:28px !important;
+}
 .recent_post_blk .post_img{ min-height: 400px;}
 .container {
 max-width:100%
@@ -1256,10 +1264,6 @@ padding-right:15px!important
 }
 h2.tlt {
 font-size:34px
-}
-.popular_blk ul li a, p, ul.links li {
-
-font-size:16px
 }
 .left_text {
 padding:30px 20px
@@ -1350,7 +1354,7 @@ font-size:22px;
 margin-bottom:35px
 }
 .logos_blk h2:before, .save_txt h2:before, h2.tlt:before,.oem_parts_blk h1:before{
-	top:22px !important;
+	top:20px !important;
 }
 .faq_blk h2.tlt::before, .faq_blk h2:before {
 width:60px
@@ -1364,9 +1368,9 @@ margin-bottom:50px
 .benifits_blk ul li,
 .backroad_blk ul li,
 ul.links li,
-p {
-	font-size:16px;
-	line-height:28px;
+p, span {
+	font-size:15px !important;
+	line-height:28px !important;
 }
 p {
 margin-bottom:25px
@@ -1744,10 +1748,6 @@ top:25px;
 right:0;
 position:absolute
 }
-/* .s_txt_outer {
-top:10%;
-width:100%;
-} */
 .slider_form h3 {
 font-size:15px;
 line-height:33px;
@@ -1815,14 +1815,7 @@ line-height:35px
 h2 {
 line-height:30px
 }
-/* h2.tlt:before,.oem_parts_blk h1:before,
-.logos_blk h2:before, .save_txt h2:before {
-	top:22px;
-} */
-/* h2, h2.tlt,.oem_parts_blk h1,
-.logos_blk h2, .save_txt h2 {
-font-size:22px
-} */
+
 h2.tlt,.oem_parts_blk h1 {
 line-height:35px
 }
@@ -1836,13 +1829,9 @@ margin-bottom:15px
 ul.links li,
 .benifits_blk p span,
 .popular_blk p .popular_blk ul li a, .sub_box p, .work_box p, p, ul.links li {
-font-size:15px;
-line-height:28px
+font-size:15px !important;
+line-height:28px !important;
 }
-/* .s_txt_outer {
-top:7%;
-width:100%
-} */
 .s_txt h2 {
 font-size:20px!important;
 line-height:26px!important;
@@ -1975,10 +1964,6 @@ font-size:16px
 padding:6px 14px !important;
 font-size: 14px !important;
 }
-/* .s_txt_outer {
-top:8%;
-width:100%
-} */
 .s_txt ul li {
 font-size:12px;
 line-height:20px;
@@ -2469,6 +2454,9 @@ select {
 		margin-bottom:8px;
 		color:rgba(16, 25, 40, .8);
 		padding-left:20px
+	}
+	.save_txt h2, .save_txt p{
+		text-align: center !important;
 	}
 }
 .s_txt h2{text-shadow: 0px 2px 9px rgba(150, 150, 150, 1) !important;}

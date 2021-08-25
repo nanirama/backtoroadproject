@@ -108,7 +108,7 @@ const CustomerReviews = () => {
                             <div className="col-md-12 col-xs-12" key={index}>
                               <div className="tm_box w-100 float-left">
                                   <div className="text-left reviewcontentheight d-flex flex-column align-self-stretch">
-                                    <h3>{ `"${node.heading}"` }</h3>
+                                  <h3>{ `"${node.heading}"` }</h3>
                                     <p>{node.content}</p>
                                   </div>
                                   <div className="bottom w-100 float-left pt-4">

@@ -10,7 +10,7 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
       autoplaySpeed: 4000,
       slidesToShow: 3,
       slidesToScroll: 3,
-      infinite: false,
+      infinite: true,
       centerMode: false,
         responsive: [
           {

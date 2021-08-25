@@ -12,7 +12,7 @@ const HomeRecentArrivals = () => {
                 title
                 img {
                     childImageSharp {
-                      gatsbyImageData(width: 400, quality: 100, height: 400)
+                      gatsbyImageData(width: 700, quality: 100, height: 700)
                     }
                 }
             }
@@ -25,7 +25,7 @@ const HomeRecentArrivals = () => {
       autoplay: true,
       autoplaySpeed: 4000,
       arrows: false,
-      infinite: false,
+      infinite: true,
       initialSlide: 0,
       centerMode: false,
         responsive: [

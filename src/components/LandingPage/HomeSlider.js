@@ -11,7 +11,6 @@ const HomeSlider = ({data}) => {
   useEffect(() => {
       Aos.init({});
   }, [])
-
   const settings = {
     customPaging: function(i) {
       return (
@@ -24,7 +23,7 @@ const HomeSlider = ({data}) => {
     dotsClass: "slick-dots slick-thumb",
     slidesToShow: 1,
     slidesToScroll: 1,
-    infinite: false,
+    infinite: true,
     centerMode: false,
     responsive: [
       {
@@ -70,43 +69,46 @@ const HomeSlider = ({data}) => {
                  </div>
           <Slider {...settings}>
           {data.edges.map(({node}, index) => {
-          return (
-            <div key={index} className="slide-item d-flex justify-content-center">           
-                <div className="s_txt_outer d-flex flex-column justify-content-end align-items-center">
-                  <div className="container">
-                      <div className="row d-flex align-items-center first-col">
-                        <div className=" col-md-12 col-xs-12 col-lg-6 first-col">
-                          <div className="s_txt">
-                            <h2 className="text-uppercase mb-4">{node.title}</h2>
-                            <div dangerouslySetInnerHTML={{ __html: node.content }} ></div> 
-                            { node.eimg && (
-                                  <div className="w-100 float-left eimg_icon"
-                                    data-aos="zoom-in-up"
-                                    data-aos-delay="50"
-                                    data-aos-duration="1000"
-                                  >
-                                      <GatsbyImage
-                                        alt={node.eimg.imgalt}
-                                        image={getImage(node.eimg.img)} 
-                                        width={node.eimg.width}
-                                        height={node.eimg.height}
-                                        className="slider-eimg"
-                                      />                                    
-                                  </div>
-                            )}
+          if(index<data.edges.length && node.img)
+          {
+            return (
+              <div key={index} className="slide-item d-flex justify-content-center">           
+                  <div className="s_txt_outer d-flex flex-column justify-content-end align-items-center">
+                    <div className="container">
+                        <div className="row d-flex align-items-center first-col">
+                          <div className=" col-md-12 col-xs-12 col-lg-6 first-col">
+                            <div className="s_txt">
+                              <h2 className="text-uppercase mb-4">{node.title}</h2>
+                              <div dangerouslySetInnerHTML={{ __html: node.content }} ></div> 
+                              { node.eimg && (
+                                    <div className="w-100 float-left eimg_icon"
+                                      data-aos="zoom-in-up"
+                                      data-aos-delay="50"
+                                      data-aos-duration="1000"
+                                    >
+                                        <GatsbyImage
+                                          alt={node.eimg.imgalt}
+                                          image={getImage(node.eimg.img)} 
+                                          width={node.eimg.width}
+                                          height={node.eimg.height}
+                                          className="slider-eimg"
+                                        />                                    
+                                    </div>
+                              )}
+                            </div>
                           </div>
+                          
                         </div>
-                        
                       </div>
                     </div>
-                  </div>
-                  <GatsbyImage
-                    alt={node.imgalt}
-                    image={getImage(node.img)} 
-                    className="slider-img"
-                  />
-              </div> 
-            )
+                    <GatsbyImage
+                      alt={node.imgalt}
+                      image={getImage(node.img)} 
+                      className="slider-img"
+                    />
+                </div> 
+              )
+          }          
           })}              
           </Slider>
         </div>  

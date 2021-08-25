@@ -18,7 +18,7 @@ const LandingSlider = ({data}) => {
     arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    infinite: false,
+    infinite: true,
     centerMode: false,
     responsive: [
       {
@@ -65,23 +65,26 @@ const LandingSlider = ({data}) => {
                  </div>
           <Slider {...settings}>
           {data.map((item, index) => {
-          return (
-              <div key={index} className="slide-item d-flex justify-content-center">                
-                <div className="s_txt_outer">
-                  <div className="container">
-                      <div className="row d-flex align-items-center first-col">
-                        <div className=" col-md-12 col-xs-12 col-lg-6 first-col">
-                          <div className="s_txt">
-                            <h2 className="text-uppercase mb-4">{item.title}</h2>
-                            <div dangerouslySetInnerHTML={{ __html: item.content }} ></div> 
-                          </div>
-                        </div>                        
+            if(index<data.length)
+            {
+              return (
+                <div key={index} className="slide-item d-flex justify-content-center">                
+                  <div className="s_txt_outer">
+                    <div className="container">
+                        <div className="row d-flex align-items-center first-col">
+                          <div className=" col-md-12 col-xs-12 col-lg-6 first-col">
+                            <div className="s_txt">
+                              <h2 className="text-uppercase mb-4">{item.title}</h2>
+                              <div dangerouslySetInnerHTML={{ __html: item.content }} ></div> 
+                            </div>
+                          </div>                        
+                        </div>
                       </div>
-                    </div>
-                  </div>                  
-                   <Image img={item.featuredImage.node.localFile} imgalt={item.title} alt={item.title} className="slider-img"/>
-              </div> 
-            )
+                    </div>                  
+                     <Image img={item.featuredImage.node.localFile} imgalt={item.title} alt={item.title} className="slider-img"/>
+                </div> 
+              )
+            }          
           })}              
           </Slider>
         </div>  
