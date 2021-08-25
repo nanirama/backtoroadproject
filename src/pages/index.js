@@ -43,7 +43,7 @@ const IndexPage = (props) => {
       "url": "https://backtoroadautoparts.com/"      
     }
   ]
-  console.log('Page Data is ', PageData);
+  //console.log('Page Data is ', PageData);
   const title = PageData && PageData.seo.title ? PageData.seo.title : 'Used Auto Parts Online Store | Back To Road Auto Parts'
   const desc = PageData && PageData.seo.metaDesc ? PageData.seo.metaDesc : 'Buy Used Auto Parts For Your Car or Truck At The Best Price On The Internet.'
   return(

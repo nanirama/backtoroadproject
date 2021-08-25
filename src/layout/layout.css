@@ -2430,7 +2430,7 @@ select {
 	.tm_blk .container,
 	.tm_blk .col-xs-12{ padding:0px 5px !important;}
 	.popular_blk h2{
-		text-align: center;
+		text-align: left;
 	}
 	.popular_blk h3 {
 		font-size:12px;

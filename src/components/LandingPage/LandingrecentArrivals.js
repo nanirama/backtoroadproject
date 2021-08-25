@@ -2,7 +2,7 @@ import React from "react"
 import Image from './image'
 import Slider from "react-slick";
 const LandingRecentArrivals = ({data, blockHeading}) => { 
-  console.log('Recent Arrivals data ',data);
+  //console.log('Recent Arrivals data ',data);
     const settings = {
       dots: true,
       arrows: false,
