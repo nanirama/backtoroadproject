@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import FormsControler from './FormsControler'
 
 const LandingSlider = ({data}) => {
+  const slidesCount = data.length
   const settings = {
     customPaging: function(i) {
       return (
@@ -18,7 +19,7 @@ const LandingSlider = ({data}) => {
     arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    infinite: true,
+    infinite: data.length > slidesCount,
     centerMode: false,
     responsive: [
       {

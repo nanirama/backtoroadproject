@@ -23,7 +23,7 @@ const HomeSlider = ({data}) => {
     dotsClass: "slick-dots slick-thumb",
     slidesToShow: 1,
     slidesToScroll: 1,
-    infinite: true,
+    infinite: data.edges.length > 4,
     centerMode: false,
     responsive: [
       {
