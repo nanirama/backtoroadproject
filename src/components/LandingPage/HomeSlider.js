@@ -8,7 +8,7 @@ import "aos/dist/aos.css"
 
 
 const HomeSlider = ({data}) => {
-  const [infiniteValue, setInfiniteValue] = useState(true);
+  const [infiniteValue, setInfiniteValue] = useState(false);
   //const SlidesCount = 
   useEffect(() => {
       Aos.init({});
