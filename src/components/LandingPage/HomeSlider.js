@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import Slider from "react-slick";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import FormsControler from './FormsControler'
@@ -8,6 +8,8 @@ import "aos/dist/aos.css"
 
 
 const HomeSlider = ({data}) => {
+  const [infiniteValue, setInfiniteValue] = useState(true);
+  //const SlidesCount = 
   useEffect(() => {
       Aos.init({});
   }, [])
@@ -23,7 +25,7 @@ const HomeSlider = ({data}) => {
     dotsClass: "slick-dots slick-thumb",
     slidesToShow: 1,
     slidesToScroll: 1,
-    infinite: data.edges.length > 4,
+    infinite: infiniteValue,
     centerMode: false,
     responsive: [
       {
@@ -58,6 +60,15 @@ const HomeSlider = ({data}) => {
     ]
 
   };
+  const afterChangeHandler = (currentSlide)=> {
+    if(data.edges.length==currentSlide+1)
+    {
+      setInfiniteValue(true)
+    }
+    else{
+      setInfiniteValue(false)
+    }
+  }
     return(
         <div className="container-fluid padding-0 overflow-hidden">
           <div className="row position-relative"> 
@@ -67,7 +78,7 @@ const HomeSlider = ({data}) => {
                         <FormsControler/> 
                       </div>                         
                  </div>
-          <Slider {...settings}>
+          <Slider {...settings} afterChange={afterChangeHandler}>
           {data.edges.map(({node}, index) => {
           if(index<data.edges.length && node.img)
           {
