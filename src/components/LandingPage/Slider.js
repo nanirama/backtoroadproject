@@ -1,11 +1,10 @@
- 
-import React from "react"
+import React, { useState } from 'react'
 import Image from './image'
 import Slider from "react-slick";
 import FormsControler from './FormsControler'
 
 const LandingSlider = ({data}) => {
-  const slidesCount = data.length
+  const [infiniteValue, setInfiniteValue] = useState(false);
   const settings = {
     customPaging: function(i) {
       return (
@@ -19,7 +18,7 @@ const LandingSlider = ({data}) => {
     arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    infinite: data.length > slidesCount,
+    infinite: infiniteValue,
     centerMode: false,
     responsive: [
       {
@@ -54,6 +53,15 @@ const LandingSlider = ({data}) => {
     ]
 
   };
+  const afterChangeHandler = (currentSlide)=> {
+    if(data.edges.length==currentSlide+1)
+    {
+      setInfiniteValue(true)
+    }
+    else{
+      setInfiniteValue(false)
+    }
+  }
     return(
         <div className="container-fluid padding-0 overflow-hidden">
           <div className="row position-relative">          
@@ -64,7 +72,7 @@ const LandingSlider = ({data}) => {
                         <FormsControler/> 
                       </div>                         
                  </div>
-          <Slider {...settings}>
+          <Slider {...settings} afterChange={afterChangeHandler}>
           {data.map((item, index) => {
             if(index<data.length)
             {
