@@ -54,7 +54,7 @@ const LandingSlider = ({data}) => {
 
   };
   const afterChangeHandler = (currentSlide)=> {
-    if(data.edges.length==currentSlide+1)
+    if(data.length==currentSlide+1)
     {
       setInfiniteValue(true)
     }
