@@ -32,11 +32,9 @@ const CustomerReviews = () => {
     <button
       {...props}
       className={
-        "slick-prev slick-arrow" +
-        (currentSlide === 0 ? " slick-disabled" : "")
+        "slick-prev slick-arrow"
       }
       aria-hidden="true"
-      aria-disabled={currentSlide === 0 ? true : false}
       type="button"
     >
        <svg viewBox="0 0 500 500" >
@@ -48,11 +46,9 @@ const CustomerReviews = () => {
     <button
       {...props}
       className={
-        "slick-next slick-arrow" +
-        (currentSlide === slideCount - 1 ? " slick-disabled" : "")
+        "slick-next slick-arrow"
       }
       aria-hidden="true"
-      aria-disabled={currentSlide === slideCount - 1 ? true : false}
       type="button"
     >
        <svg viewBox="0 0 500 500" >
@@ -67,12 +63,14 @@ const CustomerReviews = () => {
     arrows: true,
     infinite: true,
     centerMode: false,
-    initialSlide: 0,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    initialSlide: 1,
     prevArrow: <SlickArrowLeft />,
     nextArrow: <SlickArrowRight />,
     responsive: [
       {
-        breakpoint: 1800,
+        breakpoint: 3000,
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3
@@ -95,14 +93,16 @@ const CustomerReviews = () => {
     ]
 
   };
-
+  const afterChangeHandler = (currentSlide)=> {
+    //alert(currentSlide)
+  }
   return (
     <>
                     <div className="tm_blk w-100 float-left text-center" id="reviews">
                     <div className="container">
                       <h2 className="tlt text-center text-uppercase">Customer Reviews</h2>
                         
-                        <Slider {...settings}>
+                        <Slider {...settings} afterChange={afterChangeHandler}>
                         {ReviewsData.edges.map(({node}, index) => {
                           return (
                             <div className="col-md-12 col-xs-12" key={index}>

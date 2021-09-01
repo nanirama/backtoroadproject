@@ -1,8 +1,9 @@
-import React from "react"
+import React, {useState} from "react"
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from './image'
 import Slider from "react-slick";
 const HomeRecentArrivals = () => { 
+  const [infiniteValue, setInfiniteValue] = useState(false);
     const data = useStaticQuery(graphql`
       query HomeRecentArrivalQuery {
         allRecentArrivalsDataJson {
@@ -25,8 +26,10 @@ const HomeRecentArrivals = () => {
       autoplay: true,
       autoplaySpeed: 4000,
       arrows: false,
-      infinite: true,
+      infinite: infiniteValue,
       initialSlide: 0,
+      slidesToShow: 3,
+      slidesToScroll: 3,
       centerMode: false,
         responsive: [
           {
@@ -53,6 +56,15 @@ const HomeRecentArrivals = () => {
         ]
     
       };
+      const afterChangeHandler = (currentSlide)=> {
+        if(data.allRecentArrivalsDataJson.edges.length==currentSlide+1)
+        {
+          setInfiniteValue(true)
+        }
+        else{
+          setInfiniteValue(false)
+        }
+      }
     return(
       <>
                   <div className="recent_post_blk w-100 float-left" id="bestsellers">
@@ -60,7 +72,7 @@ const HomeRecentArrivals = () => {
                   <h2 property="name" className="tlt text-center text-uppercase">Recent Arrivals</h2>
                   </div>
                   <div className="container">  
-                  <Slider {...settings} className="d-flex align-items-stretch">
+                  <Slider {...settings} className="d-flex align-items-stretch" afterChange={afterChangeHandler}>
                   {data.allRecentArrivalsDataJson.edges.map(({node}, index) => {
                       return (
                           <div

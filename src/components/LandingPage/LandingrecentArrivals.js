@@ -1,8 +1,8 @@
-import React from "react"
+import React, {useState} from "react"
 import Image from './image'
 import Slider from "react-slick";
 const LandingRecentArrivals = ({data, blockHeading}) => { 
-  //console.log('Recent Arrivals data ',data);
+  const [infiniteValue, setInfiniteValue] = useState(false);
     const settings = {
       dots: true,
       arrows: false,
@@ -10,7 +10,7 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
       autoplaySpeed: 4000,
       slidesToShow: 3,
       slidesToScroll: 3,
-      infinite: true,
+      infinite: infiniteValue,
       centerMode: false,
         responsive: [
           {
@@ -45,12 +45,21 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
         ]
     
       };
+      const afterChangeHandler = (currentSlide)=> {
+        if(data.length==currentSlide+1)
+        {
+          setInfiniteValue(true)
+        }
+        else{
+          setInfiniteValue(false)
+        }
+      }
     return(
       <>
                   <div className="recent_post_blk w-100 float-left" id="bestsellers">
                   <div className="container">                       
                   {blockHeading && <h2 property="name" className="tlt text-center text-uppercase">{blockHeading}</h2>}
-                  <Slider {...settings}>
+                  <Slider {...settings} afterChange={afterChangeHandler}>
                   {data.map((item, index) => {
                       return (
                         <div

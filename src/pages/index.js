@@ -136,7 +136,7 @@ query HomePageQuery{
         imgalt
         img {
           childImageSharp {
-            gatsbyImageData(width: 1600, quality: 100)
+            gatsbyImageData(width: 3000, quality: 100)
           }
         }
       }

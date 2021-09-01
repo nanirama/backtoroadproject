@@ -22,7 +22,7 @@ const BlogFilter = ({path}) => {
     }
     return(
         <div className="select float-right">
-        <select className="slct w-100 float-right" aria-label="Select Category" onBlur={e => onChangeHandler(e)}>
+        <select className="slct w-100 float-right" aria-label="Select Category" onClick={e => onChangeHandler(e)}>
             <option value="">All</option>
             {allWpCategory.edges.map(({node},index)=>{
                 return(
