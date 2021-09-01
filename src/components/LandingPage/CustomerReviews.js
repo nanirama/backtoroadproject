@@ -34,7 +34,6 @@ const CustomerReviews = () => {
       className={
         "slick-prev slick-arrow"
       }
-      aria-hidden="true"
       type="button"
     >
        <svg viewBox="0 0 500 500" >
@@ -48,7 +47,6 @@ const CustomerReviews = () => {
       className={
         "slick-next slick-arrow"
       }
-      aria-hidden="true"
       type="button"
     >
        <svg viewBox="0 0 500 500" >
