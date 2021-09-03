@@ -21,16 +21,44 @@ const HomeRecentArrivals = () => {
         }
       }
     `)    
+    const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+      <button
+        {...props}
+        className={
+          "slick-prev slick-arrow"
+        }
+        type="button"
+      >
+         <svg viewBox="0 0 500 500" >
+          <path d="M357,214v-64a9,9 0 01 15-5l106,96.5a9.5,9.5 0 01 0,15.5l-106,96.5a9,9 0 01-15-5v-64h-348a9,9 0 01 -9-9v-52.5a9,9 0 01 9-9z" />
+        </svg>
+      </button>
+    );
+    const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+      <button
+        {...props}
+        className={
+          "slick-next slick-arrow"
+        }
+        type="button"
+      >
+         <svg viewBox="0 0 500 500" >
+          <path d="M357,214v-64a9,9 0 01 15-5l106,96.5a9.5,9.5 0 01 0,15.5l-106,96.5a9,9 0 01-15-5v-64h-348a9,9 0 01 -9-9v-52.5a9,9 0 01 9-9z" />
+        </svg>
+      </button>
+    );
     const settings = {
-      dots: true,
+      dots: false,
       autoplay: true,
       autoplaySpeed: 4000,
-      arrows: false,
-      infinite: infiniteValue,
+      arrows: true,
+      infinite: false,
       initialSlide: 0,
       slidesToShow: 3,
       slidesToScroll: 3,
       centerMode: false,
+      prevArrow: <SlickArrowLeft />,
+      nextArrow: <SlickArrowRight />,
         responsive: [
           {
             breakpoint: 1800,
@@ -68,11 +96,12 @@ const HomeRecentArrivals = () => {
     return(
       <>
                   <div className="recent_post_blk w-100 float-left" id="bestsellers">
+                  <div className="container pb-5 mb-5"> 
                   <div className="container text-center">                       
                   <h2 property="name" className="tlt text-center text-uppercase">Recent Arrivals</h2>
                   </div>
                   <div className="container">  
-                  <Slider {...settings} className="d-flex align-items-stretch" afterChange={afterChangeHandler}>
+                  <Slider {...settings} className="d-flex align-items-stretch">
                   {data.allRecentArrivalsDataJson.edges.map(({node}, index) => {
                       return (
                           <div
@@ -92,6 +121,7 @@ const HomeRecentArrivals = () => {
                       )
                       })}
                   </Slider>
+                  </div>
                   </div>
               </div>
       </>          

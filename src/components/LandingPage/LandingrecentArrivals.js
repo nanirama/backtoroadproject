@@ -2,15 +2,40 @@ import React, {useState} from "react"
 import Image from './image'
 import Slider from "react-slick";
 const LandingRecentArrivals = ({data, blockHeading}) => { 
-  const [infiniteValue, setInfiniteValue] = useState(false);
+  const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={
+        "slick-prev slick-arrow"
+      }
+      type="button"
+    >
+       <svg viewBox="0 0 500 500" >
+        <path d="M357,214v-64a9,9 0 01 15-5l106,96.5a9.5,9.5 0 01 0,15.5l-106,96.5a9,9 0 01-15-5v-64h-348a9,9 0 01 -9-9v-52.5a9,9 0 01 9-9z" />
+      </svg>
+    </button>
+  );
+  const SlickArrowRight = ({ currentSlide, slideCount, ...props }) => (
+    <button
+      {...props}
+      className={
+        "slick-next slick-arrow"
+      }
+      type="button"
+    >
+       <svg viewBox="0 0 500 500" >
+        <path d="M357,214v-64a9,9 0 01 15-5l106,96.5a9.5,9.5 0 01 0,15.5l-106,96.5a9,9 0 01-15-5v-64h-348a9,9 0 01 -9-9v-52.5a9,9 0 01 9-9z" />
+      </svg>
+    </button>
+  );
     const settings = {
-      dots: true,
-      arrows: false,
+      dots: false,
+      arrows: true,
       autoplay: true,
       autoplaySpeed: 4000,
       slidesToShow: 3,
       slidesToScroll: 3,
-      infinite: infiniteValue,
+      infinite: false,
       centerMode: false,
         responsive: [
           {
@@ -45,21 +70,12 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
         ]
     
       };
-      const afterChangeHandler = (currentSlide)=> {
-        if(data.length==currentSlide+1)
-        {
-          setInfiniteValue(true)
-        }
-        else{
-          setInfiniteValue(false)
-        }
-      }
     return(
       <>
                   <div className="recent_post_blk w-100 float-left" id="bestsellers">
                   <div className="container">                       
                   {blockHeading && <h2 property="name" className="tlt text-center text-uppercase">{blockHeading}</h2>}
-                  <Slider {...settings} afterChange={afterChangeHandler}>
+                  <Slider {...settings}>
                   {data.map((item, index) => {
                       return (
                         <div

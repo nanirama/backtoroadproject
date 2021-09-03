@@ -53,7 +53,7 @@ const About = (props) => {
   const pageMimg = pageBannerM.childImageSharp.fluid.srcWebp
   const siteURL = site.siteMetadata.siteUrl 
   return(
-  <Layout>
+  <Layout pdata={props}>
     <SEO
         title="About Us | BackToRoad Auto Parts"
         description="BackToRoad Auto Parts Is Your One-Stop Shop For High Quality Used OEM Auto Parts. We're a Used Auto Parts Dealer With 17+ Locations Across USA & Canada."

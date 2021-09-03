@@ -5,7 +5,7 @@ import HomeSlider from '../components/LandingPage/HomeSlider'
 import SEO from "../components/seo"
 import AboutSection from "../components/LandingPage/AboutSection"
 import OemPartsSection from "../components/LandingPage/OemPartsSection"
-import HowitWorks from '../components/LandingPage/Howitworks'
+import HowitWorks from '../components/LandingPage/HomeHowitworks'
 import HomeJourneySoFar from "../components/LandingPage/HomeJourneysofar"
 import HomeWhychoosebtr from '../components/LandingPage/HomeWhychoosebtr'
 import HomePopularMakes from "../components/LandingPage/HomePopularMakes"
@@ -47,7 +47,7 @@ const IndexPage = (props) => {
   const title = PageData && PageData.seo.title ? PageData.seo.title : 'Used Auto Parts Online Store | Back To Road Auto Parts'
   const desc = PageData && PageData.seo.metaDesc ? PageData.seo.metaDesc : 'Buy Used Auto Parts For Your Car or Truck At The Best Price On The Internet.'
   return(
-  <Layout>
+  <Layout pdata={props}>
       <SEO
           title={title}
           description={desc}

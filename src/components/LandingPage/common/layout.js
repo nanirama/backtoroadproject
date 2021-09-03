@@ -10,7 +10,7 @@ import reducer, { initialState } from '../../../reducer';
 import LandingHeader from './Header'
 import LandingFooter from './Footer'
 
-const Layout = ({ children }) => {
+const Layout = ({ children,  pdata='' }) => {
   const [isOpen, setOpen] = React.useState(false);
 
   const handlers = useSwipeable({
@@ -57,7 +57,7 @@ const Layout = ({ children }) => {
         />
          <div id="inner-wrap">
 	  	  <StateProvider initialState={initialState} reducer={reducer}>        
-            <LandingHeader logoImg = {data.HeaderLogo}/>			  
+            <LandingHeader logoImg = {data.HeaderLogo} pdata={pdata}/>			  
           { children }
             <LandingFooter
             logoImg = {data.FooterLogo}

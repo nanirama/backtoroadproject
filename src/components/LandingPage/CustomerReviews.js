@@ -59,7 +59,7 @@ const CustomerReviews = () => {
     autoplay: true,
     autoplaySpeed: 4000,
     arrows: true,
-    infinite: true,
+    infinite: false,
     centerMode: false,
     slidesToShow: 3,
     slidesToScroll: 3,
@@ -96,11 +96,11 @@ const CustomerReviews = () => {
   }
   return (
     <>
-                    <div className="tm_blk w-100 float-left text-center" id="reviews">
-                    <div className="container">
+                    <div className="tm_blk w-100 float-left text-center mb-5" id="reviews">
+                    <div className="container mb-3 pb-4">
                       <h2 className="tlt text-center text-uppercase">Customer Reviews</h2>
                         
-                        <Slider {...settings} afterChange={afterChangeHandler}>
+                        <Slider {...settings}>
                         {ReviewsData.edges.map(({node}, index) => {
                           return (
                             <div className="col-md-12 col-xs-12" key={index}>

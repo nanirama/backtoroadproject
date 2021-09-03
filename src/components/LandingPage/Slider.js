@@ -18,7 +18,7 @@ const LandingSlider = ({data}) => {
     arrows: false,
     slidesToShow: 1,
     slidesToScroll: 1,
-    infinite: infiniteValue,
+    infinite: false,
     centerMode: false,
     responsive: [
       {
@@ -72,7 +72,7 @@ const LandingSlider = ({data}) => {
                         <FormsControler/> 
                       </div>                         
                  </div>
-          <Slider {...settings} afterChange={afterChangeHandler}>
+          <Slider {...settings}>
           {data.map((item, index) => {
             if(index<data.length)
             {

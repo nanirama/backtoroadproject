@@ -442,6 +442,7 @@ ul.links li:before {
 	background-color:#fff;
 	border-radius:5px
 }
+.count_blk .icon img{ width:60px; height:60px;}
 .count_blk .icon{ width:60px; height:60px; background-repeat: no-repeat; background-size:100% 100%; margin-top:-30px;}
 .count_blk .icon svg{ line-height:30px !important; margin:14px; font-size:30px; text-align:center;}
 .count_blk h3, .count_blk h4{
@@ -1061,7 +1062,7 @@ left:0;
 bottom:0;
 background-color:#165da6
 }
-nav ul li a.active {
+nav ul li a.active,nav ul li a:hover {
 color:#08275c;
 font-weight:500
 }
@@ -1337,7 +1338,7 @@ transform:matrix(.71, .71, -.71, .71, 0, 0)
 	width:5.65px !important;
 	height:5.65px !important;
 }
-.count_blk .icon{ margin-top: -24px;}
+/* .count_blk .icon{ margin-top: -24px;} */
 .container {
 max-width:100%
 }
@@ -1494,10 +1495,10 @@ margin-bottom:75px
 .count_blk {
 margin-bottom:65px
 }
-.count_blk .icon {
+/* .count_blk .icon {
 width:45px;
 height:45px
-}
+} */
 .count_blk .icon i {
 font-size:20px;
 line-height:45px
@@ -2459,8 +2460,8 @@ select {
 		text-align: center !important;
 	}
 }
-.s_txt h2{text-shadow: 0px 2px 9px rgba(150, 150, 150, 1) !important;}
-.s_txt ul li{text-shadow: 0px 2px 9px rgba(150, 150, 150, 1) !important;}
+/* .s_txt h2{text-shadow: 0px 2px 9px rgba(150, 150, 150, 1) !important;}
+.s_txt ul li{text-shadow: 0px 2px 9px rgba(150, 150, 150, 1) !important;} */
 .mimage{
 	display: flex;
 	justify-content: center;

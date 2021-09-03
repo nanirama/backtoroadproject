@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
-const HowitWorks = () => {
+const HomeHowitworks = () => {
     const { data } = useStaticQuery(
         graphql`
           query {
@@ -24,7 +24,7 @@ const HowitWorks = () => {
         `
       )
     return(
-            <div className="how_work_blk w-100 float-left text-center pb-1" id="howitworks">
+            <div className="how_work_blk w-100 float-left text-center" id="howitworks">
                 <div className="container">
                 <h2 className="tlt text-center text-uppercase">How It Works</h2>
                 <div className="row">
@@ -53,4 +53,4 @@ const HowitWorks = () => {
     )
 }
 
-export default HowitWorks
+export default HomeHowitworks

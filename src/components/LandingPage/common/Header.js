@@ -4,9 +4,12 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { menuData } from "../../../data/MenuData"
 import mpIcon from "../../../assets/images/landing/callbtn.svg"
 
-
-const LandingHeader = ({ logoImg }) => {
-  //const logoImage = logoImg.childImageSharp.fixed.base64
+const LandingHeader = ({ logoImg, pdata = '' }) => {
+  let activeElement = ''
+  if(pdata){
+        activeElement = pdata.location.pathname
+  }
+ console.log('Location Data ', activeElement)
   return(
     <header className="w-100 float-left pt-4 pb-3">
       <div className="container">
@@ -28,7 +31,7 @@ const LandingHeader = ({ logoImg }) => {
                               <nav>
                               <ul>
                                 {menuData.map((item, index) => (
-                                  <li key={index}><Link to={item.link}>{item.title}</Link></li>                   
+                                  <li key={index}><Link to={item.link} className={activeElement===item.link ? "active" : ""}>{item.title}</Link></li>                   
                                 ))}
                               </ul>
                             </nav>

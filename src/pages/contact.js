@@ -3,8 +3,8 @@ import Email from "../components/Email"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Contact = () => (
-  <Layout>
+const Contact = (props) => (
+  <Layout pdata={props}>
     <SEO title="Contact Us" />
     <Email />
   </Layout>

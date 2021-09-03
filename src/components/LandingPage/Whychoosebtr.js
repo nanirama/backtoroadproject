@@ -2,7 +2,7 @@ import React from "react"
 import { StatsData } from "../../data/StatsData"
 const Whychoosebtr = () => {
     return(
-            <div className="why_choose_blk w-100 float-left text-center" id="whychoose">
+            <div className="why_choose_blk w-100 float-left pb-1 text-center" id="whychoose">
                 <div className="container">
                 <h2 className="tlt text-center text-uppercase">Why Choose BTR?</h2>
                 <div className="row d-flex flex-row">

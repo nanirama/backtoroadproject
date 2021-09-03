@@ -48,7 +48,7 @@ const Parts = (props) => {
     const pageMimg = pageBannerM.childImageSharp.fluid.srcWebp
     const siteURL = site.siteMetadata.siteUrl 
     return (
-        <Layout>
+        <Layout pdata={props}>
          <Seo
             title="All Parts | Search For Your Part | BackToRoad Auto Parts"
             description="Search Our Huge Inventory Of Genuine Used Parts For All Makes & Models Available In USA & Canada. Find Your Part Now!"

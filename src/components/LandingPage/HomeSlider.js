@@ -25,7 +25,7 @@ const HomeSlider = ({data}) => {
     dotsClass: "slick-dots slick-thumb",
     slidesToShow: 1,
     slidesToScroll: 1,
-    infinite: infiniteValue,
+    infinite: false,
     centerMode: false,
     responsive: [
       {
@@ -78,7 +78,7 @@ const HomeSlider = ({data}) => {
                         <FormsControler/> 
                       </div>                         
                  </div>
-          <Slider {...settings} afterChange={afterChangeHandler}>
+          <Slider {...settings}>
           {data.edges.map(({node}, index) => {
           if(index<data.edges.length && node.img)
           {

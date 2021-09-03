@@ -17,10 +17,10 @@ const LandingHeader = ({ logoImg, cpath }) => {
       )
   //const logoImage = logoImg.childImageSharp.fixed.base64
   const siteURL = site.siteMetadata.siteUrl 
-  const handleMenuClick =(event) =>{
-    event.preventDefault();
-    this.setState({menuOpen: false});
-  }
+  // const handleMenuClick =(event) =>{
+  //   event.preventDefault();
+  //   this.setState({menuOpen: false});
+  // }
   return(
     <header className="w-100 float-left pt-4 pb-3">
       <div className="container">
