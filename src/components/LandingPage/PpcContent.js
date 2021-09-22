@@ -9,7 +9,7 @@ const PpcContent = (props) => {
                 <div className="container">
                     <div className="row">
                         <div className="col-md-6 col-xs-12 pr-4">
-                            <h2 className="mb-4 pb-2">{title && title}</h2>
+                            <h1 className="mb-4 pb-2 ppc-header text-capitalize">{title && title}</h1>
                             <div dangerouslySetInnerHTML={{ __html: content }} className="w-100 float-left overflow-hidden main-content" ></div>
                         </div>
                         <div className="col-md-6 col-xs-12">

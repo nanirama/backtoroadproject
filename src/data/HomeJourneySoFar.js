@@ -1,7 +1,7 @@
 export const HomeJourneySoFarData = [
   {    
 	newicon : "cog",
-    title: "86754+",
+    title: "86,754+",
     desc: "Parts Sold",
   },
   {

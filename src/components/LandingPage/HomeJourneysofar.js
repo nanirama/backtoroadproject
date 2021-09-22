@@ -4,14 +4,9 @@ import styled from "styled-components"
 import { HomeJourneySoFarData } from "../../data/HomeJourneySoFar"
 import journeyIcon from '../../assets/images/landing/jicon.png'
 
-import IconOne from '../../assets/images/landing/cog-icon.png'
-import IconTwo from '../../assets/images/landing/loc-icon.png'
-import IconThree from '../../assets/images/landing/star-icon.png'
-import IconFour from '../../assets/images/landing/compass-icon.png'
-
 const HomeJourneySoFar = ()=>{
     return (
-        <div style={{ display: "grid" }} className="journey_blk  pt-1 mb-0 pb-0 w-100 float-left text-center">
+        <div style={{ display: "grid" }} className="journey_blk  pt-5 w-100 float-left text-center">
           <StaticImage
             style={{
               gridArea: "1/1",
@@ -67,7 +62,7 @@ const HomeJourneySoFar = ()=>{
       )
 }
 const JourneyIcon = styled.div`
-     
+     background-image: url(${props => props.img});
 `;
 const JourneyDiv = styled.div`
      padding: 1rem !important;

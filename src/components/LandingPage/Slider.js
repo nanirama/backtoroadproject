@@ -4,7 +4,6 @@ import Slider from "react-slick";
 import FormsControler from './FormsControler'
 
 const LandingSlider = ({data}) => {
-  const [infiniteValue, setInfiniteValue] = useState(false);
   const settings = {
     customPaging: function(i) {
       return (
@@ -53,15 +52,6 @@ const LandingSlider = ({data}) => {
     ]
 
   };
-  const afterChangeHandler = (currentSlide)=> {
-    if(data.length==currentSlide+1)
-    {
-      setInfiniteValue(true)
-    }
-    else{
-      setInfiniteValue(false)
-    }
-  }
     return(
         <div className="container-fluid padding-0 overflow-hidden">
           <div className="row position-relative">          

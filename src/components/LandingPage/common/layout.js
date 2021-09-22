@@ -57,7 +57,7 @@ const Layout = ({ children,  pdata='' }) => {
         />
          <div id="inner-wrap">
 	  	  <StateProvider initialState={initialState} reducer={reducer}>        
-            <LandingHeader logoImg = {data.HeaderLogo} pdata={pdata}/>			  
+            <LandingHeader logoImg = {data.HeaderLogo} pdata={pdata}/>		
           { children }
             <LandingFooter
             logoImg = {data.FooterLogo}

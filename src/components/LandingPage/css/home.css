@@ -84,25 +84,6 @@ arts_blk .sub_box_content{ min-height: 300px;}
 @media only screen and (max-width:1200px) {
   .slider_form_desktop{ display: none; width:0px;}
 }
-/* @media only screen and (min-width:1900px) and (max-width:2000px) {
-.main-slider{height: 200vh;}
-}
-@media only screen and (min-width:1800px) and (max-width:1900px) {
-    .main-slider{height: 190vh;}
-}
-@media only screen and (min-width:1700px) and (max-width:1801px) {
-    .main-slider{height: 180vh;}
-}
-@media only screen and (min-width:1600px) and (max-width:1701px) {
-    .main-slider{height: 170vh;}
-}
-@media only screen and (min-width:1500px) and (max-width:1601px) {
-    .main-slider{height: 160vh;}
-}
-@media only screen and (min-width:1400px) and (max-width:1501px) {
-    .main-slider{height: 150vh;}
-} */
-    
 
-    
+
 

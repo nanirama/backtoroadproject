@@ -10,8 +10,13 @@ const ExtraContent = (props) => {
             <div
                 className="parts_blk w-100 float-left position-relative"
             >
-                <div className="container text-center "> <span className="superhead w-100 float-left text-center text-uppercase">Parts</span>
-                {extracontent.summaryAboveTitle && <h1 className="text-center text-uppercase">{extracontent.summaryAboveTitle}</h1>}
+                <div className="container text-center ">
+                    <div className="row text-center d-flex justify-content-center d-flex align-items-center">
+                    <span className="superhead w-100 float-left text-center text-uppercase">Parts</span>
+                    {extracontent.summaryAboveTitle && <h1 className="text-center text-uppercase">{extracontent.summaryAboveTitle}</h1>}
+                    </div>
+                    
+
                 <div className="row text-left">
                     <div className="col-md-6 col-xs-12 pr-4">
                     <h2 className="mb-4 pb-2 sub">{extracontent.summaryTitle}</h2>

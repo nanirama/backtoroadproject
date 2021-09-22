@@ -8,7 +8,7 @@ const LandingBanner = ({bannerImage}) => {
                 <div className="row">
                     <div className="col-lg-9 col-md-8 col-xs-12">
                         <div className="left_text w-100 float-left">
-                            <h2 className="text-white">Looking for Low Mileage Used OEM Parts?</h2>
+                            <h2 className="text-white">Looking for Cost Efficient Used OEM Parts?</h2>
                             <button className="btn1">Find your part now!</button>
                         </div>
                     </div>

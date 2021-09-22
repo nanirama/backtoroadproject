@@ -25,7 +25,7 @@ const Whychoosebtr = () => {
     return(
             <div className="why_choose_blk w-100 float-left text-center">
                 <div className="container">
-                <h2 className="tlt text-center text-uppercase">Why Choose BTR?</h2>
+                <h2 className="tlt text-center text-uppercase">Why Choose BackToRoad?</h2>
                 <div className="row d-flex flex-row">
                 {data.edges.map(({node}, index) => {
                 return (

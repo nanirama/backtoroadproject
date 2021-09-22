@@ -8,8 +8,6 @@ import "aos/dist/aos.css"
 
 
 const HomeSlider = ({data}) => {
-  const [infiniteValue, setInfiniteValue] = useState(false);
-  //const SlidesCount = 
   useEffect(() => {
       Aos.init({});
   }, [])
@@ -60,15 +58,6 @@ const HomeSlider = ({data}) => {
     ]
 
   };
-  const afterChangeHandler = (currentSlide)=> {
-    if(data.edges.length==currentSlide+1)
-    {
-      setInfiniteValue(true)
-    }
-    else{
-      setInfiniteValue(false)
-    }
-  }
     return(
         <div className="container-fluid padding-0 overflow-hidden">
           <div className="row position-relative"> 

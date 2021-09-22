@@ -4,12 +4,14 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { menuData } from "../../../data/MenuData"
 import mpIcon from "../../../assets/images/landing/callbtn.svg"
 
+
 const LandingHeader = ({ logoImg, pdata = '' }) => {
   let activeElement = ''
   if(pdata){
-        activeElement = pdata.location.pathname
+        activeElement = pdata.location.pathname.replace("/", "")
+        activeElement = '/'+activeElement.replace("/", "")
   }
- console.log('Location Data ', activeElement)
+  console.log('Location Data ', activeElement)
   return(
     <header className="w-100 float-left pt-4 pb-3">
       <div className="container">

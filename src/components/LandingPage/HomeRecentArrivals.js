@@ -3,7 +3,6 @@ import { useStaticQuery, graphql } from 'gatsby'
 import Image from './image'
 import Slider from "react-slick";
 const HomeRecentArrivals = () => { 
-  const [infiniteValue, setInfiniteValue] = useState(false);
     const data = useStaticQuery(graphql`
       query HomeRecentArrivalQuery {
         allRecentArrivalsDataJson {
@@ -20,7 +19,7 @@ const HomeRecentArrivals = () => {
             }
         }
       }
-    `)    
+    `) 
     const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
       <button
         {...props}
@@ -46,10 +45,10 @@ const HomeRecentArrivals = () => {
           <path d="M357,214v-64a9,9 0 01 15-5l106,96.5a9.5,9.5 0 01 0,15.5l-106,96.5a9,9 0 01-15-5v-64h-348a9,9 0 01 -9-9v-52.5a9,9 0 01 9-9z" />
         </svg>
       </button>
-    );
+    );   
     const settings = {
       dots: false,
-      autoplay: true,
+      autoplay: false,
       autoplaySpeed: 4000,
       arrows: true,
       infinite: false,
@@ -84,23 +83,13 @@ const HomeRecentArrivals = () => {
         ]
     
       };
-      const afterChangeHandler = (currentSlide)=> {
-        if(data.allRecentArrivalsDataJson.edges.length==currentSlide+1)
-        {
-          setInfiniteValue(true)
-        }
-        else{
-          setInfiniteValue(false)
-        }
-      }
     return(
       <>
-                  <div className="recent_post_blk w-100 float-left" id="bestsellers">
-                  <div className="container pb-5 mb-5"> 
+                  <div className="recent_post_blk w-100 float-left d-flex flex-column justify-content-center" id="bestsellers">
                   <div className="container text-center">                       
                   <h2 property="name" className="tlt text-center text-uppercase">Recent Arrivals</h2>
                   </div>
-                  <div className="container">  
+                  <div className="container pb-5 mb-4">  
                   <Slider {...settings} className="d-flex align-items-stretch">
                   {data.allRecentArrivalsDataJson.edges.map(({node}, index) => {
                       return (
@@ -121,7 +110,6 @@ const HomeRecentArrivals = () => {
                       )
                       })}
                   </Slider>
-                  </div>
                   </div>
               </div>
       </>          

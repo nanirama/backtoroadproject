@@ -14,14 +14,14 @@ export const HowItWorksData = [
 	  newicon: newIcon5,
     iconalt: "Step 1 to order used auto parts",
     title: "STEP 1",
-    desc: "Search for the used part you need by plugging in information about your vehicle and part name.",
+    desc: "Search for the used part you need by plugging in year, make, model & part name.",
   },
   {
     icon: PriceTagIcon,
 	  newicon: newIcon6,
     iconalt: "Step 2 get price for used auto parts",
     title: "STEP 2",
-    desc: "Get the lowest prices from our inventory and from 15k auto recyclers using our Nationwide Parts Locator Tool.",
+    desc: "Get the lowest prices from our inventory and our Free Nationwide Parts Locator Tool (Connected to 15k auto recyclers & salvage yards)",
   },
   {
     icon: CreditCard,

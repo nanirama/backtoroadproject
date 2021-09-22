@@ -4,6 +4,6 @@ export const menuData = [
   { title: "Parts", link: "/parts" },
   { title: "Warranty", link: "/warranty" },
   { title: "Customer Service", link: "/customer" },
-  { title: "Shipping & Handling", link: "/shipping" },
+  { title: "Shipping & Handling", link: "/shipping-handling" },
   { title: "FAQ", link: "/faqs" },
 ]

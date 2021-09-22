@@ -27,35 +27,34 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
         <path d="M357,214v-64a9,9 0 01 15-5l106,96.5a9.5,9.5 0 01 0,15.5l-106,96.5a9,9 0 01-15-5v-64h-348a9,9 0 01 -9-9v-52.5a9,9 0 01 9-9z" />
       </svg>
     </button>
-  );
+  );   
     const settings = {
       dots: false,
-      arrows: true,
-      autoplay: true,
+      autoplay: false,
       autoplaySpeed: 4000,
+      arrows: true,
+      infinite: false,
+      initialSlide: 0,
       slidesToShow: 3,
       slidesToScroll: 3,
-      infinite: false,
       centerMode: false,
+      prevArrow: <SlickArrowLeft />,
+      nextArrow: <SlickArrowRight />,
         responsive: [
           {
             breakpoint: 1025,
             settings: {
-              arrows: false,
               initialSlide: 0,
               slidesToShow: 3,
-              slidesToScroll: 3,
-              dots: true
+              slidesToScroll: 3
             }
           },
           {
             breakpoint: 991,
             settings: {
-              arrows: false,
               initialSlide: 0,
               slidesToShow: 2,
-              slidesToScroll: 2,
-              dots: true
+              slidesToScroll: 2
             }
           },
           {
@@ -63,8 +62,7 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
             settings: {
               initialSlide: 0,
               slidesToShow: 1,
-              slidesToScroll: 1,
-              dots: true
+              slidesToScroll: 1
             }
           },
         ]
@@ -72,9 +70,11 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
       };
     return(
       <>
-                  <div className="recent_post_blk w-100 float-left" id="bestsellers">
-                  <div className="container">                       
+                  <div className="recent_post_blk w-100 float-left d-flex flex-column justify-content-center" id="bestsellers">
+                  <div className="container text-center">                       
                   {blockHeading && <h2 property="name" className="tlt text-center text-uppercase">{blockHeading}</h2>}
+                  </div>
+                  <div className="container pb-5 mb-4"> 
                   <Slider {...settings}>
                   {data.map((item, index) => {
                       return (

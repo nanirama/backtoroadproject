@@ -53,7 +53,7 @@ const About = (props) => {
   const pageMimg = pageBannerM.childImageSharp.fluid.srcWebp
   const siteURL = site.siteMetadata.siteUrl 
   return(
-  <Layout pdata={props}>
+    <Layout pdata={props}>
     <SEO
         title="About Us | BackToRoad Auto Parts"
         description="BackToRoad Auto Parts Is Your One-Stop Shop For High Quality Used OEM Auto Parts. We're a Used Auto Parts Dealer With 17+ Locations Across USA & Canada."
@@ -100,7 +100,7 @@ const About = (props) => {
           </div>
             <p>BackToRoad Auto Parts is your one-stop-shop for high-quality used OEM auto parts and accessories. We sell high-quality and genuine used parts at affordable prices so our customers have a seamless experience when shopping with us. We know that you’ll need to get your car back on the road as quickly as possible so we provide free and fast shipping for our products all over the United States and Canada.</p>
             <p>Our goal is to provide our customers with used OEM auto parts that are reliable and which do not pale in comparison to brand-new auto parts. You can hand over your requirements to us and we will help you locate those hard-to-find parts and ship them directly to your home, business, or your mechanic in no time at all. Our live inventory is updated on a real-time basis, so you can trust that we will be able to provide you with the used part you need when you need it. And if you can’t find the used auto part you need, you can let us know and our parts locator tool will locate it for you from our network of salvage yards and junkyards around the country. </p>
-            <p>BackToRoad Auto Parts guarantees that our used car parts are of ‘A' grade quality, come with a standard 30-day warranty, and are completely affordable. We also provide nationwide shipping and delivery for our auto parts either to you directly or to your mechanic. Our devoted customer service team also ensures that all of our clients receive personalized attention, answering all of your questions and ensuring that your vehicle is up and running in no time.</p>
+            <p>BackToRoad Auto Parts guarantees that our used car parts are of the best quality, come with a standard hassle free warranty, and are completely affordable. We also provide nationwide shipping and delivery for our auto parts either to you directly or to your mechanic. Our devoted customer service team also ensures that all of our clients receive personalized attention, answering all of your questions and ensuring that your vehicle is up and running in no time.</p>
           
             <p>Give us a call today at 1-800-608-3868 to speak to our Auto Parts Specialists and place your order.</p>
             <a href="tel:866-293-3731" className="btn3"><span class="icon">

@@ -56,7 +56,7 @@ const CustomerReviews = () => {
   );
   const settings = {
     dots: false,
-    autoplay: true,
+    autoplay: false,
     autoplaySpeed: 4000,
     arrows: true,
     infinite: false,
@@ -91,13 +91,10 @@ const CustomerReviews = () => {
     ]
 
   };
-  const afterChangeHandler = (currentSlide)=> {
-    //alert(currentSlide)
-  }
   return (
     <>
-                    <div className="tm_blk w-100 float-left text-center mb-5" id="reviews">
-                    <div className="container mb-3 pb-4">
+                    <div className="tm_blk w-100 float-left text-center" id="reviews">
+                    <div className="container">
                       <h2 className="tlt text-center text-uppercase">Customer Reviews</h2>
                         
                         <Slider {...settings}>
