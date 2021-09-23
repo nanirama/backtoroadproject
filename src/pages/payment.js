@@ -223,7 +223,7 @@ const Shipping = (props) => {
                 </div>
                 <div className="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 d-flex flex-column text-center align-items-center">
                   <button className="btn2 border-0 float-none my-3 text-center w-100">Place Order</button>
-                  <span>By placing this order you agree to <a onClick={() => setModalShow1(true)}>Terms and Conditions</a> and <a onClick={() => setModalShow2(true)}>Privacy Policy.</a></span> </div>
+                  <span>By placing this order you agree to <a onClick={() => setModalShow1(true)} className="popup_link">Terms and Conditions</a> and <a onClick={() => setModalShow2(true)} className="popup_link">Privacy Policy.</a></span> </div>
               </div>
             </div>
           </div>
