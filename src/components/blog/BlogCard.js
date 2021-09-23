@@ -16,7 +16,11 @@ const BlogCard = ({ data }) => {
     const siteURL = site.siteMetadata.siteUrl 
     return (
       <article className="blog">
-        <Link to={`${siteURL}/${data.slug}`}><Image img={data.featuredImage.node.localFile} itemProp="image"/></Link>
+        <Link to={`${siteURL}/${data.slug}`}>
+          <Image img={data.featuredImage.node.localFile} itemProp="image"
+         imgalt={data.featuredImage.node.altText || data.title} alt={data.featuredImage.node.altText || 'Blog Image'}
+         />
+         </Link>
         <div className="post_info">
             <div className="d-flex justify-content-between mb-2">
               <small className="align-self-start text-capitalize"><svg class="icon icon-person" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">

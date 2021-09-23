@@ -27,6 +27,7 @@ query($id : String){
           phoneNumberText
           phoneNumber
           pbImage1 {
+            altText
             localFile {
               childImageSharp {
                 gatsbyImageData(width: 300)
@@ -34,6 +35,7 @@ query($id : String){
             }
           }
           pbImage2 {
+            altText
             localFile {
               childImageSharp {
                 gatsbyImageData(width: 300)
@@ -41,6 +43,7 @@ query($id : String){
             }
           }
           pbImage3 {
+            altText
             localFile {
               childImageSharp {
                 gatsbyImageData(width: 300)
@@ -48,6 +51,7 @@ query($id : String){
             }
           }
           pbImage4 {
+            altText
             localFile {
               childImageSharp {
                 gatsbyImageData(width: 300)
@@ -64,6 +68,7 @@ query($id : String){
               }
               featuredImage {
                 node {
+                  altText
                   localFile {
                     childImageSharp {
                       gatsbyImageData(width: 600, quality: 100, height: 600)
@@ -89,6 +94,7 @@ query($id : String){
               content
               featuredImage {
                 node {
+                  altText
                   localFile {
                     childImageSharp {
                       gatsbyImageData(height: 1100, width: 2000)
@@ -101,6 +107,7 @@ query($id : String){
           summeryTitle
           summeryContent
           summaryImage {
+            altText
             localFile {
               childImageSharp {
                 gatsbyImageData(width: 500)

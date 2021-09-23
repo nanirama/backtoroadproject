@@ -14,7 +14,7 @@ const PpcContent = (props) => {
                         </div>
                         <div className="col-md-6 col-xs-12">
                             <div className="w-100 float-left">
-                                {image && <Image img={image.localFile} imgalt="Summary"/>}  
+                                {image && <Image img={image.localFile} imgalt={image.altText || title}/>}  
                             </div>
                         </div>
                     </div>

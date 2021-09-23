@@ -95,7 +95,9 @@ const Blog = (props) => {
                 <div className="row d-flex justify-content-center">
                   <div className="col-md-12 col-xs-12 d-flex justify-content-start flex-column">
                   <article className="blog">
-                    <Image img={postDetails.featuredImage.node.localFile} itemProp="image"/>
+                    <Image img={postDetails.featuredImage.node.localFile}
+                     imgalt={postDetails.featuredImage.node.altText || postDetails.title} alt={postDetails.featuredImage.node.altText || postDetails.title}
+                     itemProp="image"/>
                     <div className="post_info d-flex justify-content-start flex-column">
                       <h1 className="w-100 py-2">{postDetails.title}</h1>
                       <div className="d-flex justify-content-between mb-2">
@@ -169,6 +171,7 @@ export const query = graphql`
           date(formatString: "MMMM DD, YYYY")
           featuredImage {
             node {
+              altText
               localFile {
                 childImageSharp {
                   gatsbyImageData(height: 300, width: 400)
@@ -211,6 +214,7 @@ export const query = graphql`
       date(formatString: "YYYY-MM-DD")
       featuredImage {
         node {
+          altText
           localFile {
             publicURL
             childImageSharp {

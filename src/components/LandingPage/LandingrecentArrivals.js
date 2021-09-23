@@ -86,7 +86,7 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
                         >
                               <div className="post_box w-100 float-left">
                               <div className="post_img w-100 float-left mb-4">
-                                <Image img={item.featuredImage.node.localFile} alt={item.title}/>
+                                <Image img={item.featuredImage.node.localFile} alt={item.featuredImage.node.altText || item.title}/>
                               </div>
                               <div className="recent-title-content">
                                 <h3>{item.title}</h3>

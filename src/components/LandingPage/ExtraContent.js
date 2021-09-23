@@ -26,7 +26,7 @@ const ExtraContent = (props) => {
                     </div>
                     <div className="col-md-6 col-xs-auto">
                     <div className="w-100 mimage">
-                        {extracontent.summaryImage && <Image img={extracontent.summaryImage.localFile} imgalt="Summary"/>}  
+                        {extracontent.summaryImage && <Image img={extracontent.summaryImage.localFile} imgalt={extracontent.summaryImage.altText || 'Summary'}/>}  
                     </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@ const ExtraContent = (props) => {
                 <div className="row">
                     <div className="col-md-6 col-xs-12 show">
                     <div className="w-100 float-left mt-2">
-                        {extracontent.aboutImage && <Image img={extracontent.aboutImage.localFile} imgalt="About Part"/>} 
+                        {extracontent.aboutImage && <Image img={extracontent.aboutImage.localFile} imgalt={extracontent.aboutImage.altText || 'About Image Alt Tag'}/>} 
                     </div>
                     </div>
                     <div className="col-md-6 col-xs-12" >
@@ -46,7 +46,7 @@ const ExtraContent = (props) => {
                     </div>
                     <div className="col-md-6 col-xs-auto hide">
                     <div className="w-auto  mimage">
-                    {extracontent.aboutImage && <Image img={extracontent.aboutImage.localFile} imgalt="About Part"/>} 
+                    {extracontent.aboutImage && <Image img={extracontent.aboutImage.localFile} imgalt={extracontent.aboutImage.altText || 'About Image Alt Tag'}/>} 
                     </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@ const ExtraContent = (props) => {
                         </div>
                         <div className="col-md-6 col-xs-auto">
                         <div className="w-100 mimage">
-                            {extracontent.benefitsImage && <Image img={extracontent.benefitsImage.localFile} imgalt="Benefits"/>}                            
+                            {extracontent.benefitsImage && <Image img={extracontent.benefitsImage.localFile} imgalt={extracontent.benefitsImage.altText || 'Benefits Image alt tag'}/>}                            
                         </div>
                         </div>
                     </div>
@@ -80,7 +80,7 @@ const ExtraContent = (props) => {
                     {extracontent.whyBackroadTopContent && <div dangerouslySetInnerHTML={{ __html: extracontent.whyBackroadTopContent }} className="w-100 float-left overflow-hidden" ></div>}                 
                     
                     <div className="w-100 mb-4 col-xs-auto mb-2 mimage">
-                        {extracontent.wnyBackroadImage && <Image img={extracontent.wnyBackroadImage.localFile} imgalt="Why Backtoroads"/>}                    
+                        {extracontent.wnyBackroadImage && <Image img={extracontent.wnyBackroadImage.localFile} imgalt={extracontent.altText || 'Why Backtoroads Alt tag'}/>}                    
                     </div>
                     {extracontent.whyBackroadBottomContent && <div dangerouslySetInnerHTML={{ __html: extracontent.whyBackroadBottomContent }} className="w-100 float-left overflow-hidden" ></div>}                    
                 </div>

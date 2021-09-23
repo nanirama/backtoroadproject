@@ -3,6 +3,7 @@ import { graphql} from "gatsby"
 import LandingTemplate from '../components/LandingPage/LandingTemplate'
 
 const MakePartTemplate = (props) => {
+  console.log('My Props', props.data.PageData.id)
   const { siteUrl } = props.data.site.siteMetadata;
     const bcrumb = [
       {'name':'Home', 'link':siteUrl},
@@ -67,6 +68,7 @@ query($id : String){
     aboutContent
     aboutTitle
     aboutImage {
+        altText
         localFile {
         childImageSharp {
             gatsbyImageData(
@@ -79,6 +81,7 @@ query($id : String){
     summaryTitle
     summaryContent
     summaryImage {
+      altText
       localFile {
       childImageSharp {
           gatsbyImageData(
@@ -92,6 +95,7 @@ query($id : String){
     benefitsBottomContent
     benefitsTitle
     benefitsImage{
+        altText
         localFile {
             childImageSharp {
                 gatsbyImageData(
@@ -104,6 +108,7 @@ query($id : String){
     whyBackroadTopContent
     whyBackroadBottomContent
     wnyBackroadImage{
+        altText
         localFile {
             childImageSharp {
               gatsbyImageData(quality: 100, layout: CONSTRAINED)
@@ -120,6 +125,7 @@ query($id : String){
           }
           featuredImage {
             node {
+              altText
               localFile {
                 childImageSharp {
                   gatsbyImageData(width: 600, quality: 100, height: 600)
@@ -145,6 +151,7 @@ query($id : String){
           content
           featuredImage {
               node {
+              altText
               localFile {
                   childImageSharp {
                     gatsbyImageData(height: 1100, width: 2000)

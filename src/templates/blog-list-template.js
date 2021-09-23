@@ -61,8 +61,9 @@ query getAllPosts($skip: Int!, $limit: Int!) {
               }
             }
             date(formatString: "MMMM DD, YYYY")
-            featuredImage {
+            featuredImage {              
               node {
+                altText
                 localFile {
                   childImageSharp {
                     gatsbyImageData(height: 400, width: 500)

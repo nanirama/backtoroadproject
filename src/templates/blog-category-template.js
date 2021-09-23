@@ -58,6 +58,7 @@ query getAllCatPosts($skip: Int!, $limit: Int!, $id: String) {
             date(formatString: "MMMM DD, YYYY")
             featuredImage {
               node {
+                altText
                 localFile {
                   childImageSharp {
                     gatsbyImageData(height: 400, width: 500)

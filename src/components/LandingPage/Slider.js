@@ -80,7 +80,7 @@ const LandingSlider = ({data}) => {
                         </div>
                       </div>
                     </div>                  
-                     <Image img={item.featuredImage.node.localFile} imgalt={item.title} alt={item.title} className="slider-img"/>
+                     <Image img={item.featuredImage.node.localFile} imgalt={item.featuredImage.node.altText || item.title} alt={item.featuredImage.node.altText || item.title} className="slider-img"/>
                 </div> 
               )
             }          
