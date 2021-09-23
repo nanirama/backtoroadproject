@@ -52,12 +52,6 @@ const Faqs = (props) => {
     const siteURL = site.siteMetadata.siteUrl 
     return (
       <Layout pdata={props}>
-            {/* <Helmet      
-                htmlAttributes={{
-                    itemscope:'',
-                    itemtype:'https://schema.org/FAQPage'
-                }}
-                ></Helmet> */}
          <Seo
             title="FAQ | BackToRoad Auto Parts"
             description="Common Questions Our Customers Has Asked Over The Years. Check To See If Your Query Is Listed."
@@ -70,8 +64,6 @@ const Faqs = (props) => {
             </PageBannerDiv> 
 
            <Faqblock/>
-
-           {/* {faqs && <LandingFaqs data={faqs} title={morecontent.faqTitle} subtitle={morecontent.faqSubTitle}/>} */}
 
 
      <LandingBanner bannerImage={BannerImage}/> 

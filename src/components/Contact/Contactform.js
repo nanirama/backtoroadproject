@@ -8,12 +8,12 @@ const Contactform = () => {
 <div className="col-md-6 col-xs-12">
         <div className="form-blk w-100 float-left">
            <h3 className="mb-4">Send us a Message</h3>
-                <input type="text" name="name" placeholder="Name"/>
-                <input type="text" name="email" placeholder="Email"/>
-                <input type="text" name="phone" placeholder="Phone"/>
-                <textarea>Message</textarea>
+                <input type="text" name="name" placeholder="Name" className="form-control border-0 mb-2 py-4 px-3"/>
+                <input type="text" name="email" placeholder="Email"className="form-control border-0 mb-2 py-4 px-3"/>
+                <input type="text" name="phone" placeholder="Phone"className="form-control border-0 mb-2 py-4 px-3"/>
+                <textarea className="form-control border-0 mb-2">Message</textarea>
                 <div className="w-100 d-inline-block text-center">
-            <button className="btn2 border-0">Submit</button>
+            <button className="btn2 border-0 float-none">Submit</button>
             </div>
         </div>
     </div>

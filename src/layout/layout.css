@@ -2573,3 +2573,57 @@ h1.title{ color:#226e93;}
 p span{ font-weight: 600;}
 p.text-blue{ color: #0000ff; font-weight: 600; font-size: 18px;}
 .btn-outer .btn2{ border-radius: 0; padding: 0 30px; background-color: #1e6c93; line-height: 40px !important;} 
+
+.payment{background-color:#f2f2f2; border: 1px solid #e1e1e1;}
+	.payment-form{ padding: 10px;}
+	
+	.payment-form select{border: 1px solid #ced4da !important; padding: 10px .75rem; height: 50px;}
+	
+	.payment-form .btn2{ border-radius: 32px; padding: 0 30px;}
+	.payment-form span{ font-size: 14px;}
+	
+	/* .ph-blk{background-color:#f2f2f2; border: 1px solid #e1e1e1;} */
+	.ph-blk h5{ font-weight: 600;}
+	.ph-blk svg{ width: 30px; height: 30px; margin-right: 6px;}
+	
+	
+	
+	@media only screen and (min-width:1700px) {
+	.payment{background: rgb(255,255,255);
+	background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 58%, rgba(244,244,244,1) 42%);}
+	} 
+	@media only screen and (min-width:2000px) {
+	.payment{background: rgb(255,255,255);
+	 background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 57%, rgba(244,244,244,1) 43%);}
+	 } 
+	@media only screen and (min-width:2500px) {
+	.payment{background: rgb(255,255,255);
+	background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 56%, rgba(244,244,244,1) 44%);}
+	}    
+	@media only screen and (min-width:3000px) {
+	.payment{background: rgb(255,255,255);
+	background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 54%, rgba(244,244,244,1) 46%);}
+	} 
+	
+	@media only screen and (min-width:1400px) and (max-width:1600px){
+	 .payment{background: rgb(255,255,255);
+	background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 60%, rgba(244,244,244,1) 40%);}
+	}
+	
+	
+	
+	@media only screen and (min-width:992px) and (max-width:1200px){
+	.payment-form{ padding-right:60px;} 
+	.payment{background: rgb(255,255,255);
+	background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 63%, rgba(244,244,244,1) 47%);}
+	}
+	
+	@media only screen and (max-width:991px) {
+	.payment-form{ padding-right:0px; margin-bottom: 30px;}
+	.payment{background: rgb(255,255,255);}
+	}
+	@media only screen and (max-width:599px) {
+		.ph-blk{ padding: 20px; }
+	}
+.checkbox-payment{ width:25px !important; height:25px !important;}
+	
