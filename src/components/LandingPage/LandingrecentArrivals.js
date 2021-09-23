@@ -1,7 +1,9 @@
 import React, {useState} from "react"
 import Image from './image'
 import Slider from "react-slick";
+import FormModalBox from '../../components/LandingPage/Forms/FormModalBox'
 const LandingRecentArrivals = ({data, blockHeading}) => { 
+  const [modalShow, setModalShow] = useState(false);
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <button
       {...props}
@@ -91,12 +93,18 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
                                 <h4>{item.itemprice.itemPrice}</h4>
                                 {item.desc && <p>{item.desc}</p>}
                               </div>
-                              <button className="btn1" aria-label={item.title}>Shop Now</button> </div>                        
+                              <button className="btn1"
+                              onClick={() => setModalShow(true)}>Shop Now</button>
+                              </div>                        
                           </div>
                       )
                       })}
                   </Slider>
                   </div>
+                  <FormModalBox
+                      show={modalShow}
+                      onHide={() => setModalShow(false)}
+                  />   
               </div>
       </>          
     )

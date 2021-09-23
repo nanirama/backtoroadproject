@@ -1,9 +1,11 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import Image from './image'
 import buttonBg from '../../assets/images/landing/arrow.png'
+import FormModalBox from '../../components/LandingPage/Forms/FormModalBox'
 
 const ExtraContent = (props) => {
+    const [modalShow, setModalShow] = useState(false);
     const { extracontent } = props
     return(
      <>
@@ -67,7 +69,9 @@ const ExtraContent = (props) => {
                     </div>
                     {extracontent.benefitsBottomContent && <div dangerouslySetInnerHTML={{ __html: extracontent.benefitsBottomContent }} className="w-100 float-left overflow-hidden" ></div>}
                     
-                    <Button className="btn1" img={buttonBg} aria-label="Find My Part Now">Find My Part Now</Button>
+                    <Button className="btn1" img={buttonBg} aria-label="Find My Part Now"
+                    onClick={() => setModalShow(true)}
+                    >Find My Part Now</Button>
                 </div>
             </div>
             <div className="backroad_blk w-100 float-left">
@@ -81,6 +85,10 @@ const ExtraContent = (props) => {
                     {extracontent.whyBackroadBottomContent && <div dangerouslySetInnerHTML={{ __html: extracontent.whyBackroadBottomContent }} className="w-100 float-left overflow-hidden" ></div>}                    
                 </div>
             </div>
+            <FormModalBox
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />  
             </>
     )
 }

@@ -2,7 +2,9 @@ import React, {useState} from "react"
 import { useStaticQuery, graphql } from 'gatsby'
 import Image from './image'
 import Slider from "react-slick";
+import FormModalBox from '../../components/LandingPage/Forms/FormModalBox'
 const HomeRecentArrivals = () => { 
+    const [modalShow, setModalShow] = useState(false);
     const data = useStaticQuery(graphql`
       query HomeRecentArrivalQuery {
         allRecentArrivalsDataJson {
@@ -105,13 +107,19 @@ const HomeRecentArrivals = () => {
                                 <h3>{node.title}</h3>
                                 <h4>{node.priceFrom}</h4>
                               </div>
-                              <button className="btn1 mt-4">Shop Now</button> </div>                        
+                              <button className="btn1 mt-4"
+                              onClick={() => setModalShow(true)}
+                              >Shop Now</button> </div>                        
                           </div>
                       )
                       })}
                   </Slider>
                   </div>
               </div>
+              <FormModalBox
+                  show={modalShow}
+                  onHide={() => setModalShow(false)}
+              />  
       </>          
     )
 }

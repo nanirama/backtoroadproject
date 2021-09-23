@@ -163,7 +163,7 @@ const InputWrap = styled.div`
   input,textarea{    
     outline: none;
     width: 100%;
-    height: 36px;
+    height: 20px;
     border-radius:3px;
     border:1px solid #CCCCCC;
   }

@@ -125,7 +125,7 @@ const InputWrap = styled.div`
     padding: 1.5rem 0.5rem;
     outline: none;
     width: 100%;
-    height: 36px;
+    height: 20px;
     border-radius:3px;
     border:1px solid #CCCCCC;
   }

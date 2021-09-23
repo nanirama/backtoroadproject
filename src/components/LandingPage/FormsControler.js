@@ -30,7 +30,7 @@ const FormsControler = ()=>{
 
     return(
         <React.Fragment>
-            <div className="row d-flex justify-content-between" id="findmypart">
+            <div className="row d-flex justify-content-between popup-top" id="findmypart">
                   <div className="col-sm-6"><h3 className="mb-0 text-uppercase">Find Part Form</h3></div>
                   <div className="col-sm-6 d-flex justify-content-between align-items-center numcontroller">
                         <span className={`num ${firstStep ? "active" : ""}`}>1</span>
