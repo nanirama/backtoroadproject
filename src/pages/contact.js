@@ -1,5 +1,6 @@
 import React from 'react'
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import { Helmet } from "react-helmet"
 import styled from "styled-components"
 import Layout from '../components/LandingPage/common/layout'
 import Seo from "../components/seo"
@@ -69,6 +70,12 @@ const Faqs = (props) => {
     const pageMimg = pageBannerM.childImageSharp.fluid.srcWebp
     return (
       <Layout pdata={props}>
+        <Helmet      
+          htmlAttributes={{
+              itemscope:'',
+              itemtype:'https://schema.org/FAQPage'
+          }}
+          ></Helmet>
          <Seo
             title="Contact Us | BackToRoad Auto Parts"
             description="Contact BackToRoad Auto Parts For All Enquiries Regarding Used Auto Parts Or Your Order"
@@ -78,6 +85,30 @@ const Faqs = (props) => {
         <PageBannerDiv className="w-100 float-left text-center page-header" img={pageBimg} mimg={pageMimg}>
             <div className="container">
                 <h1 className="page-title text-uppercase text-white">Contact Us</h1>
+                <div className="breadcrumb w-100 float-left border-0 p-0">
+                  <ol className="d-flex" itemscope itemScope itemtype="https://schema.org/BreadcrumbList">
+                      <li
+                          itemprop="itemListElement"                
+                          itemScope
+                          itemtype="https://schema.org/ListItem"
+                      >
+                      <Link
+                                  itemprop="item" 
+                                  to={siteURL}                                               
+                              ><span itemprop="name">Home</span></Link>
+                              <meta itemprop="position" content={1} />
+                      </li>
+                      <li className="text-uppercase"
+                          itemprop="itemListElement"
+                          itemscope
+                          itemScope
+                          itemtype="https://schema.org/ListItem"
+                      >
+                      <span itemprop="name">Contact Us</span>
+                      <meta itemprop="position" content={2} />                        
+                      </li>
+                  </ol>
+                </div>
             </div>
             </PageBannerDiv> 
       <Contactform/>

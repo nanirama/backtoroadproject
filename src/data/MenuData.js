@@ -3,7 +3,7 @@ export const menuData = [
   { title: "About", link: "/about" },
   { title: "Parts", link: "/parts" },
   { title: "Warranty", link: "/warranty" },
-  { title: "Customer Service", link: "/customer" },
+  { title: "Contact Us", link: "/contact" },
   { title: "Shipping & Handling", link: "/shipping-handling" },
   { title: "FAQ", link: "/faqs" },
 ]

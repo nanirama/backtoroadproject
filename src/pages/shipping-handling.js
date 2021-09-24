@@ -54,6 +54,30 @@ const Shipping = (props) => {
         <PageBannerDiv className="w-100 float-left text-center page-header" img={pageBimg} mimg={pageMimg}>
             <div className="container">
                 <h1 className="page-title text-uppercase text-white">Shipping & Handling</h1>
+                <div className="breadcrumb w-100 float-left border-0 p-0">
+                  <ol className="d-flex" itemscope itemScope itemtype="https://schema.org/BreadcrumbList">
+                      <li
+                          itemprop="itemListElement"                
+                          itemScope
+                          itemtype="https://schema.org/ListItem"
+                      >
+                      <Link
+                                  itemprop="item" 
+                                  to={siteURL}                                               
+                              ><span itemprop="name">Home</span></Link>
+                              <meta itemprop="position" content={1} />
+                      </li>
+                      <li className="text-uppercase"
+                          itemprop="itemListElement"
+                          itemscope
+                          itemScope
+                          itemtype="https://schema.org/ListItem"
+                      >
+                      <span itemprop="name">Shipping & Handling</span>
+                      <meta itemprop="position" content={2} />                        
+                      </li>
+                  </ol>
+                </div>
             </div>
             </PageBannerDiv> 
 <div className="top_content w-100 float-left">

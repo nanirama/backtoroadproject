@@ -2572,7 +2572,7 @@ textarea{width:100%; padding: 1rem 1.5rem; border-radius:32px;border: none; heig
 h1.title{ color:#226e93;}
 p span{ font-weight: 600;}
 p.text-blue{ color: #0000ff; font-weight: 600; font-size: 18px;}
-.btn-outer .btn2{ border-radius: 0; padding: 0 30px; background-color: #1e6c93; line-height: 40px !important;} 
+.btn-outer .btn2{ text-transform: capitalize; border-radius: 0; padding: 0 50px; background-color: #1e6c93; line-height: 34px !important;} 
 
 .payment{background-color:#f2f2f2; border: 1px solid #e1e1e1;}
 	.payment-form{ padding: 10px;}
@@ -2627,3 +2627,4 @@ p.text-blue{ color: #0000ff; font-weight: 600; font-size: 18px;}
 	}
 .checkbox-payment{ width:25px !important; height:25px !important;}
 .popup_link{color:#08275c; text-decoration: underline;}
+.thankyou-title{ color:#226e93; text-transform: capitalize; font-size: 45pt; line-height: 1.1;}

@@ -10,7 +10,7 @@ const Thankyou = () => {
 <Layout>
    <div className="w-100 float-left py-md-5 py-4">
       <div className="container">
-         <h1 className="text-center title">Thank You For Your Submission</h1>
+         <h1 className="text-center thankyou-title">Thank You For Your<br/>Submission</h1>
       </div>
    </div>
    <div className="w-100 float-left justify-content-center d-flex align-items-center text-center py-5">
@@ -33,7 +33,7 @@ const Thankyou = () => {
       <div className="container">
          <p>You will receive an email from us containing the parts quote information you requested. Please check your junk/spam folders for all correspondence including quotes from us. In the mean time if you have any questions or require additional information, please don't hesitate to contact us directly.  </p>
          <div className="btn-outer w-100 d-inline-block">
-            <button className="btn2 border-0 mr-4 float-none">Homepage</button>
+            <button className="btn2 border-0 mr-4 float-none">Home Page</button>
             <button className="btn2 border-0 float-none">Contact Us</button>
          </div>
       </div>
