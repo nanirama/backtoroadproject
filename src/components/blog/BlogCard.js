@@ -17,9 +17,9 @@ const BlogCard = ({ data }) => {
     return (
       <article className="blog">
         <Link to={`${siteURL}/${data.slug}`}>
-          <Image img={data.featuredImage.node.localFile} itemProp="image"
+          {data.featuredImage.node.localFile && <Image img={data.featuredImage.node.localFile} itemProp="image"
          imgalt={data.featuredImage.node.altText || data.title} alt={data.featuredImage.node.altText || 'Blog Image'}
-         />
+         />}
          </Link>
         <div className="post_info">
             <div className="d-flex justify-content-between mb-2">
