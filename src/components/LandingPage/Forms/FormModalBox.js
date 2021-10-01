@@ -103,7 +103,6 @@ function FormModelBox(props) {
             font-size:22px;
             font-weight:600;
             line-height:56px;
-            border:2px solid blue;
         }
     }
     & > .popup-top .numcontroller {

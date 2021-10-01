@@ -295,16 +295,16 @@ const Shipping = (props) => {
             </div>
             <div className="container d-flex my-3 payment-images">
               <div className="row d-flex justify-content-between align-items-center">
-                  <div className="col-sm-6 d-flex justify-content-center align-items-center">
+                  <div className="col-sm-6 d-flex justify-content-center align-items-center mb-2">
                   <Image img={pLogo1}/>
                   </div>
-                  <div className="col-sm-6 d-flex justify-content-center align-items-center">
+                  <div className="col-sm-6 d-flex justify-content-center align-items-center mb-2">
                   <Image img={pLogo2}/>
                   </div>
-                  <div className="col-sm-6 d-flex justify-content-center align-items-center">
+                  <div className="col-sm-6 d-flex justify-content-center align-items-center mb-2">
                   <Image img={pLogo3}/>
                   </div>
-                  <div className="col-sm-6 d-flex justify-content-center align-items-center">
+                  <div className="col-sm-6 d-flex justify-content-center align-items-center mb-2">
                   <Image img={pLogo4}/>
                   </div>
               </div>
