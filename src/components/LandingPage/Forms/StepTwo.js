@@ -6,6 +6,7 @@ import axios from '../../../axios'
 import { useStateValue } from '../../../StateProvider'
 
 const StepTwo = () => {
+
     useEffect(() => {
         dispatch({
             type: 'ADD_STEP_ONE',
@@ -14,9 +15,11 @@ const StepTwo = () => {
         fetchTrims();
     }, [])
 
+
     const [{ year, make, model, part }, dispatch] = useStateValue()
     const [trims, setTrims] = useState();
-    const [dummy, setDummy] = useState();
+    const [vin, setVin] = useState();
+    
     const colourStyles = {
         control: styles => ({ ...styles, backgroundColor: 'white', color: '#000000', width: '100%', borderRadius: '2px', alignItems: 'left', }),
         option: (styles, { data, isDisabled, isFocused, isSelected }) => {
@@ -70,6 +73,41 @@ const StepTwo = () => {
         });
     }
 
+    const ddlEngineChange = (e) => {
+        console.log('E - Engine', e.label)
+        dispatch({
+            type: 'ADD_ENGINE',
+            item: e.label,
+        });
+    }
+
+    const ddlVinChange = (e) => {
+        console.log('E - vin', e.target.value)
+
+        dispatch({
+            type: 'ADD_VIN',
+            item: e.target.value,
+        });
+    }
+
+    const ddlTransmissionChange = (e) => {
+        console.log('E - Trans', e.label)
+        dispatch({
+            type: 'ADD_TRANS',
+            item: e.label,
+        });
+    }
+
+    const ddlTrimChange = (e) => {
+        console.log('E - Trim', e.label)
+
+        dispatch({
+            type: 'ADD_TRIM',
+            item: e.label,
+        });
+        clickFunction(e);
+    }
+
     return (
         <InputWrapper>
         <TitleDiv>
@@ -77,14 +115,14 @@ const StepTwo = () => {
         </TitleDiv>
             <InputWrap>
                 <label htmlFor="engine">ENGINE *
-                <Select aria-label="engine" aria-labelledby="engine" options={optionsEngine} onChange={(e) => clickFunction(e)} styles={colourStyles} />
+                <Select aria-label="engine" aria-labelledby="engine" options={optionsEngine} onChange={(e) => ddlEngineChange(e)} styles={colourStyles} />
                 </label>
             </InputWrap>
             <InputWrap>
                 <label htmlFor="vin">VIN (OPTIONAL) *
                 <input
                      aria-labelledby="vin number"
-                    type="text" placeholder='VIN Number' id="vin-number" className="custominput" />
+                        type="text" placeholder='VIN Number' id="vin-number" className="custominput" value={vin} onChange={(e) => ddlVinChange(e)}/>
                 </label>
             </InputWrap>
             <InputWrap>
@@ -92,7 +130,7 @@ const StepTwo = () => {
                 <Select
                     aria-label="transmission"
                     aria-labelledby="transmission"
-                options={optionsTransmission} onChange={(e) => clickFunction(e)} styles={colourStyles} />
+                        options={optionsTransmission} onChange={(e) => clickFunction(e)} styles={colourStyles} onChange={(e) => ddlTransmissionChange(e)}/>
                 </label>
             </InputWrap>
             <InputWrap>
@@ -100,7 +138,7 @@ const StepTwo = () => {
                 <Select
                  aria-label="trim"
                  aria-labelledby="trim"
-                 options={trims} onChange={(e) => clickFunction(e)} styles={colourStyles} />
+                        options={trims} onChange={(e) => clickFunction(e)} styles={colourStyles} onChange={(e) => ddlTrimChange(e)}/>
                 </label>
             </InputWrap>
         </InputWrapper>

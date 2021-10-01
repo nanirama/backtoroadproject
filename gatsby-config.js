@@ -53,8 +53,28 @@ module.exports = {
     resolve: `gatsby-source-wordpress`,
       options: {
         url: `http://stockeye.in/graphql`,
+        production: {
+          hardCacheMediaFiles: true,
+          allow404Images: true,
+          hardCacheData: false,
+        },
+        develop: {
+          hardCacheMediaFiles: true,
+          allow404Images: true,
+          hardCacheData: false,
+        },
         schema: {
-          requestConcurrency: 5,
+          requestConcurrency: 1,
+        },
+        debug: {
+          timeBuildSteps: true,
+        },
+        type: {
+          MediaItem: {
+            localFile: {
+              requestConcurrency: 1,
+            },
+          },
         },
       }
     },

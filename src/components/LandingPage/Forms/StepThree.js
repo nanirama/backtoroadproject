@@ -89,12 +89,62 @@ const StepThree = () => {
     ]
 
     const clickFunction = (e) => {
-        console.log('E', e.value)
+        console.log('E - landing page form', e.value)
         console.log('ENABLE GET QUOTE');
         dispatch({
             type: 'ADD_STEP_THREE',
             item: e.value,
         });
+    }
+
+    const ddlNameChange = (e) => {
+        console.log('E - Name', e.target.value)
+        dispatch({
+            type: 'ADD_NAME',
+            item: e.target.value,
+        });
+    }
+
+    const ddlEmailChange = (e) => {
+        console.log('E Email', e.target.value)
+        dispatch({
+            type: 'ADD_EMAIL',
+            item: e.target.value,
+        });
+    }
+
+    const ddlStateChange = (e) => {
+        console.log('E - State', e.label)
+        dispatch({
+            type: 'ADD_STATE',
+            item: e.label,
+        });
+        clickFunction(e);
+    }
+
+    const ddlPhoneChange = (e) => {
+        console.log('E - Phone', e.target.value)
+        dispatch({
+            type: 'ADD_PHONE',
+            item: e.target.value,
+        });
+    }
+
+    const ddlZipChange = (e) => {
+        console.log('E - Zip', e.target.value)
+        dispatch({
+            type: 'ADD_ZIP',
+            item: e.target.value,
+        });
+    }
+
+    const ddlTxtChange = (e) => {
+        console.log('E - Notes', e.target.value)
+        dispatch({
+            type: 'ADD_NOTES',
+            item: e.target.value,
+        });
+
     }
 
     return (
@@ -104,31 +154,31 @@ const StepThree = () => {
             </TitleDiv>
             <InputWrap>
                 <label htmlFor="name">NAME *
-                <input className="custominput" aria-labelledby="name" type="text" placeholder='Name' id="name" />
+                    <input className="custominput" aria-labelledby="name" type="text" placeholder='Name' id="name" onChange={(e) => ddlNameChange(e)}/>
                 </label>
             </InputWrap>
             <InputWrap>
                 <label htmlFor="email">EMAIL (FOR QUOTE ONLY) *
-                <input className="custominput" aria-labelledby="email" type="email" placeholder='Email' id="email" />
+                    <input className="custominput" aria-labelledby="email" type="email" placeholder='Email' id="email" onChange={(e) => ddlEmailChange(e)}/>
                 </label>
             </InputWrap>
             <InputWrap>
                 <label htmlFor="state">STATE *
-                <Select aria-label="state" aria-labelledby="state" options={optionsStates} onChange={(e) => clickFunction(e)} styles={colourStyles} />
+                <Select aria-label="state" aria-labelledby="state" options={optionsStates} onChange={(e) => ddlStateChange(e)} styles={colourStyles} />
                 </label>
             </InputWrap>
             <div className="row">
                 <div className="col-md-6 col-xs-6">
                 <InputWrap>
                     <label htmlFor="phone">PHONE (FOR QUOTE ONLY)*
-                    <input className="custominput" aria-labelledby="phone" type="text" placeholder='Phone' id="phone" />
+                            <input className="custominput" aria-labelledby="phone" type="text" placeholder='Phone' id="phone" onChange={(e) => ddlPhoneChange(e)}/>
                     </label>
                 </InputWrap>
                 </div>
                 <div className="col-md-6 col-xs-6">
                 <InputWrap>
                     <label htmlFor="zip">ZIP (FOR QUOTE ONLY)*
-                    <input className="custominput" aria-labelledby="zip" type="text" placeholder='Zip' id="zip" />
+                            <input className="custominput" aria-labelledby="zip" type="text" placeholder='Zip' id="zip" onChange={(e) => ddlZipChange(e)}/>
                     </label>
                 </InputWrap>
                 </div>
@@ -137,7 +187,7 @@ const StepThree = () => {
             
             <InputWrap>
                 <label htmlFor="size">ENTER ANY SPECIAL NOTES FOR THIS PART (SIZE VARIATION) 
-                <textarea className="custominput" aria-labelledby="size" rows="4" cols="50" name="comment" form="usrform" placeholder="Enter here..."></textarea>
+                    <textarea className="custominput" aria-labelledby="size" rows="4" cols="50" name="comment" form="usrform" placeholder="Enter here..." onChange={(e) => ddlTxtChange(e)}></textarea>
                 </label>
             </InputWrap>
         </InputWrapper>

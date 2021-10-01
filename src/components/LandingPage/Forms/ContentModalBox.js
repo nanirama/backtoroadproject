@@ -3,18 +3,20 @@ import styled from 'styled-components';
 import { Modal, Button } from 'react-bootstrap'
 import bgimg from '../../../assets/images/popup-close.png';
 function ContentModalBox(props) {
-    console.log('Popup props', props)
+    const onClickHandler = ()=>{
+      props.closeShow(false)
+    }
     return (
         <Modal
         {...props}
         size="md"
         aria-labelledby="contained-modal-title-vcenter"
-        centered
+        dialogClassName="popup-modal"
     >
         <div>
         <PopupBtn imgUrl={bgimg} onClick={props.onHide}>&nbsp;</PopupBtn>
         </div>
-        <Modal.Body className="p-0 m-0">
+        <Modal.Body className="p-0 m-0" onClick={onClickHandler}>
         <ContentContainer className="container px-3 py-2">
             {props.children}             
         </ContentContainer>
@@ -43,7 +45,7 @@ function ContentModalBox(props) {
       line-height:18px;
       margin-bottom:10px;
       padding-bottom:8px;
-  }
+  }  
   overflow:hidden;
   float:left;
   margin-bottom:20px;

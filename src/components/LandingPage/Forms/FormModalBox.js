@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { Modal, Button } from 'react-bootstrap'
 import FormsControler from '../FormsControler'
 import bgimg from '../../../assets/images/popup-close.png';
+import pdashImg from '../../../assets/images/pop-dash.png';
 function FormModelBox(props) {
     return (
         <Modal
@@ -17,7 +18,7 @@ function FormModelBox(props) {
             </div>
             <Modal.Body className="p-0 m-0">
             <div className="container p-0 m-0 ">
-                <PopupBody>
+                <PopupBody imgUrl={pdashImg}>
                     <FormsControler/> 
                 </PopupBody>                
             </div>
@@ -66,11 +67,53 @@ function FormModelBox(props) {
         padding:2px 10px;
         margin:4px 0px;
     }
-    & > .popup-top h3{
-        font-size:22px;
-        font-weight:600;
-        line-height:36px;
+    & > .popup-top span.num:nth-child(1):before{
+        content:'';
+        top:18px;
+        width:200%;
+        height:1px;
+        border:1px dashed;
+        right:-200%;
+        color:#fefefe;
     }
+    @media only screen and (max-width:599px) {
+        & > .popup-top h3{
+            font-size:18px;
+            font-weight:600;
+            line-height:36px;
+        }
+        & > .fnp{ padding:0px !important; margin:0px !important;}
+    }
+    @media only screen and (max-width:440px) {
+        & > .popup-top h3{
+            font-size:18px;
+            font-weight:600;
+            line-height:36px;
+        }
+    }
+    @media only screen and (max-width:359px) {
+        & > .popup-top h3{
+            font-size:14px;
+            font-weight:600;
+            line-height:36px;
+        }
+    }
+    @media only screen and (min-width:441px) {
+        & > .popup-top h3{
+            font-size:22px;
+            font-weight:600;
+            line-height:56px;
+            border:2px solid blue;
+        }
+    }
+    & > .popup-top .numcontroller {
+        padding:0px !important;
+        margin:6px 0px !important;
+        background-image: url(${(props)=>props.imgUrl}) !important;
+        background-repeat: repeat-x;
+        background-position: center left;
+    }
+    & > .popup-top span.num{ margin:0px 0px 0px 0px !important;}
     & > .form_outer .btn1{
         border: 0;
         width: 195px !important;

@@ -93,12 +93,51 @@ const StepThree = () => {
         { value: "Wyoming", label: "Wyoming" }
     ]
 
-    const clickFunction = (e) => {
-        console.log('E', e.value)
-        console.log('ENABLE GET QUOTE');
+    const ddlNameChange = (e) => {
+        console.log('E - Name', e.target.value)
         dispatch({
-            type: 'ADD_STEP_THREE',
-            item: e.value,
+            type: 'ADD_NAME',
+            item: e.target.value,
+        });
+    }
+
+    const ddlEmailChange = (e) => {
+        console.log('E Email', e.target.value)
+        dispatch({
+            type: 'ADD_EMAIL',
+            item: e.target.value,
+        });
+    }
+
+    const ddlStateChange = (e) => {
+        console.log('E - State', e.target.value)
+        dispatch({
+            type: 'ADD_STATE',
+            item: e.target.value,
+        });
+    }
+
+    const ddlPhoneChange = (e) => {
+        console.log('E - Phone', e.target.value)
+        dispatch({
+            type: 'ADD_PHONE',
+            item: e.target.value,
+        });
+    }
+
+    const ddlZipChange = (e) => {
+        console.log('E - Zip', e.target.value)
+        dispatch({
+            type: 'ADD_ZIP',
+            item: e.target.value,
+        });
+    }
+
+    const ddlTxtChange = (e) => {
+        console.log('E - Notes', e.target.value)
+        dispatch({
+            type: 'ADD_NOTES',
+            item: e.target.value,
         });
     }
 
@@ -109,26 +148,26 @@ const StepThree = () => {
             </TitleDiv>
             <InputWrap>
                 <InputLabel>NAME *</InputLabel>
-                <input type="text" placeholder='Name' id="name" />
+                <input type="text" placeholder='Name' id="name" onChange={(e) => ddlNameChange(e)}/>
             </InputWrap>
             <InputWrap>
                 <InputLabel>EMAIL (FOR QUOTE ONLY) *</InputLabel>
-                <input type="email" placeholder='Email' id="email" />
+                <input type="email" placeholder='Email' id="email" onChange={(e) => ddlEmailChange(e)}/>
             </InputWrap>
             <InputWrap>
                 <InputLabel>STATE *</InputLabel>
-                <Select options={optionsStates} onChange={(e) => clickFunction(e)} styles={colourStyles} /></InputWrap>
+                <Select options={optionsStates} onChange={(e) => ddlStateChange(e)} styles={colourStyles} /></InputWrap>
             <InputWrap>
                 <InputLabel>PHONE (FOR QUOTE ONLY)*</InputLabel>
-                <input type="text" placeholder='Phone' id="phone" />
+                <input type="text" placeholder='Phone' id="phone" onChange={(e) => ddlPhoneChange(e)}/>
             </InputWrap>
             <InputWrap>
                 <InputLabel>ZIP (FOR QUOTE ONLY)*</InputLabel>
-                <input type="text" placeholder='Zip' id="zip" />
+                <input type="text" placeholder='Zip' id="zip" onChange={(e) => ddlZipChange(e)}/>
             </InputWrap>
             <InputWrap>
                 <InputLabel>ENTER ANY SPECIAL NOTES FOR THIS PART (SIZE VARIATION)</InputLabel>
-                <textarea rows="4" cols="50" name="comment" form="usrform">
+                <textarea rows="4" cols="50" name="comment" form="usrform" onChange={(e) => ddlTxtChange(e)}>
                     Enter here...</textarea>
             </InputWrap>
         </InputWrapper>

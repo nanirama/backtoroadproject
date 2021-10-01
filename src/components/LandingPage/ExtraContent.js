@@ -79,8 +79,8 @@ const ExtraContent = (props) => {
                     {extracontent.whyBackroad && <h2 className="pb-2 mb-4">{extracontent.whyBackroad}</h2>}   
                     {extracontent.whyBackroadTopContent && <div dangerouslySetInnerHTML={{ __html: extracontent.whyBackroadTopContent }} className="w-100 float-left overflow-hidden" ></div>}                 
                     
-                    <div className="w-100 mb-4 col-xs-auto mb-2 mimage">
-                        {extracontent.wnyBackroadImage && <Image img={extracontent.wnyBackroadImage.localFile} imgalt={extracontent.altText || 'Why Backtoroads Alt tag'}/>}                    
+                    <div className="w-100 mb-2 col-xs-auto mb-2 mimage">
+                        {extracontent.wnyBackroadImage && <Image img={extracontent.wnyBackroadImage.localFile} imgalt={extracontent.wnyBackroadImage.altText || 'Why Backtoroads Alt tag'}/>}                    
                     </div>
                     {extracontent.whyBackroadBottomContent && <div dangerouslySetInnerHTML={{ __html: extracontent.whyBackroadBottomContent }} className="w-100 float-left overflow-hidden" ></div>}                    
                 </div>

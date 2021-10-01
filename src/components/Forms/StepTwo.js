@@ -66,11 +66,45 @@ const StepTwo = () => {
         { value: '8', label: 'Other, Not listed here' },
         { value: '9', label: "I'm not sure" }
     ]
+
     const clickFunction = (e) => {
-        console.log('E', e.value)
+        console.log('E', e.label)
         dispatch({
             type: 'ADD_STEP_TWO',
-            item: e.value,
+            item: e.label,
+        });
+    }
+
+    const ddlEngineChange = (e) => {
+        console.log('E - Engine', e.label)
+        dispatch({
+            type: 'ADD_ENGINE',
+            item: e.label,
+        });
+    }
+
+    const ddlVinChange = (e) => {
+        console.log('E - vin', e.label)
+        dispatch({
+            type: 'ADD_VIN',
+            item: e.label,
+        });
+    }
+
+    const ddlTransmissionChange = (e) => {
+        console.log('E - Trans', e.label)
+        dispatch({
+            type: 'ADD_TRANS',
+            item: e.label,
+        });
+    }
+
+    const ddlTrimChange = (e) => {
+        console.log('E - Trim', e.label)
+        
+        dispatch({
+            type: 'ADD_TRIM',
+            item: e.label,
         });
     }
 
@@ -81,19 +115,18 @@ const StepTwo = () => {
         </TitleDiv>
             <InputWrap>
                 <InputLabel>ENGINE *</InputLabel>
-                <Select options={optionsEngine} onChange={(e) => clickFunction(e)} styles={colourStyles} />
+                <Select options={optionsEngine} onChange={(e) => ddlEngineChange(e)} styles={colourStyles} />
             </InputWrap>
             <InputWrap>
                 <InputLabel>VIN (OPTIONAL) *</InputLabel>
-                <input
-                    type="text" placeholder='VIN Number' id="vin-number" />
+                <input type="text" placeholder='VIN Number' id="vin-number" onChange={(e) => ddlVinChange(e)}/>
             </InputWrap>
             <InputWrap>
                 <InputLabel>TRANSMISSION *</InputLabel>
-                <Select options={optionsTransmission} onChange={(e) => clickFunction(e)} styles={colourStyles} /></InputWrap>
+                <Select options={optionsTransmission} onChange={(e) => ddlTransmissionChange(e)} styles={colourStyles} /></InputWrap>
             <InputWrap>
                 <InputLabel>TRIM *</InputLabel>
-                <Select options={trims} onChange={(e) => clickFunction(e)} styles={colourStyles} /></InputWrap>
+                <Select options={trims} onChange={(e) => ddlTrimChange(e)} styles={colourStyles} /></InputWrap>
         </InputWrapper>
     )
 }

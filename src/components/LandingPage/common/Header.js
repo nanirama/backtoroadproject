@@ -11,7 +11,7 @@ const LandingHeader = ({ logoImg, pdata = '' }) => {
         activeElement = pdata.location.pathname.replace("/", "")
         activeElement = '/'+activeElement.replace("/", "")
   }
-  console.log('Location Data ', activeElement)
+  //console.log('Location Data ', activeElement)
   return(
     <header className="w-100 float-left pt-4 pb-3">
       <div className="container">

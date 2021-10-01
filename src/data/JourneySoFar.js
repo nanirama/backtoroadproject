@@ -5,7 +5,7 @@ export const JourneySoFarData = [
     desc: "Parts Sold",
   },
   {
-	newicon : "user",
+	newicon : "loc",
     title: "1045",
     desc: "Satisfied Customer",
   },

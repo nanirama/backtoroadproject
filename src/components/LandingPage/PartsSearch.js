@@ -3,9 +3,10 @@ import { useStaticQuery, graphql } from "gatsby"
 import styled from "styled-components"
 import arrowMore from '../../assets/images/landing/arrow-more.png'
 import arrowLess from '../../assets/images/landing/arrow-less.png'
-
+import FormModalBox from '../../components/LandingPage/Forms/FormModalBox'
 
 const PartsSearch =()=>{
+    const [modalShow, setModalShow] = useState(false);
     const collapseBtn = useRef(null);
     const collapseSec = useRef(null);
     const [value, setValue] = useState(false);
@@ -106,17 +107,38 @@ const PartsSearch =()=>{
                 <div className="row">
                 <ul className="w-100 float-left d-flex flex-wrap flex-row justify-content-start align-items-stretch">
                         {list && list.map(({node}, index) => {
-                            return(
-                                <li key={index} className="col-lg-4 col-md-6 col-sm-12 col-xs-12 align-self-stretch">
-                                    <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${node.slug}` }
-                                    className="d-flex flex-wrap flex-row justify-content-between align-items-start"
-                                    >
-                                        <span>{node.title}</span> <svg class="icon icon-arrow_forward" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-    </svg>
-                                    </a>
-                                </li>
-                            )
+                            if(node.slug)
+                            {
+                                return(
+                                    <li key={index} className="col-lg-4 col-md-6 col-sm-12 col-xs-12 align-self-stretch">
+                                        <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${node.slug}` }
+                                        className="d-flex flex-wrap flex-row justify-content-between align-items-start"
+                                        >
+                                            <span className="text-left">{node.title}</span>
+                                            <svg className="icon icon-arrow_forward" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+        </svg>
+                                        </a>
+                                    </li>
+                                )
+                            }
+                            else
+                            {
+                                return(
+                                    <li key={index} className="col-lg-4 col-md-6 col-sm-12 col-xs-12 align-self-stretch">
+                                        <button
+                                        onClick={() => setModalShow(true)}
+                                        className="d-flex flex-wrap flex-row justify-content-between align-items-start"
+                                        >
+                                            <span className="text-left">{node.title}</span>
+                                            <svg className="icon icon-arrow_forward" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                                            </svg>
+                                        </button>
+                                    </li>
+                                )
+                            }
+                            
                         })}   
                     </ul>
                     {filteritems.length > numberPer && (
@@ -124,17 +146,37 @@ const PartsSearch =()=>{
                         <div class="more-section-make collapsed" ref={collapseSec}>
                         <ul className="w-100 float-left d-flex flex-wrap flex-row justify-content-start align-items-stretch">
                                     {filteritems.slice(numberPer, items.length).map(({node}, index) => {
-                                        return(
-                                            <li key={index} className="col-lg-4 col-md-6 col-sm-12 col-xs-12 align-self-stretch">
-                                                <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${node.slug}` }
-                                                className="d-flex flex-wrap flex-row justify-content-between align-items-start"
-                                                >
-                                                    <span>{node.title}</span> <svg class="icon icon-arrow_forward" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
-    </svg>
-                                                </a>
-                                            </li>
-                                        )
+                                        if(node.slug)
+                                        {
+                                            return(
+                                                <li key={index} className="col-lg-4 col-md-6 col-sm-12 col-xs-12 align-self-stretch">
+                                                    <a target="_blank" rel="noreferrer noopener" href={ `https://backtoroadautoparts.com/${node.slug}` }
+                                                    className="d-flex flex-wrap flex-row justify-content-between align-items-start"
+                                                    >
+                                                        <span className="text-left">{node.title}</span>
+                                                        <svg className="icon icon-arrow_forward" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    </svg>
+                                                    </a>
+                                                </li>
+                                            )
+                                        }
+                                        else
+                                        {
+                                            return(
+                                                <li key={index} className="col-lg-4 col-md-6 col-sm-12 col-xs-12 align-self-stretch">
+                                                    <button
+                                                    onClick={() => setModalShow(true)}
+                                                    className="d-flex flex-wrap flex-row justify-content-between align-items-start"
+                                                    >
+                                                        <span className="text-left">{node.title}</span>
+                                                        <svg className="icon icon-arrow_forward" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+                    </svg>
+                                                    </button>
+                                                </li>
+                                            )
+                                        }
                                     })}   
                             </ul>
                         </div>
@@ -148,6 +190,10 @@ const PartsSearch =()=>{
   
                 </div>
             </div>
+            <FormModalBox
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                />  
         </div>
     )
 }

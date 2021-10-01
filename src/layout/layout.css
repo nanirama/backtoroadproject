@@ -814,6 +814,8 @@ transition:all .3s;
 nav ul.slide {
 	transform:translateX(0)
 }
+
+
 @media only screen and (min-width:1200px) {
 .recent_post_blk .post_img{ min-height: 360px;}
 .main-slider .slick-dots {
@@ -1656,6 +1658,7 @@ display:none
 } */
 }
 @media only screen and (max-width:599px) {
+.modal-dialog{ width: 96% !important; max-width: 100% !important;}
 .sub_box h3{ font-size: 18px; line-height: 24px;}
 header .col-xs-3 {
 -ms-flex:0 0 33%;
@@ -1730,6 +1733,15 @@ width:50%
 font-size:15px;
 line-height:28px
 }
+.col-sm-7 {
+	flex: 0 0 58.333333% !important;
+	max-width: 58.333333% !important;
+}
+.col-sm-5 {
+	flex: 0 0 41.666667% !important;
+	max-width: 41.666667% !important;
+}
+
 }
 @media only screen and (min-width:480px) and (max-width:575px) {
 	.parts_blk span.superhead {
@@ -1756,7 +1768,10 @@ line-height:28px
 	}
 }
 @media only screen and (max-width:575px) {
-
+	.col-sm-6 {
+		flex: 0 0 50% !important;
+		max-width: 50% !important;
+	}
 .col-lg-10.col-sm-6,
 #findmypart .col-sm-6, .col-sm-6.col-xs-6 {
 	flex: 0 0 50% !important;
@@ -2046,6 +2061,13 @@ transform:matrix(.71, .71, -.71, .71, 0, 0)
 
 }
 @media only screen and (max-width:359px) {
+.flex-smm-column {
+	flex-direction: column !important;
+}
+.flex-smm-column .btn2{
+	margin:10px 10% !important;
+	width:80% !important;
+}
 .slider_form h3{ font-size: 11px !important;}
 /* h2.tlt,.oem_parts_blk h1 {
 font-size:19px;
@@ -2588,7 +2610,7 @@ p.text-blue{ color: #0000ff; font-weight: 600; font-size: 18px;}
 	
 	
 	
-	@media only screen and (min-width:1700px) {
+	/* @media only screen and (min-width:1700px) {
 	.payment{background: rgb(255,255,255);
 	background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 58%, rgba(244,244,244,1) 42%);}
 	} 
@@ -2608,23 +2630,25 @@ p.text-blue{ color: #0000ff; font-weight: 600; font-size: 18px;}
 	@media only screen and (min-width:1400px) and (max-width:1600px){
 	 .payment{background: rgb(255,255,255);
 	background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 60%, rgba(244,244,244,1) 40%);}
-	}
+	} */
 	
 	
 	
 	@media only screen and (min-width:992px) and (max-width:1200px){
 	.payment-form{ padding-right:60px;} 
-	.payment{background: rgb(255,255,255);
-	background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,255,255,1) 63%, rgba(244,244,244,1) 47%);}
+	.payment{background-color: #f2f2f2;}
 	}
 	
 	@media only screen and (max-width:991px) {
 	.payment-form{ padding-right:0px; margin-bottom: 30px;}
-	.payment{background: rgb(255,255,255);}
+	.payment{background-color: #f2f2f2;}
 	}
 	@media only screen and (max-width:599px) {
 		.ph-blk{ padding: 20px; }
 	}
 .checkbox-payment{ width:25px !important; height:25px !important;}
-.popup_link{color:#08275c; text-decoration: underline;}
+.popup_link{color:#08275c; text-decoration: underline; cursor: pointer; border:none; background-color: transparent;}
 .thankyou-title{ color:#226e93; text-transform: capitalize; font-size: 45pt; line-height: 1.1;}
+.popup-modal{max-height: 90vh; overflow-y: scroll;}
+.modal-backdrop.show{ background-color: #000000 !important; opacity: .5 !important; display: block !important;}
+.payment-images img{  padding-bottom: 20px;}
