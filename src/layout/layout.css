@@ -2649,6 +2649,6 @@ p.text-blue{ color: #0000ff; font-weight: 600; font-size: 18px;}
 .checkbox-payment{ width:25px !important; height:25px !important;}
 .popup_link{color:#08275c; text-decoration: underline; cursor: pointer; border:none; background-color: transparent;}
 .thankyou-title{ color:#226e93; text-transform: capitalize; font-size: 45pt; line-height: 1.1;}
-.popup-modal{max-height: 90vh; overflow-y: scroll;}
+.popup-container{ overflow-y: scroll;}
 .modal-backdrop.show{ background-color: #000000 !important; opacity: .5 !important; display: block !important;}
 .payment-images img{  padding-bottom: 20px;}

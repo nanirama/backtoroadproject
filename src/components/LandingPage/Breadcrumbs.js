@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 const LandingBreadcrumbs = (props) => {
     const { makemodels, partname, bcrumb } = props
+    console.log('Brrmdjcd', bcrumb)
     return(
         <div className="container">
             <div className="breadcrumb w-100 float-left">

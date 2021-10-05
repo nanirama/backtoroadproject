@@ -3,6 +3,15 @@ import { graphql} from "gatsby"
 import LandingTemplate from '../components/LandingPage/LandingTemplate'
 
 const MakePartTemplate = (props) => {
+  const { siteUrl } = props.data.site.siteMetadata;
+  console.log('Breadcurm 2',props.data.PageData.makemodels);
+  console.log('Link 2',siteUrl)
+  const bcrumb = [
+    {'name':'Home', 'link':siteUrl},
+    {'name': props.data.PageData.makemodels.nodes[0].name ? props.data.PageData.makemodels.nodes[0].name : '', 'link':siteUrl+'/'+props.data.PageData.makemodels.nodes[0].slug ? props.data.PageData.makemodels.nodes[0].slug : ''},
+    {'name': props.data.PageData.makemodels.nodes[1].name ? props.data.PageData.makemodels.nodes[1].name : '', 'link':siteUrl+'/'+props.data.PageData.makemodels.nodes[1].slug ? props.data.PageData.makemodels.nodes[1].slug : ''},
+    {'name':props.data.PageData.title, 'link':null}
+  ]
     return (
       <LandingTemplate data={props} cpath={props.location.pathname}/>   
     )
@@ -47,6 +56,7 @@ query($id : String, $mid : String){
         nodes {
             id
             name
+            slug
         }
         }
         morecontent {

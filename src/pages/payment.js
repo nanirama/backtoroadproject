@@ -293,18 +293,18 @@ const Shipping = (props) => {
                 1.800.608.3868</h5>
               <p className="mb-0">If you have questions, please contact your sales executive, Kory Lonberger. You can also Contact the sales team at 1.800.608.3868 option 2.</p>
             </div>
-            <div className="container d-flex my-3 payment-images">
+            <div className="container d-flex justify-content-center my-3 payment-images">
               <div className="row d-flex justify-content-between align-items-center">
-                  <div className="col-sm-6 d-flex justify-content-center align-items-center mb-2">
+                  <div className="col-lg-6 col-md-3 col-sm-6 d-flex justify-content-center align-items-center mb-2">
                   <Image img={pLogo1}/>
                   </div>
-                  <div className="col-sm-6 d-flex justify-content-center align-items-center mb-2">
+                  <div className="col-lg-6 col-md-3 col-sm-6 d-flex justify-content-center align-items-center mb-2">
                   <Image img={pLogo2}/>
                   </div>
-                  <div className="col-sm-6 d-flex justify-content-center align-items-center mb-2">
+                  <div className="col-lg-6 col-md-3 col-sm-6 d-flex justify-content-center align-items-center mb-2">
                   <Image img={pLogo3}/>
                   </div>
-                  <div className="col-sm-6 d-flex justify-content-center align-items-center mb-2">
+                  <div className="col-lg-6 col-md-3 col-sm-6 d-flex justify-content-center align-items-center mb-2">
                   <Image img={pLogo4}/>
                   </div>
               </div>

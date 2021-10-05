@@ -17,7 +17,7 @@ function ContentModalBox(props) {
         <PopupBtn imgUrl={bgimg} onClick={props.onHide}>&nbsp;</PopupBtn>
         </div>
         <Modal.Body className="p-0 m-0" onClick={onClickHandler}>
-        <ContentContainer className="container px-3 py-2">
+        <ContentContainer className="container px-3 py-2 popup-container">
             {props.children}             
         </ContentContainer>
         </Modal.Body>        
@@ -41,8 +41,8 @@ function ContentModalBox(props) {
       width:100%;
       float:left;
       text-align:justify;
-      font-size:15px;
-      line-height:18px;
+      font-size:15px !important;
+      line-height:1.6 !important;
       margin-bottom:10px;
       padding-bottom:8px;
   }  
