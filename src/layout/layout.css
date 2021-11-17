@@ -280,7 +280,6 @@ span.num {
 	float:left;
 	height:38px;
 	background:#fafafa;
-	line-height:38px;
 	color:#5b6472;
 	font-weight:600;
 	font-size:22px;
@@ -318,6 +317,35 @@ select {
 	text-align: center;
 	padding:0 25px !important;
 }
+.slider_form .form_outer .btn2 {
+	border:0;
+	font-size: 14px !important;
+	text-align: center;
+	width:100%;
+	background-color: #F0AC3F;
+	font-weight: 600;
+	border:1px solid #F0AC3F;
+	line-height: 45px !important;
+	text-transform: uppercase;
+}
+.slider_form .form_outer .btn2 span,
+.slider_form .form_outer .btn-outer-new{
+	line-height: 45px !important;
+}
+.slider_form .form_outer .btn-outer-new {
+	border:0;
+	font-size: 14px !important;
+	text-align: center;
+	width:100%;
+	color:#F0AC3F;
+	border-radius: 5px;
+	text-transform: uppercase;
+	background-color: #ffffff;
+	border:1px solid #F0AC3F;
+	font-weight: 600;
+	height: 45px !important;
+	line-height: 45px !important;
+}
 .slider_form label{
 	width: 100%;
     float: left;
@@ -333,6 +361,13 @@ select {
 	margin-top:10px;
 	height:50px;
 	overflow:hidden
+}
+.form_button_outer {
+	margin-top:10px;
+	overflow:hidden;
+	width:100%;
+	float: left;
+	flex: 2;
 }
 .owl-carousel.posts .owl-dot, .owl-carousel.slides .owl-dot, .owl-carousel.testimonials .owl-dot {
 	width:12px;
@@ -739,19 +774,29 @@ transition:.4s
 	float:left;
 	padding:15px 25px
 }
+.slider_form p b{
+	color:#2860BE !important;	
+	font-size: 18px;
+	line-height: 24px !important;	
+	font-weight: 500;
+}
 .slider_form p span{
-	width:75px;
+	min-width: 100px !important;	
+	width:auto !important;	
 	text-align: center;
 	height: 30px;
+	margin-left:10px !important;
+	padding:0px 10px;
 	background-color: #2860BE;
 	color:#ffffff;
+	font-size: 14px !important;
 	font-weight: 600;
 	border-radius:5px;
 }
 .slider_form .form_outer {
 	border-radius:0 0 5px 5px;
 	background-color:#fff;
-	padding:25px;
+	padding:25px 30px;
 	width:545px;
 	float:left;
 }
@@ -1240,7 +1285,6 @@ span.num {
 margin:0 20px 0 0;
 width:32px;
 height:32px;
-line-height:32px;
 font-size:18px
 }
 span.num::before {
@@ -1483,9 +1527,6 @@ float:left;
 margin-right:30px
 }
 
-span.num {
-margin-top:8px
-}
 span.num:before {
 color:#5b6472
 }
@@ -1658,6 +1699,9 @@ display:none
 } */
 }
 @media only screen and (max-width:599px) {
+.px-sm-1 {
+	padding-left: .25rem !important;
+}
 .modal-dialog{ width: 96% !important; max-width: 100% !important;}
 .sub_box h3{ font-size: 18px; line-height: 24px;}
 header .col-xs-3 {
@@ -1692,11 +1736,9 @@ line-height:50px
 font-size:16px!important
 }
 span.num {
-width:30px;
-height:30px;
+width:34px;
+height:34px;
 font-size:18px;
-line-height:28px;
-margin:8px 30px 0 0
 }
 span.num::before {
 top:14px;
@@ -1831,7 +1873,17 @@ margin-right:50px
 	}	
 }
 @media only screen and (max-width:479px) {
-	
+	.form_button_outer .col-sm-6{
+		flex: 0 0 100% !important;
+		max-width: 100% !important;
+		margin-bottom: 0.5rem !important;
+	}
+	.slider_form p b {
+		color: #2860BE !important;
+		font-size: 15px;
+		line-height: 20px !important;
+		font-weight: 500;
+	}
 	.h_rgt .btn1{ margin-right: 70px !important; padding-top: 3px; padding-bottom: 3px;}
 	.numcontroller{ max-width: 140px;}
 	span.num:nth-child(1):before {
@@ -1853,10 +1905,8 @@ margin-right:50px
 		color:#000000;
 	}
 	span.num {
-		width:30px;
-		height:30px;
-		line-height:30px;
-		margin:12px 14px 0 0
+		width:32px;
+		height:32px;
 		}
 
 .phone_blk h2{ font-size: 18px;}
@@ -2366,7 +2416,10 @@ select {
 		height:3px;
 		background:#5FA2DD;
 	}
-	.slider_form p {
+	.slider_form p{
+		font-size:18px;	
+	}
+	.slider_form p b {
 		font-size:18px;
 		line-height:30px;
 	}
@@ -2452,12 +2505,11 @@ select {
 	}
 	.slider_form p {
 		font-size:12px !important;
-		line-height:18px !important;
-		height: 50px;
+		line-height:18px !important;		
 	}
 	.slider_form p span{
 		line-height: 30px;
-		height: 24px;
+		height: 30px;
 		font-size: 12px !important;
 	}
 	.breadcrumb ol li a::before{
@@ -2645,6 +2697,9 @@ p.text-blue{ color: #0000ff; font-weight: 600; font-size: 18px;}
 	}
 	@media only screen and (max-width:599px) {
 		.ph-blk{ padding: 20px; }
+		.flex-sm-column-reverse {
+			flex-direction: column-reverse !important;
+		}
 	}
 .checkbox-payment{ width:25px !important; height:25px !important;}
 .popup_link{color:#08275c; text-decoration: underline; cursor: pointer; border:none; background-color: transparent;}
@@ -2652,3 +2707,20 @@ p.text-blue{ color: #0000ff; font-weight: 600; font-size: 18px;}
 .popup-container{ overflow-y: scroll;}
 .modal-backdrop.show{ background-color: #000000 !important; opacity: .5 !important; display: block !important;}
 .payment-images img{  padding-bottom: 20px;}
+.text-error{ font-size:13px; color:#ff0000; padding:1px 5px; line-height: 1.2;}
+
+.mytooltip{ border:2px solid pink}
+#main{
+	width:240px;
+	text-align: center;
+	padding:0.6rem !important;
+	box-shadow: 0px 0px 5px 0px rgba(16, 25, 40, .8);
+	-webkit-box-shadow: 0px 0px 5px 0px rgba(16, 25, 40, .8);
+	-moz-box-shadow: 0px 0px 5px 0px rgba(16, 25, 40, .8);
+	color: #233A6C; font-family: 'Poppins', sans-serif !important; font-size:0.9rem;}
+
+
+.np{
+	padding:0px;
+	margin:0px;
+}

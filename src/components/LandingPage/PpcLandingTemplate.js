@@ -75,7 +75,7 @@ const PpcLandingTemplate = (props) => {
               faq="true"
               noindex="noindex"
             />
-            {slides && <LandingSlider data={slides}/>}
+            {slides && <LandingSlider data={slides} action="ppc"/>}
             <PhoneBlock
                 phoneNumberText={phoneNumberText}
                 phoneNumber={phoneNumber}
@@ -91,7 +91,7 @@ const PpcLandingTemplate = (props) => {
              <JourneySoFar image={data.JourneyBg}/>
              <CustomerReviews gImage={data.GoogleImage}/>
              {faqs && <LandingFaqs data={faqs} title={morecontent.faqTitle} subtitle={morecontent.faqSubTitle}/>}
-             <LandingBanner bannerImage={data.BannerImage}/>
+             <LandingBanner bannerImage={data.BannerImage} action="ppc"/>
         </PpcLayout>    
     )
 }

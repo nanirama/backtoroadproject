@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Image from './image'
 import FormModalBox from '../../components/LandingPage/Forms/FormModalBox'
 
-const LandingBanner = ({bannerImage}) => {
+const LandingBanner = ({bannerImage, action}) => {
     const [modalShow, setModalShow] = useState(false);
     return(
             <div className="container">  
@@ -24,6 +24,7 @@ const LandingBanner = ({bannerImage}) => {
                 </div>
                 </div>  
                 <FormModalBox
+                    action={action}
                     show={modalShow}
                     onHide={() => setModalShow(false)}
                 />              

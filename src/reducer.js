@@ -3,6 +3,10 @@ export const initialState = {
     make: '',
     model: '',
     part: '',
+    allyears: '',
+    allmakes: '',
+    allmodels: '',
+    allparts: '',
     engine: '',
     vin: '',
     transmission: '',
@@ -14,10 +18,11 @@ export const initialState = {
     zip: '',
     notes: '',
     lead_source: '',
-    stepOne: '',
+    stepOne: 'ONE',
     stepTwo: '',
     stepThree: '',
     stepFour: '',
+    stepBtnEnable: false,
     user: null
 };
 
@@ -43,6 +48,26 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 part: action.item
+            };
+        case 'ADD_ALL_YEARS':
+            return {
+                ...state,
+                allyears: action.item
+            };
+        case 'ADD_ALL_MAKES':
+            return {
+                ...state,
+                allmakes: action.item
+            };
+        case 'ADD_ALL_MODELS':
+            return {
+                ...state,
+                allmodels: action.item
+            };
+        case 'ADD_ALL_PARTS':
+            return {
+                ...state,
+                allparts: action.item
             };
         case 'ADD_ENGINE':
             return {
@@ -98,9 +123,8 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 lead_source: action.item
-            }
-
-        case 'ADD_STEP_ONE':
+            };
+        case 'ADD_STEP_ONE':                // Dirty logic. Make one STEP case and assign three states.
             return {
                 ...state,
                 stepOne: action.item
@@ -119,6 +143,11 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 stepFour: action.item
+            };
+        case 'ADD_BTN_ENABLE':
+            return {
+                ...state,
+                stepBtnEnable: action.item
             };
         case 'RESET':
             return {
@@ -141,6 +170,7 @@ const reducer = (state, action) => {
                 stepTwo: '',
                 stepThree: '',
                 stepFour: '',
+                stepBtnEnable: false,
             }
         default:
             return state;

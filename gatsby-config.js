@@ -29,7 +29,7 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/assets/images`,
       },
-    },       
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -64,7 +64,7 @@ module.exports = {
           hardCacheData: false,
         },
         schema: {
-          requestConcurrency: 1,
+          requestConcurrency: 5,
         },
         debug: {
           timeBuildSteps: true,
@@ -72,7 +72,7 @@ module.exports = {
         type: {
           MediaItem: {
             localFile: {
-              requestConcurrency: 1,
+              requestConcurrency: 100,
             },
           },
         },
@@ -97,7 +97,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-sitemap`,
       options: {
-        createLinkInHead: true
+        createLinkInHead: true,
       }      
     },
     {

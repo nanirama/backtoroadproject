@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import Slider from "react-slick";
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import FormsControler from './FormsControler'
-
 import Aos from "aos"
 import "aos/dist/aos.css"
 

@@ -5,10 +5,11 @@ import Select from 'react-select'
 import ReCAPTCHA from "react-google-recaptcha";
 import { Field, Formik } from 'formik';  
 import * as yup from 'yup';  
+import axios from '../../../axios'
 import ToolTip from './ToolTip';
 import arrowIcon from '../../../assets/images/landing/arrow.png'
 import arrowRightIcon from '../../../assets/images/landing/arrow-right.png'
-
+import darrowIcon from '../../../assets/images/landing/d-icon.png'
 
 import { useStateValue } from '../../../StateProvider'
 
@@ -19,6 +20,12 @@ const validationSchema = yup.object().shape({
     name: yup  
      .string()  
      .required('Please enter you Name'),   
+     option1: yup  
+     .string()  
+     .required('Please choose Option 1'),  
+     option2: yup  
+     .string()  
+     .required('Please choose Option 2'),  
      email: yup  
      .string()  
      .email('Email should be in the format username@domain.com'), 
@@ -36,14 +43,17 @@ const validationSchema = yup.object().shape({
 
 
 
-const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) => {
+const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [{ year, make, model, part, stepBtnEnable }, dispatch] = useStateValue()
+    const [trims, setTrims] = useState();
+    const [{ year, make, model, part, transmission, trim, stepBtnEnable }, dispatch] = useStateValue()
     const initialValues = {  
         name: '',  
         email: '',  
         zip: '',  
-        phone: undefined
+        phone: undefined,
+        option1: '',  
+        option2: ''
       }
     useEffect(() => {
         dispatch({
@@ -64,10 +74,34 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
         });
         setInStack(' ✓ In Stock ')
         setPartsHeading(make +' '+ model +' '+ part)
-    }, [year, make, model, part])
-
+        fetchTrims()
+    }, [year, make, model, part, fetchTrims])
     
-    const [dummy, setDummy] = useState();
+    const fetchTrims = (e) => {
+        console.log('YEAR ', year, 'SELECTED MODEL ', model);
+        axios
+            .get("v1/trim/" + year + "/" + model)
+            .then(resp => {
+                let ddlOptions = [{ "value": "999", "label": "I’m not sure."}]
+                let options = []
+                options = resp.data.map(d => ({
+                    "value": d,
+                    "label": d
+                }))
+                const opt = ddlOptions.concat(options);
+                setTrims(opt);
+            })
+            .catch(error => console.log(error.response))
+    }
+
+    const optionsTransmission = [
+        { value: '1', label: '2 Wheel Drive, Automatic' },
+        { value: '2', label: '4 Wheel Drive, Automatic' },
+        { value: '3', label: '2 Wheel Drive, Manual' },
+        { value: '4', label: '4 Wheel Drive, Manual' },
+        { value: '8', label: 'Other, Not listed here' },
+        { value: '9', label: "I'm not sure" }
+    ]
 
     const colourStyles = {
         control: styles => ({ ...styles, backgroundColor: 'white', color: '#000000', width: '100%', borderRadius: '2px', alignItems: 'left', borderColor: '#CCCCCC'}),
@@ -80,71 +114,20 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
         },
     };
 
-    const optionsStates = [
-        { value: "Alabama", label: "Alabama" },
-        { value: "Alaska", label: "Alaska" },
-        { value: "American Samoa", label: "American Samoa" },
-        { value: "Arizona", label: "Arizona" },
-        { value: "Arkansas", label: "Arkansas" },
-        { value: "California", label: "California" },
-        { value: "Colorado", label: "Colorado" },
-        { value: "Connecticut", label: "Connecticut" },
-        { value: "Delaware", label: "Delaware" },
-        { value: "District Of Columbia", label: "District Of Columbia" },
-        { value: "Federated States Of Micronesia", label: "Federated States Of Micronesia" },
-        { value: "Florida", label: "Florida" },
-        { value: "Georgia", label: "Georgia" },
-        { value: "Guam", label: "Guam" },
-        { value: "Hawaii", label: "Hawaii" },
-        { value: "Idaho", label: "Idaho" },
-        { value: "Illinois", label: "Illinois" },
-        { value: "Indiana", label: "Indiana" },
-        { value: "Iowa", label: "Iowa" },
-        { value: "Kansas", label: "Kansas" },
-        { value: "Kentucky", label: "Kentucky" },
-        { value: "Louisiana", label: "Louisiana" },
-        { value: "Maine", label: "Maine" },
-        { value: "Marshall Islands", label: "Marshall Islands" },
-        { value: "Maryland", label: "Maryland" },
-        { value: "Massachusetts", label: "Massachusetts" },
-        { value: "Michigan", label: "Michigan" },
-        { value: "Minnesota", label: "Minnesota" },
-        { value: "Mississippi", label: "Mississippi" },
-        { value: "Missouri", label: "Missouri" },
-        { value: "Montana", label: "Montana" },
-        { value: "Nebraska", label: "Nebraska" },
-        { value: "Nevada", label: "Nevada" },
-        { value: "New Hampshire", label: "New Hampshire" },
-        { value: "New Jersey", label: "New Jersey" },
-        { value: "New Mexico", label: "New Mexico" },
-        { value: "New York", label: "New York" },
-        { value: "North Carolina", label: "North Carolina" },
-        { value: "North Dakota", label: "North Dakota" },
-        { value: "Northern Mariana Islands", label: "Northern Mariana Islands" },
-        { value: "Ohio", label: "Ohio" },
-        { value: "Oklahoma", label: "Oklahoma" },
-        { value: "Oregon", label: "Oregon" },
-        { value: "Palau", label: "Palau" },
-        { value: "Pennsylvania", label: "Pennsylvania" },
-        { value: "Puerto Rico", label: "Puerto Rico" },
-        { value: "Rhode Island", label: "Rhode Island" },
-        { value: "South Carolina", label: "South Carolina" },
-        { value: "South Dakota", label: "South Dakota" },
-        { value: "Tennessee", label: "Tennessee" },
-        { value: "Texas", label: "Texas" },
-        { value: "Utah", label: "Utah" },
-        { value: "Vermont", label: "Vermont" },
-        { value: "Virgin Islands", label: "Virgin Islands" },
-        { value: "Virginia", label: "Virginia" },
-        { value: "Washington", label: "Washington" },
-        { value: "West Virginia", label: "West Virginia" },
-        { value: "Wisconsin", label: "Wisconsin" },
-        { value: "Wyoming", label: "Wyoming" }
-    ]
+    const ddlTrimChange = (e) => { 
+        dispatch({
+            type: 'ADD_TRIM',
+            item: e.label,
+        });
+    }
+    const ddlTransmissionChange = (e) => {        
+        dispatch({
+            type: 'ADD_TRANS',
+            item: e.label,
+        });
+    }
 
     const clickFunction = (e) => {
-        console.log('E - landing page form', e.value)
-        console.log('ENABLE GET QUOTE');
         dispatch({
             type: 'ADD_STEP_THREE',
             item: e.value,
@@ -167,11 +150,10 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
             type: 'ADD_STEP_THREE',
             item: '',
         });
-        onClickToTwo()
+        onClickToOne()
     }
 
     const ddlNameChange = (e) => {
-        console.log('E - Name', e.target.value)
         dispatch({
             type: 'ADD_NAME',
             item: e.target.value,
@@ -179,7 +161,6 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
     }
 
     const ddlEmailChange = (e) => {
-        console.log('E Email', e.target.value)
         dispatch({
             type: 'ADD_EMAIL',
             item: e.target.value,
@@ -191,7 +172,6 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
     }
 
     const ddlPhoneChange = (e) => {
-        console.log('E - Phone', e.target.value)
         dispatch({
             type: 'ADD_PHONE',
             item: e.target.value,
@@ -199,7 +179,6 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
     }
 
     const ddlZipChange = (e) => {
-        console.log('E - Zip', e.target.value)
         dispatch({
             type: 'ADD_ZIP',
             item: e.target.value,
@@ -207,7 +186,6 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
     }
 
     const ddlTxtChange = (e) => {
-        console.log('E - Notes', e.target.value)
         dispatch({
             type: 'ADD_NOTES',
             item: e.target.value,
@@ -220,7 +198,6 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
     }
 
     const submitForm = (values) => {
-        console.log('Form Submit', values);
         setIsSubmitting(true)
         onClickToFour();
       };
@@ -248,7 +225,48 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
                         <h4 className="w-100 mb-1">For Quotes and Assistance</h4>
                     </TitleDiv>
                     <InputWrap>
-                        <InputLabel htmlFor="name">NAME *
+                    <InputLabel htmlFor="name">Option 1 *</InputLabel>
+                        <InputSelect
+                            name="option1"
+                            value={values.option1}
+                            onChange={e => {
+                                handleChange(e)
+                                ddlTrimChange(e)                   
+                            }}
+                            onBlur={handleBlur}
+                            aria-label="trim"
+                            aria-labelledby="trim"
+                        >
+                            <option value="" label="SELECT Option 1" />
+                            { trims && trims.map((item, index)=>(
+                                <option value={item.value} label={item.label} />
+                            ))}
+                        </InputSelect>
+                        {errors.option1 && <ErrorLabel> {errors.option1} </ErrorLabel>}
+                    </InputWrap>
+                    <InputWrap>                       
+                        <InputLabel htmlFor="transmission">Option 2*</InputLabel>
+                        <InputSelect
+                            name="option2"
+                            value={values.option2}
+                            onChange={e => {
+                                handleChange(e)
+                                ddlTransmissionChange(e)                  
+                            }}
+                            onBlur={handleBlur}
+                            aria-label="transmission"
+                            aria-labelledby="transmission"
+                        >
+                             <option value="" label="SELECT Option 2" />
+                                { optionsTransmission && optionsTransmission.map((item, index)=>(
+                                    <option value={item.value} label={item.label} />
+                                ))}
+                        </InputSelect>
+                        {errors.option2 && <ErrorLabel> {errors.option2} </ErrorLabel>}
+                        
+                    </InputWrap>
+                    <InputWrap>
+                        <InputLabel htmlFor="name">NAME *</InputLabel>
                         <Field
                             name="name"
                             value={values.name}
@@ -271,7 +289,7 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
                                 />                            
                             )}
                         />
-                        </InputLabel>
+                        
                         {errors.name && touched.name && (
                             <ErrorLabel>{errors.name}</ErrorLabel>
                         )}
@@ -357,7 +375,6 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
                 <div className="form_button_outer">
                     <div className="row">
                         <div className="col-md-6 col-sm-6">
-                        {/* <button className="btn2 d-flex align-items-center justify-content-center" onClick={onClick} ><span>FIND MY PART NOW</span><InputBg img={arrowIcon}>&nbsp;&nbsp;</InputBg></button> */}
                         <button
                         onClick={clickPrevFunction}
                         className="btn-outer-new text-center d-flex justify-content-center align-items-center"
@@ -432,7 +449,7 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
 }
 
 
-export default StepThree
+export default StepTwoThree
 
 const InputWrapper = styled.div`
   background: #ffffff;
@@ -522,3 +539,33 @@ const TitleDiv = styled.div`
       }
   }
 `
+
+const InputSelect = styled.select`
+    background-image: url(${darrowIcon});  
+    background-repeat: no-repeat;
+    background-position:center right 10px;
+    background-size : 14px 8px;
+    width:100%;
+    margin:3px 0px;
+    background-color:#ffffff;
+    font-size: 16px !important;
+    color: #000000 !important;
+    ${props => props.active ? 'border: 5px solid #2860BE !important;' : 'border: 1px solid #CFCFCF !important;'}
+    
+    border-radius: 6px !important;
+    line-height:26px;
+    padding:7px;
+    box-sizing: border-box;
+    .active{
+        border:5px solid red;
+    }
+    option {
+        color: #000000 !important;
+        background-color: #ffffff;
+        height: 40px !important;
+        line-height:50px !important;
+      }
+      option:hover {
+        background-color:#deebff;
+      }
+`   

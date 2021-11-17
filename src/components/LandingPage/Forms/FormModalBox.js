@@ -2,9 +2,11 @@ import React from 'react'
 import styled from 'styled-components';
 import { Modal, Button } from 'react-bootstrap'
 import FormsControler from '../FormsControler'
+import PPCFormsControler from '../PPCFormsControler'
 import bgimg from '../../../assets/images/popup-close.png';
 import pdashImg from '../../../assets/images/pop-dash.png';
 function FormModelBox(props) {
+    const { action } = props
     return (
         <Modal
             {...props}
@@ -14,12 +16,11 @@ function FormModelBox(props) {
         >
             <div>
             <PopupBtn imgUrl={bgimg} onClick={props.onHide}>&nbsp;</PopupBtn>
-            {/* <Button onClick={props.onHide}>Close</Button> */}
             </div>
             <Modal.Body className="p-0 m-0">
             <div className="container p-0 m-0 ">
                 <PopupBody imgUrl={pdashImg}>
-                    <FormsControler/> 
+                {action==='ppc' ? <PPCFormsControler/>  : <FormsControler/> }
                 </PopupBody>                
             </div>
             </Modal.Body>        
@@ -38,7 +39,14 @@ function FormModelBox(props) {
     background-size: 100% 100%;
     background-image: url(${(props)=>props.imgUrl}) !important;
   `
-  export const PopupBody = styled.div`       
+  export const PopupBody = styled.div`  
+  h4 {
+    @media only screen and (max-width:575px) {  
+        font-size:12px !important;
+        line-height:20px !important;
+        padding: 0px 7px !important;
+      }    
+  }
     & > p {
         background:#fafafa;
         color:#2860BE !important;
@@ -46,22 +54,26 @@ function FormModelBox(props) {
         font-weight:500 !important;
         width:100%;
         float:left;
-        padding:10px 25px
+        padding:10px 25px 10px 40px;
     }
     & > p span{
-        width:75px;
+        min-width: 100px !important;
+        width: auto !important;
         text-align: center;
         height: 30px;
+        margin-left: 10px !important;
+        padding: 0px 10px;
         background-color: #2860BE;
-        color:#ffffff;
+        color: #ffffff;
+        font-size: 14px !important;
         font-weight: 600;
-        border-radius:5px;
+        border-radius: 5px;
     }
     & > .form_outer{
         width:100%;
         float:left;
         overflow:hidden;
-        padding:10px 20px;
+        padding:10px 20px 10px 40px;
     }
     & > .popup-top{
         padding:2px 10px;
@@ -75,6 +87,44 @@ function FormModelBox(props) {
         border:1px dashed;
         right:-200%;
         color:#fefefe;
+    }
+    .ftop{
+        margin:0px 20px;
+    }
+    .ftop h4 {
+        font-size: 19px;
+        line-height: 58px;
+        font-weight: 600;
+        padding: 0px 15px;
+        width:100%;
+        color:#000000;
+        background-color: #F0AC3F;
+        border-radius: 5px 5px 0 0;
+        float: left;
+    }
+    .form_outer .btn2 {
+        border: 0;
+        font-size: 13px !important;
+        text-align: center;
+        width: 100%;
+        background-color: #F0AC3F;
+        font-weight: 600;
+        border: 1px solid #F0AC3F;
+        line-height: 45px !important;
+        text-transform: uppercase;
+    }
+    .form_outer .btn-outer-new {
+        font-size: 13px !important;
+        text-align: center;
+        width: 100%;
+        color: #F0AC3F;
+        border-radius: 5px;
+        text-transform: uppercase;
+        background-color: #ffffff;
+        border: 1px solid #F0AC3F;
+        font-weight: 600;
+        height: 45px !important;
+        line-height: 45px !important;
     }
     @media only screen and (max-width:599px) {
         & > .popup-top h3{

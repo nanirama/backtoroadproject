@@ -7,48 +7,134 @@ import Image from '../components/LandingPage/image'
 import ContentModalBox from '../components/LandingPage/Forms/ContentModalBox'
 import LandingBanner from '../components/LandingPage/LandingBanner';
 import '../components/LandingPage/css/custom.css'
+import { Field, Formik, useFormik, useFormikContext } from 'formik';  
+import { FocusError } from 'focus-formik-error'
+import * as yup from 'yup';  
 
-const Shipping = (props) => { 
+
+const validationSchema = yup.object().shape({  
+   quote: yup  
+    .string()  
+    .required('Please enter the Quote Number from the Quote sent to your email'),   
+    password: yup  
+    .string()  
+    .required('Please enter Password'), 
+    email: yup  
+    .string()  
+    .required('Please enter the email address to which we sent you the quote')  
+    .email('Enter valid email address'), 
+   shippingFirstname: yup  
+    .string()  
+    .required('Please enter First Name'),   
+   shippingLastname: yup  
+    .string()  
+    .required('Please enter Last Name'), 
+   shippingAddress: yup  
+    .string()  
+    .required('Please enter Address'),
+   shippingCity: yup  
+    .string()  
+    .required('Please enter City'),
+   shippingState: yup  
+    .string()  
+    .required('Please enter State'),
+   shippingZipcode: yup  
+    .string()  
+    .required('Please enter Zipcode'),
+   shippingPhone: yup  
+    .number()
+    .required('Please enter Phone Number'),
+    billingFirstname: yup  
+    .string()  
+    .required('Please enter First Name'),   
+   billingLastname: yup  
+    .string()  
+    .required('Please enter Last Name'), 
+   billingAddress: yup  
+    .string()  
+    .required('Please enter Address'),
+   billingCity: yup  
+    .string()  
+    .required('Please enter City'),
+   billingState: yup  
+    .string()  
+    .required('Please enter State'),
+   billingZipcode: yup  
+    .string()  
+    .required('Please enter Zipcode'),
+   billingPhone: yup  
+    .number()
+    .required('Please enter Phone Number'),
+   cardNumber: yup  
+    .number()
+    .required('Please enter Card Number'),
+   cardName: yup  
+    .string()
+    .required('Please enter Card Name'),
+   cardMonthYear: yup  
+    .string()
+    .required('Please enter Card Month and Year'),
+   cardCvv: yup  
+    .number()
+    .required('Please enter Cvv Number'),
+}); 
+
+
+const Payment = (props) => { 
+  const initialValues = {  
+    quote: '',  
+    email: '', 
+    password: '',
+    shippingFirstname: '',  
+    shippingLastname: '',  
+    shippingAddress: '',  
+    shippingCity: '',  
+    shippingState: '',  
+    shippingZipcode: '',  
+    shippingPhone: undefined,  
+    billingFirstname: '',  
+    billingLastname: '',  
+    billingAddress: '',  
+    billingCity: '',  
+    billingState: '',  
+    billingZipcode: '',  
+    billingPhone: undefined,  
+    cardNumber: undefined,  
+    cardName: '',
+    cardMonthYear: '',
+    cardCvv: undefined,  
+  }
+  const submitForm = (values) => {
+    console.log(values);
+  };
+
+     const [formValid, setFormValid] = useState(false);
      const [modalShow1, setModalShow1] = useState(false);
      const [modalShow2, setModalShow2] = useState(false);
-     const shipping_array = [
-                              { name: 'firstname', value: null },
-                              { name: 'lastname', value: null },
-                              { name: 'address', value: null },
-                              { name: 'city', value: null },
-                              { name: 'state', value: null },
-                              { name: 'zipcode', value: null },
-                              { name: 'phone', value: null }
-                            ]
-     const billing_array = [
-                              { name: 'firstname', value: null },
-                              { name: 'lastname', value: null },
-                              { name: 'address', value: null },
-                              { name: 'city', value: null },
-                              { name: 'state', value: null },
-                              { name: 'zipcode', value: null },
-                              { name: 'phone', value: null }
-                              ]
 
-     const [shipping, setShipping] = useState(shipping_array);
-     const [billing, setBilling] = useState(billing_array);
      const [checked, setChecked] = useState(false);
-     const handleChange=( eventValue, field, state, setState )=> {
-        const values = [...state];
-        const valuesData = values.map(item => item.name===field ? { name: field, value: eventValue} : item)
-        setState(valuesData);
-        console.log('my Values', state)
-    }
+
+     const [shippingFirstname, setShippingFirstname] = useState(null);
+     const [shippingLastname, setShippingLastname] = useState(null);
+     const [shippingAddress, setShippingAddress] = useState(null);
+     const [shippingCity, setShippingCity] = useState(null);
+     const [shippingState, setShippingState] = useState(null);
+     const [shippingZipcode, setShippingZipcode] = useState(null);
+     const [shippingPhone, setShippingPhone] = useState(null);
+
+
+     const [billingFirstname, setBillingFirstname] = useState(null);
+     const [billingLastname, setBillingLastname] = useState(null);
+     const [billingAddress, setBillingAddress] = useState(null);
+     const [billingCity, setBillingCity] = useState(null);
+     const [billingState, setBillingState] = useState(null);
+     const [billingZipcode, setBillingZipcode] = useState(null);
+     const [billingPhone, setBillingPhone] = useState(null);
+
     const handleCheck = (e) => {
       setChecked(true);
     }
-    useEffect(() => {
-      if(checked){
-        setBilling(shipping)
-      }
-      console.log('Billing Address', billing)
-    }, [checked, shipping, billing, setBilling]);
-     const {site, BannerImage, pageBanner, pageBannerM, pLogo1, pLogo2, pLogo3, pLogo4 } = useStaticQuery(
+     const {site, usStates, BannerImage, pageBanner, pageBannerM, pLogo1, pLogo2, pLogo3, pLogo4 } = useStaticQuery(
         graphql`
           query {
             site {
@@ -57,6 +143,15 @@ const Shipping = (props) => {
                 description
                 author
                 siteUrl
+              }
+            }
+            usStates : allUsstatesJson(sort: {fields: name, order: ASC}) {
+              edges {
+                node {
+                  name
+                  abbreviation
+                  id
+                }
               }
             }
             BannerImage: file(relativePath: { eq: "landing/ban_img.png" }) {
@@ -106,6 +201,7 @@ const Shipping = (props) => {
     const pageBimg = pageBanner.childImageSharp.fluid.srcWebp
     const pageMimg = pageBannerM.childImageSharp.fluid.srcWebp
     const siteURL = site.siteMetadata.siteUrl 
+
     return (
       <Layout pdata={props}>
          <Seo
@@ -146,145 +242,444 @@ const Shipping = (props) => {
         <div className="row">
         <div className="container">
           <div className="row d-flex justify-content-between">
-              <div className="col-lg-8 col-xs-12 px-2">
-            <div className="payment payment-form px-md-4 pb-md-4 px-2 pb-2 w-100 float-left">
-              
-            <div className="row my-3">
-            <div className="col-md-12 col-xs-12">
-                <h4 className="mb-4">Quote</h4>
-               </div>
-               <div className="col-md-6 col-xs-12">
-                  <input type="text" name="quote_number"
-                  placeholder="Quote Number"
-                  className="form-control py-4 mb-3"/>
+            
+            <div className="col-lg-8 col-xs-12 px-2">
+            <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={submitForm}
+    >
+      {(formik) => {
+        const {
+          values,
+          handleChange,
+          handleSubmit,
+          errors,
+          touched,
+          handleBlur,
+          isValid,
+          dirty
+        } = formik;
+        return (
+          <div className="payment payment-form px-md-4 pb-md-4 px-2 pb-2 w-100 float-left">
+              <form onSubmit={handleSubmit}>
+              <FocusError formik={formik} />
+                <div className="row my-3">
+                    <div className="col-md-12 col-xs-12">
+                       <h4 className="mb-4">Quote</h4>
+                    </div>
+                    <div className="col-md-6 col-xs-12 mb-2">
+                      <input
+                        type="text"
+                        name="quote"
+                        id="quote"
+                        value={values.quote}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        placeholder="Quote Number"
+                        className="form-control py-4 mb-1"
+                      />
+                      {errors.quote && touched.quote && (
+                        <span className="text-error">{errors.quote}</span>
+                      )}
+                      { !errors.quote && !touched.quote && (
+                        <span>Please enter the Quote Number from the Quote sent to your email</span>
+                      )}
+                    </div>
+                    <div className="col-md-6 col-xs-12 mb-2">
+                        <input
+                          type="email"
+                          name="email"
+                          id="email"
+                          value={values.email}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          placeholder="Email Address"
+                          className="form-control py-4 mb-1"
+                      />
+                      {errors.email && touched.email && (
+                        <span className="text-error">{errors.email}</span>
+                      )}
+                      { !errors.email && !touched.email && (
+                        <span>Please enter the email address to which we sent you the quote</span>
+                      )}
+                    </div>
+                    <div className="col-md-12 col-xs-12">
+                      <h4 className="mb-4">Shipping Address</h4>
+                    </div>
+                    <div className="col-md-6 col-xs-12 mb-2">
+                      <Field
+                        name="shippingFirstname"
+                        value={values.shippingFirstname}
+                        render={({ field, form }) => (
+                          <input
+                          placeholder="Firstname"
+                          className="form-control py-4 mb-1"
+                            {...field}
+                            onChange={e => {
+                              handleChange(e)
+                              setShippingFirstname(e.target.value)
+                              checked && form.setFieldValue('billingFirstname', e.target.value)                       
+                            }}
+                          />
+                        )}
+                      />
+                      {errors.shippingFirstname && touched.shippingFirstname && (
+                        <span className="text-error">{errors.shippingFirstname}</span>
+                      )}
+                    </div>
+                    <div className="col-md-6 col-xs-12 mb-2">
+                      <Field
+                        name="shippingLastname"
+                        value={values.shippingLastname}
+                        render={({ field, form }) => (
+                          <input
+                          placeholder="Lastname"
+                          className="form-control py-4 mb-1"
+                            {...field}
+                            onChange={e => {
+                              handleChange(e)
+                              setShippingLastname(e.target.value)
+                              checked && form.setFieldValue('billingLastname', e.target.value)                       
+                            }}
+                          />
+                        )}
+                      />
+                      {errors.shippingLastname && touched.shippingLastname && (
+                        <span className="text-error">{errors.shippingLastname}</span>
+                      )}
+                    </div>
+                    <div className="col-md-12 col-xs-12 mb-2">
+                      <Field
+                          name="shippingAddress"
+                          value={values.shippingAddress}
+                          render={({ field, form }) => (
+                            <input
+                            placeholder="Address"
+                            className="form-control py-4 mb-1"
+                              {...field}
+                              onChange={e => {
+                                handleChange(e)
+                                setShippingAddress(e.target.value)
+                                checked && form.setFieldValue('billingAddress', e.target.value)                       
+                              }}
+                            />
+                          )}
+                        />
+                        {errors.shippingAddress && touched.shippingAddress && (
+                          <span className="text-error">{errors.shippingAddress}</span>
+                        )}
+                    </div>
+                    <div className="col-md-6 col-xs-12 mb-2">
+                      <Field
+                        name="shippingCity"
+                        value={values.shippingCity}
+                        render={({ field, form }) => (
+                          <input
+                          placeholder="City"
+                          className="form-control py-4 mb-1"
+                            {...field}
+                            onChange={e => {
+                              handleChange(e)
+                              setShippingCity(e.target.value)
+                              checked && form.setFieldValue('billingCity', e.target.value)                       
+                            }}
+                          />
+                        )}
+                      />
+                      {errors.shippingCity && touched.shippingCity && (
+                        <span className="text-error">{errors.shippingCity}</span>
+                      )}
+                    </div>
+                    <div className="col-md-6 col-xs-12 mb-2">
+                      <Field
+                        name="shippingState"
+                        value={values.shippingState}
+                        render={({ field, form }) => (
+                          <Select
+                            {...field}
+                            onChange={e => {
+                              handleChange(e)
+                              setShippingState(e.currentTarget.value)
+                              checked && form.setFieldValue('billingState', e.currentTarget.value)                       
+                            }}
+                          >
+                            { usStates.edges.map((item,index)=>{
+                              return(
+                                <option value={item.node.abbreviation} label={item.node.name} selected />
+                              )
+                            })}                           
+                            
+                        </Select>
+                        )}
+                      />
+                      {errors.shippingState && touched.shippingState && (
+                        <span className="text-error">{errors.shippingState}</span>
+                      )}
+                    </div>
+                    <div className="col-md-6 col-xs-12 mb-2">
+                      <Field
+                        name="shippingZipcode"
+                        value={values.shippingZipcode}
+                        render={({ field, form }) => (
+                          <input
+                          placeholder="Zipcode"
+                          className="form-control py-4 mb-1"
+                            {...field}
+                            onChange={e => {
+                              handleChange(e)
+                              setShippingZipcode(e.target.value)
+                              checked && form.setFieldValue('billingZipcode', e.target.value)                       
+                            }}
+                          />
+                        )}
+                      />
+                      {errors.shippingZipcode && touched.shippingZipcode && (
+                        <span className="text-error">{errors.shippingZipcode}</span>
+                      )}
+                    </div>
+                    <div className="col-md-6 col-xs-12 mb-2">
+                      <Field
+                        name="shippingPhone"
+                        value={values.shippingPhone}
+                        render={({ field, form }) => (
+                          <input
+                          placeholder="Phone Number"
+                          className="form-control py-4 mb-1"
+                            {...field}
+                            onChange={e => {
+                              handleChange(e)
+                              setShippingPhone(e.target.value)
+                              checked && form.setFieldValue('billingPhone', e.target.value)                       
+                            }}
+                          />
+                        )}
+                      />
+                      {errors.shippingPhone && touched.shippingPhone && (
+                        <span className="text-error">{errors.shippingPhone}</span>
+                      )}
+                    </div>
                 </div>
-                <div className="col-md-6 col-xs-12">
-                  <input type="text" name="email"
-                  placeholder="Email Address" className="form-control py-4 mb-3"/>
-                </div>
-              <div className="col-md-12 col-xs-12">
-                <h4 className="mb-4">Shipping Address</h4>
-               </div>
-                <div className="col-md-6 col-xs-12">
-                  <input type="text" name="shipping_firstname"
-                  onChange={e=>handleChange(e.target.value, 'firstname', shipping, setShipping)}
-                  placeholder="First Name"
-                  className="form-control py-4 mb-3"/>
-                </div>
-                <div className="col-md-6 col-xs-12">
-                  <input type="text" name="shipping_lastname"
-                  onChange={e=>handleChange(e.target.value, 'lastname', shipping, setShipping)}
-                  placeholder="Last Name" className="form-control py-4 mb-3"/>
-                </div>
-                <div className="col-md-12 col-xs-12">
-                  <input type="text" name="shipping_address"
-                  onChange={e=>handleChange(e.target.value, 'address', shipping, setShipping)}
-                  placeholder="Street Addess" className="form-control py-4 mb-3"/>
-                </div>
-                <div className="col-md-6 col-xs-12">
-                  <input type="text" name="shipping_city"
-                  onChange={e=>handleChange(e.target.value, 'city', shipping, setShipping)}
-                  placeholder="City" className="form-control py-4 mb-3"/>
-                </div>
-                <div className="col-md-6 col-xs-12">
-                  <select name="shipping_state"  class="form-control mb-3"
-                  onChange={e=>handleChange(e.currentTarget.value, 'state', shipping, setShipping)}>
-                    <option>Select State</option>
-                    <option value="Alabama">Alabama</option>
-                    <option value="Alaska">Alaska</option>
-                    <option value="Arizona">Arizona</option>
-                    <option value="Arkansas">Arkansas</option>
-                    <option value="California">California</option>
-                    <option value="Colorado">Colorado</option>
-                  </select>
-                </div>
-                <div className="col-md-6 col-xs-12">
-                  <input type="text" name="shipping_zipcode"
-                  onChange={e=>handleChange(e.target.value, 'zipcode', shipping, setShipping)}
-                  placeholder="Zip Code" className="form-control py-4 mb-3"/>
-                </div>
-                <div className="col-md-6 col-xs-12">
-                  <input type="text" name="shipping_phone"
-                  onChange={e=>handleChange(e.target.value, 'phone', shipping, setShipping)}
-                  placeholder="Phone Number" className="form-control py-4 mb-3"/>
-                </div>
-              </div>
-              <div className="row my-3">
-                <div className="col-md-6 col-xs-12 d-flex justify-content-start align-items-center">
-                  <input type="checkbox" name="billing_same_as"
-                   onChange={handleCheck} 
-                  className="float-left checkbox-payment"
+                <div className="row my-3">
+                  <div className="col-md-6 col-xs-12 d-flex justify-content-start align-items-center">
+                  <Field
+                    name="billing_same_as"
+                    value={values.billing_same_as}
+                    render={({ field, form }) => (
+                      <Checkbox
+                        {...field}
+                        onChange={e => {
+                          setChecked(!checked);                          
+                          !checked && form.setFieldValue('billingFirstname', shippingFirstname)  
+                          !checked && form.setFieldValue('billingLastname', shippingLastname)  
+                          !checked && form.setFieldValue('billingAddress', shippingAddress)  
+                          !checked && form.setFieldValue('billingCity', shippingCity)  
+                          !checked && form.setFieldValue('billingState', shippingState)  
+                          !checked && form.setFieldValue('billingZipcode', shippingZipcode)  
+                          !checked && form.setFieldValue('billingPhone', shippingPhone)                       
+                        }}
+                      />
+                    )}
                   />
-                  <label for="tracking" className="w-auto float-left pl-2">Billing Address same as Shipping Address.</label>
+                    <label for="tracking" className="w-auto float-left pl-2">Billing Address same as Shipping Address.</label>
+                  </div>
                 </div>
-              </div>
-              <div className="row my-3">
-              <div className="col-md-12 col-xs-12">
-                <h4 className="mb-4">Billing Address</h4>
+                <div className="row my-3">
+                  <div className="col-md-12 col-xs-12">
+                    <h4 className="mb-4">Billing Address</h4>
+                  </div>
+                  <div className="col-md-6 col-xs-12 mb-2">
+                      <input
+                        type="text"
+                        name="billingFirstname"
+                        id="billingFirstname"
+                        value={values.billingFirstname}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        placeholder="Firstname"
+                        className="form-control py-4 mb-1"
+                      />
+                      {errors.billingFirstname && touched.billingFirstname && (
+                        <span className="text-error">{errors.billingFirstname}</span>
+                      )}
+                  </div>
+                  <div className="col-md-6 col-xs-12 mb-2">
+                      <input
+                        type="text"
+                        name="billingLastname"
+                        id="billingLastname"
+                        value={values.billingLastname}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        placeholder="Lastname"
+                        className="form-control py-4 mb-1"
+                      />
+                      {errors.billingLastname && touched.billingLastname && (
+                        <span className="text-error">{errors.billingLastname}</span>
+                      )}
+                  </div>
+                   <div className="col-md-12 col-xs-12 mb-2">
+                    <input
+                        type="text"
+                        name="billingAddress"
+                        id="billingAddress"
+                        value={values.billingAddress}
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        placeholder="Address"
+                        className="form-control py-4 mb-1"
+                      />
+                      {errors.billingAddress && touched.billingAddress && (
+                        <span className="text-error">{errors.billingAddress}</span>
+                      )}
+                    </div>
+                    <div className="col-md-6 col-xs-12 mb-2">
+                        <input
+                          type="text"
+                          name="billingCity"
+                          id="billingCity"
+                          value={values.billingCity}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          placeholder="City"
+                          className="form-control py-4 mb-1"
+                        />
+                        {errors.billingCity && touched.billingCity && (
+                          <span className="text-error">{errors.billingCity}</span>
+                        )}
+                    </div>
+                    <div className="col-md-6 col-xs-12 mb-2">
+                        <Select
+                          name="billingState"
+                          id="billingState"
+                          value={values.billingState}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                        >
+                          { usStates.edges.map((item,index)=>{
+                                return(
+                                  <option value={item.node.abbreviation} label={item.node.name} />
+                                )
+                            })}     
+                          </Select>
+                        {errors.billingState && touched.billingState && (
+                          <span className="text-error">{errors.billingState}</span>
+                        )}
+                    </div>
+                    <div className="col-md-6 col-xs-12 mb-2">
+                        <input
+                          type="text"
+                          name="billingZipcode"
+                          id="billingZipcode"
+                          value={values.billingZipcode}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          placeholder="Zipcode"
+                          className="form-control py-4 mb-1"
+                        />
+                        {errors.billingZipcode && touched.billingZipcode && (
+                          <span className="text-error">{errors.billingZipcode}</span>
+                        )}
+                    </div>
+                    <div className="col-md-6 col-xs-12 mb-2">
+                        <input
+                          type="text"
+                          name="billingPhone"
+                          id="billingPhone"
+                          value={values.billingPhone}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          placeholder="Phone Number"
+                          className="form-control py-4 mb-1"
+                        />
+                        {errors.billingPhone && touched.billingPhone && (
+                          <span className="text-error">{errors.billingPhone}</span>
+                        )}
+                    </div>
                 </div>
-                <div className="col-md-6 col-xs-12">
-                  <input type="text" name="billing_firstname"
-                  value={billing[0].value && billing[0].value }
-                  placeholder="First Name" className="form-control py-4 mb-3"/>
+                <div className="row my-3">
+                  <div className="col-md-12 col-xs-12">
+                    <h4 className="mb-4">Payment Method</h4>
+                  </div>
+                  <div className="col-md-12 col-xs-12 mb-2">
+                      <input
+                          type="text"
+                          name="cardNumber"
+                          id="cardNumber"
+                          value={values.cardNumber}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          placeholder="Card Number"
+                          className="form-control py-4 mb-1"
+                        />
+                        {errors.cardNumber && touched.cardNumber && (
+                          <span className="text-error">{errors.cardNumber}</span>
+                        )}
+                  </div>
+                  <div className="col-md-6 col-xs-12 mb-2">
+                      <input
+                          type="text"
+                          name="cardName"
+                          id="cardName"
+                          value={values.cardName}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          placeholder="Card Name"
+                          className="form-control py-4 mb-1"
+                        />
+                        {errors.cardName && touched.cardName && (
+                          <span className="text-error">{errors.cardName}</span>
+                        )}
+                  </div>
+                  <div className="col-md-3 col-sm-6 col-xs-12 mb-2">
+                      <input
+                          type="text"
+                          name="cardMonthYear"
+                          id="cardMonthYear"
+                          value={values.cardMonthYear}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          placeholder="MM/YY"
+                          className="form-control py-4 mb-1"
+                        />
+                        {errors.cardName && touched.cardMonthYear && (
+                          <span className="text-error">{errors.cardMonthYear}</span>
+                        )}
+                  </div>
+                  <div className="col-md-3 col-sm-6 col-xs-12">
+                      <input
+                          type="text"
+                          name="cardCvv"
+                          id="cardCvv"
+                          value={values.cardCvv}
+                          onChange={handleChange}
+                          onBlur={handleBlur}
+                          placeholder="CVV Number"
+                          className="form-control py-4 mb-1"
+                        />
+                        {errors.cardName && touched.cardCvv && (
+                          <span className="text-error">{errors.cardCvv}</span>
+                        )}
+                  </div>
                 </div>
-                <div className="col-md-6 col-xs-12">
-                  <input type="text" name="billing_lastname"
-                   value={billing[1].value && billing[1].value }
-                   placeholder="Last Name" className="form-control py-4 mb-3"/>
+                <div className="row">
+                    <div className="col-md-12 col-sm-12 col-xs-12 d-flex flex-row justify-content-start align-items-start">
+                    <Checkbox onChange={e=>setFormValid(!formValid)} /><span>I have read and agree to the BacktoRoads Company <button onClick={() => setModalShow1(true)} className="popup_link">Terms and Conditions</button> and <button onClick={() => setModalShow2(true)} className="popup_link">Privacy Policy.</button></span>
+                    </div>
+                    <div className="col-md-6 col-sm-8 col-xs-12 d-flex flex-column text-center align-items-start">
+                      <button type="submit"  className="btn2 border-0 my-3 text-center w-100" disabled={!formValid}>Place Order</button>
+                    </div>
                 </div>
-                <div className="col-md-12 col-xs-12">
-                  <input type="text" name="billing_address"
-                  value={billing[2].value && billing[2].value }
-                  placeholder="Street Addess" className="form-control py-4 mb-3"/>
-                </div>
-                <div className="col-md-6 col-xs-12">
-                  <input type="text" name="billing_city"
-                  value={billing[3].value && billing[3].value }
-                  placeholder="City" className="form-control py-4 mb-3"/>
-                </div>
-                <div className="col-md-6 col-xs-12">
-                  <select name="billing_state"  class="form-control mb-3">
-                    <option>Select State</option>
-                    <option value="Alabama">Alabama</option>
-                    <option value="Alaska">Alaska</option>
-                    <option value="Arizona">Arizona</option>
-                    <option value="Arkansas">Arkansas</option>
-                    <option value="California">California</option>
-                    <option value="Colorado">Colorado</option>
-                  </select>
-                </div>
-                <div className="col-md-6 col-xs-12">
-                  <input type="text" name="billing_zipcode"
-                  value={billing[5].value && billing[5].value }
-                  placeholder="Zip Code" className="form-control py-4 mb-3"/>
-                </div>
-                <div className="col-md-6 col-xs-12">
-                  <input type="text" name="billing_phone"
-                  value={billing[6].value && billing[6].value }
-                  placeholder="Phone Number" className="form-control py-4 mb-3"/>
-                </div>
-              </div>
-              <h4 className="my-4">Payment Method</h4>
-              <div className="row">
-                <div className="col-md-12 col-xs-12">
-                  <input type="text" value="Card Number" placeholder="Card Number" className="form-control py-4 mb-3"/>
-                </div>
-                <div className="col-md-6 col-xs-12">
-                  <input type="text" value="Cardholder Name" placeholder="Cardholder Name" className="form-control py-4 mb-3"/>
-                </div>
-                <div className="col-md-3 col-sm-6 col-xs-12">
-                  <input type="text" value="MM/YY" placeholder="MM/YY" className="form-control py-4 mb-3"/>
-                </div>
-                <div className="col-md-3 col-sm-6 col-xs-12">
-                  <input type="text" value="CW" placeholder="CW" className="form-control py-4 mb-3"/>
-                </div>
-                <div className="col-md-6 offset-md-3 col-sm-8 offset-sm-2 col-xs-12 d-flex flex-column text-center align-items-center">
-                  <button className="btn2 border-0 float-none my-3 text-center w-100">Place Order</button>
-                  <span>By placing this order you agree to <button onClick={() => setModalShow1(true)} className="popup_link">Terms and Conditions</button> and <button onClick={() => setModalShow2(true)} className="popup_link">Privacy Policy.</button></span> </div>
-              </div>
+              </form>
             </div>
-          </div>
-          <div className="col-lg-4 col-xs-12 px-2">
+        );
+      }}
+    </Formik>
+            </div>
+            
+              
+          
+          <div className="col-lg-4 col-xs-12 px-2 d-flex flex-sm-column-reverse flex-md-column">
             <div className="ph-blk payment p-4">
               <h5 className="mb-4">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 30">
@@ -366,4 +761,35 @@ const PageBannerDiv = styled.div`
     background-repeat:no-repeat;
     background-position:left top;    
 `;
-export default Shipping
+const Checkbox = styled.input.attrs({ type: 'checkbox' })`
+  outline: none;
+  width: 20px;
+  height: 20px;
+  margin-right:10px;
+  border-radius: 32px;
+  background-color: #fff;
+  border: none;
+  margin-bottom: 10px;
+`
+const Select = styled.select`
+  width: 100%;
+  height: calc(1.5em + .75rem + 2px);
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  background: white;
+  color: #495057;
+  padding: 0.1rem 0.5rem !important;
+  font-size: 14px;
+  & >option {
+         color: black;
+         background: white;
+         font-weight: small;
+         display: flex;
+         white-space: pre;
+         min-height: 20px;
+         padding: 0px 2px 1px;
+         border:2px solid red;
+       }
+`;
+export default Payment

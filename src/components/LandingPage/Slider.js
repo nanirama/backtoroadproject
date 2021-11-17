@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import Image from './image'
 import Slider from "react-slick";
 import FormsControler from './FormsControler'
+import PPCFormsControler from './PPCFormsControler'
 
-const LandingSlider = ({data}) => {
+const LandingSlider = ({data,action}) => {
   const settings = {
     customPaging: function(i) {
       return (
@@ -59,7 +60,7 @@ const LandingSlider = ({data}) => {
           <div className="col-md-12 col-sm-12 main-slider">
           <div className="col-lg-6 col-md-6 slider_form_above slider_form_desktop">                          
                       <div className="slider_form">
-                        <FormsControler/> 
+                        {action==='ppc' ? <PPCFormsControler/>  : <FormsControler/> }
                       </div>                         
                  </div>
           <Slider {...settings}>
@@ -88,7 +89,7 @@ const LandingSlider = ({data}) => {
           </Slider>
         </div>  
           <div className="slider_form mob_form" id="findmmypart">
-              <FormsControler/>
+              {action==='ppc' ? <PPCFormsControler/>  : <FormsControler/> }
           </div> 
         </div>  
         
