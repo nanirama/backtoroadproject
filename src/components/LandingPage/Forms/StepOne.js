@@ -69,7 +69,7 @@ const StepOne = ({setInStack, onClick}) => {
                 });
                 console.log('All years', optionsDyna)
             })            
-            .catch(error => console.log(error.response))   
+            .catch(error => console.log(error))   
     }
     const handleYearChange = ()=>{        
         setCursorPointer('year')  
