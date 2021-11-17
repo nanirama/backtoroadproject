@@ -67,6 +67,7 @@ const StepOne = ({setInStack, onClick}) => {
                     type: 'ADD_ALL_YEARS',
                     item: optionsDyna,
                 });
+                console.log('All years', optionsDyna)
             })            
             .catch(error => console.log(error.response))   
     }
