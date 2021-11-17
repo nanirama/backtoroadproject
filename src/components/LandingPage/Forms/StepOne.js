@@ -21,7 +21,7 @@ const StepOne = ({setInStack, onClick}) => {
             item: 'ONE'
         });
         fetchYears();     
-    })
+    },[fetchYears])
     const calculateStack = (year, make, model, part)=>{
         const yarray = [year, make, model, part]
         const newyArray = yarray.filter((item)=>{
