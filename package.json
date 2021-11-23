@@ -11,7 +11,7 @@
     "bootstrap": "^4.6.1",
     "focus-formik-error": "^1.1.0",
     "formik": "^2.2.9",
-    "gatsby": "^3.0.0-next.0",
+    "gatsby": "^3.0.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^1.14.2",
     "gatsby-plugin-less": "^5.11.0",
