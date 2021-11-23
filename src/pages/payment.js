@@ -664,9 +664,12 @@ const Payment = (props) => {
                     <div className="col-md-12 col-sm-12 col-xs-12 d-flex flex-row justify-content-start align-items-start">
                     <Checkbox onChange={e=>setFormValid(!formValid)} /><span>I have read and agree to the BacktoRoads Company <button onClick={() => setModalShow1(true)} className="popup_link">Terms and Conditions</button> and <button onClick={() => setModalShow2(true)} className="popup_link">Privacy Policy.</button></span>
                     </div>
-                    <div className="col-md-6 col-sm-8 col-xs-12 d-flex flex-column text-center align-items-start">
-                      <button type="submit"  className="btn2 border-0 my-3 text-center w-100" disabled={!formValid}>Place Order</button>
-                    </div>
+                    
+                </div>
+                <div className="row d-flex justify-content-center">
+                   <ButtonContainer className="col-md-6 col-sm-8 col-xs-12 d-flex flex-row text-center align-items-start">
+                      { formValid && <button type="submit"  className="btn2 border-0 my-3 text-center w-100">Place Order</button>}                      
+                    </ButtonContainer>
                 </div>
               </form>
             </div>
@@ -745,6 +748,9 @@ const Payment = (props) => {
         </Layout>
     )
 }
+const ButtonContainer = styled.div`
+  min-height:90px;
+`
 const PageBannerDiv = styled.div`    
     @media (max-width: 767px) {
         background-image: url(${props => props.mimg});
