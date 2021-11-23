@@ -112,10 +112,10 @@ const FormsControler = () =>{
               <span className="float-right">{inStack}</span>
             )}</p>
             <div className="form_outer">
-            {firstStep ? <StepThree setInStack={setInStack} setPartsHeading={setPartsHeading} onClickToFour={onClickToFour} onClickToTwo={onClickToTwo} /> : null}
-                {/* {firstStep ? <StepOne setPartsHeading={setPartsHeading} setInStack={setInStack} onClick={onClick} /> : null}
+            {/* {firstStep ? <StepThree setInStack={setInStack} setPartsHeading={setPartsHeading} onClickToFour={onClickToFour} onClickToTwo={onClickToTwo} /> : null} */}
+                {firstStep ? <StepOne setPartsHeading={setPartsHeading} setInStack={setInStack} onClick={onClick} /> : null}
                 {secondStep ? <StepTwo setInStack={setInStack} setPartsHeading={setPartsHeading} onClick={onClick} onClickToThree={onClickToThree} onClickToOne={onClickToOne} /> : null}
-                {thirdStep ? <StepThree setInStack={setInStack} setPartsHeading={setPartsHeading} onClickToFour={onClickToFour} onClickToTwo={onClickToTwo} /> : null} */}
+                {thirdStep ? <StepThree setInStack={setInStack} setPartsHeading={setPartsHeading} onClickToFour={onClickToFour} onClickToTwo={onClickToTwo} /> : null}
             </div>
         </React.Fragment>
     )
