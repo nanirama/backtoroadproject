@@ -59,7 +59,7 @@ const PartsSearch =()=>{
         `
       )
     const numberPer = width < 768 ? 10 : 30;
-    const [items, setItems] = useState(PartsList.edges);
+    const [items] = useState(PartsList.edges);
     const [filteritems, setFilteritems] = useState(items); 
     const [list, setList] = useState(filteritems.slice(0, numberPer));
     const onsubmitEventHandler=(event)=>{        

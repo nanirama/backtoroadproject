@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Loader from "react-loader-spinner";
 import styled from 'styled-components'
-import Select from 'react-select'
+//import Select from 'react-select'
 import ReCAPTCHA from "react-google-recaptcha";
 import { Field, Formik } from 'formik';  
 import * as yup from 'yup';  
@@ -37,8 +37,9 @@ const validationSchema = yup.object().shape({
 
 
 const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) => {
+    const [isPhoneError, setIsPhoneError] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
-    const [{ year, make, model, part, stepBtnEnable }, dispatch] = useStateValue()
+    const [{ year, make, model, part }, dispatch] = useStateValue()
     const initialValues = {  
         name: '',  
         email: '',  
@@ -63,84 +64,10 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
             item: false,
         });
         setInStack(' ✓ In Stock ')
-        setPartsHeading(make +' '+ model +' '+ part)
+        setPartsHeading(make +' '+ model +' '+ part +' '+ year)
     }, [year, make, model, part])
 
-    
-    const [dummy, setDummy] = useState();
-
-    const colourStyles = {
-        control: styles => ({ ...styles, backgroundColor: 'white', color: '#000000', width: '100%', borderRadius: '2px', alignItems: 'left', borderColor: '#CCCCCC'}),
-        option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-            return {
-                ...styles,
-                alignItems: 'left !important',
-                color: '#000000'
-            };
-        },
-    };
-
-    const optionsStates = [
-        { value: "Alabama", label: "Alabama" },
-        { value: "Alaska", label: "Alaska" },
-        { value: "American Samoa", label: "American Samoa" },
-        { value: "Arizona", label: "Arizona" },
-        { value: "Arkansas", label: "Arkansas" },
-        { value: "California", label: "California" },
-        { value: "Colorado", label: "Colorado" },
-        { value: "Connecticut", label: "Connecticut" },
-        { value: "Delaware", label: "Delaware" },
-        { value: "District Of Columbia", label: "District Of Columbia" },
-        { value: "Federated States Of Micronesia", label: "Federated States Of Micronesia" },
-        { value: "Florida", label: "Florida" },
-        { value: "Georgia", label: "Georgia" },
-        { value: "Guam", label: "Guam" },
-        { value: "Hawaii", label: "Hawaii" },
-        { value: "Idaho", label: "Idaho" },
-        { value: "Illinois", label: "Illinois" },
-        { value: "Indiana", label: "Indiana" },
-        { value: "Iowa", label: "Iowa" },
-        { value: "Kansas", label: "Kansas" },
-        { value: "Kentucky", label: "Kentucky" },
-        { value: "Louisiana", label: "Louisiana" },
-        { value: "Maine", label: "Maine" },
-        { value: "Marshall Islands", label: "Marshall Islands" },
-        { value: "Maryland", label: "Maryland" },
-        { value: "Massachusetts", label: "Massachusetts" },
-        { value: "Michigan", label: "Michigan" },
-        { value: "Minnesota", label: "Minnesota" },
-        { value: "Mississippi", label: "Mississippi" },
-        { value: "Missouri", label: "Missouri" },
-        { value: "Montana", label: "Montana" },
-        { value: "Nebraska", label: "Nebraska" },
-        { value: "Nevada", label: "Nevada" },
-        { value: "New Hampshire", label: "New Hampshire" },
-        { value: "New Jersey", label: "New Jersey" },
-        { value: "New Mexico", label: "New Mexico" },
-        { value: "New York", label: "New York" },
-        { value: "North Carolina", label: "North Carolina" },
-        { value: "North Dakota", label: "North Dakota" },
-        { value: "Northern Mariana Islands", label: "Northern Mariana Islands" },
-        { value: "Ohio", label: "Ohio" },
-        { value: "Oklahoma", label: "Oklahoma" },
-        { value: "Oregon", label: "Oregon" },
-        { value: "Palau", label: "Palau" },
-        { value: "Pennsylvania", label: "Pennsylvania" },
-        { value: "Puerto Rico", label: "Puerto Rico" },
-        { value: "Rhode Island", label: "Rhode Island" },
-        { value: "South Carolina", label: "South Carolina" },
-        { value: "South Dakota", label: "South Dakota" },
-        { value: "Tennessee", label: "Tennessee" },
-        { value: "Texas", label: "Texas" },
-        { value: "Utah", label: "Utah" },
-        { value: "Vermont", label: "Vermont" },
-        { value: "Virgin Islands", label: "Virgin Islands" },
-        { value: "Virginia", label: "Virginia" },
-        { value: "Washington", label: "Washington" },
-        { value: "West Virginia", label: "West Virginia" },
-        { value: "Wisconsin", label: "Wisconsin" },
-        { value: "Wyoming", label: "Wyoming" }
-    ]
+  
 
     const clickFunction = (e) => {
         console.log('E - landing page form', e.value)
@@ -215,10 +142,24 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
 
     }
 
-    const onChangeCaptcha = (e) => {
-        // Todo - call API to verify the key.
-    }
-
+    // const onChangeCaptcha = (e) => {
+    //     // Todo - call API to verify the key.
+    // }
+    const checkInput = (e) => {        
+        if (!/[0-9]/.test(e.target.value)) {
+            setIsPhoneError('Phone number should be of 10 digits with no special characters')
+        }
+        else
+        {
+            if (e.target.value.length < 10 || e.target.value.length > 10) {
+                setIsPhoneError('Phone number should be of 10 digits with no special characters')
+            }
+            else
+            {
+                setIsPhoneError('')   
+            }
+        }        
+      };
     const submitForm = (values) => {
         console.log('Form Submit', values);
         setIsSubmitting(true)
@@ -237,9 +178,7 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
           handleSubmit,
           errors,
           touched,
-          handleBlur,
-          isValid,
-          dirty
+          handleBlur
         } = formik;
         return (
               <form onSubmit={handleSubmit}>
@@ -258,9 +197,7 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
                                     type="text"
                                     id="name"
                                     name="name"
-                                    id="name"
                                     value={values.name}
-                                    onChange={handleChange}
                                     onBlur={handleBlur}
                                     placeholder="Name"
                                     className="custominput"
@@ -278,11 +215,12 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
                     </InputWrap>
                     <InputWrap>
                         <InputLabel htmlFor="email" className="d-flex justify-content-start align-items-md-center align-items-sm-start">
-                            <span className="mr-2">EMAIL * (FOR QUOTE ONLY) *</span>
-                            <ToolTip title="?" content="We will send the lowest prices from our inventory and from our Nationwide Parts Locator Tool"/>
+                            <span className="mr-2">EMAIL * (FOR QUOTE ONLY)</span>
+                            <ToolTip title="?" content="So we can send the lowest prices filtered with your Zip code- from our inventory and from our Nationwide Parts Locator Tool"/>
                             {/* <DialogToolTip content="We will send the lowest prices from our inventory and from our Nationwide Parts Locator Tool"/> */}
                         </InputLabel> 
                         <input
+                            className="custominput"
                             type="email"
                             name="email"
                             id="email"
@@ -292,7 +230,6 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
                                     ddlEmailChange(e)                                                 
                                 }}
                             placeholder="Email"
-                            id="email"
                             aria-labelledby="email"
                         />
                         
@@ -306,27 +243,33 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
                     <div className="col-md-6 col-sm-12 col-xs-12">
                         <InputWrap>
                         <InputLabel htmlFor="phone" className="d-flex justify-content-start align-items-center">
-                            <span className="mr-2">PHONE * </span>
-                            <ToolTip title="Why ?" content="Our Parts Specialists decode your VIN number for free to get you an accurate price quote"/>
+                            <span className="mr-2">PHONE * (For Quote Only)</span>
+                            <ToolTip title="Why ?" content="So our parts specialists can ask you and let you know about different interchange options for your part and decode your VIN for free"/>
                         </InputLabel> 
                             <input
                                 className="custominput"
                                 aria-labelledby="phone"
-                                type="text"
+                                type="tel"
                                 name="phone"
+                                pattern="[0-9]*"
                                 placeholder='Phone'
                                 id="phone"
-                                value={values.phone}
+                                value={values.phone}                                
                                     onChange={e => {
+                                        checkInput(e);
                                         handleChange(e);
-                                        ddlPhoneChange(e)                                              
+                                        ddlPhoneChange(e);                                                                                   
                                     }}
                                 
                             />
-                            
-                            {errors.phone && touched.phone && (
-                                <ErrorLabel>{errors.phone}</ErrorLabel>
+                            { isPhoneError ? (
+                                <ErrorLabel>{isPhoneError}</ErrorLabel>
+                            ) : (
+                                errors.phone && touched.phone && (
+                                    <ErrorLabel>{errors.phone}</ErrorLabel>
+                                )
                             )}
+                            
                         </InputWrap>
                     </div>
                     <div className="col-md-6 col-sm-12 col-xs-12">
@@ -485,9 +428,10 @@ const InputWrap = styled.div`
 const ErrorLabel = styled.label`
     padding:0px;
     margin:-5px 0px 0px;
-    font-size:12px !important;
-    line-height:14px !important;
-    color:#ff0000 !important;
+    font-weight:400 !important;
+    font-size:10px !important;
+    line-height:15px !important;
+    color:#FF7979 !important;
 `
 const InputLabel = styled.label`
     width: 100%;
@@ -508,10 +452,11 @@ const TitleDiv = styled.div`
   margin: 0px 0px 3px;
   text-align: start;
   h4{
-    margin: 0px 0px 5px;
+    margin: 0px 0px 6px;
     color: #08275C;
-    font-weight: 700;
-    font-size: 22px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height:23px;
   }
   @media (max-width: 480px) {
     h4{

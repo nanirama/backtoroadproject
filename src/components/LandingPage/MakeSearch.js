@@ -59,7 +59,7 @@ const MakeSearch =()=>{
       )
     const numberPer = width < 768 ? 20 : 40;
     //console.log('Number of records, ', numberPer);
-    const [items, setItems] = useState(MakesList.edges);
+    const [items] = useState(MakesList.edges);
     const [filteritems, setFilteritems] = useState(items); 
     const [list, setList] = useState(filteritems.slice(0, numberPer));
     const onsubmitEventHandler=(event)=>{        

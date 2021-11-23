@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Loader from "react-loader-spinner";
 import styled from 'styled-components'
-import Select from 'react-select'
 import ReCAPTCHA from "react-google-recaptcha";
 import { Field, Formik } from 'formik';  
 import * as yup from 'yup';  
@@ -46,7 +45,7 @@ const validationSchema = yup.object().shape({
 const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}) => {
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [trims, setTrims] = useState();
-    const [{ year, make, model, part, transmission, trim, stepBtnEnable }, dispatch] = useStateValue()
+    const [{ year, make, model, part }, dispatch] = useStateValue()
     const initialValues = {  
         name: '',  
         email: '',  
@@ -55,6 +54,22 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
         option1: '',  
         option2: ''
       }
+      const fetchTrims = (e) => {
+        console.log('YEAR ', year, 'SELECTED MODEL ', model);
+        axios
+            .get("v1/trim/" + year + "/" + model)
+            .then(resp => {
+                let ddlOptions = [{ "value": "999", "label": "I’m not sure."}]
+                let options = []
+                options = resp.data.map(d => ({
+                    "value": d,
+                    "label": d
+                }))
+                const opt = ddlOptions.concat(options);
+                setTrims(opt);
+            })
+            .catch(error => console.log(error.response))
+    }
     useEffect(() => {
         dispatch({
             type: 'ADD_STEP_ONE',
@@ -73,26 +88,11 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
             item: false,
         });
         setInStack(' ✓ In Stock ')
-        setPartsHeading(make +' '+ model +' '+ part)
+        setPartsHeading(make +' '+ model +' '+ part +' '+ year)
         fetchTrims()
     }, [year, make, model, part, fetchTrims])
     
-    const fetchTrims = (e) => {
-        console.log('YEAR ', year, 'SELECTED MODEL ', model);
-        axios
-            .get("v1/trim/" + year + "/" + model)
-            .then(resp => {
-                let ddlOptions = [{ "value": "999", "label": "I’m not sure."}]
-                let options = []
-                options = resp.data.map(d => ({
-                    "value": d,
-                    "label": d
-                }))
-                const opt = ddlOptions.concat(options);
-                setTrims(opt);
-            })
-            .catch(error => console.log(error.response))
-    }
+    
 
     const optionsTransmission = [
         { value: '1', label: '2 Wheel Drive, Automatic' },
@@ -103,16 +103,16 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
         { value: '9', label: "I'm not sure" }
     ]
 
-    const colourStyles = {
-        control: styles => ({ ...styles, backgroundColor: 'white', color: '#000000', width: '100%', borderRadius: '2px', alignItems: 'left', borderColor: '#CCCCCC'}),
-        option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-            return {
-                ...styles,
-                alignItems: 'left !important',
-                color: '#000000'
-            };
-        },
-    };
+    // const colourStyles = {
+    //     control: styles => ({ ...styles, backgroundColor: 'white', color: '#000000', width: '100%', borderRadius: '2px', alignItems: 'left', borderColor: '#CCCCCC'}),
+    //     option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+    //         return {
+    //             ...styles,
+    //             alignItems: 'left !important',
+    //             color: '#000000'
+    //         };
+    //     },
+    // };
 
     const ddlTrimChange = (e) => { 
         dispatch({
@@ -127,16 +127,16 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
         });
     }
 
-    const clickFunction = (e) => {
-        dispatch({
-            type: 'ADD_STEP_THREE',
-            item: e.value,
-        });
-        dispatch({
-            type: 'ADD_BTN_ENABLE',
-            item: true,
-        });
-    }
+    // const clickFunction = (e) => {
+    //     dispatch({
+    //         type: 'ADD_STEP_THREE',
+    //         item: e.value,
+    //     });
+    //     dispatch({
+    //         type: 'ADD_BTN_ENABLE',
+    //         item: true,
+    //     });
+    // }
     const clickPrevFunction = (e) => {
         dispatch({
             type: 'ADD_STEP_ONE',
@@ -185,13 +185,13 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
         });
     }
 
-    const ddlTxtChange = (e) => {
-        dispatch({
-            type: 'ADD_NOTES',
-            item: e.target.value,
-        });
+    // const ddlTxtChange = (e) => {
+    //     dispatch({
+    //         type: 'ADD_NOTES',
+    //         item: e.target.value,
+    //     });
 
-    }
+    // }
 
     const onChangeCaptcha = (e) => {
         // Todo - call API to verify the key.
@@ -214,9 +214,7 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
           handleSubmit,
           errors,
           touched,
-          handleBlur,
-          isValid,
-          dirty
+          handleBlur
         } = formik;
         return (
               <form onSubmit={handleSubmit}>
@@ -276,9 +274,7 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
                                     type="text"
                                     id="name"
                                     name="name"
-                                    id="name"
                                     value={values.name}
-                                    onChange={handleChange}
                                     onBlur={handleBlur}
                                     placeholder="Name"
                                     className="custominput"
@@ -296,8 +292,8 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
                     </InputWrap>
                     <InputWrap>
                         <InputLabel htmlFor="email" className="d-flex justify-content-start align-items-md-center align-items-sm-start">
-                            <span className="mr-2">EMAIL * (FOR QUOTE ONLY) *</span>
-                            <ToolTip title="?" content="We will send the lowest prices from our inventory and from our Nationwide Parts Locator Tool"/>
+                            <span className="mr-2">EMAIL * (FOR QUOTE ONLY)</span>
+                            <ToolTip title="?" content="So we can send the lowest prices filtered with your Zip code- from our inventory and from our Nationwide Parts Locator Tool"/>
                             {/* <DialogToolTip content="We will send the lowest prices from our inventory and from our Nationwide Parts Locator Tool"/> */}
                         </InputLabel> 
                         <input
@@ -310,7 +306,6 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
                                     ddlEmailChange(e)                                                 
                                 }}
                             placeholder="Email"
-                            id="email"
                             aria-labelledby="email"
                         />
                         
@@ -324,8 +319,8 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
                     <div className="col-md-6 col-sm-12 col-xs-12">
                         <InputWrap>
                         <InputLabel htmlFor="phone" className="d-flex justify-content-start align-items-center">
-                            <span className="mr-2">PHONE * </span>
-                            <ToolTip title="Why ?" content="Our Parts Specialists decode your VIN number for free to get you an accurate price quote"/>
+                            <span className="mr-2">PHONE * (For Quote Only)</span>
+                            <ToolTip title="Why ?" content="So our parts specialists can ask you and let you know about different interchange options for your part and decode your VIN for free"/>
                         </InputLabel> 
                             <input
                                 className="custominput"
@@ -406,38 +401,6 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
                         </div>
                     </div>
                 </div>
-                {/* <div className="form_button_outer">
-                <div className="row">
-                    <div className="col-md-6 col-sm-6">
-                        <button
-                            onClick={clickPrevFunction}
-                            className="btn-outer-new text-center d-flex justify-content-center align-items-center"
-                            type="button">Previous Step</button>
-                    </div>
-                    <div className="col-md-6 col-sm-6">
-                        <button
-                            type="submit"
-                            className="btn2 border2 text-center d-flex justify-content-center align-items-center"
-                            disabled={isSubmitting}
-                            >
-                                <span className="mr-2">FIND MY PART NOW</span>
-                                { isSubmitting && (
-                                    <Loader
-                                        type="Oval"
-                                        color="#FFFFFF"
-                                        height={20}
-                                        width={20}
-                                        timeout={300000}
-                                    />
-                                )}                            
-                        </button>
-                    </div>
-                </div>
-                
-                
-                </div> */}
-                
-              
               </form>
         );
       }}
@@ -502,9 +465,10 @@ const InputWrap = styled.div`
 const ErrorLabel = styled.label`
     padding:0px;
     margin:-5px 0px 0px;
-    font-size:12px !important;
-    line-height:14px !important;
-    color:#ff0000 !important;
+    font-weight:400 !important;
+    font-size:10px !important;
+    line-height:15px !important;
+    color:#FF7979 !important;
 `
 const InputLabel = styled.label`
     width: 100%;
@@ -525,10 +489,11 @@ const TitleDiv = styled.div`
   margin: 0px 0px 3px;
   text-align: start;
   h4{
-    margin: 0px 0px 5px;
+    margin: 0px 0px 6px;
     color: #08275C;
-    font-weight: 700;
-    font-size: 22px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height:23px;
   }
   @media (max-width: 480px) {
     h4{
@@ -550,14 +515,14 @@ const InputSelect = styled.select`
     background-color:#ffffff;
     font-size: 16px !important;
     color: #000000 !important;
-    ${props => props.active ? 'border: 5px solid #2860BE !important;' : 'border: 1px solid #CFCFCF !important;'}
+    ${props => props.active ? 'border: 1px solid #2860BE !important;' : 'border: 1px solid #CFCFCF !important;'}
     
-    border-radius: 6px !important;
+    border-radius: 5px !important;
     line-height:26px;
     padding:7px;
     box-sizing: border-box;
     .active{
-        border:5px solid red;
+        border:1px solid #2860BE;
     }
     option {
         color: #000000 !important;

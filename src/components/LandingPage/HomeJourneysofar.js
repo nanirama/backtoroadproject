@@ -6,7 +6,7 @@ import journeyIcon from '../../assets/images/landing/jicon.png'
 
 const HomeJourneySoFar = ()=>{
     return (
-        <div style={{ display: "grid" }} className="journey_blk  pt-5 w-100 float-left text-center">
+        <JourneyBlk style={{ display: "grid" }} className="journey_blk  pt-5 w-100 float-left text-center " >
           <StaticImage
             style={{
               gridArea: "1/1",
@@ -20,6 +20,7 @@ const HomeJourneySoFar = ()=>{
             formats={["auto", "webp", "avif"]}
           />
           <div
+           className="journey_blk_inner"
             style={{
               gridArea: "1/1",
               position: "relative",
@@ -58,7 +59,7 @@ const HomeJourneySoFar = ()=>{
                 </div>  
             </JourneyDiv>
           </div>
-        </div>
+        </JourneyBlk>
       )
 }
 const JourneyIcon = styled.div`
@@ -70,4 +71,7 @@ const JourneyDiv = styled.div`
         padding: 3rem 1rem !important;
     }
  `;
+const JourneyBlk = styled.div`
+margin:0px !important; padding:0px !important;
+`;
 export default HomeJourneySoFar

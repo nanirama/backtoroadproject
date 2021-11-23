@@ -2,10 +2,10 @@ import React from 'react'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Layout from '../components/LandingPage/common/layout'
 import styled from "styled-components"
-import Seo from "../components/seo"
+// import Seo from "../components/seo"
 import HomeWhychoosebtr from '../components/LandingPage/HomeWhychoosebtr';
 import '../components/LandingPage/css/custom.css'
-import { useStateValue } from '../StateProvider';
+// import { useStateValue } from '../StateProvider';
 
 
 const Thankyou = (props) => {
@@ -13,7 +13,7 @@ const Thankyou = (props) => {
   console.log('PROPS - TQ Page', props);
   // const [{ year, make, model, part, engine, vin, transmission, trim, name, email, state, phone }, dispatch] = useStateValue();
 
-  const { site, BannerImage, pageBanner, pageBannerM } = useStaticQuery(
+  const { site, pageBanner, pageBannerM } = useStaticQuery(
     graphql`
         query {
           site {
@@ -22,13 +22,6 @@ const Thankyou = (props) => {
               description
               author
               siteUrl
-            }
-          }
-          BannerImage: file(relativePath: { eq: "landing/ban_img.png" }) {
-            childImageSharp {
-                gatsbyImageData(
-                    width: 300
-                )
             }
           }
           pageBanner: file(relativePath: { eq: "part-banner.jpg" }) {

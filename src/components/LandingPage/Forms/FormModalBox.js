@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Modal, Button } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import FormsControler from '../FormsControler'
 import PPCFormsControler from '../PPCFormsControler'
 import bgimg from '../../../assets/images/popup-close.png';
 import pdashImg from '../../../assets/images/pop-dash.png';
+
+import formNumBgM from '../../../assets/images/form-bg-img-m.png'
 function FormModelBox(props) {
     const { action } = props
     return (
@@ -43,9 +45,16 @@ function FormModelBox(props) {
   h4 {
     @media only screen and (max-width:575px) {  
         font-size:12px !important;
-        line-height:20px !important;
+        line-height:40px !important;
         padding: 0px 7px !important;
       }    
+  }
+  & > p > b{
+    color: #2860BE !important;
+    font-size: 18px;
+    line-height: 26px !important;
+    font-weight: 500;
+    padding: 0px 10px;
   }
     & > p {
         background:#fafafa;
@@ -54,6 +63,7 @@ function FormModelBox(props) {
         font-weight:500 !important;
         width:100%;
         float:left;
+        min-height:60px;
         padding:10px 25px 10px 40px;
     }
     & > p span{
@@ -73,7 +83,7 @@ function FormModelBox(props) {
         width:100%;
         float:left;
         overflow:hidden;
-        padding:10px 20px 10px 40px;
+        padding:10px 20px 30px 40px;
     }
     & > .popup-top{
         padding:2px 10px;
@@ -173,5 +183,23 @@ function FormModelBox(props) {
         display:none;
         width:0px;
     }
+    .fnb{
+        background-image: url(${formNumBgM});
+        background-position:center center;
+        background-repeat:no-repeat;
+        line-height: 58px;
+        background-size:90% auto;
+        @media only screen and (max-width:575px) {  
+          line-height: 40px !important;
+        }
+        @media only screen and (max-width:479px) { 
+          padding-left:20px; 
+          line-height: 40px !important;
+        }
+        @media only screen and (max-width:440px) { 
+          padding-left:20px; 
+          line-height: 40px !important;
+        }
+      }
 `;
   export default FormModelBox

@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components';
-import { Modal, Button } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import bgimg from '../../../assets/images/popup-close.png';
 function ContentModalBox(props) {
     const onClickHandler = ()=>{

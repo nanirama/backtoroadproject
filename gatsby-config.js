@@ -55,12 +55,10 @@ module.exports = {
         url: `http://stockeye.in/graphql`,
         production: {
           hardCacheMediaFiles: true,
-          allow404Images: true,
-          hardCacheData: false,
+          allow404Images: true
         },
         develop: {
           hardCacheMediaFiles: true,
-          allow404Images: true,
           hardCacheData: false,
         },
         schema: {
@@ -72,7 +70,7 @@ module.exports = {
         type: {
           MediaItem: {
             localFile: {
-              requestConcurrency: 100,
+              requestConcurrency: 5,
             },
           },
         },

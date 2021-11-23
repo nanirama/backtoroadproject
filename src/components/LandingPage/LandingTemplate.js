@@ -70,9 +70,9 @@ const LandingTemplate = (props) => {
             {slides && <LandingSlider data={slides}/>}
             <LandingBreadcrumbs makemodels={makemodels} partname={PageData.title} bcrumb={props.bcrumb}  />
             <ExtraContent extracontent={morecontent}/>
-            <JourneySoFar image={data.JourneyBg}/>
-            <Whychoosebtr/> 
             <HowitWorks/>
+            <JourneySoFar image={data.JourneyBg}/>
+            <Whychoosebtr/>             
             <CustomerReviews gImage={data.GoogleImage}/>
             {recentArrivals && <LandingRecentArrivals data={recentArrivals} blockHeading={morecontent.recentArrivalsTitle}/>}
             {faqs && <LandingFaqs data={faqs} title={morecontent.faqTitle} subtitle={morecontent.faqSubTitle}/>}

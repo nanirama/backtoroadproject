@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import Select from 'react-select'
+import Loader from "react-loader-spinner";
 import { StaticImage } from "gatsby-plugin-image"
 import axios from '../../../axios'
 import { useStateValue } from '../../../StateProvider'
@@ -9,11 +9,12 @@ import { useStateValue } from '../../../StateProvider'
 import arrowIcon from '../../../assets/images/landing/arrow.png'
 import arrowRightIcon from '../../../assets/images/landing/arrow-right.png'
 import darrowIcon from '../../../assets/images/landing/d-icon.png'
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 
 const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickToOne}) => {
     const [cursorPointer, setCursorPointer] = useState('engine');
-    const [formErrors, setFormErrors] = useState();
+    //const [formErrors, setFormErrors] = useState();
     const [engineValid, setEngineValid] = useState(false);
     const [engineError, setEngineError] = useState();
     const [option1Valid, setOption1Valid] = useState(false);
@@ -22,7 +23,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
     const [option2Error, setOption2Error] = useState();
 
     console.log('cursorPointer',cursorPointer)
-    const [{ year, make, model, part, engine, transmission, trim, stepBtnEnable, stepTwo }, dispatch] = useStateValue()
+    const [{ year, make, model, part, engine, transmission, trim, stepBtnEnable }, dispatch] = useStateValue()
     useEffect(() => {
         dispatch({
             type: 'ADD_STEP_ONE',
@@ -38,12 +39,12 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
         });
         fetchTrims();
         setInStack(' ✓ In Stock ')
-        setPartsHeading(make +' '+ model +' '+ part)
-        const yarray = [engine, transmission, trim]
+        setPartsHeading(make +' '+ model +' '+ part +' '+ year)
+        const yarray = [transmission, trim]
         const newyArray = yarray.filter((item)=>{
             return item !==''
         })
-        if(newyArray.length == yarray.length){
+        if(newyArray.length === yarray.length){
             dispatch({
                 type: 'ADD_BTN_ENABLE',
                 item: true,
@@ -57,18 +58,18 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
     }
     
     const [trims, setTrims] = useState();
-    const [vin, setVin] = useState();
+    const [vin ] = useState();
     
-    const colourStyles = {
-        control: styles => ({ ...styles, backgroundColor: 'white', color: '#000000', width: '100%', borderRadius: '2px', alignItems: 'left', }),
-        option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-            return {
-                ...styles,
-                alignItems: 'left !important',
-                color: '#000000'
-            };
-        },
-    };
+    // const colourStyles = {
+    //     control: styles => ({ ...styles, backgroundColor: 'white', color: '#000000', width: '100%', borderRadius: '2px', alignItems: 'left', }),
+    //     option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+    //         return {
+    //             ...styles,
+    //             alignItems: 'left !important',
+    //             color: '#000000'
+    //         };
+    //     },
+    // };
 
     const fetchTrims = (e) => {
         console.log('YEAR ', year, 'SELECTED MODEL ', model);
@@ -107,13 +108,13 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
         { value: '8', label: 'Other, Not listed here' },
         { value: '9', label: "I'm not sure" }
     ]
-    const clickFunction = (e) => {
-        console.log('E', e.value)
-        // dispatch({
-        //     type: 'ADD_STEP_TWO',
-        //     item: e.value,
-        // });
-    }
+    // const clickFunction = (e) => {
+    //     console.log('E', e.value)
+    //     // dispatch({
+    //     //     type: 'ADD_STEP_TWO',
+    //     //     item: e.value,
+    //     // });
+    // }
     const CheckFormValid = ()=>{
         if(!engineValid)
         {
@@ -137,7 +138,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
             type: 'ADD_ENGINE',
             item: e.label,
         });
-        if(e.label!='')
+        if(e.label!=='')
         {
             setEngineValid(true)
             setEngineError('')
@@ -162,6 +163,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
             setOption2Valid(true)
             setOption2Error('')
         }
+        setCursorPointer('')  
     }
 
     const ddlTrimChange = (e) => {
@@ -187,47 +189,9 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
     return (
         <InputWrapper>
         <TitleDiv>
-            <h4 className="w-100 mb-1">Vehicle Specifications</h4>
+            <h4 className="w-100">Vehicle Specifications</h4>
         </TitleDiv>
-            <InputWrap>
-                { cursorPointer === 'engine' && (
-                    <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
-                )}
-                <InputLabel htmlFor="engine">ENGINE *</InputLabel>
-                <InputSelect
-                    active={cursorPointer === 'engine' && 'true'}
-                    onChange={(e) => ddlEngineChange(e)}
-                    aria-label="engine"
-                    onMouseUp={e=>setCursorPointer('engine')}
-                    aria-labelledby="engine"
-                    >
-                        <option disabled selected>SELECT YEAR</option>
-                        { optionsEngine && optionsEngine.map((item, index)=>(
-                            <option value={item.value}>{item.label}</option>
-                        ))}
-                </InputSelect>
-                {engineError && (
-                     <ErrorLabel>{engineError}</ErrorLabel>
-                )}
-            </InputWrap>
-            <InputWrap>
-                { cursorPointer === 'vin' && (
-                    <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
-                )}
-                <InputLabel htmlFor="vin">VIN - Vehicle Identification Number (optional): </InputLabel>
-                <input
-                     aria-labelledby="vin number"
-                    type="text"
-                    placeholder='VIN Number'
-                    id="vin-number"
-                    className="custominput"
-                    value={vin}
-                    onChange={(e) => ddlVinChange(e)}
-                    onMouseUp={e=>setCursorPointer('vin')}
-                    />
-                
-            </InputWrap>
-            <InputWrap>
+        <InputWrap>
                 { cursorPointer === 'option1' && (
                     <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
                 )}
@@ -243,7 +207,18 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
                         { trims && trims.map((item, index)=>(
                             <option value={item.value}>{item.label}</option>
                         ))}
-                </InputSelect>                
+                </InputSelect> 
+                { cursorPointer === 'option1' && !trims && (
+                    <InputWrapLoading>
+                        <Loader
+                            type="TailSpin"
+                            color="#2860BE"
+                            height={24}
+                            width={24}
+                            timeout={300000}
+                        />
+                    </InputWrapLoading>  
+                )}                  
                 {option1Error && (
                             <ErrorLabel>{option1Error}</ErrorLabel>
                 )}
@@ -265,15 +240,65 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
                             <option value={item.value}>{item.label}</option>
                         ))}
                 </InputSelect> 
+                { cursorPointer === 'option2' && !optionsTransmission && (
+                    <InputWrapLoading>
+                        <Loader
+                            type="TailSpin"
+                            color="#2860BE"
+                            height={24}
+                            width={24}
+                            timeout={300000}
+                        />
+                    </InputWrapLoading>  
+                )}   
                 {option2Error && (
                             <ErrorLabel>{option2Error}</ErrorLabel>
                 )}
             </InputWrap>
+            {/* <InputWrap>
+                { cursorPointer === 'engine' && (
+                    <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
+                )}
+                <InputLabel htmlFor="engine">ENGINE *</InputLabel>
+                <InputSelect
+                    active={cursorPointer === 'engine' && 'true'}
+                    onChange={(e) => ddlEngineChange(e)}
+                    aria-label="engine"
+                    onMouseUp={e=>setCursorPointer('engine')}
+                    aria-labelledby="engine"
+                    >
+                        <option disabled selected>SELECT YEAR</option>
+                        { optionsEngine && optionsEngine.map((item, index)=>(
+                            <option value={item.value}>{item.label}</option>
+                        ))}
+                </InputSelect>
+                {engineError && (
+                     <ErrorLabel>{engineError}</ErrorLabel>
+                )}
+            </InputWrap> */}
+            <InputWrap>
+                { cursorPointer === 'vin' && (
+                    <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
+                )}
+                <InputLabel htmlFor="vin">VIN - Vehicle Identification Number (optional): </InputLabel>
+                <input
+                     aria-labelledby="vin number"
+                    type="text"
+                    placeholder='VIN Number'
+                    id="vin-number"
+                    className="custominput"
+                    value={vin}
+                    onChange={(e) => ddlVinChange(e)}
+                    onMouseUp={e=>setCursorPointer('vin')}
+                    />
+                
+            </InputWrap>
+            
             <InputWrap>
                 { cursorPointer === 'comment' && (
                     <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
                 )}
-                    <InputLabel htmlFor="size">Enter Any Special Notes For this part (Size Variation) Special Notes:
+                    <InputLabel htmlFor="size">Enter Any Special Notes For this part (Size Variation) Special Notes:</InputLabel>
                         <textarea
                         className="custominput" 
                         aria-labelledby="size"
@@ -283,7 +308,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
                         onChange={(e) => ddlTxtChange(e)}
                         onMouseUp={e=>setCursorPointer('comment')}
                         ></textarea>
-                    </InputLabel>
+                    
             </InputWrap>
             <div className="form_button_outer">
                 <div className="row">
@@ -295,7 +320,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
                     type="button"><InputBgPrev img={arrowRightIcon}>&nbsp;</InputBgPrev><span>Previous Step</span></button>
                     </div>
                     <div className="col-md-6 col-sm-6">
-                    {stepBtnEnable == true ? <button type="button" className="btn2 d-flex align-items-center justify-content-center" onClick={onClickToThree} ><span>NEXT STEP</span><InputBg img={arrowIcon}>&nbsp;</InputBg></button> : <button type="button" className="btn2 d-flex align-items-center justify-content-center" value="" onClick={CheckFormValid}><span>NEXT STEP</span><InputBg img={arrowIcon}>&nbsp;</InputBg></button>}
+                    {stepBtnEnable === true ? <button type="button" className="btn2 d-flex align-items-center justify-content-center" onClick={onClickToThree} ><span>NEXT STEP</span><InputBg img={arrowIcon}>&nbsp;</InputBg></button> : <button type="button" className="btn2 d-flex align-items-center justify-content-center" value="" onClick={CheckFormValid}><span>NEXT STEP</span><InputBg img={arrowIcon}>&nbsp;</InputBg></button>}
                     </div>
                 </div>
             </div>
@@ -319,6 +344,7 @@ const InputWrapper = styled.div`
   flex-direction: column;
   justify-items: center;
   padding: 0rem;
+  margin:-8px 0rem 0rem;
   width: 100%;  
 `
 const InputBg = styled.span`
@@ -369,13 +395,19 @@ const InputWrap = styled.div`
       z-index:999 !important;
   }
 `
-
+const InputWrapLoading = styled.div`
+    width:400px;
+    position:absolute;
+    top:30px !important;
+    left:10px !important;
+    z-index:999 !important;
+`
 const InputLabel = styled.label`
     width: 100%;
     float: left;
     color: #233A6C;
     font-size: 14px;
-    line-height: 18px !important;
+    line-height: 20px !important;
     padding:0px !important;
     margin:0px !important;
 `
@@ -389,14 +421,14 @@ const InputSelect = styled.select`
     background-color:#ffffff;
     font-size: 16px !important;
     color: #000000 !important;
-    ${props => props.active ? 'border: 5px solid #2860BE !important;' : 'border: 1px solid #CFCFCF !important;'}
+    ${props => props.active ? 'border: 1px solid #2860BE !important;' : 'border: 1px solid #CFCFCF !important;'}
     
-    border-radius: 6px !important;
+    border-radius: 5px !important;
     line-height:26px;
     padding:7px;
     box-sizing: border-box;
     .active{
-        border:5px solid red;
+        border:1px solid #2860BE;
     }
     option {
         color: #000000 !important;
@@ -416,10 +448,11 @@ const TitleDiv = styled.div`
   margin: 0px 0px 10px;
   text-align: start;
   h4{
-    margin: 0px 0px 10px;
+    margin: 0px 0px 6px;
     color: #08275C;
-    font-weight: 700;
-    font-size: 22px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height:23px;
   }
   @media (min-width: 360px) {
     height: 30px;

@@ -279,12 +279,18 @@ span.num {
 	width:38px;
 	float:left;
 	height:38px;
+	line-height: 38px;
 	background:#fafafa;
 	color:#5b6472;
 	font-weight:600;
 	font-size:22px;
 	border-radius:50%;	
 }
+/* span.num:before{
+    content: "";
+    display: block;
+    padding-top: 100%;
+} */
 span.num.brd {
 	margin-right:0
 }
@@ -777,8 +783,9 @@ transition:.4s
 .slider_form p b{
 	color:#2860BE !important;	
 	font-size: 18px;
-	line-height: 24px !important;	
+	line-height: 26px !important;	
 	font-weight: 500;
+	padding:0px 10px;
 }
 .slider_form p span{
 	min-width: 100px !important;	
@@ -908,7 +915,7 @@ width:100%;
 z-index:9999;
 border:2px solid #fff
 }
-span.num:nth-child(1):before {
+/* span.num:nth-child(1):before {
 	content:'';
 	top:18px;
 	width:200%;
@@ -925,11 +932,11 @@ span.num:nth-child(2):before {
 	border:1px dashed;
 	right:-200%;
 	color:#fafafa;
-}
+} */
 }
 @media only screen and (max-width:1199px) {
 .numcontroller{ max-width: 240px;}
-	span.num:nth-child(1):before {
+	/* span.num:nth-child(1):before {
 		content:'';
 		top:18px;
 		width:200%;
@@ -946,7 +953,7 @@ span.num:nth-child(2):before {
 		border:1px dashed;
 		right:-200%;
 		color:#000000;
-	}
+	} */
 .mob_form, .slider_form .form_outer {
 width:100%
 }
@@ -1886,7 +1893,7 @@ margin-right:50px
 	}
 	.h_rgt .btn1{ margin-right: 70px !important; padding-top: 3px; padding-bottom: 3px;}
 	.numcontroller{ max-width: 140px;}
-	span.num:nth-child(1):before {
+	/* span.num:nth-child(1):before {
 		content:'';
 		top:15px;
 		width:100%;
@@ -1903,7 +1910,7 @@ margin-right:50px
 		border:1px dashed;
 		right:-100%;
 		color:#000000;
-	}
+	} */
 	span.num {
 		width:32px;
 		height:32px;
@@ -2163,6 +2170,7 @@ padding-left:20px
 }
 }
 .border2{border:2px solid blue;}
+.border3{border:2px solid yellow;}
 select {
 	-webkit-appearance: none;
 	-moz-appearance: none;
@@ -2724,3 +2732,4 @@ p.text-blue{ color: #0000ff; font-weight: 600; font-size: 18px;}
 	padding:0px;
 	margin:0px;
 }
+.slider_form p{ min-height:60px;}

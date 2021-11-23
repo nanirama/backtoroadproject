@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import { useStaticQuery, graphql, Link } from "gatsby"
 import styled from "styled-components"
 import Layout from '../components/LandingPage/common/layout'
@@ -7,7 +7,7 @@ import Image from '../components/LandingPage/image'
 import ContentModalBox from '../components/LandingPage/Forms/ContentModalBox'
 import LandingBanner from '../components/LandingPage/LandingBanner';
 import '../components/LandingPage/css/custom.css'
-import { Field, Formik, useFormik, useFormikContext } from 'formik';  
+import { Field, Formik } from 'formik';  
 import { FocusError } from 'focus-formik-error'
 import * as yup from 'yup';  
 
@@ -123,17 +123,17 @@ const Payment = (props) => {
      const [shippingPhone, setShippingPhone] = useState(null);
 
 
-     const [billingFirstname, setBillingFirstname] = useState(null);
-     const [billingLastname, setBillingLastname] = useState(null);
-     const [billingAddress, setBillingAddress] = useState(null);
-     const [billingCity, setBillingCity] = useState(null);
-     const [billingState, setBillingState] = useState(null);
-     const [billingZipcode, setBillingZipcode] = useState(null);
-     const [billingPhone, setBillingPhone] = useState(null);
+    //  const [billingFirstname, setBillingFirstname] = useState(null);
+    //  const [billingLastname, setBillingLastname] = useState(null);
+    //  const [billingAddress, setBillingAddress] = useState(null);
+    //  const [billingCity, setBillingCity] = useState(null);
+    //  const [billingState, setBillingState] = useState(null);
+    //  const [billingZipcode, setBillingZipcode] = useState(null);
+    //  const [billingPhone, setBillingPhone] = useState(null);
 
-    const handleCheck = (e) => {
-      setChecked(true);
-    }
+    // const handleCheck = (e) => {
+    //   setChecked(true);
+    // }
      const {site, usStates, BannerImage, pageBanner, pageBannerM, pLogo1, pLogo2, pLogo3, pLogo4 } = useStaticQuery(
         graphql`
           query {
@@ -256,9 +256,7 @@ const Payment = (props) => {
           handleSubmit,
           errors,
           touched,
-          handleBlur,
-          isValid,
-          dirty
+          handleBlur
         } = formik;
         return (
           <div className="payment payment-form px-md-4 pb-md-4 px-2 pb-2 w-100 float-left">
