@@ -38,7 +38,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
             item: false,
         });
         fetchTrims();
-        setInStack('')
+        setInStack(' ✓ In Stock ')
         setPartsHeading(make +' '+ model +' '+ part +' '+ year)
         const yarray = [transmission, trim]
         const newyArray = yarray.filter((item)=>{
