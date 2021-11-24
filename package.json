@@ -11,7 +11,7 @@
     "bootstrap": "^4.6.0",
     "focus-formik-error": "^1.1.0",
     "formik": "^2.2.9",
-    "gatsby": "^2.25.3",
+    "gatsby": "^3.0.0",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-image": "^1.7.1",
     "gatsby-plugin-less": "^5.11.0",
@@ -55,7 +55,8 @@
     "yup": "^0.32.11"
   },
   "devDependencies": {
-    "prettier": "2.1.2"
+    "prettier": "2.1.2",
+    "gatsby": "^3.0.0"
   },
   "keywords": [
     "gatsby"

@@ -320,7 +320,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
                     type="button"><InputBgPrev img={arrowRightIcon}>&nbsp;</InputBgPrev><span>Previous Step</span></button>
                     </div>
                     <div className="col-md-6 col-sm-6">
-                    {stepBtnEnable === true ? <button type="button" className="btn2 d-flex align-items-center justify-content-center" onClick={onClickToThree} ><span>NEXT STEP</span><InputBg img={arrowIcon}>&nbsp;</InputBg></button> : <button type="button" className="btn2 d-flex align-items-center justify-content-center" value="" onClick={CheckFormValid}><span>NEXT STEP</span><InputBg img={arrowIcon}>&nbsp;</InputBg></button>}
+                    {stepBtnEnable === true && <button type="button" className="btn2 d-flex align-items-center justify-content-center" onClick={onClickToThree} ><span>NEXT STEP</span><InputBg img={arrowIcon}>&nbsp;</InputBg></button>}
                     </div>
                 </div>
             </div>
