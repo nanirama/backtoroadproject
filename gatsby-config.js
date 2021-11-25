@@ -65,7 +65,7 @@ module.exports = {
         },
         schema: {
           requestConcurrency: 5,
-          queryDepth: 15,
+          queryDepth: 5,
           perPage: 100,
           timeout: 36000000,
         },
