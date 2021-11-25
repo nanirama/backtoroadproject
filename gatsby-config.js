@@ -52,8 +52,7 @@ module.exports = {
     {
       resolve: `gatsby-source-wordpress`,
       options: {
-        url: `http://stockeye.in/graphql`,
-        timeout: 36000000,
+        url: `http://stockeye.in/graphql`,       
         production: {
           hardCacheMediaFiles: true,
           allow404Images: true,
@@ -68,6 +67,7 @@ module.exports = {
           requestConcurrency: 5,
           queryDepth: 15,
           perPage: 100,
+          timeout: 36000000,
         },
         debug: {
           timeBuildSteps: true,
