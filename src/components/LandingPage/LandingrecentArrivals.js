@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import Image from './image'
 import Slider from "react-slick";
 import FormModalBox from '../../components/LandingPage/Forms/FormModalBox'
-const LandingRecentArrivals = ({data, blockHeading}) => { 
+const LandingRecentArrivals = ({data, blockHeading, action}) => { 
   const [modalShow, setModalShow] = useState(false);
   const SlickArrowLeft = ({ currentSlide, slideCount, ...props }) => (
     <button
@@ -103,6 +103,7 @@ const LandingRecentArrivals = ({data, blockHeading}) => {
                   </div>
                   <FormModalBox
                       show={modalShow}
+                      action={action}
                       onHide={() => setModalShow(false)}
                   />   
               </div>

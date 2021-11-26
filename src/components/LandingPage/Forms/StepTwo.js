@@ -13,17 +13,15 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 
 const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickToOne}) => {
-    const [cursorPointer, setCursorPointer] = useState('engine');
+    const [cursorPointer, setCursorPointer] = useState('');
     //const [formErrors, setFormErrors] = useState();
-    const [engineValid, setEngineValid] = useState(false);
-    const [engineError, setEngineError] = useState();
     const [option1Valid, setOption1Valid] = useState(false);
     const [option1Error, setOption1Error] = useState();
     const [option2Valid, setOption2Valid] = useState(false);
     const [option2Error, setOption2Error] = useState();
 
     console.log('cursorPointer',cursorPointer)
-    const [{ year, make, model, part, engine, transmission, trim, stepBtnEnable }, dispatch] = useStateValue()
+    const [{ year, make, model, part, transmission, trim, stepBtnEnable }, dispatch] = useStateValue()
     useEffect(() => {
         dispatch({
             type: 'ADD_STEP_ONE',
@@ -39,7 +37,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
         });
         fetchTrims();
         setInStack(' ✓ In Stock ')
-        setPartsHeading(make +' '+ model +' '+ part +' '+ year)
+        setPartsHeading(year +' '+ make +' '+ model +' '+ part)
         const yarray = [transmission, trim]
         const newyArray = yarray.filter((item)=>{
             return item !==''
@@ -51,7 +49,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
             });   
         }
         console.log('Selected year in Second step', make)
-    }, [year, make, model, part, engine, transmission, trim])
+    }, [cursorPointer, year, make, model, part, transmission, trim])
 
     const clickPrevFunction = (e) => {
         onClickToOne()
@@ -116,12 +114,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
     //     // });
     // }
     const CheckFormValid = ()=>{
-        if(!engineValid)
-        {
-            setCursorPointer('engine')  
-            setEngineError('Engine is required')   
-        }
-        else if(!option1Valid)
+        if(!option1Valid)
         {
             setCursorPointer('option1')  
             setOption1Error('Please choose Option 1')   
@@ -132,18 +125,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
             setOption2Error('Please choose Option 2')   
         }
     }
-    const ddlEngineChange = (e) => {
-        setCursorPointer('option1')  
-        dispatch({
-            type: 'ADD_ENGINE',
-            item: e.label,
-        });
-        if(e.label!=='')
-        {
-            setEngineValid(true)
-            setEngineError('')
-        }
-    }
+ 
 
     const ddlVinChange = (e) => {
         dispatch({
@@ -199,7 +181,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
                 <InputSelect
                     active={cursorPointer === 'option1' && 'true'}
                     onChange={(e) => ddlTrimChange(e)} 
-                    onMouseUp={e=>setCursorPointer('option1')}
+                    onMouseDown={e=>setCursorPointer('option1')}
                     aria-label="trim"
                     aria-labelledby="trim"
                     >
@@ -231,7 +213,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
                 <InputSelect
                     active={cursorPointer === 'option2' && 'true'}
                     onChange={(e) => ddlTransmissionChange(e)}
-                    onMouseUp={e=>setCursorPointer('option2')}
+                    onMouseDown={e=>setCursorPointer('option2')}
                     aria-label="transmission"
                     aria-labelledby="transmission"
                     >
@@ -255,27 +237,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
                             <ErrorLabel>{option2Error}</ErrorLabel>
                 )}
             </InputWrap>
-            {/* <InputWrap>
-                { cursorPointer === 'engine' && (
-                    <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
-                )}
-                <InputLabel htmlFor="engine">ENGINE *</InputLabel>
-                <InputSelect
-                    active={cursorPointer === 'engine' && 'true'}
-                    onChange={(e) => ddlEngineChange(e)}
-                    aria-label="engine"
-                    onMouseUp={e=>setCursorPointer('engine')}
-                    aria-labelledby="engine"
-                    >
-                        <option disabled selected>SELECT YEAR</option>
-                        { optionsEngine && optionsEngine.map((item, index)=>(
-                            <option value={item.value}>{item.label}</option>
-                        ))}
-                </InputSelect>
-                {engineError && (
-                     <ErrorLabel>{engineError}</ErrorLabel>
-                )}
-            </InputWrap> */}
+           
             <InputWrap>
                 { cursorPointer === 'vin' && (
                     <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
@@ -320,7 +282,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
                     type="button"><InputBgPrev img={arrowRightIcon}>&nbsp;</InputBgPrev><span>Previous Step</span></button>
                     </div>
                     <div className="col-md-6 col-sm-6">
-                    {stepBtnEnable === true && <button type="button" className="btn2 d-flex align-items-center justify-content-center" onClick={onClickToThree} ><span>NEXT STEP</span><InputBg img={arrowIcon}>&nbsp;</InputBg></button>}
+                    {stepBtnEnable === true ? <button type="button" className="btn2 d-flex align-items-center justify-content-center" onClick={onClickToThree} ><span>NEXT STEP</span><InputBg img={arrowIcon}>&nbsp;</InputBg></button> : <button type="button" className="btn2 disabled d-flex align-items-center justify-content-center" ><span>NEXT STEP</span><InputBg img={arrowIcon}>&nbsp;</InputBg></button>}
                     </div>
                 </div>
             </div>

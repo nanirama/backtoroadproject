@@ -769,7 +769,7 @@ transition:.4s
 }
 .slider_form {
 	width:545px;
-	margin-top:150px
+	/* margin-top:150px */
 }
 .slider_form p {
 	background:#fafafa;
@@ -778,14 +778,14 @@ transition:.4s
 	font-weight:500 !important;
 	width:545px;
 	float:left;
-	padding:15px 25px
+	padding:15px 30px
 }
 .slider_form p b{
 	color:#2860BE !important;	
 	font-size: 18px;
 	line-height: 26px !important;	
 	font-weight: 500;
-	padding:0px 10px;
+	/* padding:0px 10px; */
 }
 .slider_form p span{
 	min-width: 100px !important;	
@@ -1028,7 +1028,7 @@ padding:0 15px
 width:100%
 }
 .slider_form {
-margin-top:80px
+/* margin-top:80px */
 }
 .s_txt {
 margin-top:130px
@@ -1269,7 +1269,7 @@ display:block
 width:100%
 }
 .slider_form {
-margin-top:80px
+/* margin-top:80px */
 }
 .s_txt h2 {
 font-size:38px;
@@ -1286,7 +1286,7 @@ border-radius:5px 5px 0 0
 }
 .slider_form h3, .slider_form p {
 font-size:17px;
-padding:10px 15px
+/* padding:10px 15px */
 }
 span.num {
 margin:0 20px 0 0;
@@ -1756,7 +1756,7 @@ right:-36px
 margin-top:30px
 }
 .slider_form h3, .slider_form p {
-padding:10px 20px
+padding:10px 30px
 }
 .slider_form .form {
 padding:20px
@@ -1980,7 +1980,7 @@ margin-right:10px!important
 }
 
 .slider_form p {
-padding:10px 15px;
+/* padding:10px 15px; */
 font-size:16px
 }
 .slider_form .form {
@@ -2733,3 +2733,7 @@ p.text-blue{ color: #0000ff; font-weight: 600; font-size: 18px;}
 	margin:0px;
 }
 .slider_form p{ min-height:60px;}
+.btn2.disabled{
+	opacity:0.5;
+	color: rgba(255, 255, 255, 0.5);
+}

@@ -662,6 +662,14 @@ const Payment = (props) => {
                 </div>
                 <div className="row">
                     <div className="col-md-12 col-sm-12 col-xs-12 d-flex flex-row justify-content-start align-items-start">
+                    <TermsParagraph>
+                      By accessing this website, you are agreeing to be bound by these web site Terms and Conditions of Use, all applicable laws and regulations, and agree that you are responsible for compliance with any applicable local laws. if you do not agree with any of these terms, you are prohibited from using or accessing this site. The materials contained in this web site are protected by applicable copyright and trade mark law.
+                    </TermsParagraph>
+                    </div>
+                    
+                </div>
+                <div className="row">
+                    <div className="col-md-12 col-sm-12 col-xs-12 d-flex flex-row justify-content-start align-items-start">
                     <Checkbox onChange={e=>setFormValid(!formValid)} /><span>I have read and agree to the BacktoRoads Company <button onClick={() => setModalShow1(true)} className="popup_link">Terms and Conditions</button> and <button onClick={() => setModalShow2(true)} className="popup_link">Privacy Policy.</button></span>
                     </div>
                     
@@ -748,6 +756,16 @@ const Payment = (props) => {
         </Layout>
     )
 }
+const TermsParagraph = styled.p`
+  padding: .65rem 1.1rem;
+  background-color: #fff;
+  border: 1px solid #ced4da;
+  border-radius: .25rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #495057;
+`
 const ButtonContainer = styled.div`
   min-height:90px;
 `

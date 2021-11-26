@@ -97,7 +97,7 @@ query($id : String){
                   altText
                   localFile {
                     childImageSharp {
-                      gatsbyImageData(height: 1100, width: 2000)
+                      gatsbyImageData(height: 1250, width: 2000)
                     }
                   }
                 }

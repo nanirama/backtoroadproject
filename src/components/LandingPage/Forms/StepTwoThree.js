@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Loader from "react-loader-spinner";
+import { StaticImage } from "gatsby-plugin-image"
 import styled from 'styled-components'
 import ReCAPTCHA from "react-google-recaptcha";
 import { Field, Formik } from 'formik';  
@@ -18,13 +19,7 @@ const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2
 const validationSchema = yup.object().shape({  
     name: yup  
      .string()  
-     .required('Please enter you Name'),   
-     option1: yup  
-     .string()  
-     .required('Please choose Option 1'),  
-     option2: yup  
-     .string()  
-     .required('Please choose Option 2'),  
+     .required('Please enter you Name'),  
      email: yup  
      .string()  
      .email('Email should be in the format username@domain.com'), 
@@ -32,20 +27,22 @@ const validationSchema = yup.object().shape({
      .string()  
      .required('Please enter Zip Code'),
     phone: yup.string()
-     .matches(phoneRegExp, 'Min Phone number should be 10 digits without spaces')
-     .when('email', {
-        is: (email) => !email || email.length === 0,
-        then: yup.string().required('Phone number should be of 10 digits with no special characters'),
-        otherwise: yup.string()
-    })
+    .required('Please enter a valid phone number')
  }); 
 
 
 
 const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}) => {
+    const [isPhoneError, setIsPhoneError] = useState('');
+    const [option1Valid, setOption1Valid] = useState(false);
+    const [option1Error, setOption1Error] = useState();
+    const [option2Valid, setOption2Valid] = useState(false);
+    const [option2Error, setOption2Error] = useState();
+
+    const [cursorPointer, setCursorPointer] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [trims, setTrims] = useState();
-    const [{ year, make, model, part }, dispatch] = useStateValue()
+    const [{ year, make, model, part, transmission, trim, stepBtnEnable }, dispatch] = useStateValue()
     const initialValues = {  
         name: '',  
         email: '',  
@@ -53,9 +50,9 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
         phone: undefined,
         option1: '',  
         option2: ''
-      }
+      }      
       const fetchTrims = (e) => {
-        console.log('YEAR ', year, 'SELECTED MODEL ', model);
+        //console.log('YEAR ', year, 'SELECTED MODEL ', model);
         axios
             .get("v1/trim/" + year + "/" + model)
             .then(resp => {
@@ -69,7 +66,7 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
                 setTrims(opt);
             })
             .catch(error => console.log(error.response))
-    }
+      }
     useEffect(() => {
         dispatch({
             type: 'ADD_STEP_ONE',
@@ -88,11 +85,20 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
             item: false,
         });
         setInStack(' ✓ In Stock ')
-        setPartsHeading(make +' '+ model +' '+ part +' '+ year)
+        setPartsHeading(year +' '+ make +' '+ model +' '+ part)
         fetchTrims()
-    }, [year, make, model, part, fetchTrims])
-    
-    
+        const yarray = [transmission, trim]
+        const newyArray = yarray.filter((item)=>{
+            return item !==''
+        })
+        if(newyArray.length === yarray.length){
+            dispatch({
+                type: 'ADD_BTN_ENABLE',
+                item: true,
+            });   
+        }
+        //console.log('Cursor Pointer', stepBtnEnable)
+    }, [cursorPointer, year, make, model, part, transmission, trim])
 
     const optionsTransmission = [
         { value: '1', label: '2 Wheel Drive, Automatic' },
@@ -103,40 +109,21 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
         { value: '9', label: "I'm not sure" }
     ]
 
-    // const colourStyles = {
-    //     control: styles => ({ ...styles, backgroundColor: 'white', color: '#000000', width: '100%', borderRadius: '2px', alignItems: 'left', borderColor: '#CCCCCC'}),
-    //     option: (styles, { data, isDisabled, isFocused, isSelected }) => {
-    //         return {
-    //             ...styles,
-    //             alignItems: 'left !important',
-    //             color: '#000000'
-    //         };
-    //     },
-    // };
-
     const ddlTrimChange = (e) => { 
+        setCursorPointer('option2')
         dispatch({
             type: 'ADD_TRIM',
             item: e.label,
         });
     }
-    const ddlTransmissionChange = (e) => {        
+    const ddlTransmissionChange = (e) => {   
+        setCursorPointer('')     
         dispatch({
             type: 'ADD_TRANS',
             item: e.label,
         });
     }
 
-    // const clickFunction = (e) => {
-    //     dispatch({
-    //         type: 'ADD_STEP_THREE',
-    //         item: e.value,
-    //     });
-    //     dispatch({
-    //         type: 'ADD_BTN_ENABLE',
-    //         item: true,
-    //     });
-    // }
     const clickPrevFunction = (e) => {
         dispatch({
             type: 'ADD_STEP_ONE',
@@ -185,21 +172,24 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
         });
     }
 
-    // const ddlTxtChange = (e) => {
-    //     dispatch({
-    //         type: 'ADD_NOTES',
-    //         item: e.target.value,
-    //     });
-
-    // }
-
-    const onChangeCaptcha = (e) => {
-        // Todo - call API to verify the key.
-    }
-
     const submitForm = (values) => {
         setIsSubmitting(true)
         onClickToFour();
+      };
+      const checkInput = (e) => {        
+        if (!/[0-9]/.test(e.target.value)) {
+            setIsPhoneError('Phone number should be of 10 digits with no special characters')
+        }
+        else
+        {
+            if (e.target.value.length < 10 || e.target.value.length > 10) {
+                setIsPhoneError('Phone number should be of 10 digits with no special characters')
+            }
+            else
+            {
+                setIsPhoneError('')   
+            }
+        }        
       };
     return(
     <Formik
@@ -209,12 +199,15 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
     >
       {(formik) => {
         const {
-          values,
-          handleChange,
-          handleSubmit,
-          errors,
-          touched,
-          handleBlur
+            values,
+            touched,
+            errors,
+            dirty,
+            isSubmitting,
+            handleChange,
+            handleBlur,
+            handleSubmit,
+            handleReset
         } = formik;
         return (
               <form onSubmit={handleSubmit}>
@@ -223,46 +216,69 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
                         <h4 className="w-100 mb-1">For Quotes and Assistance</h4>
                     </TitleDiv>
                     <InputWrap>
-                    <InputLabel htmlFor="name">Option 1 *</InputLabel>
-                        <InputSelect
-                            name="option1"
-                            value={values.option1}
-                            onChange={e => {
-                                handleChange(e)
-                                ddlTrimChange(e)                   
-                            }}
-                            onBlur={handleBlur}
-                            aria-label="trim"
-                            aria-labelledby="trim"
-                        >
-                            <option value="" label="SELECT Option 1" />
-                            { trims && trims.map((item, index)=>(
-                                <option value={item.value} label={item.label} />
-                            ))}
-                        </InputSelect>
-                        {errors.option1 && <ErrorLabel> {errors.option1} </ErrorLabel>}
-                    </InputWrap>
-                    <InputWrap>                       
-                        <InputLabel htmlFor="transmission">Option 2*</InputLabel>
-                        <InputSelect
-                            name="option2"
-                            value={values.option2}
-                            onChange={e => {
-                                handleChange(e)
-                                ddlTransmissionChange(e)                  
-                            }}
-                            onBlur={handleBlur}
-                            aria-label="transmission"
-                            aria-labelledby="transmission"
-                        >
-                             <option value="" label="SELECT Option 2" />
-                                { optionsTransmission && optionsTransmission.map((item, index)=>(
-                                    <option value={item.value} label={item.label} />
-                                ))}
-                        </InputSelect>
-                        {errors.option2 && <ErrorLabel> {errors.option2} </ErrorLabel>}
-                        
-                    </InputWrap>
+                { cursorPointer === 'option1' && (
+                    <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
+                )}
+                <InputLabel htmlFor="trim">Option 1 (Optional)</InputLabel>
+                <InputSelect
+                    active={cursorPointer === 'option1' && 'true'}
+                    onChange={(e) => ddlTrimChange(e)} 
+                    onMouseDown={e=>setCursorPointer('option1')}
+                    aria-label="trim"
+                    aria-labelledby="trim"
+                    >
+                        <option disabled selected>SELECT</option>
+                        { trims && trims.map((item, index)=>(
+                            <option value={item.value}>{item.label}</option>
+                        ))}
+                </InputSelect> 
+                { cursorPointer === 'option1' && !trims && (
+                    <InputWrapLoading>
+                        <Loader
+                            type="TailSpin"
+                            color="#2860BE"
+                            height={24}
+                            width={24}
+                            timeout={300000}
+                        />
+                    </InputWrapLoading>  
+                )}                  
+                {option1Error && (
+                            <ErrorLabel>{option1Error}</ErrorLabel>
+                )}
+            </InputWrap>
+            <InputWrap>
+                { cursorPointer === 'option2' && (
+                    <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
+                )}
+                <InputLabel htmlFor="transmission">Option 2*</InputLabel>
+                <InputSelect
+                    active={cursorPointer === 'option2' && 'true'}
+                    onChange={(e) => ddlTransmissionChange(e)}
+                    onMouseDown={e=>setCursorPointer('option2')}
+                    aria-label="transmission"
+                    aria-labelledby="transmission"
+                    >
+                        <option disabled selected>SELECT</option>
+                        { optionsTransmission && optionsTransmission.map((item, index)=>(
+                            <option value={item.value}>{item.label}</option>
+                        ))}
+                </InputSelect> 
+                { cursorPointer === 'option2' && !optionsTransmission && (
+                    <InputWrapLoading>
+                        <Loader
+                            type="TailSpin"
+                            color="#2860BE"
+                            height={24}
+                            width={24}
+                            timeout={300000}
+                        />
+                    </InputWrapLoading>  
+                )}   
+                {option2Error && (
+                            <ErrorLabel>{option2Error}</ErrorLabel>
+                )}
+            </InputWrap>
                     <InputWrap>
                         <InputLabel htmlFor="name">NAME *</InputLabel>
                         <Field
@@ -322,23 +338,28 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
                             <span className="mr-2">PHONE * (For Quote Only)</span>
                             <ToolTip title="Why ?" content="So our parts specialists can ask you and let you know about different interchange options for your part and decode your VIN for free"/>
                         </InputLabel> 
-                            <input
+                        <input
                                 className="custominput"
                                 aria-labelledby="phone"
-                                type="text"
+                                type="tel"
                                 name="phone"
+                                pattern="[0-9]*"
                                 placeholder='Phone'
                                 id="phone"
-                                value={values.phone}
+                                value={values.phone}                                
                                     onChange={e => {
+                                        checkInput(e);
                                         handleChange(e);
-                                        ddlPhoneChange(e)                                              
+                                        ddlPhoneChange(e);                                                                                   
                                     }}
                                 
                             />
-                            
-                            {errors.phone && touched.phone && (
-                                <ErrorLabel>{errors.phone}</ErrorLabel>
+                            { isPhoneError ? (
+                                <ErrorLabel>{isPhoneError}</ErrorLabel>
+                            ) : (
+                                errors.phone && touched.phone && (
+                                    <ErrorLabel>{errors.phone}</ErrorLabel>
+                                )
                             )}
                         </InputWrap>
                     </div>
@@ -376,7 +397,8 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
                         type="button"><InputBgPrev img={arrowRightIcon}>&nbsp;</InputBgPrev><span>Previous Step</span></button>
                         </div>
                         <div className="col-md-6 col-sm-6">
-                        <button
+                        {stepBtnEnable === true ? (
+                            <button
                             type="submit"
                             className="btn2 d-flex align-items-center justify-content-center"
                             disabled={isSubmitting}
@@ -398,6 +420,21 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
                                 )}  
 
                         </button>
+                        ) 
+                         : 
+                         (
+                            <button
+                            type="button"
+                            className="btn2 disabled d-flex align-items-center justify-content-center"
+                            disabled={isSubmitting}
+                            >
+                             <span className="mr-2">FIND MY PART NOW</span>
+                             <InputBg img={arrowIcon}>&nbsp;</InputBg> 
+
+                        </button>
+                         )
+                        }
+                        
                         </div>
                     </div>
                 </div>
@@ -461,6 +498,13 @@ const InputWrap = styled.div`
     height: 60px;
     padding: 0.5rem;
   }  
+  position:relative;
+  .curson-pointer{
+    position:absolute;
+    top:30px !important;
+    left:-45px !important;
+    z-index:999 !important;
+}
 `
 const ErrorLabel = styled.label`
     padding:0px;
@@ -534,3 +578,10 @@ const InputSelect = styled.select`
         background-color:#deebff;
       }
 `   
+const InputWrapLoading = styled.div`
+    width:400px;
+    position:absolute;
+    top:30px !important;
+    left:10px !important;
+    z-index:999 !important;
+`

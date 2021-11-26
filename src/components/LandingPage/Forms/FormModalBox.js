@@ -42,11 +42,14 @@ function FormModelBox(props) {
     background-image: url(${(props)=>props.imgUrl}) !important;
   `
   export const PopupBody = styled.div`  
+  .fnp{ padding-right:0px !important;}
   h4 {
+      @media only screen and (max-width:768px) {  
+        padding: 0px 30px !important;
+      }
     @media only screen and (max-width:575px) {  
         font-size:12px !important;
         line-height:40px !important;
-        padding: 0px 7px !important;
       }    
   }
   & > p > b{
@@ -54,7 +57,6 @@ function FormModelBox(props) {
     font-size: 18px;
     line-height: 26px !important;
     font-weight: 500;
-    padding: 0px 10px;
   }
     & > p {
         background:#fafafa;
@@ -64,7 +66,7 @@ function FormModelBox(props) {
         width:100%;
         float:left;
         min-height:60px;
-        padding:10px 25px 10px 40px;
+        padding:10px 40px 10px 40px;
     }
     & > p span{
         min-width: 100px !important;
@@ -83,7 +85,7 @@ function FormModelBox(props) {
         width:100%;
         float:left;
         overflow:hidden;
-        padding:10px 20px 30px 40px;
+        padding:10px 40px 30px 40px;
     }
     & > .popup-top{
         padding:2px 10px;
@@ -99,18 +101,35 @@ function FormModelBox(props) {
         color:#fefefe;
     }
     .ftop{
-        margin:0px 20px;
+        margin:0px 10px 0px 10px;
+    }
+    .ftop .fnp-1{
+        flex: 0 0 60% !important;
+        max-width: 60% !important;
+    }
+    .ftop .fnp-2{
+        flex: 0 0 38% !important;
+        max-width: 38 !important;
     }
     .ftop h4 {
-        font-size: 19px;
+        font-size: 16px !important;
         line-height: 58px;
-        font-weight: 600;
-        padding: 0px 15px;
+        font-weight: 600;        
         width:100%;
         color:#000000;
         background-color: #F0AC3F;
         border-radius: 5px 5px 0 0;
         float: left;
+        @media only screen and (max-width:767px) {
+            font-size: 14px !important;
+            padding: 0px 0px 0px 18px;
+        }
+        @media only screen and (max-width:400px) {
+            font-size: 12px !important;
+        }
+        @media only screen and (max-width:360px) {
+            font-size: 11px !important;
+        }
     }
     .form_outer .btn2 {
         border: 0;
@@ -119,9 +138,11 @@ function FormModelBox(props) {
         width: 100%;
         background-color: #F0AC3F;
         font-weight: 600;
-        border: 1px solid #F0AC3F;
+        border: 0px solid #F0AC3F;
         line-height: 45px !important;
+        height:45px !important;
         text-transform: uppercase;
+        padding:0px 5px !important;
     }
     .form_outer .btn-outer-new {
         font-size: 13px !important;
@@ -136,6 +157,7 @@ function FormModelBox(props) {
         height: 45px !important;
         line-height: 45px !important;
     }
+    
     @media only screen and (max-width:599px) {
         & > .popup-top h3{
             font-size:18px;
@@ -189,9 +211,12 @@ function FormModelBox(props) {
         background-repeat:no-repeat;
         line-height: 58px;
         background-size:90% auto;
-        @media only screen and (max-width:575px) {  
-          line-height: 40px !important;
-        }
+        max-width:47% !important;
+        @media only screen and (max-width:600px) {  
+            line-height: 44px !important;            
+            background-image: url(${formNumBgM}) !important;
+            background-size:100% auto;
+          }
         @media only screen and (max-width:479px) { 
           padding-left:20px; 
           line-height: 40px !important;

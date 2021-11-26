@@ -84,7 +84,7 @@ const PpcLandingTemplate = (props) => {
                 pbImage3={pbImage3}
                 pbImage4={pbImage4}
             />
-             {recentArrivals && <LandingRecentArrivals data={recentArrivals} blockHeading={morecontent.recentArrivalsTitle}/>}
+             {recentArrivals && <LandingRecentArrivals data={recentArrivals} blockHeading={morecontent.recentArrivalsTitle} action="ppc"/>}
              <PpcContent content={summeryContent} image={summaryImage} title={summeryTitle}/>
              <HowitWorks/>
              <Whychoosebtr/>              

@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import StepOne from "./Forms/StepOne"
 import StepTwoThree from "./Forms/StepTwoThree"
 import formNumBg from '../../assets/images/form-bg-img.png'
+import formNumBgM from '../../assets/images/form-bg-img-m.png'
 const PPCFormsControler = () =>{
   const urlCurrent = typeof window !== 'undefined' ? window.location.href : '';
 
@@ -15,8 +16,8 @@ const PPCFormsControler = () =>{
     const [firstStep, setFirstStep] = useState(true);
     const [secondStep, setSecondStep] = useState(false);
     // const [thirdStep, setThirdStep] = useState(false);
-    const [inStack, setInStack] = useState('');
-    const [partsHeading, setPartsHeading] = useState('');
+    const [inStack, setInStack] = useState('-');
+    const [partsHeading, setPartsHeading] = useState('Parts in Stock');
 
     useEffect(() => {
       dispatch({
@@ -122,7 +123,13 @@ span.num {
   background-image: url(${formNumBg});
   background-position:center center;
   background-repeat:no-repeat;
+  background-size:100% auto;
   line-height: 58px;
+  max-width:170px;
+  @media only screen and (max-width:1200px) {  
+    background-image: url(${formNumBgM});
+    background-size:80% auto;
+  }
   @media only screen and (max-width:575px) {  
     line-height: 40px !important;
   }
@@ -140,7 +147,10 @@ h4 {
 	font-size: 22px;
 	line-height: 58px;
 	font-weight: 600;
-  text-align:center;
+  padding: 0px 30px;
+	width:100%;
+  text-align:left;
+	color:#000000;
 	width:100%;
 	color:#000000;
 	background-color: #F0AC3F;

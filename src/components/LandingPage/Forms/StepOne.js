@@ -13,15 +13,32 @@ import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const StepOne = ({setPartsHeading, setInStack, onClick}) => {
     const [{ year, make, model, part, allyears, allmakes, allmodels, allparts, stepOne, stepBtnEnable }, dispatch] = useStateValue();
-    const [cursorPointer, setCursorPointer] = useState();
+    const [cursorPointer, setCursorPointer] = useState();    
     // const [years, setYears] = useState();
     useEffect(() => {
         dispatch({
             type: 'ADD_STEP_ONE',
             item: 'ONE'
         });
-        fetchYears();     
-    },[]);
+        fetchYears(); 
+        const yarray = [year, make, model, part]
+        const newyArray = yarray.filter((item)=>{
+            return item !==''
+        })
+        if(newyArray.length === yarray.length){
+            dispatch({
+                type: 'ADD_BTN_ENABLE',
+                item: true,
+            });   
+        } 
+        else
+        {
+            dispatch({
+                type: 'ADD_BTN_ENABLE',
+                item: false,
+            });   
+        }         
+    },[cursorPointer, year, make, model, part]);
     const calculateStack = (year, make, model, part)=>{
         setInStack('Checking...')   
         setPartsHeading('Parts in Stock')
@@ -73,26 +90,38 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                     type: 'ADD_ALL_YEARS',
                     item: optionsDyna,
                 });
-                console.log('All years', optionsDyna)
             })            
             .catch(error => console.log(error))   
     }
-    const handleYearChange = ()=>{        
+    const handleYearChange = ()=>{   
         setCursorPointer('year')  
+        const optionsMakeDyna = [{
+            "value": "",
+            "label": "Select Make"
+        }]
         dispatch({
             type: 'ADD_ALL_MAKES',
-            item: '',
+            item: optionsMakeDyna,
         });
         dispatch({
-            type: 'ADD_ALL_MODELS',
+            type: 'ADD_MAKE',
             item: '',
         });
-        // dispatch({
-        //     type: 'ADD_ALL_PARTS',
-        //     item: '',
-        // });
+        const optionsModelDyna = [{
+            "value": "",
+            "label": "Select Model"
+        }]
+        dispatch({
+            type: 'ADD_ALL_MODELS',
+            item: optionsModelDyna,
+        });
+        dispatch({
+            type: 'ADD_MODEL',
+            item: '',
+        });
     }
     const fetchMakes = (e) => {
+        setCursorPointer('make') 
         dispatch({
             type: 'ADD_YEAR',
             item: e.target.value,
@@ -101,16 +130,10 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
             type: 'ADD_ALL_MODELS',
             item: '',
         });
-        // dispatch({
-        //     type: 'ADD_ALL_PARTS',
-        //     item: '',
-        // });
-        calculateStack(e.target.value, make, model, part)
-        setCursorPointer('make') 
+        calculateStack(e.target.value, make, model, part)       
         axios
             .get("v1/makes/" + e.target.value)
             .then(resp => {
-                //console.log('Makes ', resp);
                 const options = resp.data.map(d => ({
                     "value": d,
                     "label": d
@@ -121,28 +144,29 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                 });              
             })
             .catch(error => console.log('Make request error',error.response))
-        console.log('all Makes', allmakes)           
+        
     }
     const handleMakeChange = ()=>{  
+        
         if(year!=='')
         {
             setCursorPointer('make')  
-        }            
+        }  
+        const optionsModelDyna = [{
+            "value": "",
+            "label": "Select Model"
+        }]
         dispatch({
             type: 'ADD_ALL_MODELS',
+            item: optionsModelDyna,
+        }); 
+        dispatch({
+            type: 'ADD_MODEL',
             item: '',
         });
-        // dispatch({
-        //     type: 'ADD_ALL_PARTS',
-        //     item: '',
-        // });
     }
 
     const fetchModels = (e) => {
-        // dispatch({
-        //     type: 'ADD_ALL_PARTS',
-        //     item: '',
-        // });
         dispatch({
             type: 'ADD_MAKE',
             item: e.target.value,
@@ -204,15 +228,10 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
         });
         calculateStack(year, make, model, e.target.value)
         setCursorPointer('')
-        //setCursorPointer('')
         // dispatch({
-        //     type: 'ADD_STEP_ONE',
-        //     item: e.value,
+        //     type: 'ADD_BTN_ENABLE',
+        //     item: true,
         // });
-        dispatch({
-            type: 'ADD_BTN_ENABLE',
-            item: true,
-        });
     }
     
 
@@ -227,7 +246,7 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                 <InputSelect
                 active={cursorPointer === 'year' && 'true'}
                 onChange={(e) => fetchMakes(e)}
-                onMouseUp={handleYearChange}
+                onMouseDown={handleYearChange}
                 aria-label="years"
                 aria-labelledby="years"
                 >
@@ -257,19 +276,22 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                 <InputLabel htmlFor="make">Make * </InputLabel>  
                 <InputSelect
                     active={cursorPointer === 'make' && 'true'}
+                    inputdisabled={cursorPointer === 'year' && 'true'}
                     onChange={(e) => fetchModels(e)}
-                    onMouseUp={handleMakeChange}
+                    onMouseDown={handleMakeChange}
                     aria-label="makes"
                     aria-labelledby="makes"
-                    disabled={cursorPointer === 'make' && !allmakes}
+                    onloadingfont = {cursorPointer === 'make' && allmakes.length==1}
+                    inputdisabled = {cursorPointer === 'year'}
+                    disabled={cursorPointer === 'year' || cursorPointer === 'make' && allmakes.length==1}
                     >
                         
-                        {allmakes && <option disabled selected>SELECT MAKE</option>}
+                        <option disabled selected>SELECT MAKE</option>
                         { allmakes && allmakes.map((item, index)=>(
                             <option value={item.value}>{item.label}</option>
                         ))}
                 </InputSelect>
-                { cursorPointer === 'make' && !allmakes && (
+                { cursorPointer === 'make' && allmakes.length==1 && (
                     <InputWrapLoading>
                         <Loader
                             type="TailSpin"
@@ -290,17 +312,19 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                 <InputSelect
                     active={cursorPointer === 'model' && 'true'}
                     onChange={(e) => fetchParts(e)}
-                    onMouseUp={handleModelChange}
+                    onMouseDown={handleModelChange}
                     aria-label="models"
                     aria-labelledby="models"
-                    disabled={cursorPointer === 'model' && !allmodels}
+                    onloadingfont = {cursorPointer === 'model' && allmodels.length==1}
+                    inputdisabled = {cursorPointer === 'year' || cursorPointer === 'make'}
+                    disabled={cursorPointer === 'year' || cursorPointer === 'make' || model && allmodels.length==1}
                     >
-                        {allmodels && <option disabled selected>SELECT MODEL</option>}                        
+                        <option disabled selected>SELECT MODEL</option>                       
                         { allmodels && allmodels.map((item, index)=>(
                             <option value={item.value}>{item.label}</option>
                         ))}
                 </InputSelect>   
-                { cursorPointer === 'model' && !allmodels && (
+                { cursorPointer === 'model' && allmodels.length==1 && (
                     <InputWrapLoading>
                         <Loader
                             type="TailSpin"
@@ -323,9 +347,11 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                     styles={colourStyles}
                     aria-label="parts"
                     aria-labelledby="parts"
+                    onloadingfont = {cursorPointer === 'part' && !allparts}
+                    inputdisabled = {cursorPointer === 'year' || cursorPointer === 'make' || cursorPointer === 'model'}
                     disabled={cursorPointer === 'part' && !allparts}
                     >
-                        {allparts && <option disabled selected>SELECT PART</option>}   
+                        <option disabled selected>SELECT PART</option>   
                         { allparts && allparts.map((item, index)=>(
                             <option value={item.value}>{item.label}</option>
                         ))}
@@ -344,7 +370,7 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                 )}        
             </InputWrap>
             <div className="button_outer">
-                    {stepOne !== '' ? (stepBtnEnable === true && <button className="btn2 d-flex align-items-center justify-content-center" onClick={onClick} ><span>FIND MY PART NOW</span><InputBg img={arrowIcon}>&nbsp;</InputBg></button>): null}
+                    {stepOne !== '' ? (stepBtnEnable === true ? <button className="btn2 d-flex align-items-center justify-content-center" onClick={onClick} ><span>FIND MY PART NOW</span><InputBg img={arrowIcon}>&nbsp;</InputBg></button> :  <button className="btn2 disabled d-flex align-items-center justify-content-center" ><span>FIND MY PART NOW</span><InputBg img={arrowIcon}>&nbsp;</InputBg></button>): null}
              </div>
         </InputWrapper>
     )
@@ -380,10 +406,12 @@ const InputSelect = styled.select`
     width:100%;
     z-index:1 !important;
     margin:3px 0px;
-    background-color:#ffffff;
     font-size: 16px !important;
     color: #000000 !important;
+    background-color:#ffffff;
+    ${props => props.onloadingfont ? 'color: #c5c5c5 !important;' : 'color: #000000 !important;'}
     ${props => props.active ? 'border: 1px solid #2860BE !important;' : 'border: 1px solid #CFCFCF !important;'}
+    ${props => props.inputdisabled ? 'filter:alpha(opacity=50); -moz-opacity:0.5; -khtml-opacity: 0.5; opacity: 0.5;' : 'filter:alpha(opacity=100); -moz-opacity:1; -khtml-opacity: 1; opacity: 1;'}
     
     border-radius: 5px !important;
     line-height:26px;
@@ -401,6 +429,9 @@ const InputSelect = styled.select`
       option:hover {
         background-color:#deebff;
       }
+    .inputdisabled{
+        border:3px solid red;
+    }
 `   
 const InputWrap = styled.div`
   margin: 0.4rem 0rem;

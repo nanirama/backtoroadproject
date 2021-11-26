@@ -5,6 +5,7 @@ import { useStateValue } from '../../StateProvider'
 import axios from '../../axios';
 
 import formNumBg from '../../assets/images/form-bg-img.png'
+import formNumBgM from '../../assets/images/form-bg-img-m.png'
 
 import StepOne from "./Forms/StepOne"
 import StepTwo from "./Forms/StepTwo"
@@ -21,8 +22,8 @@ const FormsControler = () =>{
     const [firstStep, setFirstStep] = useState(true);
     const [secondStep, setSecondStep] = useState(false);
     const [thirdStep, setThirdStep] = useState(false);
-    const [inStack, setInStack] = useState('');
-    const [partsHeading, setPartsHeading] = useState('');
+    const [inStack, setInStack] = useState('-');
+    const [partsHeading, setPartsHeading] = useState('Parts in Stock');
 
     useEffect(() => {
       dispatch({
@@ -50,6 +51,14 @@ const FormsControler = () =>{
     }
 
     const onClickToTwo = () => {
+      dispatch({
+          type: 'ADD_VIN',
+          item: '',
+      });
+      dispatch({
+          type: 'ADD_TRANS',
+          item: '',
+      });
       setInStack(' ✓ In Stock ');
       stateLogger();
 
@@ -64,6 +73,22 @@ const FormsControler = () =>{
     }
     
     const onClickToOne = () => {
+      dispatch({
+          type: 'ADD_YEAR',
+          item: '',
+      });
+      dispatch({
+          type: 'ADD_MAKE',
+          item: '',
+      });
+      dispatch({
+        type: 'ADD_MODEL',
+        item: '',
+      });
+      dispatch({
+        type: 'ADD_PART',
+        item: '',
+      });
       setFirstStep(true);
       setSecondStep(false);
       setThirdStep(false);
@@ -91,17 +116,35 @@ const FormsControler = () =>{
           "notes": notes,
           "leadSource": lead_source
         })
-        .then(resp => {
-          navigate('/thank-you/', { state: { resp } });         
+        .then(resp => {          
+          dispatch({
+            type: 'ADD_YEAR',
+            item: '',
+        });
+        dispatch({
+            type: 'ADD_MAKE',
+            item: '',
+        });
+        dispatch({
+          type: 'ADD_MODEL',
+          item: '',
+        });
+        dispatch({
+          type: 'ADD_PART',
+          item: '',
+        });
+        setThirdStep(false);
+          navigate('/thank-you/', { state: { resp } });            
         })
         .catch(error => console.log(error.response))
+              
     }
 
     return(
         <React.Fragment>
             <FormTop className="d-flex justify-content-between align-items-center ftop">
-                <div class="col-sm-6 np fnp d-flex justify-content-center"><h4 className="mb-0 text-uppercase">Find A Part Now!</h4></div>
-                <div class="col-sm-6 np fnb d-flex fnp justify-content-between align-items-center numcontroller px-md-3 px-sm-1">
+                <div class="col-sm-6 np fnp fnp-1 d-flex justify-content-center"><h4 className="mb-0 text-uppercase">Find A Part Now!</h4></div>
+                <div class="col-sm-6 np fnb fnp-2 d-flex fnp justify-content-between align-items-center numcontroller px-md-3 px-sm-1">
                         <span className={`num ${firstStep || secondStep || thirdStep ? "active d-flex justify-content-center align-items-center" : "d-flex justify-content-center align-items-center"}`}><span>1</span></span>
                         <span className={`num ${secondStep || thirdStep ? "active d-flex justify-content-center align-items-center" : "d-flex justify-content-center align-items-center"}`}><span>2</span></span>
                         <span className={`num ${thirdStep ? "active d-flex justify-content-center align-items-center" : "d-flex justify-content-center align-items-center"}`}><span>3</span></span>
@@ -135,41 +178,33 @@ span.num {
   background-position:center center;
   background-repeat:no-repeat;
   line-height: 58px;
-  @media only screen and (max-width:575px) {  
-    line-height: 40px !important;
+  @media only screen and (max-width:1200px) {  
+    background-image: url(${formNumBgM});
+    background-size:90% auto;
+    padding-right:0px !important;
+  }
+  @media only screen and (max-width:576px) {  
+    line-height: 44px !important;
+    max-width:47% !important;
+    background-image: url(${formNumBgM}) !important;
+    background-size:100% auto;
   }
   @media only screen and (max-width:479px) { 
     padding-left:20px; 
     line-height: 40px !important;
   }
-  // span.num:nth-child(1):before {
-  //   width:250%;
-  //   right:-250%;
-  // }
-  // span.num:nth-child(2):before {
-  //   width:250%;
-  //   right:-250%;
-  // }
   @media only screen and (max-width:440px) { 
     padding-left:20px; 
     line-height: 40px !important;
   }
-  // span.num:nth-child(1):before {
-  //   width:200%;
-  //   right:-200%;
-  // }
-  // span.num:nth-child(2):before {
-  //   width:200%;
-  //   right:-200%;
-  // }
 }
 h4 {
 	font-size: 22px;
 	line-height: 58px;
 	font-weight: 600;
-	// padding: 0px 25px;
+	padding: 0px 30px;
 	width:100%;
-  text-align:center;
+  text-align:left;
 	color:#000000;
 	background-color: #F0AC3F;
 	border-radius: 5px 5px 0 0;
@@ -179,13 +214,12 @@ h4 {
     line-height: 50px;
   }
   @media only screen and (max-width:480px) {
-    font-size: 15px; 
-    padding: 0px 10px; 
+    font-size: 11px; 
+    padding: 0px 30px; 
     line-height: 45px;
   }
   @media only screen and (max-width:360px) {
-    font-size: 12px; 
-    padding: 0px 10px; 
+    font-size: 0.55rem;     
     line-height: 40px;
   }
 }

@@ -25,13 +25,9 @@ const validationSchema = yup.object().shape({
     zip: yup  
      .string()  
      .required('Please enter Zip Code'),
-    phone: yup.string()
-     .matches(phoneRegExp, 'Min Phone number should be 10 digits without spaces')
-     .when('email', {
-        is: (email) => !email || email.length === 0,
-        then: yup.string().required('Phone number should be of 10 digits with no special characters'),
-        otherwise: yup.string()
-    })
+    phone: yup
+    .string()     
+    .required('Please enter a valid phone number')
  }); 
 
 
@@ -64,7 +60,7 @@ const StepThree = ({setInStack, setPartsHeading, onClickToFour, onClickToTwo}) =
             item: false,
         });
         setInStack(' ✓ In Stock ')
-        setPartsHeading(make +' '+ model +' '+ part +' '+ year)
+        setPartsHeading(year +' '+ make +' '+ model +' '+ part)
     }, [year, make, model, part])
 
   
