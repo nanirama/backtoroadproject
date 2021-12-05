@@ -7,7 +7,7 @@ import RecentBlogs from '../components/blog/RecentBlogs'
 import LandingBanner from '../components/LandingPage/LandingBanner'
 import Share from '../components/blog/Share'
 const Blog = (props) => {
-  const { postDetails, site, RecentPosts, BannerImage } = props.data
+const { postDetails, site, RecentPosts, BannerImage } = props.data
 
   
 
