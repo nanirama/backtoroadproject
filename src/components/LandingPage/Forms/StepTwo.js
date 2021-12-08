@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
+import Select from 'react-select'
 import Loader from "react-loader-spinner";
 import { StaticImage } from "gatsby-plugin-image"
 import axios from '../../../axios'
@@ -168,6 +169,16 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
         });
 
     }
+    const colourStyles = {
+        control: styles => ({ ...styles, backgroundColor: 'white', color: '#000000', width: '100%', borderRadius: '2px', alignItems: 'left', }),
+        option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+            return {
+                ...styles,
+                alignItems: 'left !important',
+                color: '#000000'
+            };
+        },
+    };
     return (
         <InputWrapper>
         <TitleDiv>
@@ -177,8 +188,19 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
                 { cursorPointer === 'option1' && (
                     <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
                 )}
-                <InputLabel htmlFor="trim">Option 1 (Optional)</InputLabel>
-                <InputSelect
+                <InputLabel htmlFor="trim">Option 1 (Optional)</InputLabel>  
+                <Select
+                    value={trim && { label: trim, value: trim }}
+                    placeholder="SELECT"
+                    options={trims}
+                    onChange={(e) => ddlTrimChange(e)} 
+                    onFocus={e=>setCursorPointer('option1')}
+                    styles={colourStyles}
+                    aria-label="trim"
+                    aria-labelledby="trim"
+                    className = {cursorPointer === 'option1' && 'activestate'}
+                />
+                {/* <InputSelect
                     active={cursorPointer === 'option1' && 'true'}
                     onChange={(e) => ddlTrimChange(e)} 
                     onMouseDown={e=>setCursorPointer('option1')}
@@ -189,7 +211,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
                         { trims && trims.map((item, index)=>(
                             <option value={item.value}>{item.label}</option>
                         ))}
-                </InputSelect> 
+                </InputSelect>  */}
                 { cursorPointer === 'option1' && !trims && (
                     <InputWrapLoading>
                         <Loader
@@ -210,7 +232,18 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
                     <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
                 )}
                 <InputLabel htmlFor="transmission">Option 2*</InputLabel>
-                <InputSelect
+                <Select
+                    value={transmission && { label: transmission, value: transmission }}
+                    placeholder="SELECT"
+                    options={optionsTransmission}
+                    onChange={(e) => ddlTransmissionChange(e)}
+                    onFocus={e=>setCursorPointer('option2')}
+                    styles={colourStyles}
+                    aria-label="transmission"
+                    aria-labelledby="transmission"
+                    className = {cursorPointer === 'option2' && 'activestate'}
+                />
+                {/* <InputSelect
                     active={cursorPointer === 'option2' && 'true'}
                     onChange={(e) => ddlTransmissionChange(e)}
                     onMouseDown={e=>setCursorPointer('option2')}
@@ -221,7 +254,7 @@ const StepTwo = ({setInStack, setPartsHeading, onClickToThree, onClick, onClickT
                         { optionsTransmission && optionsTransmission.map((item, index)=>(
                             <option value={item.value}>{item.label}</option>
                         ))}
-                </InputSelect> 
+                </InputSelect>  */}
                 { cursorPointer === 'option2' && !optionsTransmission && (
                     <InputWrapLoading>
                         <Loader
@@ -306,8 +339,32 @@ const InputWrapper = styled.div`
   flex-direction: column;
   justify-items: center;
   padding: 0rem;
-  margin:-8px 0rem 0rem;
-  width: 100%;  
+  width: 100%;
+  & > div > div > div > div > .css-1wa3eu0-placeholder{
+      font-size:1rem !important;
+  }
+  .css-1b9760k-control,
+  .css-gl92ts-control{
+      min-height:42px !important;
+      height:42px !important;
+      -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        border-radius: 5px !important;
+        border: 1px solid #CFCFCF;
+  }
+  .css-g1d714-ValueContainer{
+      min-height:38px !important;
+      height:38px !important;    
+  }
+  .css-slz7tc-control .css-1wa3eu0-placeholder
+  {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .activestate .css-gl92ts-control{
+    border: 1px solid #2860BE !important;   
+  }
+  }
 `
 const InputBg = styled.span`
     display: inline-block;
@@ -334,25 +391,17 @@ const InputBgPrev = styled.span`
 const InputWrap = styled.div`
   margin: 0.4rem 0rem;
   width: 100%;
-  input, textarea {
-    padding: 1.3rem 9px !important;
+  input {
+    padding: 1rem 1.5rem;
     outline: none;
     width: 100%;
-    height: 20px;    
+    height: 20px;
     border-radius:5px;
   }
-  input{
-    margin:3px 0px !important;
-  }
-  textarea {
-    height: 60px;
-    margin:5px 0px;
-    padding: 9px !important;
-  }  
   position:relative;
   .curson-pointer{
       position:absolute;
-      top:20px !important;
+      top:15px !important;
       left:-45px !important;
       z-index:999 !important;
   }
@@ -362,46 +411,17 @@ const InputWrapLoading = styled.div`
     position:absolute;
     top:30px !important;
     left:10px !important;
-    z-index:999 !important;
+    z-index:1002 !important;
 `
 const InputLabel = styled.label`
     width: 100%;
     float: left;
     color: #233A6C;
     font-size: 14px;
-    line-height: 20px !important;
+    line-height: 18px !important;
     padding:0px !important;
     margin:0px !important;
 `
-const InputSelect = styled.select`
-    background-image: url(${darrowIcon});  
-    background-repeat: no-repeat;
-    background-position:center right 10px;
-    background-size : 14px 8px;
-    width:100%;
-    margin:3px 0px;
-    background-color:#ffffff;
-    font-size: 16px !important;
-    color: #000000 !important;
-    ${props => props.active ? 'border: 1px solid #2860BE !important;' : 'border: 1px solid #CFCFCF !important;'}
-    
-    border-radius: 5px !important;
-    line-height:26px;
-    padding:7px;
-    box-sizing: border-box;
-    .active{
-        border:1px solid #2860BE;
-    }
-    option {
-        color: #000000 !important;
-        background-color: #ffffff;
-        height: 40px !important;
-        line-height:50px !important;
-      }
-      option:hover {
-        background-color:#deebff;
-      }
-`   
 
 const TitleDiv = styled.div`  
   width:100%;

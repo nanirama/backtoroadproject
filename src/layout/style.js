@@ -4,13 +4,7 @@ export const Styles = createGlobalStyle`
 body, h1, h2, h3, h4, h5, h6 {
 	font-family:'Poppins', sans-serif
 }
-body {
-	overflow-x:hidden
-}
-body, ul {
-	margin:0;
-	padding:0
-}
+
 ul li {
 	list-style:none;
 	float:left

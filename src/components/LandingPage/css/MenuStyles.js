@@ -1,11 +1,11 @@
 import { createGlobalStyle } from "styled-components"
 export const MenuStyles = createGlobalStyle`
   
-  ::-webkit-scrollbar {
-       display: none;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
-  }
+  // ::-webkit-scrollbar {
+  //      display: none;
+  //     scrollbar-width: none;
+  //     -ms-overflow-style: none;
+  // }
   
   /* Track */
   ::-webkit-scrollbar-track {

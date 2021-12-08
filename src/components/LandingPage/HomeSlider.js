@@ -24,6 +24,7 @@ const HomeSlider = ({data}) => {
     slidesToScroll: 1,
     infinite: false,
     centerMode: false,
+    arrows: false,
     responsive: [
       {
         breakpoint: 1025,
@@ -58,7 +59,7 @@ const HomeSlider = ({data}) => {
 
   };
     return(
-        <div className="container-fluid padding-0 overflow-hidden">
+        <div className="container-fluid padding-0 float-left">
           <div className="row position-relative"> 
           <div className="col-md-12 col-sm-12 main-slider">
                 <div className="col-lg-6 col-md-6 slider_form_above slider_form_desktop">                          
@@ -115,7 +116,6 @@ const HomeSlider = ({data}) => {
               <FormsControler/>
           </div> 
         </div>  
-        
       </div>
     )
 }

@@ -820,9 +820,6 @@ transition:.4s
 .slide-item {
 	position:relative;
 }
-.main-slider {
-	overflow:hidden
-}
 .padding-0 {
 	padding:0
 }
@@ -2340,6 +2337,9 @@ select {
 		border:1px solid #CFCFCF !important;
 	    border-radius:6px !important;
 	    color:#000 !important;
+		line-height:24px;
+		min-height:42px !important;
+		padding:9px !important;
 	}
 	.css-1okebmr-indicatorSeparator{
 		width:0px !important;
@@ -2737,3 +2737,4 @@ p.text-blue{ color: #0000ff; font-weight: 600; font-size: 18px;}
 	opacity:0.5;
 	color: rgba(255, 255, 255, 0.5);
 }
+.form_outer{ z-index: 1000 !important;}

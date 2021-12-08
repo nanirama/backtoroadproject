@@ -54,7 +54,7 @@ const LandingSlider = ({data,action}) => {
 
   };
     return(
-        <div className="container-fluid padding-0 overflow-hidden">
+        <div className="container-fluid padding-0 float-left">
           <div className="row position-relative">          
           
           <div className="col-md-12 col-sm-12 main-slider">

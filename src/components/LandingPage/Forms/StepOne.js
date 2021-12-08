@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import styled from 'styled-components'
-// import Select, { components } from 'react-select'
+import Select from 'react-select'
 import Loader from "react-loader-spinner";
 import axios from '../../../axios'
 import { StaticImage } from "gatsby-plugin-image"
@@ -12,6 +12,8 @@ import { useStateValue } from '../../../StateProvider'
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 const StepOne = ({setPartsHeading, setInStack, onClick}) => {
+    const selectMakeRef = useRef();
+    const selectModelRef = useRef();
     const [{ year, make, model, part, allyears, allmakes, allmodels, allparts, stepOne, stepBtnEnable }, dispatch] = useStateValue();
     const [cursorPointer, setCursorPointer] = useState();    
     // const [years, setYears] = useState();
@@ -37,8 +39,8 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                 type: 'ADD_BTN_ENABLE',
                 item: false,
             });   
-        }         
-    },[cursorPointer, year, make, model, part]);
+        }        
+    },[cursorPointer, year, make, model, part, allmakes, allmodels]);
     const calculateStack = (year, make, model, part)=>{
         setInStack('Checking...')   
         setPartsHeading('Parts in Stock')
@@ -77,8 +79,7 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
         },
     };
 
-    const fetchYears = () => {
-        //handleYearChange()     
+    const fetchYears = () => { 
         axios
             .get("v1/years")
             .then(resp => {
@@ -93,23 +94,24 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
             })            
             .catch(error => console.log(error))   
     }
-    const handleYearChange = ()=>{   
+    const handleYearChange = ()=>{          
         setCursorPointer('year')  
         const optionsMakeDyna = [{
             "value": "",
-            "label": "Select Make"
+            "label": "SELECT MAKE"
         }]
         dispatch({
             type: 'ADD_ALL_MAKES',
             item: optionsMakeDyna,
         });
+        console.log('All Makes 2', optionsMakeDyna)
         dispatch({
             type: 'ADD_MAKE',
             item: '',
         });
         const optionsModelDyna = [{
             "value": "",
-            "label": "Select Model"
+            "label": "SELECT MODEL"
         }]
         dispatch({
             type: 'ADD_ALL_MODELS',
@@ -124,15 +126,15 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
         setCursorPointer('make') 
         dispatch({
             type: 'ADD_YEAR',
-            item: e.target.value,
+            item: e,
         });
         dispatch({
             type: 'ADD_ALL_MODELS',
             item: '',
         });
-        calculateStack(e.target.value, make, model, part)       
+        calculateStack(e, make, model, part)       
         axios
-            .get("v1/makes/" + e.target.value)
+            .get("v1/makes/" + e)
             .then(resp => {
                 const options = resp.data.map(d => ({
                     "value": d,
@@ -146,35 +148,38 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
             .catch(error => console.log('Make request error',error.response))
         
     }
-    const handleMakeChange = ()=>{  
-        
+    const handleMakeChange = ()=>{          
         if(year!=='')
         {
+            fetchMakes(year)
             setCursorPointer('make')  
+            const optionsModelDyna = [{
+                "value": "",
+                "label": "SELECT MODEL"
+            }]
+            dispatch({
+                type: 'ADD_ALL_MODELS',
+                item: optionsModelDyna,
+            }); 
+            dispatch({
+                type: 'ADD_MODEL',
+                item: '',
+            });
         }  
-        const optionsModelDyna = [{
-            "value": "",
-            "label": "Select Model"
-        }]
-        dispatch({
-            type: 'ADD_ALL_MODELS',
-            item: optionsModelDyna,
-        }); 
-        dispatch({
-            type: 'ADD_MODEL',
-            item: '',
-        });
+        
     }
 
     const fetchModels = (e) => {
+        console.log('selected mae',e)
         dispatch({
             type: 'ADD_MAKE',
-            item: e.target.value,
+            item: e,
         });
-        calculateStack(year, e.target.value, model, part)
+        calculateStack(year, e, model, part)
         setCursorPointer('model')
+        console.log('selected cursor',e)
         axios
-            .get("v1/model/" + year + "/" + e.target.value)
+            .get("v1/model/" + year + "/" + e)
             .then(resp => {
                 const options = resp.data.map(d => ({
                     "value": d,
@@ -201,9 +206,9 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
     const fetchParts = (e) => {
         dispatch({
             type: 'ADD_MODEL',
-            item: e.target.value,
+            item: e,
         });
-        calculateStack(year, make, e.target.value, part)
+        calculateStack(year, make, e, part)
         setCursorPointer('part')
         axios
             .get("v1/parts")
@@ -224,9 +229,9 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
         console.log('ENABLE GET QUOTE');
         dispatch({
             type: 'ADD_PART',
-            item: e.target.value,
+            item: e,
         });
-        calculateStack(year, make, model, e.target.value)
+        calculateStack(year, make, model, e)
         setCursorPointer('')
         // dispatch({
         //     type: 'ADD_BTN_ENABLE',
@@ -243,7 +248,17 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                 )}
             
                 <InputLabel htmlFor="year">Year *</InputLabel>
-                <InputSelect
+                <Select
+                    placeholder="SELECT YEAR"
+                    options={allyears}
+                    onChange={(e) => fetchMakes(e.value)}
+                    onFocus={handleYearChange}
+                    styles={colourStyles}
+                    aria-label="years"
+                    aria-labelledby="years"
+                    className = {cursorPointer === 'year' && 'activestate'}
+                />
+                {/* <InputSelect
                 active={cursorPointer === 'year' && 'true'}
                 onChange={(e) => fetchMakes(e)}
                 onMouseDown={handleYearChange}
@@ -254,7 +269,7 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                     { allyears && allyears.map((item, index)=>(
                         <option value={item.value}>{item.label}</option>
                     ))}
-                </InputSelect>
+                </InputSelect> */}
                 { cursorPointer === 'year' && !allyears && (
                     <InputWrapLoading>
                         <Loader
@@ -274,7 +289,19 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                     <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
                 )}
                 <InputLabel htmlFor="make">Make * </InputLabel>  
-                <InputSelect
+                <Select
+                    value={make && { label: make, value: make }}
+                    placeholder="SELECT MAKE"
+                    options={allmakes}
+                    onChange={(e) => fetchModels(e.value)}
+                    onFocus={handleMakeChange}
+                    styles={colourStyles}
+                    aria-label="makes"
+                    aria-labelledby="makes"
+                    className = {cursorPointer === 'make' && 'activestate'}
+                    isDisabled = {cursorPointer === 'year' || cursorPointer === 'make' && allmakes.length==1}
+                />
+                {/* <InputSelect
                     active={cursorPointer === 'make' && 'true'}
                     inputdisabled={cursorPointer === 'year' && 'true'}
                     onChange={(e) => fetchModels(e)}
@@ -290,7 +317,7 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                         { allmakes && allmakes.map((item, index)=>(
                             <option value={item.value}>{item.label}</option>
                         ))}
-                </InputSelect>
+                </InputSelect> */}
                 { cursorPointer === 'make' && allmakes.length==1 && (
                     <InputWrapLoading>
                         <Loader
@@ -309,7 +336,21 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                     <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
                 )}
                 <InputLabel htmlFor="model">Model *</InputLabel>
-                <InputSelect
+                <Select
+                    value={model && { label: model, value: model }}
+                    placeholder="SELECT MODEL"
+                    options={allmodels}
+                    onChange={(e) => fetchParts(e.value)}
+                    onFocus={handleModelChange}
+                    styles={colourStyles}
+                    aria-label="models"
+                    aria-labelledby="models"
+                    className = {cursorPointer === 'model' && 'activestate'}
+                    // onloadingfont = {cursorPointer === 'model' && allmodels.length==1}
+                    // inputdisabled = {cursorPointer === 'year' || cursorPointer === 'make'}
+                    isDisabled ={cursorPointer === 'year' || cursorPointer === 'make' || cursorPointer === 'model' &&  allmodels.length==1}
+                />
+                {/* <InputSelect
                     active={cursorPointer === 'model' && 'true'}
                     onChange={(e) => fetchParts(e)}
                     onMouseDown={handleModelChange}
@@ -323,7 +364,7 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                         { allmodels && allmodels.map((item, index)=>(
                             <option value={item.value}>{item.label}</option>
                         ))}
-                </InputSelect>   
+                </InputSelect>    */}
                 { cursorPointer === 'model' && allmodels.length==1 && (
                     <InputWrapLoading>
                         <Loader
@@ -341,7 +382,19 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                     <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
                 )}
                 <InputLabel htmlFor="part">Part *</InputLabel>
-                <InputSelect
+                <Select
+                    placeholder="SELECT PART"
+                    options={allparts}
+                    onChange={(e) => enableGetQuote(e.value)}
+                    styles={colourStyles}
+                    aria-label="parts"
+                    aria-labelledby="parts"
+                    className = {cursorPointer === 'part' && 'activestate'}
+                    // onloadingfont = {cursorPointer === 'part' && !allparts}
+                    // inputdisabled = {cursorPointer === 'year' || cursorPointer === 'make' || cursorPointer === 'model'}
+                    isDisabled = {cursorPointer === 'part' && !allparts}
+                />
+                {/* <InputSelect
                     active={cursorPointer === 'part' && 'true'}
                     onChange={(e) => enableGetQuote(e)}
                     styles={colourStyles}
@@ -356,7 +409,7 @@ const StepOne = ({setPartsHeading, setInStack, onClick}) => {
                             <option value={item.value}>{item.label}</option>
                         ))}
                         
-                </InputSelect>   
+                </InputSelect>    */}
                 { cursorPointer === 'part' && !allparts && (
                     <InputWrapLoading>
                         <Loader
@@ -385,6 +438,31 @@ const InputWrapper = styled.div`
   justify-items: center;
   padding: 0rem;
   width: 100%;
+  & > div > div > div > div > .css-1wa3eu0-placeholder{
+      font-size:1rem !important;
+  }
+  .css-1b9760k-control,
+  .css-gl92ts-control{
+      min-height:42px !important;
+      height:42px !important;
+      -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        border-radius: 5px !important;
+        border: 1px solid #CFCFCF;
+  }
+  .css-g1d714-ValueContainer{
+      min-height:38px !important;
+      height:38px !important;    
+  }
+  .css-slz7tc-control .css-1wa3eu0-placeholder
+  {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .activestate .css-gl92ts-control{
+    border: 1px solid #2860BE !important;   
+  }
+  }
 `
 const InputBg = styled.span`
     display: inline-block;
@@ -404,7 +482,7 @@ const InputSelect = styled.select`
     background-position:center right 10px;
     background-size : 14px 8px;
     width:100%;
-    z-index:1 !important;
+    z-index:1000 !important;
     margin:3px 0px;
     font-size: 16px !important;
     color: #000000 !important;
@@ -421,6 +499,7 @@ const InputSelect = styled.select`
         border:1px solid #2860BE;
     }
     option {
+        z-index:1000 !important;
         color: #000000 !important;
         background-color: #ffffff;
         height: 40px !important;
@@ -446,7 +525,7 @@ const InputWrap = styled.div`
   position:relative;
   .curson-pointer{
       position:absolute;
-      top:20px !important;
+      top:15px !important;
       left:-45px !important;
       z-index:999 !important;
   }
@@ -456,7 +535,7 @@ const InputWrapLoading = styled.div`
     position:absolute;
     top:30px !important;
     left:10px !important;
-    z-index:999 !important;
+    z-index:1002 !important;
 `
 const InputLabel = styled.label`
     width: 100%;

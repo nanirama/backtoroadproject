@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Loader from "react-loader-spinner";
 import { StaticImage } from "gatsby-plugin-image"
 import styled from 'styled-components'
-import ReCAPTCHA from "react-google-recaptcha";
+import Select from 'react-select'
 import { Field, Formik } from 'formik';  
 import * as yup from 'yup';  
 import axios from '../../../axios'
@@ -191,6 +191,16 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
             }
         }        
       };
+      const colourStyles = {
+        control: styles => ({ ...styles, backgroundColor: 'white', color: '#000000', width: '100%', borderRadius: '2px', alignItems: 'left', }),
+        option: (styles, { data, isDisabled, isFocused, isSelected }) => {
+            return {
+                ...styles,
+                alignItems: 'left !important',
+                color: '#000000'
+            };
+        },
+    };
     return(
     <Formik
       initialValues={initialValues}
@@ -220,18 +230,15 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
                     <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
                 )}
                 <InputLabel htmlFor="trim">Option 1 (Optional)</InputLabel>
-                <InputSelect
-                    active={cursorPointer === 'option1' && 'true'}
+                <Select
+                    placeholder="SELECT"
+                    options={trims}
                     onChange={(e) => ddlTrimChange(e)} 
-                    onMouseDown={e=>setCursorPointer('option1')}
+                    onFocus={e=>setCursorPointer('option1')}
+                    styles={colourStyles}
                     aria-label="trim"
                     aria-labelledby="trim"
-                    >
-                        <option disabled selected>SELECT</option>
-                        { trims && trims.map((item, index)=>(
-                            <option value={item.value}>{item.label}</option>
-                        ))}
-                </InputSelect> 
+                />
                 { cursorPointer === 'option1' && !trims && (
                     <InputWrapLoading>
                         <Loader
@@ -252,18 +259,15 @@ const StepTwoThree = ({setInStack, setPartsHeading, onClickToFour, onClickToOne}
                     <StaticImage src="../../../assets/images/landing/cursor-arrow.png" className="curson-pointer" />
                 )}
                 <InputLabel htmlFor="transmission">Option 2*</InputLabel>
-                <InputSelect
-                    active={cursorPointer === 'option2' && 'true'}
+                <Select
+                    placeholder="SELECT"
+                    options={optionsTransmission}
                     onChange={(e) => ddlTransmissionChange(e)}
-                    onMouseDown={e=>setCursorPointer('option2')}
+                    onFocus={e=>setCursorPointer('option2')}
+                    styles={colourStyles}
                     aria-label="transmission"
                     aria-labelledby="transmission"
-                    >
-                        <option disabled selected>SELECT</option>
-                        { optionsTransmission && optionsTransmission.map((item, index)=>(
-                            <option value={item.value}>{item.label}</option>
-                        ))}
-                </InputSelect> 
+                />
                 { cursorPointer === 'option2' && !optionsTransmission && (
                     <InputWrapLoading>
                         <Loader
@@ -458,6 +462,31 @@ const InputWrapper = styled.div`
   justify-items: center;
   padding: 0rem;
   width: 100%;
+  & > div > div > div > div > .css-1wa3eu0-placeholder{
+      font-size:1rem !important;
+  }
+  .css-1b9760k-control,
+  .css-gl92ts-control{
+      min-height:42px !important;
+      height:42px !important;
+      -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        box-shadow: none;
+        border-radius: 5px !important;
+        border: 1px solid #CFCFCF;
+  }
+  .css-g1d714-ValueContainer{
+      min-height:38px !important;
+      height:38px !important;    
+  }
+  .css-slz7tc-control .css-1wa3eu0-placeholder
+  {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .activestate .css-gl92ts-control{
+    border: 1px solid #2860BE !important;   
+  }
+  }
 `
 const InputBg = styled.span`
     display: inline-block;
@@ -501,7 +530,7 @@ const InputWrap = styled.div`
   position:relative;
   .curson-pointer{
     position:absolute;
-    top:30px !important;
+    top:15px !important;
     left:-45px !important;
     z-index:999 !important;
 }
